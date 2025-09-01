@@ -158,6 +158,57 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid User Account Creation Test Result - No First Name");
     }
 
+    //invalid register account modal test method - no last name
+    protected void invalidRegisterAccountModalNoLastNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalNoSingularInput registerAccountModalNoSingularInput = new RegisterAccountModalNoSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //click "Password strength" dropdown button
+        registerAccountModal.clickPasswordStrengthDropdownButton();
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - no last name
+        registerAccountModalNoSingularInput.invalidRegisterInputDataNoLastNameGetter();
+        //input valid register first name into first name input field
+        registerAccountModalNoSingularInput.inputValidFirstNameIntoRegisterFirstNameInputField();
+        //don't input register last name into last name input field
+        registerAccountModalNoSingularInput.inputNoLastNameIntoRegisterLastNameInputField();
+        //input valid register email into email input field
+        registerAccountModalNoSingularInput.inputValidEmailIntoRegisterEmailInputField();
+        //input valid register password into password input field
+        registerAccountModalNoSingularInput.inputValidPasswordIntoRegisterPasswordInputField();
+        //click "View Password" button
+        registerAccountModal.clickViewPasswordButton();
+        //input valid matching register confirm password into confirm password input field
+        registerAccountModalNoSingularInput.inputValidConfirmPasswordIntoRegisterConfirmPasswordInputField();
+        //click "View Confirm Password" button
+        registerAccountModal.clickViewConfirmPasswordButton();
+        //capture screenshot of the register account modal display after invalid data input - no last name
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - No Last Name");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("Pole je povinné", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The missing last name input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The missing last name input error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No Last Name");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

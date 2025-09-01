@@ -76,8 +76,8 @@ public class HomePage extends BasePage {
 
     //home page product text data getter methods
     //chosen products section
-    public List<String> getHomePageChosenProductName(){return homePageRoomChosenProductNameElements.stream().map(WebElement::getText).collect(Collectors.toList());}
-    public List<String> getHomePageChosenProductUnitPrice(){return homePageRoomChosenProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getHomePageChosenProductName(){return homePageRoomChosenProductNameElements.stream().map(WebElement::getText).map(String::trim).filter(s -> !s.isEmpty()).collect(Collectors.toList());}
+    public List<String> getHomePageChosenProductUnitPrice(){return homePageRoomChosenProductUnitPriceElements.stream().map(WebElement::getText).map(String::trim).filter(s -> !s.isEmpty()).collect(Collectors.toList());}
 
     //article list elements
     public List<String> getHomePageLatestArticleTitle(){return homePageLatestArticleTitleElements.stream().map(WebElement::getText).collect(Collectors.toList());}
