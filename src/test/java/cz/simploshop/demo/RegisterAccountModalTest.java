@@ -242,7 +242,7 @@ public class RegisterAccountModalTest extends TestMethods{
     void invalidUserAccountRegisterMismatchingConfirmPasswordFormatTest() {
         //user navigation to register modal test
         navigateToRegisterAccountModalTest();
-        //invalid user account creation - mismatching confirm password (the user account gets created, test has failed)
+        //invalid user account creation - mismatching confirm password
         invalidRegisterAccountModalMismatchingConfirmPasswordTest();
     }
 
