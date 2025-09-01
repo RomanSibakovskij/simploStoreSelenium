@@ -24,6 +24,7 @@ public class AccountInfoPageTooShortSingularInput extends BasePage{
 
     //invalid edited user account input data - too short singular input
     private String tooShortEditedFirstName;
+    private String tooShortEditedLastName;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -54,6 +55,29 @@ public class AccountInfoPageTooShortSingularInput extends BasePage{
     public void inputTooShortEditedUserFirstNameIntoFirstNameInputField(){
         accountInfoPageFirstNameInputField.clear();
         accountInfoPageFirstNameInputField.sendKeys(tooShortEditedFirstName);
+    }
+
+    //invalid edited user input data getter method - too short edited last name (1 char)
+    public void invalidEditedUserInfoTooShortLastNameGetter(){
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        tooShortEditedLastName = "B";
+        validEditedUserEmail = TestDataGenerator.generateRandomEmailAddress(5);
+
+        System.out.println("Invalid generated edited user account information data (too short edited last name):" + "\n");
+
+        logger.info("Valid generated user first name (too short edited last name): " + validEditedUserFirstName);
+        logger.info("Too short edited user last name: " + tooShortEditedLastName);
+        logger.info("Valid generated edited user email (too short edited last name): " + validEditedUserEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - too short edited last name
+    public void inputTooShortEditedUserLastNameIntoLastNameInputField(){
+        accountInfoPageLastNameInputField.clear();
+        accountInfoPageLastNameInputField.sendKeys(tooShortEditedLastName);
     }
 
     //valid edited user account data input methods - for remaining inputs
