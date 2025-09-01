@@ -138,5 +138,50 @@ public interface PageTextElementAsserts {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //account information my user section text element assert
+    default void isAccountInfoPageMyUserSectionTextElementAsExpected(AccountInformationPage accountInformationPage){
+        //assert account information page my user section title is as expected
+        assertEquals("Můj účet", accountInformationPage.getAccountInfoPageMyUserSectionTitle(),"The account information page my user section title doesn't match expectations");
+        //assert account information page my list menu link names are as expected (as a list)
+        List<String> expectedMyUserMenuLinkNames = Arrays.asList("Dashboard", "Informace o účtu", "Adresář", "Moje objednávky", "Oblíbené produkty");
+        List<String> actualMyUserMenuLinkNames = accountInformationPage.getAccountInfoPageMyUserMenuOptionNames();
+        assertEquals(expectedMyUserMenuLinkNames, actualMyUserMenuLinkNames,"The account information page my user menu link names don't match expectations");
+    }
+
+    //account information page text element assert test method
+    default void isAccountInfoPageTextElementAsExpected(AccountInformationPage accountInformationPage){
+        //assert account information page title is as expected
+        assertEquals("Informace o účtu", accountInformationPage.getAccountInfoPageTitle(),"The account information page title doesn't match expectations");
+        //contact info section
+        //assert account information page contact info section title is as expected
+        assertEquals("Kontaktní údaje", accountInformationPage.getAccountInfoPageContactInfoSectionTitle(),"The account information page contact info section title doesn't match expectations");
+        //assert account information page contact info section first name subtext is as expected
+        assertEquals("Jméno *", accountInformationPage.getAccountInfoPageFirstNameSubtext(),"The account information page contact info section first name subtext doesn't match expectations");
+        //assert account information page contact info section last name subtext is as expected
+        assertEquals("Příjmení *", accountInformationPage.getAccountInfoPageLastNameSubtext(),"The account information page contact info section last name subtext doesn't match expectations");
+        //assert account information page contact info section email subtext is as expected
+        assertEquals("Email *", accountInformationPage.getAccountInfoPageEmailSubtext(),"The account information page contact info section email subtext doesn't match expectations");
+        //assert account information page contact info section sub to newsletter subtext is as expected
+        assertEquals("Chci dostávat novinky ohledně e-shopové platformy", accountInformationPage.getAccountInfoPageSubToNewsletterSubtext(),"The account information page contact info section sub to newsletter subtext doesn't match expectations");
+        //password section
+        //assert account information page password section title is as expected
+        assertEquals("Heslo", accountInformationPage.getAccountInfoPagePasswordSectionTitle(),"The account information page password section title doesn't match expectations");
+        //assert account information page password section password input field subtext is as expected
+        assertEquals("Současné heslo *", accountInformationPage.getAccountInfoPagePasswordSubtext(),"The account information page password section password input field subtext doesn't match expectations");
+        //assert account information page password section new password subtext is as expected
+        assertEquals("Nové heslo *", accountInformationPage.getAccountInfoPageNewPasswordSubtext(),"The account information page password section new password subtext doesn't match expectations");
+        //assert account information page password section confirm password subtext is as expected
+        assertEquals("Nové heslo znovu *", accountInformationPage.getAccountInfoPageConfirmNewPasswordSubtext(),"The account information page password section confirm password subtext doesn't match expectations");
+    }
+
+    //account information page account removal modal text element assert test method
+    default void isAccountRemovalModalTextElementAsExpected(AccountInformationPage accountInformationPage){
+        //assert account removal modal title is as expected
+        assertEquals("Smazat účet", accountInformationPage.getUserAccountRemovalModalTitle(),"The account removal modal title doesn't match expectations");
+        //assert account removal modal text is as expected
+        assertEquals("Opravdu si přejete smazat svůj účet? Tato operace je nevratná.", accountInformationPage.getUserAccountRemovalModalText(),"The account removal modal text doesn't match expectations");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

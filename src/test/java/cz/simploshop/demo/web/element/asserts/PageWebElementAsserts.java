@@ -232,4 +232,87 @@ public interface PageWebElementAsserts {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //account information page breadcrumb web element assert test method
+    default void isAccountInfoPageBreadcrumbWebElementDisplayed(AccountInformationPage accountInformationPage) {
+        //assert account information page breadcrumb is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageBreadcrumbDisplayed(), "The account information page breadcrumb isn't displayed");
+    }
+
+    //account information page my user section web element assert test method (some other pages may have it0
+    default void isAccountInfoPageMyUserSectionWebElementDisplayed(AccountInformationPage accountInformationPage) {
+        //assert account information page my user section title is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageMyUserSectionTitleDisplayed(), "The account information page my user section title isn't displayed");
+        //assert account information page my user section menu options are displayed (as a list)
+        assertTrue(accountInformationPage.isAccountInfoPageMyUserMenuOptionsDisplayed(), "The account information page my user section menu options aren't displayed");
+    }
+
+    //account information page breadcrumb web element assert test method
+    default void isAccountInfoBreadcrumbWebElementDisplayed(AccountInformationPage accountInformationPage) {
+        //assert account information page breadcrumb is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageBreadcrumbDisplayed(), "The account information page breadcrumb isn't displayed");
+    }
+
+    //account information page web element assert method
+    default void isAccountInfoPageWebElementDisplayed(AccountInformationPage accountInformationPage) {
+        //assert account information page title is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageTitleDisplayed(), "The account information page title isn't displayed");
+        //contact info section title
+        //assert account information page contact info section title is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageContactInfoSectionDisplayed(), "The account information page contact info section title isn't displayed");
+        //assert account information page contact info section first name subtext is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageFirstNameSubtextDisplayed(), "The account information page contact info section first name subtext isn't displayed");
+        //assert account information page contact info section first name input field is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageFirstNameInputFieldDisplayed(), "The account information page contact info section first name input field isn't displayed");
+        //assert account information page contact info section last name subtext is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageLastNameSubtextDisplayed(), "The account information page contact info section last name subtext isn't displayed");
+        //assert account information page contact info section last name input field is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageLastNameInputFieldDisplayed(), "The account information page contact info section last name input field isn't displayed");
+        //assert account information page contact info section email subtext is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageEmailSubtextDisplayed(), "The account information page contact info section email subtext isn't displayed");
+        //assert account information page contact info section email input field is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageEmailInputFieldDisplayed(), "The account information page contact info section email input field isn't displayed");
+        //assert account information page contact info sub to newsletter subtext is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageSubNewsletterSubtextDisplayed(), "The account information page contact info section sub to newsletter subtext isn't displayed");
+        //assert account information page contact info sub to newsletter checkbox is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageSubNewsletterCheckboxDisplayed(), "The account information page contact info sub to newsletter checkbox isn't displayed");
+        //assert account information page contact info section apply changes button is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageApplyChangesButtonDisplayed(), "The account information page contact info section apply changes button isn't displayed");
+        //password section
+        //assert account information page password section title is displayed
+        assertTrue(accountInformationPage.isAccountInfoPagePasswordSectionTitleDisplayed(), "The account information page password section title isn't displayed");
+        //assert account information page password section password input field subtext is displayed
+        assertTrue(accountInformationPage.isAccountInfoPagePasswordSubtextDisplayed(), "The account information page password section password input field subtext isn't displayed");
+        //assert account information page password section password input field is displayed
+        assertTrue(accountInformationPage.isAccountInfoPagePasswordInputFieldDisplayed(), "The account information page password section password input field isn't displayed");
+        //assert account information page password section new password subtext is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageNewPasswordSubtextDisplayed(), "The account information page password section new password subtext isn't displayed");
+        //assert account information page password section new password input field is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageNewPasswordInputFieldDisplayed(), "The account information page password section new password input field isn't displayed");
+        //assert account information page password section confirm  new password subtext is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageConfirmNewPasswordSubtextDisplayed(), "The account information page password section confirm new password subtext isn't displayed");
+        //assert account information page password section confirm new password input field is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageConfirmNewPasswordInputFieldDisplayed(), "The account information page password section confirm new password input field isn't displayed");
+        //assert account information page password section change password button is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageChangePasswordButtonDisplayed(), "The account information page password section change password button  isn't displayed");
+        //assert account information page delete user button is displayed
+        assertTrue(accountInformationPage.isAccountInfoPageDeleteUserButtonDisplayed(), "The account information page delete user button isn't displayed");
+    }
+
+    //account information page account removal modal web element assert method
+    default void isAccountRemovalModalWebElementDisplayed(AccountInformationPage accountInformationPage) {
+        //assert account removal modal title is displayed
+        assertTrue(accountInformationPage.isUserAccountRemovalModalTitleDisplayed(), "The account removal modal title isn't displayed");
+        //assert account removal modal close button is displayed
+        assertTrue(accountInformationPage.isUserAccountRemovalModalCloseButtonDisplayed(), "The account removal modal close button isn't displayed");
+        //assert account removal modal text is displayed
+        assertTrue(accountInformationPage.isUserAccountRemovalModalTextDisplayed(), "The account removal modal close text isn't displayed");
+        //assert account removal modal cancel button is displayed
+        assertTrue(accountInformationPage.isUserAccountRemovalModalCancelButtonDisplayed(), "The account removal modal cancel button isn't displayed");
+        //assert account removal modal delete button is displayed
+        assertTrue(accountInformationPage.isUserAccountRemovalModalDeleteButtonDisplayed(), "The account removal modal delete button isn't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 }

@@ -994,5 +994,67 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //valid edit user account information tests
+
+    //valid edit user account data (with login email) test method
+    protected void validEditUserAccountInfoLoginEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2300);
+        //select "Account Information" option
+        generalPage.selectSetAccountInfoDropdownOption(1);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1750);
+        //account information page breadcrumb web element assert
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //account information page my user section web element assert
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page web element assert
+        isAccountInfoPageWebElementDisplayed(accountInformationPage);
+        //account information page text element assert
+        isAccountInfoPageTextElementAsExpected(accountInformationPage);
+        //capture screenshot of the account information page display before data input
+        captureScreenshot(driver, "Account Information Page Display Before Data Input");
+        //valid edited user (with login email) input data getter
+        accountInformationPage.validEditedUserInfoLoginEmailDataGetter();
+        //input valid edited first name into first name input field
+        accountInformationPage.inputValidEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountInformationPage.inputValidEditedUserLastNameIntoLastNameInputField();
+        //input valid edited email into email input field
+        accountInformationPage.inputValidEditedUserEmailIntoEmailInputField();
+        //capture screenshot of the account information page display after data input
+        captureScreenshot(driver, "Account Information Page Display After Data Input");
+        //click 'Apply Changes" button
+        accountInformationPage.clickApplyChangesButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1800);
+        //assert the user data gets edited (by confirming the changes of user first and last names)
+        assertEquals(accountInformationPage.getEditedUsername(), generalPage.getUpperHeaderUsername(), "The usernames don't match expectations or the edit user account data process has failed.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid Edit User Account Info (with login email) Test Result");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

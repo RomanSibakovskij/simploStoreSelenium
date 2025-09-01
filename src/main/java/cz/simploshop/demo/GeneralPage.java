@@ -143,6 +143,19 @@ public class GeneralPage extends BasePage {
         action.moveToElement(upperHeaderRegisterButton).click().perform();
     }
 
+    //click upper header 'Account' dropdown menu method
+    public void clickUpperHeaderAccountDropdownMenu() {
+        Actions action = new Actions(driver);
+        action.moveToElement(upperHeaderLoginButton).click().perform();
+    }
+
+    //select set account information dropdown menu option method
+    public void selectSetAccountInfoDropdownOption(int index){
+        WebElement targetElement = upperHeaderAccountOptionElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(targetElement).click().perform();
+    }
+
     //general page text element getter methods
     //warning box
     public String getWarningBoxTitle() {return warningBoxTitle.getText();}

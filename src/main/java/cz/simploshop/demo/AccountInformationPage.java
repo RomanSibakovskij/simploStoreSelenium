@@ -3,9 +3,11 @@ package cz.simploshop.demo;
 import cz.simploshop.demo.utilities.*;
 import org.openqa.selenium.*;
 
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AccountInformationPage extends BasePage {
 
@@ -73,7 +75,49 @@ public class AccountInformationPage extends BasePage {
     @FindBy(xpath = "//div[@class='sim-modal__content']//button[2]")
     private WebElement accountRemovalModalDeleteButton;
 
+    //valid edited user account input data
+    private static String validEditedUserFirstName;
+    private static String validEditedUserLastName;
+    private static String validEditedUserEmail;
+
     public AccountInformationPage(WebDriver driver) {super(driver);}
+
+    //valid edited user (with login email) input data getter method
+    public void validEditedUserInfoLoginEmailDataGetter(){
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validEditedUserEmail = TestDataGenerator.generateRandomEmailAddress(5);
+
+        System.out.println("Valid generated edited user account information data(with login email):" + "\n");
+
+        logger.info("Valid generated edited user first name: " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name: " + validEditedUserLastName);
+        logger.info("Valid generated edited user email: " + validEditedUserEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //valid edited user account data input methods
+    public void inputValidEditedUserFirstNameIntoFirstNameInputField(){
+        accountInfoPageFirstNameInputField.clear();
+        accountInfoPageFirstNameInputField.sendKeys(validEditedUserFirstName);
+    }
+    public void inputValidEditedUserLastNameIntoLastNameInputField(){
+        accountInfoPageLastNameInputField.clear();
+        accountInfoPageLastNameInputField.sendKeys(validEditedUserLastName);
+    }
+    public void inputValidEditedUserEmailIntoEmailInputField(){
+        accountInfoPageEmailInputField.clear();
+        accountInfoPageEmailInputField.sendKeys(validEditedUserEmail);
+    }
+
+    //click "Apply Changes" button method
+    public void clickApplyChangesButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(accountInfoPageApplyChangesButton).click().perform();
+    }
 
     //account information page text element getters
     //my user section
@@ -96,6 +140,9 @@ public class AccountInformationPage extends BasePage {
     //user account removal modal text element getters
     public String getUserAccountRemovalModalTitle(){return accountRemovalModalTitle.getText();}
     public String getUserAccountRemovalModalText(){return accountRemovalModalText.getText();}
+
+    //private input data getters
+    public String getEditedUsername(){return validEditedUserFirstName + " " + validEditedUserLastName;}
 
     //account information page web element assert methods
     //my user section
