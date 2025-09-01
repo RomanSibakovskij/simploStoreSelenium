@@ -652,6 +652,60 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long Email");
     }
 
+    //invalid register account modal test method - too long password/confirm password (75 chars)
+    protected void invalidRegisterAccountModalTooLongPasswordConfirmTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalTooLongSingularInput registerAccountModalTooLongSingularInput = new RegisterAccountModalTooLongSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - too long password/confirm password (7 chars)
+        registerAccountModalTooLongSingularInput.invalidRegisterInputDataTooLongPasswordConfirmGetter();
+        //input valid register first name into first name input field
+        registerAccountModalTooLongSingularInput.inputValidFirstNameIntoRegisterFirstNameInputField();
+        //input valid register last name into last name input field
+        registerAccountModalTooLongSingularInput.inputValidLastNameIntoRegisterLastNameInputField();
+        //input valid register email into email input field
+        registerAccountModalTooLongSingularInput.inputValidEmailIntoRegisterEmailInputField();
+        //input too short register password into password input field (75 chars)
+        registerAccountModalTooLongSingularInput.inputTooLongPasswordIntoRegisterPasswordInputField();
+        //input too short register confirm password into confirm password input field (75 chars)
+        registerAccountModalTooLongSingularInput.inputTooLongConfirmPasswordIntoRegisterConfirmPasswordInputField();
+        //capture screenshot of the register account modal display after invalid data input - too long password/confirm password
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - Too Long Password And Confirm Password");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2500);
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("Pole obsahuje příliš dlouhý vstup", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The too long password / confirm password input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The too long password / confirm password input error message doesn't get triggered, test has failed.");
+        }
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3000);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Pole obsahuje příliš dlouhý vstup", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The too long password / confirm password input error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long Password And Confirm Password");
+            throw new Error("The too long password / confirm password input error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long Password And Confirm Password");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

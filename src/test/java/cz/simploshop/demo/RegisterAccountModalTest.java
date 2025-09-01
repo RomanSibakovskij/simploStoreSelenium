@@ -158,4 +158,16 @@ public class RegisterAccountModalTest extends TestMethods{
         invalidRegisterAccountModalTooLongEmailTest();
     }
 
+    //Test 002l -> invalid user account creation test - too long password/confirm password (75 chars) (the user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Register Test - Too Long Password And Confirm Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserAccountRegisterTooLongPasswordConfirmTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - too long password/confirm password (75 chars)
+        invalidRegisterAccountModalTooLongPasswordConfirmTest();
+    }
+
 }

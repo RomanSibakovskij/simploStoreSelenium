@@ -22,6 +22,8 @@ public class RegisterAccountModalTooLongSingularInput extends BasePage{
     private String tooLongRegisterFirstName;
     private String tooLongRegisterLastName;
     private String tooLongRegisterEmail;
+    private String tooLongRegisterPassword;
+    private String tooLongRegisterConfirmPassword;
 
     //valid register input data - for remaining inputs
     private String validRegisterFirstName;
@@ -99,6 +101,31 @@ public class RegisterAccountModalTooLongSingularInput extends BasePage{
 
     //invalid register data input method - too long email
     public void inputTooLongEmailIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(tooLongRegisterEmail);}
+
+    //invalid register input data getter - too long password/confirm password (75 chars)
+    public void invalidRegisterInputDataTooLongPasswordConfirmGetter(){
+
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        tooLongRegisterPassword = "E#%$#^&fdfgghbfhfdfdgrrtr2354565dfgfhgfhdfbgfhfghr$%^&^%&%^^$$%#$gfdgfdgdgf";
+        tooLongRegisterConfirmPassword = tooLongRegisterPassword;
+
+        System.out.println("Invalid generated register input data (too long password): " + "\n");
+
+        logger.info("Valid register first name (too long password): " + validRegisterFirstName);
+        logger.info("Valid register last name (too long password): " + validRegisterLastName);
+        logger.info("Valid register email (too long password): " + validRegisterEmail);
+        logger.info("Too long register password: " + tooLongRegisterPassword);
+        logger.info("Too long register confirm password: " + tooLongRegisterConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - too long password / confirm password
+    public void inputTooLongPasswordIntoRegisterPasswordInputField(){registerAccountModalPasswordInputField.sendKeys(tooLongRegisterPassword);}
+    public void inputTooLongConfirmPasswordIntoRegisterConfirmPasswordInputField(){registerAccountModalConfirmPasswordInputField.sendKeys(tooLongRegisterPassword);}
 
     //valid register data input methods - for remaining inputs
     public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}
