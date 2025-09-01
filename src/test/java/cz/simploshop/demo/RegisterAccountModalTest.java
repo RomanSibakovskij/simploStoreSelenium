@@ -134,4 +134,16 @@ public class RegisterAccountModalTest extends TestMethods{
         invalidRegisterAccountModalTooLongFirstNameTest();
     }
 
+    //Test 002j -> invalid user account creation test - too long last name (100 chars)
+    @Test
+    @DisplayName("Invalid User Account Register Test - Too Long Last Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserAccountRegisterTooLongLastNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - too long last name (100 chars)
+        invalidRegisterAccountModalTooLongLastNameTest();
+    }
+
 }
