@@ -74,6 +74,17 @@ public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {super(driver);}
 
+    //home page product text data getter methods
+    //chosen products section
+    public List<String> getHomePageChosenProductName(){return homePageRoomChosenProductNameElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getHomePageChosenProductUnitPrice(){return homePageRoomChosenProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
+    //article list elements
+    public List<String> getHomePageLatestArticleTitle(){return homePageLatestArticleTitleElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getHomePageLatestArticleText(){return homePageLatestArticleTextElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getHomePageLatestArticleUsername(){return homePageLatestArticleUsernameElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getHomePageLatestArticleTimePosted(){return homePageLatestArticleTimePostedElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
     //home page text element getter methods
     //buy for room category section
     public String getHomePageRoomCategorySectionTitle() {return homePageRoomCategorySectionTitle.getText();}
