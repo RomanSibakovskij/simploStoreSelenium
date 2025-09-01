@@ -459,6 +459,47 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short Email");
     }
 
+    //invalid register account modal test method - too short password/confirm password (7 chars)
+    protected void invalidRegisterAccountModalTooShortPasswordConfirmTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalTooShortSingularInput registerAccountModalTooShortSingularInput = new RegisterAccountModalTooShortSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - too short password/confirm password (7 chars)
+        registerAccountModalTooShortSingularInput.invalidRegisterInputDataTooShortPasswordConfirmGetter();
+        //input valid register first name into first name input field
+        registerAccountModalTooShortSingularInput.inputValidFirstNameIntoRegisterFirstNameInputField();
+        //input valid register last name into last name input field
+        registerAccountModalTooShortSingularInput.inputValidLastNameIntoRegisterLastNameInputField();
+        //input valid register email into email input field
+        registerAccountModalTooShortSingularInput.inputValidEmailIntoRegisterEmailInputField();
+        //input too short register password into password input field (7 chars)
+        registerAccountModalTooShortSingularInput.inputTooShortPasswordIntoRegisterPasswordInputField();
+        //input too short register confirm password into confirm password input field (7 chars)
+        registerAccountModalTooShortSingularInput.inputTooShortConfirmPasswordIntoRegisterConfirmPasswordInputField();
+        //capture screenshot of the register account modal display after invalid data input - too short password/confirm password
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - Too Short Password And Confirm Password");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2500);
+        //assert the user gets an expected error message
+        assertEquals("Hodnota je příliš malá: řetězec musí mít >= 8 znaků", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The too short password / confirm password input error message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short Password And Confirm Password");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

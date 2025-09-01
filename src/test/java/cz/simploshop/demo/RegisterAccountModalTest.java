@@ -108,4 +108,16 @@ public class RegisterAccountModalTest extends TestMethods{
         invalidRegisterAccountModalTooShortEmailTest();
     }
 
+    //Test 002h -> invalid user account creation test - too short password/confirm password (7 chars)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Short Password And Confirm Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Short_Singular_Input")
+    void invalidUserAccountRegisterTooShortPasswordConfirmTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - too short password/confirm password (7 chars)
+        invalidRegisterAccountModalTooShortPasswordConfirmTest();
+    }
+
 }

@@ -22,6 +22,8 @@ public class RegisterAccountModalTooShortSingularInput extends BasePage{
     private String tooShortRegisterFirstName;
     private String tooShortRegisterLastName;
     private String tooShortRegisterEmail;
+    private String tooShortRegisterPassword;
+    private String tooShortRegisterConfirmPassword;
 
     //valid register input data - for remaining inputs
     private String validRegisterFirstName;
@@ -99,6 +101,31 @@ public class RegisterAccountModalTooShortSingularInput extends BasePage{
 
     //invalid register data input method - too short email
     public void inputTooShortEmailIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(tooShortRegisterEmail);}
+
+    //invalid register input data getter - too short password/confirm password (7 chars)
+    public void invalidRegisterInputDataTooShortPasswordConfirmGetter(){
+
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        tooShortRegisterPassword = "Thg^trg";
+        tooShortRegisterConfirmPassword = tooShortRegisterPassword;
+
+        System.out.println("Invalid generated register input data (too short password): " + "\n");
+
+        logger.info("Valid register first name (too short password): " + validRegisterFirstName);
+        logger.info("Valid register last name (too short password): " + validRegisterLastName);
+        logger.info("Valid register email (too short password): " + validRegisterEmail);
+        logger.info("Too short register password: " + tooShortRegisterPassword);
+        logger.info("Too short register confirm password: " + tooShortRegisterConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - too short password / confirm password
+    public void inputTooShortPasswordIntoRegisterPasswordInputField(){registerAccountModalPasswordInputField.sendKeys(tooShortRegisterPassword);}
+    public void inputTooShortConfirmPasswordIntoRegisterConfirmPasswordInputField(){registerAccountModalConfirmPasswordInputField.sendKeys(tooShortRegisterPassword);}
 
     //valid register data input methods - for remaining inputs
     public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}
