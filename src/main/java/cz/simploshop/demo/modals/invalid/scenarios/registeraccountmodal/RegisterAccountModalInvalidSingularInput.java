@@ -24,6 +24,8 @@ public class RegisterAccountModalInvalidSingularInput extends BasePage{
     private String invalidRegisterLastNameFormat;
     private String invalidRegisterEmailFormat;
     private String existingRegisterEmail;
+    private String invalidRegisterPasswordFormat;
+    private String invalidRegisterConfirmPasswordFormat;
 
     //valid register input data - for remaining inputs
     private String validRegisterFirstName;
@@ -124,6 +126,31 @@ public class RegisterAccountModalInvalidSingularInput extends BasePage{
 
     //invalid register data input method - existing email
     public void inputExistingEmailIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(existingRegisterEmail);}
+
+    //invalid register input data getter - invalid password/confirm password format (lowercase only)
+    public void invalidRegisterInputDataInvalidPasswordConfirmFormatGetter(){
+
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        invalidRegisterPasswordFormat = "dssdfgfhghdfdsfd";
+        invalidRegisterConfirmPasswordFormat = invalidRegisterPasswordFormat;
+
+        System.out.println("Invalid generated register input data (invalid password format): " + "\n");
+
+        logger.info("Valid register first name (invalid password format): " + validRegisterFirstName);
+        logger.info("Valid register last name (invalid password format): " + validRegisterLastName);
+        logger.info("Valid register email (invalid password format): " + validRegisterEmail);
+        logger.info("Invalid register password input format: " + invalidRegisterPasswordFormat);
+        logger.info("Invalid register confirm password input format: " + invalidRegisterConfirmPasswordFormat);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - invalid password / confirm password format
+    public void inputInvalidPasswordFormatIntoRegisterPasswordInputField(){registerAccountModalPasswordInputField.sendKeys(invalidRegisterPasswordFormat);}
+    public void inputInvalidConfirmPasswordFormatIntoRegisterConfirmPasswordInputField(){registerAccountModalConfirmPasswordInputField.sendKeys(invalidRegisterConfirmPasswordFormat);}
 
     //valid register data input methods - for remaining inputs
     public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}

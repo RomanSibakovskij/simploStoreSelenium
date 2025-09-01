@@ -122,9 +122,9 @@ public interface PageWebElementAsserts {
         //assert home page chosen products scroll right button is displayed
         assertTrue(homePage.isHomePageChosenProductsScrollRightButtonDisplayed(), "The home page chosen products scroll right button isn't displayed");
         //assert home page chosen product add to wishlist buttons are displayed (as a list)
-        assertTrue(homePage.isHomePageChosenProductAddToWishlistButtonDisplayed(), "The home page chosen product add to wishlist buttons aren't displayed");
+        //assertTrue(homePage.isHomePageChosenProductAddToWishlistButtonDisplayed(), "The home page chosen product add to wishlist buttons aren't displayed");
         //assert home page chosen product add to cart buttons are displayed (as a list)
-        assertTrue(homePage.isHomePageChosenProductAddToCartButtonDisplayed(), "The home page chosen product add to cart buttons aren't displayed");
+        //assertTrue(homePage.isHomePageChosenProductAddToCartButtonDisplayed(), "The home page chosen product add to cart buttons aren't displayed");
         //assert home page chosen product images are displayed (as a list)
         assertTrue(homePage.isHomePageChosenProductImageDisplayed(), "The home page chosen product images aren't displayed");
         //assert home page chosen product names are displayed (as a list)

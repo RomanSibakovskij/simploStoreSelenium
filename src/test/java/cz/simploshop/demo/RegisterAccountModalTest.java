@@ -221,4 +221,16 @@ public class RegisterAccountModalTest extends TestMethods{
         invalidRegisterAccountModalExistingEmailTest();
     }
 
+    //Test 002q -> invalid user account creation test - invalid password/confirm password input format (lowercase only) (the user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid Password And Confirm Password Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidUserAccountRegisterInvalidPasswordConfirmFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - invalid password/confirm password input format (lowercase only)
+        invalidRegisterAccountModalInvalidPasswordConfirmFormatTest();
+    }
+
 }

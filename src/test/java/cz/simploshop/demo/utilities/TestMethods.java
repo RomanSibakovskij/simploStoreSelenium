@@ -900,6 +900,52 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Existing Email");
     }
 
+    //invalid register account modal test method - invalid password/confirm password format (lowercase only)
+    protected void invalidRegisterAccountModalInvalidPasswordConfirmFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalInvalidSingularInput registerAccountModalInvalidSingularInput = new RegisterAccountModalInvalidSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - invalid password/confirm password format (lowercase only)
+        registerAccountModalInvalidSingularInput.invalidRegisterInputDataInvalidPasswordConfirmFormatGetter();
+        //input valid register first name into first name input field
+        registerAccountModalInvalidSingularInput.inputValidFirstNameIntoRegisterFirstNameInputField();
+        //input valid register last name into last name input field
+        registerAccountModalInvalidSingularInput.inputValidLastNameIntoRegisterLastNameInputField();
+        //input valid register email into email input field
+        registerAccountModalInvalidSingularInput.inputValidEmailIntoRegisterEmailInputField();
+        //input invalid register password format into password input field (lowercase only)
+        registerAccountModalInvalidSingularInput.inputInvalidPasswordFormatIntoRegisterPasswordInputField();
+        //input invalid register confirm password format into confirm password input field (lowercase only)
+        registerAccountModalInvalidSingularInput.inputInvalidConfirmPasswordFormatIntoRegisterConfirmPasswordInputField();
+        //capture screenshot of the register account modal display after invalid data input - invalid password/confirm password format
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - Invalid Password And Confirm Password Format");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3000);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Heslo nemůže obsahovat pouze malá písmena", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The invalid password / confirm password input format error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid Password And Confirm Password Format");
+            throw new Error("The invalid password / confirm password input format error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid Password And Confirm Password Format");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
