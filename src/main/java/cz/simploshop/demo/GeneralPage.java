@@ -2,6 +2,7 @@ package cz.simploshop.demo;
 
 import cz.simploshop.demo.utilities.BasePage;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
@@ -126,6 +127,18 @@ public class GeneralPage extends BasePage {
             throw new RuntimeException("Thread was interrupted while waiting", e);
         }
 
+    }
+
+    //click 'Close' warning button method
+    public void clickCloseWarningBoxButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(warningBoxCloseButton).click().perform();
+    }
+
+    //click upper header 'Register' button method
+    public void clickRegisterButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(upperHeaderRegisterButton).click().perform();
     }
 
     //general page text element getter methods
