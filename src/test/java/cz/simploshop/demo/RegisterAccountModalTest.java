@@ -58,4 +58,16 @@ public class RegisterAccountModalTest extends TestMethods{
         invalidRegisterAccountModalNoEmailTest();
     }
 
+    //Test 002d -> invalid user account creation test - no password/confirm password (the error wasn't triggered)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - No Password And Confirm Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidUserAccountRegisterNoPasswordTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - no password/confirm password
+        invalidRegisterAccountModalNoPasswordConfirmTest();
+    }
+
 }

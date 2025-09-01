@@ -22,6 +22,8 @@ public class RegisterAccountModalNoSingularInput extends BasePage{
     private String noRegisterFirstName;
     private String noRegisterLastName;
     private String noRegisterEmail;
+    private String noRegisterPassword;
+    private String noRegisterConfirmPassword;
 
     //valid register input data - for remaining inputs
     private String validRegisterFirstName;
@@ -99,6 +101,31 @@ public class RegisterAccountModalNoSingularInput extends BasePage{
 
     //invalid register data input method - no email
     public void inputNoEmailIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(noRegisterEmail);}
+
+    //invalid register input data getter - no password
+    public void invalidRegisterInputDataNoPasswordGetter(){
+
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        noRegisterPassword = "";
+        noRegisterConfirmPassword = "";
+
+        System.out.println("Invalid generated register input data (no password): " + "\n");
+
+        logger.info("Valid register first name (no password): " + validRegisterFirstName);
+        logger.info("Valid register last name (no password): " + validRegisterLastName);
+        logger.info("Valid register email (no password): " + validRegisterEmail);
+        logger.info("No register password: " + noRegisterPassword);
+        logger.info("No register confirm password: " + noRegisterConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - no password / confirm password
+    public void inputNoPasswordIntoRegisterPasswordInputField(){registerAccountModalPasswordInputField.sendKeys(noRegisterPassword);}
+    public void inputNoConfirmPasswordIntoRegisterConfirmPasswordInputField(){registerAccountModalConfirmPasswordInputField.sendKeys(noRegisterPassword);}
 
     //valid register data input methods - for remaining inputs
     public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}

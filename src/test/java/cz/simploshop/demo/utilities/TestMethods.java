@@ -261,6 +261,51 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid User Account Creation Test Result - No Email");
     }
 
+    //invalid register account modal test method - no password/confirm password
+    protected void invalidRegisterAccountModalNoPasswordConfirmTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalNoSingularInput registerAccountModalNoSingularInput = new RegisterAccountModalNoSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - no password
+        registerAccountModalNoSingularInput.invalidRegisterInputDataNoPasswordGetter();
+        //input valid register first name into first name input field
+        registerAccountModalNoSingularInput.inputValidFirstNameIntoRegisterFirstNameInputField();
+        //input valid register last name into last name input field
+        registerAccountModalNoSingularInput.inputValidLastNameIntoRegisterLastNameInputField();
+        //input valid register email into email input field
+        registerAccountModalNoSingularInput.inputValidEmailIntoRegisterEmailInputField();
+        //don't input register password into password input field
+        registerAccountModalNoSingularInput.inputNoPasswordIntoRegisterPasswordInputField();
+        //don't input register confirm password into confirm password input field
+        registerAccountModalNoSingularInput.inputNoConfirmPasswordIntoRegisterConfirmPasswordInputField();
+        //capture screenshot of the register account modal display after invalid data input - no password
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - No Password And Confirm Password");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("Pole je povinné", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The missing password/confirm password input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The missing password/confirm password input error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No Password And Confirm Password");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
