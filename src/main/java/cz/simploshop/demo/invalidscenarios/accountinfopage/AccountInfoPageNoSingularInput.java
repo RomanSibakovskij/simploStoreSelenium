@@ -24,6 +24,7 @@ public class AccountInfoPageNoSingularInput extends BasePage {
     //invalid edited user account input data - no singular input
     private String noEditedFirstName;
     private String noEditedLastName;
+    private String noEditedEmail;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -79,6 +80,29 @@ public class AccountInfoPageNoSingularInput extends BasePage {
     public void inputNoEditedUserLastNameIntoLastNameInputField(){
         accountInfoPageLastNameInputField.clear();
         accountInfoPageLastNameInputField.sendKeys(noEditedLastName);
+    }
+
+    //invalid edited user input data getter method - no edited email
+    public void invalidEditedUserInfoNoEmailGetter(){
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        noEditedEmail = "";
+
+        System.out.println("Invalid generated edited user account information data (no edited email):" + "\n");
+
+        logger.info("Valid generated user first name (no edited email): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (no edited email): " + validEditedUserLastName);
+        logger.info("No edited user email: " + noEditedEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - no edited email
+    public void inputNoEditedUserEmailIntoEmailInputField(){
+        accountInfoPageEmailInputField.clear();
+        accountInfoPageEmailInputField.sendKeys(noEditedEmail);
     }
 
     //valid edited user account data input methods - for remaining inputs
