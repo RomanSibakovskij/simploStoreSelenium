@@ -19,7 +19,45 @@ public class RegisterAccountModalInvalidSingularInput extends BasePage{
     @FindBy(xpath = "//div[@class='sim-auth-form__wrapper']//form//input[@id='v-0-3-26']")
     private WebElement registerAccountModalConfirmPasswordInputField;
 
+    //invalid register input data - invalid singular input format
+    private String invalidRegisterFirstNameFormat;
+
+    //valid register input data - for remaining inputs
+    private String validRegisterFirstName;
+    private String validRegisterLastName;
+    private String validRegisterEmail;
+    private String validRegisterPassword;
+
     public RegisterAccountModalInvalidSingularInput(WebDriver driver) {super(driver);}
 
+    //invalid register input data getter - invalid first name format (special symbols only)
+    public void invalidRegisterInputDataInvalidFirstNameFormatGetter(){
+
+        invalidRegisterFirstNameFormat = "@#@#@$%$#^";
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Invalid generated register input data (invalid first name format): " + "\n");
+
+        logger.info("Invalid register first name input format: " + invalidRegisterFirstNameFormat);
+        logger.info("Valid register last name (invalid first name format): " + validRegisterLastName);
+        logger.info("Valid register email (invalid first name format): " + validRegisterEmail);
+        logger.info("Valid register password (invalid first name format): " + validRegisterPassword);
+        logger.info("Valid register matching confirm password (invalid first name format): " + validRegisterPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - invalid first name input format
+    public void inputInvalidFirstNameFormatIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(invalidRegisterFirstNameFormat);}
+
+    //valid register data input methods - for remaining inputs
+    public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}
+    public void inputValidLastNameIntoRegisterLastNameInputField(){registerAccountModalLastNameInputField.sendKeys(validRegisterLastName);}
+    public void inputValidEmailIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(validRegisterEmail);}
+    public void inputValidPasswordIntoRegisterPasswordInputField(){registerAccountModalPasswordInputField.sendKeys(validRegisterPassword);}
+    public void inputValidConfirmPasswordIntoRegisterConfirmPasswordInputField(){registerAccountModalConfirmPasswordInputField.sendKeys(validRegisterPassword);}
 
 }

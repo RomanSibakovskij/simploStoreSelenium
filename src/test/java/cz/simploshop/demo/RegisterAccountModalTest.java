@@ -136,7 +136,7 @@ public class RegisterAccountModalTest extends TestMethods{
 
     //Test 002j -> invalid user account creation test - too long last name (100 chars)
     @Test
-    @DisplayName("Invalid User Account Register Test - Too Long Last Name")
+    @DisplayName("Invalid User Account Creation Test - Too Long Last Name")
     @Tag("Invalid_User_Account_Creation")
     @Tag("Too_Long_Singular_Input")
     void invalidUserAccountRegisterTooLongLastNameTest() {
@@ -148,7 +148,7 @@ public class RegisterAccountModalTest extends TestMethods{
 
     //Test 002k -> invalid user account creation test - too long email (75 chars -> name, domain)
     @Test
-    @DisplayName("Invalid User Account Register Test - Too Long Email")
+    @DisplayName("Invalid User Account Creation Test - Too Long Email")
     @Tag("Invalid_User_Account_Creation")
     @Tag("Too_Long_Singular_Input")
     void invalidUserAccountRegisterTooLongEmailTest() {
@@ -160,7 +160,7 @@ public class RegisterAccountModalTest extends TestMethods{
 
     //Test 002l -> invalid user account creation test - too long password/confirm password (75 chars) (the user account gets created, test has failed)
     @Test
-    @DisplayName("Invalid User Account Register Test - Too Long Password And Confirm Password")
+    @DisplayName("Invalid User Account Creation Test - Too Long Password And Confirm Password")
     @Tag("Invalid_User_Account_Creation")
     @Tag("Too_Long_Singular_Input")
     void invalidUserAccountRegisterTooLongPasswordConfirmTest() {
@@ -168,6 +168,20 @@ public class RegisterAccountModalTest extends TestMethods{
         navigateToRegisterAccountModalTest();
         //invalid user account creation - too long password/confirm password (75 chars)
         invalidRegisterAccountModalTooLongPasswordConfirmTest();
+    }
+
+    //invalid singular input format
+
+    //Test 002m -> invalid user account creation test - invalid first name format (special symbols only) (the user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid First Name Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidUserAccountRegisterInvalidFirstNameFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - invalid first name format (special symbols only)
+        invalidRegisterAccountModalInvalidFirstNameFormatTest();
     }
 
 }
