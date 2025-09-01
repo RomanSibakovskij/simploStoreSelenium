@@ -51,4 +51,18 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountInfoNoEditedFirstNameTest();
     }
 
+    //Test 003c -> invalid edit user account information test - no edited last name (the error doesn't get triggered)
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - No Edited Last Name")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("No_Singular_Input")
+    void invalidEditUserAccountDataNoEditLastNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - no edited last name
+        invalidEditUserAccountInfoNoEditedLastNameTest();
+    }
+
 }
