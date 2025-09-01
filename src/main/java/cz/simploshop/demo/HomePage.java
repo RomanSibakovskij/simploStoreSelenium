@@ -73,5 +73,92 @@ public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {super(driver);}
 
+    //home page web element assert methods
+    //carousel section
+    public boolean isHomePageCarouselImgScrollLeftButtonDisplayed() {return homePageCarouselImgScrollLeftButton.isDisplayed();}
+    public boolean isHomePageCarouselImgScrollRightButtonDisplayed() {return homePageCarouselImgScrollRightButton.isDisplayed();}
+
+    public boolean isHomePageCarouselPaginationButtonDisplayed(){
+        return homePageCarouselPaginationButtonElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageCarouselImageDisplayed(){
+        return homePageCarouselImgElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+
+    //buy for room category section
+    public boolean isHomePageRoomCategorySectionTitleDisplayed() {return homePageRoomCategorySectionTitle.isDisplayed();}
+
+    public boolean isHomePageRoomCategoryImgDisplayed(){
+        return homePageRoomCategoryImgElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageRoomCategoryNameLinkDisplayed(){
+        return homePageRoomCategoryNameLinkElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+
+    //chosen products section
+    public boolean isHomePageChosenProductsSectionTitleDisplayed() {return homePageChosenProductsSectionTitle.isDisplayed();}
+    public boolean isHomePageChosenProductsScrollLeftButtonDisplayed() {return homePageChosenProductsScrollLeftButton.isDisplayed();}
+    public boolean isHomePageChosenProductsScrollRightButtonDisplayed() {return homePageChosenProductsScrollRightButton.isDisplayed();}
+
+    public boolean isHomePageChosenProductAddToWishlistButtonDisplayed(){
+        return homePageRoomChosenProductAddToWishlistButtonElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageChosenProductAddToCartButtonDisplayed(){
+        return homePageRoomChosenProductAddToCartButtonElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageChosenProductImageDisplayed(){
+        return homePageRoomChosenProductImgElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageChosenProductNameDisplayed(){
+        return homePageRoomChosenProductNameElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageChosenProductUnitPriceDisplayed(){
+        return homePageRoomChosenProductUnitPriceElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageChosenProductDetailsButtonDisplayed(){
+        return homePageRoomChosenProductDetailsButtonElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+
+    //garden furniture section
+    public boolean isHomePageGardenFurnitureImgDisplayed(){return homePageGardenFurnitureImg.isDisplayed();}
+    public boolean isHomePageGardenFurnitureTitleDisplayed(){return homePageGardenFurnitureTitle.isDisplayed();}
+    public boolean isHomePageGardenFurnitureButtonDisplayed(){return homePageGardenFurnitureButton.isDisplayed();}
+    //latest articles section
+    public boolean isHomePageLatestArticleSectionTitleDisplayed(){return homePageLatestArticleSectionTitle.isDisplayed();}
+
+    public boolean isHomePageLatestArticleImageDisplayed(){
+        return homePageLatestArticleImgElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageLatestArticleTitleDisplayed(){
+        return homePageLatestArticleTitleElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageLatestArticleTextDisplayed(){
+        return homePageLatestArticleTextElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageLatestArticleUserProfileImgDisplayed(){
+        return homePageLatestArticleUserProfileImgElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageLatestArticleUsernameDisplayed(){
+        return homePageLatestArticleUsernameElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+    public boolean isHomePageLatestArticleTimePostedDisplayed(){
+        return homePageLatestArticleTimePostedElements.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
 
 }

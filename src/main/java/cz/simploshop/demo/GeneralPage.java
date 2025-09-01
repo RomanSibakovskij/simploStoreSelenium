@@ -104,5 +104,60 @@ public class GeneralPage extends BasePage {
 
     public GeneralPage(WebDriver driver) {super(driver);}
 
+    //general page web element assert methods
+    //warning box
+    public boolean isWarningBoxTitleDisplayed() {return warningBoxTitle.isDisplayed();}
+    public boolean isWarningBoxCloseButtonDisplayed() {return warningBoxCloseButton.isDisplayed();}
+    public boolean isWarningBoxTextDisplayed() {return warningBoxText.isDisplayed();}
+    public boolean isWarningBoxAdminInterfaceButtonDisplayed() {return warningBoxAdminInterfaceButton.isDisplayed();}
+    public boolean isWarningBoxMoreAboutEShopSolutionButtonDisplayed() {return warningBoxMoreAboutEShopSolutionButton.isDisplayed();}
+    //upper header
+    public boolean isUpperHeaderHomePageLogoLinkDisplayed() {return upperHeaderHomePageLogoLink.isDisplayed();}
+    public boolean isUpperHeaderSearchBarInputDisplayed() {return upperHeaderSearchBarInputField.isDisplayed();}
+    public boolean isUpperHeaderShoppingCartButtonDisplayed() {return upperHeaderShoppingCartButton.isDisplayed();}
+    public boolean isUpperHeaderLanguageDropdownMenuDisplayed() {return upperHeaderLanguageDropdownMenu.isDisplayed();}
+    //lower header
+    public boolean isLowerHeaderNavBarDropdownLinkDisplayed() {
+        return lowerHeaderNavBarDropdownLinkElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+    //footer
+    public boolean isFooterNewsletterSubtextDisplayed() {return footerNewsletterSubtext.isDisplayed();}
+    public boolean isFooterNewsletterBackgroundTextDisplayed() {return footerNewsletterBackgroundText.isDisplayed();}
+    public boolean isFooterNewsletterSubInputFieldDisplayed() {return footerNewsletterSubInputField.isDisplayed();}
+    public boolean isFooterNewsletterSubscribeButtonDisplayed() {return footerNewsletterSubscribeButton.isDisplayed();}
+    //lower footer
+    public boolean isFooterHomePageLogoLinkDisplayed() {return footerHomePageLogoLink.isDisplayed();}
+    public boolean isFooterSimploShopPlatformSubtextDisplayed() {return footerSimploShopPlatformSubtext.isDisplayed();}
+    public boolean isFooterSimploShopPlatformLinkDisplayed() {return footerSimploShopPlatformLink.isDisplayed();}
+    //categories section
+    public boolean isFooterCategoriesSectionTitleDisplayed() {return footerCategoriesSectionTitle.isDisplayed();}
+
+    public boolean isFooterCategoriesLinkDisplayed() {
+        return footerCategoriesLinkElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+
+    //rooms section
+    public boolean isFooterRoomsSectionTitleDisplayed() {return footerRoomsSectionTitle.isDisplayed();}
+
+    public boolean isFooterRoomsLinkDisplayed() {
+        return footerRoomsLinkElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+
+    //contact us section
+    public boolean isFooterContactUsSectionTitleDisplayed() {return footerContactUsSectionTitle.isDisplayed();}
+    public boolean isFooterPhoneSubtextDisplayed() {return footerPhoneSubtext.isDisplayed();}
+    public boolean isFooterPhoneDisplayed(){return footerPhoneLink.isDisplayed();}
+    public boolean isFooterEmailSubtextDisplayed() {return footerEmailSubtext.isDisplayed();}
+    public boolean isFooterEmailDisplayed(){return footerEmailLink.isDisplayed();}
+    //follow us section
+    public boolean isFooterFollowUsSectionTitleDisplayed() {return footerFollowUsSectionTitle.isDisplayed();}
+    public boolean isFooterFacebookIconDisplayed() {return footerFacebookIcon.isDisplayed();}
+    public boolean isFooterInstagramIconDisplayed() {return footerInstagramIcon.isDisplayed();}
+    //created by section
+    public boolean isFooterCreatedBySimploLinkDisplayed() {return footerCreatedBySimploLink.isDisplayed();}
+    public boolean isFooterCopyrightTextDisplayed() {return footerCopyrightText.isDisplayed();}
 
 }
