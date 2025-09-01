@@ -120,4 +120,18 @@ public class RegisterAccountModalTest extends TestMethods{
         invalidRegisterAccountModalTooShortPasswordConfirmTest();
     }
 
+    //too long singular input
+
+    //Test 002i -> invalid user account creation test - too long first name (51 chars)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Long First Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserAccountRegisterTooLongFirstNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - too long first name (100 chars)
+        invalidRegisterAccountModalTooLongFirstNameTest();
+    }
+
 }
