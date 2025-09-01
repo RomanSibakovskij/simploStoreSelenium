@@ -2,14 +2,18 @@ package cz.simploshop.demo.utilities;
 
 import cz.simploshop.demo.*;
 import cz.simploshop.demo.modals.*;
+import cz.simploshop.demo.modals.invalid.scenarios.registeraccountmodal.*;
 import cz.simploshop.demo.loggers.*;
 import cz.simploshop.demo.web.element.asserts.*;
 import cz.simploshop.demo.text.element.asserts.*;
 import cz.simploshop.demo.screenshot.*;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.slf4j.*;
 
 public class TestMethods extends BaseTest implements PageWebElementAsserts, PageTextElementAsserts, PageDataLoggers, ScreenshotMethod {
+
+    protected static final Logger logger = LoggerFactory.getLogger(TestMethods.class);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -97,6 +101,61 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         assertEquals(registerAccountModal.getUsername(), generalPage.getUpperHeaderUsername(), "The usernames don't match expectations or the user account creation process has failed.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid User Account Creation Test Result");
+    }
+
+    //invalid user register account tests
+
+    //no singular input
+
+    //invalid register account modal test method - no first name
+    protected void invalidRegisterAccountModalNoFirstNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalNoSingularInput registerAccountModalNoSingularInput = new RegisterAccountModalNoSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //click "Password strength" dropdown button
+        registerAccountModal.clickPasswordStrengthDropdownButton();
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - no first name
+        registerAccountModalNoSingularInput.invalidRegisterInputDataNoFirstNameGetter();
+        //don't input register first name into first name input field
+        registerAccountModalNoSingularInput.inputNoFirstNameIntoRegisterFirstNameInputField();
+        //input valid register last name into last name input field
+        registerAccountModalNoSingularInput.inputValidLastNameIntoRegisterLastNameInputField();
+        //input valid register email into email input field
+        registerAccountModalNoSingularInput.inputValidEmailIntoRegisterEmailInputField();
+        //input valid register password into password input field
+        registerAccountModalNoSingularInput.inputValidPasswordIntoRegisterPasswordInputField();
+        //click "View Password" button
+        registerAccountModal.clickViewPasswordButton();
+        //input valid matching register confirm password into confirm password input field
+        registerAccountModalNoSingularInput.inputValidConfirmPasswordIntoRegisterConfirmPasswordInputField();
+        //click "View Confirm Password" button
+        registerAccountModal.clickViewConfirmPasswordButton();
+        //capture screenshot of the register account modal display after invalid data input - no first name
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - No First Name");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("Pole je povinné", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The missing first name input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The missing first name input error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No First Name");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

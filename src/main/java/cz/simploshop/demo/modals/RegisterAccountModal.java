@@ -77,6 +77,9 @@ public class RegisterAccountModal extends BasePage{
     //list elements
     @FindBy(xpath = "//div[@class='hidden w-full flex-col items-center gap-6 md:flex']/ul/li")
     private List<WebElement> registerAccountModalRegisterBenefitElements;
+    //invalid singular input error message
+    @FindBy(xpath = "//div[@class='sim-error']")
+    private WebElement registerAccountModalInvalidSingularInputError;
 
     //valid register input data
     private static String validRegisterFirstName;
@@ -162,6 +165,9 @@ public class RegisterAccountModal extends BasePage{
     public String getRegisterAccountModalRegisterBenefitsSectionTitle() {return registerAccountModalRegisterBenefitsSectionTitle.getText();}
     public String getRegisterAccountModalRegisterBenefitsLoginSubtitle() {return registerAccountModalRegisterBenefitsLoginSubtitle.getText();}
     public List<String> getRegisterAccountModalRegisterBenefits(){return registerAccountModalRegisterBenefitElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
+    //register account modal singular input error message getter
+    public String getRegisterAccountModalSingularInputErrorMsg() {return registerAccountModalInvalidSingularInputError.getText();}
 
     //register account modal web element assert methods
     public boolean isRegisterAccountModalTitleDisplayed() {return registerAccountModalTitle.isDisplayed();}

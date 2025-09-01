@@ -18,5 +18,20 @@ public class RegisterAccountModalTest extends TestMethods{
         validRegisterAccountModalTest();
     }
 
+    //invalid user account creation tests
+
+    //no singular input
+
+    //Test 002a -> invalid user account creation test - no first name (the error wasn't triggered)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - No First Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidUserAccountRegisterNoFirstNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - no first name
+        invalidRegisterAccountModalNoFirstNameTest();
+    }
 
 }
