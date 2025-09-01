@@ -18,7 +18,45 @@ public class RegisterAccountModalTooShortSingularInput extends BasePage{
     @FindBy(xpath = "//div[@class='sim-auth-form__wrapper']//form//input[@id='v-0-3-26']")
     private WebElement registerAccountModalConfirmPasswordInputField;
 
+    //invalid register input data - too short singular input
+    private String tooShortRegisterFirstName;
+
+    //valid register input data - for remaining inputs
+    private String validRegisterFirstName;
+    private String validRegisterLastName;
+    private String validRegisterEmail;
+    private String validRegisterPassword;
+
     public RegisterAccountModalTooShortSingularInput(WebDriver driver) {super(driver);}
 
+    //invalid register input data getter - too short first name (1 char)
+    public void invalidRegisterInputDataTooShortFirstNameGetter(){
+
+        tooShortRegisterFirstName = "G";
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Invalid generated register input data (too short first name): " + "\n");
+
+        logger.info("Too short register first name: " + tooShortRegisterFirstName);
+        logger.info("Valid register last name (too short first name): " + validRegisterLastName);
+        logger.info("Valid register email (too short first name): " + validRegisterEmail);
+        logger.info("Valid register password (too short first name): " + validRegisterPassword);
+        logger.info("Valid register matching confirm password (too short first name): " + validRegisterPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - too short first name
+    public void inputTooShortFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(tooShortRegisterFirstName);}
+
+    //valid register data input methods - for remaining inputs
+    public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}
+    public void inputValidLastNameIntoRegisterLastNameInputField(){registerAccountModalLastNameInputField.sendKeys(validRegisterLastName);}
+    public void inputValidEmailIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(validRegisterEmail);}
+    public void inputValidPasswordIntoRegisterPasswordInputField(){registerAccountModalPasswordInputField.sendKeys(validRegisterPassword);}
+    public void inputValidConfirmPasswordIntoRegisterConfirmPasswordInputField(){registerAccountModalConfirmPasswordInputField.sendKeys(validRegisterPassword);}
 
 }
