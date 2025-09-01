@@ -21,6 +21,7 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
     protected void navigateToRegisterAccountModalTest(){
         GeneralPage generalPage = new GeneralPage(driver);
         HomePage homePage = new HomePage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
         //wait for elements to load
         generalPage.waitForElementsToLoad(1500);
         //general page warning box web element assert (displayed only once for each test start before the user clicks a button)
@@ -49,6 +50,14 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         logHomePageLatestArticleData(homePage);
         //click "Register" button
         generalPage.clickRegisterButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1500);
+        //click "Password strength" dropdown button
+        registerAccountModal.clickPasswordStrengthDropdownButton();
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
         //capture screenshot of the test result
         captureScreenshot(driver, "User Navigation To Register Account Modal Test Result");
     }
@@ -67,8 +76,6 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
         //general page (header section text element assert
         isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
-        //click "Password strength" dropdown button
-        registerAccountModal.clickPasswordStrengthDropdownButton();
         //register account modal web element assert
         isRegisterAccountModalWebElementDisplayed(registerAccountModal);
         //register account modal page text element assert
@@ -126,8 +133,6 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         isRegisterAccountModalTextElementAsExpected(registerAccountModal);
         //capture screenshot of the register account modal display before data input
         captureScreenshot(driver, "Register Account Modal Display Before Data Input");
-        //invalid register account modal data getter - no first name
-        registerAccountModalNoSingularInput.invalidRegisterInputDataNoFirstNameGetter();
         //don't input register first name into first name input field
         registerAccountModalNoSingularInput.inputNoFirstNameIntoRegisterFirstNameInputField();
         //input valid register last name into last name input field
@@ -169,8 +174,6 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
         //general page (header section text element assert
         isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
-        //click "Password strength" dropdown button
-        registerAccountModal.clickPasswordStrengthDropdownButton();
         //register account modal web element assert
         isRegisterAccountModalWebElementDisplayed(registerAccountModal);
         //register account modal page text element assert
@@ -207,6 +210,55 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Creation Test Result - No Last Name");
+    }
+
+    //invalid register account modal test method - no email
+    protected void invalidRegisterAccountModalNoEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalNoSingularInput registerAccountModalNoSingularInput = new RegisterAccountModalNoSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - no email
+        registerAccountModalNoSingularInput.invalidRegisterInputDataNoEmailGetter();
+        //input valid register first name into first name input field
+        registerAccountModalNoSingularInput.inputValidFirstNameIntoRegisterFirstNameInputField();
+        //input valid register last name into last name input field
+        registerAccountModalNoSingularInput.inputValidLastNameIntoRegisterLastNameInputField();
+        //don't input register email into email input field
+        registerAccountModalNoSingularInput.inputNoEmailIntoRegisterEmailInputField();
+        //input valid register password into password input field
+        registerAccountModalNoSingularInput.inputValidPasswordIntoRegisterPasswordInputField();
+        //click "View Password" button
+        registerAccountModal.clickViewPasswordButton();
+        //input valid matching register confirm password into confirm password input field
+        registerAccountModalNoSingularInput.inputValidConfirmPasswordIntoRegisterConfirmPasswordInputField();
+        //click "View Confirm Password" button
+        registerAccountModal.clickViewConfirmPasswordButton();
+        //capture screenshot of the register account modal display after invalid data input - no email
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - No Email");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("Pole je povinné", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The missing email input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The missing email input error wasn't triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No Email");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

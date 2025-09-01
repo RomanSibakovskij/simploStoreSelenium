@@ -46,4 +46,16 @@ public class RegisterAccountModalTest extends TestMethods{
         invalidRegisterAccountModalNoLastNameTest();
     }
 
+    //Test 002c -> invalid user account creation test - no email (the error wasn't triggered)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - No Email")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidUserAccountRegisterNoEmailTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - no email
+        invalidRegisterAccountModalNoEmailTest();
+    }
+
 }

@@ -21,6 +21,7 @@ public class RegisterAccountModalNoSingularInput extends BasePage{
     //invalid register input data - no singular input
     private String noRegisterFirstName;
     private String noRegisterLastName;
+    private String noRegisterEmail;
 
     //valid register input data - for remaining inputs
     private String validRegisterFirstName;
@@ -75,6 +76,29 @@ public class RegisterAccountModalNoSingularInput extends BasePage{
 
     //invalid register data input method - no last name
     public void inputNoLastNameIntoRegisterLastNameInputField(){registerAccountModalLastNameInputField.sendKeys(noRegisterLastName);}
+
+    //invalid register input data getter - no email
+    public void invalidRegisterInputDataNoEmailGetter(){
+
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        noRegisterEmail = "";
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Invalid generated register input data (no email): " + "\n");
+
+        logger.info("Valid register first name (no email): " + validRegisterFirstName);
+        logger.info("Valid register last name (no email): " + validRegisterLastName);
+        logger.info("No register email: " + noRegisterEmail);
+        logger.info("Valid register password (no email): " + validRegisterPassword);
+        logger.info("Valid register matching confirm password (no email): " + validRegisterPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - no email
+    public void inputNoEmailIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(noRegisterEmail);}
 
     //valid register data input methods - for remaining inputs
     public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}
