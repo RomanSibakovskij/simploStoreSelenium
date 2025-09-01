@@ -21,6 +21,7 @@ public class RegisterAccountModalTooShortSingularInput extends BasePage{
     //invalid register input data - too short singular input
     private String tooShortRegisterFirstName;
     private String tooShortRegisterLastName;
+    private String tooShortRegisterEmail;
 
     //valid register input data - for remaining inputs
     private String validRegisterFirstName;
@@ -75,6 +76,29 @@ public class RegisterAccountModalTooShortSingularInput extends BasePage{
 
     //invalid register data input method - too short last name
     public void inputTooShortLastNameIntoRegisterLastNameInputField(){registerAccountModalLastNameInputField.sendKeys(tooShortRegisterLastName);}
+
+    //invalid register input data getter - too short email (1 char -> name, domain)
+    public void invalidRegisterInputDataTooShortEmailGetter(){
+
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        tooShortRegisterEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Invalid generated register input data (too short email): " + "\n");
+
+        logger.info("Valid register first name (too short email): " + validRegisterFirstName);
+        logger.info("Valid register last name (too short email): " + validRegisterLastName);
+        logger.info("Too short register email: " + tooShortRegisterEmail);
+        logger.info("Valid register password (too short email): " + validRegisterPassword);
+        logger.info("Valid register matching confirm password (too short email): " + validRegisterPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - too short email
+    public void inputTooShortEmailIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(tooShortRegisterEmail);}
 
     //valid register data input methods - for remaining inputs
     public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}
