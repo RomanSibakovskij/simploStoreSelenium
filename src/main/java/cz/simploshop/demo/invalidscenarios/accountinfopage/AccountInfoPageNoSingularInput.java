@@ -21,7 +21,57 @@ public class AccountInfoPageNoSingularInput extends BasePage {
     @FindBy(xpath = "//main//section[3]//input[@id='v-0-4-0-0-37']")
     private WebElement accountInfoPageConfirmNewPasswordInputField;
 
+    //invalid edited user account input data - no singular input
+    private String noEditedFirstName;
+
+    //valid edited user account input data - for remaining inputs
+    private String validEditedUserFirstName;
+    private String validEditedUserLastName;
+    private String validEditedUserEmail;
+    private String validUserPassword;
+    private String validEditedUserNewPassword;
+    private String validEditedConfirmNewPassword;
+
     public AccountInfoPageNoSingularInput(WebDriver driver) {super(driver);}
 
+    //invalid edited user input data getter method - no edited first name
+    public void invalidEditedUserInfoNoFirstNameGetter(){
+
+        noEditedFirstName = "";
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validEditedUserEmail = TestDataGenerator.generateRandomEmailAddress(5);
+
+        System.out.println("Invalid generated edited user account information data (no edited first name):" + "\n");
+
+        logger.info("No edited user first name: " + noEditedFirstName);
+        logger.info("Valid generated edited user last name (no edited first name): " + validEditedUserLastName);
+        logger.info("Valid generated edited user email (no edited first name): " + validEditedUserEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - no edited first name
+    public void inputNoEditedUserFirstNameIntoFirstNameInputField(){
+        accountInfoPageFirstNameInputField.clear();
+        accountInfoPageFirstNameInputField.sendKeys(noEditedFirstName);
+    }
+
+    //valid edited user account data input methods - for remaining inputs
+    public void inputValidEditedUserFirstNameIntoFirstNameInputField(){
+        accountInfoPageFirstNameInputField.clear();
+        accountInfoPageFirstNameInputField.sendKeys(validEditedUserFirstName);
+    }
+    public void inputValidEditedUserLastNameIntoLastNameInputField(){
+        accountInfoPageLastNameInputField.clear();
+        accountInfoPageLastNameInputField.sendKeys(validEditedUserLastName);
+    }
+    public void inputValidEditedUserEmailIntoEmailInputField(){
+        accountInfoPageEmailInputField.clear();
+        accountInfoPageEmailInputField.sendKeys(validEditedUserEmail);
+    }
+    public void inputValidUserPasswordIntoPasswordInputField(){accountInfoPagePasswordInputField.sendKeys(validUserPassword);}
+    public void inputValidUserNewPasswordIntoNewPasswordInputField(){accountInfoPageNewPasswordInputField.sendKeys(validEditedUserNewPassword);}
+    public void inputValidUserConfirmNewPasswordIntoConfirmNewPasswordInputField(){accountInfoPageConfirmNewPasswordInputField.sendKeys(validEditedConfirmNewPassword);}
 
 }

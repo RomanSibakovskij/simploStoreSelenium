@@ -75,6 +75,9 @@ public class AccountInformationPage extends BasePage {
     private WebElement accountRemovalModalCancelButton;
     @FindBy(xpath = "//div[@class='sim-modal__content']//button[2]")
     private WebElement accountRemovalModalDeleteButton;
+    //invalid singular input error message
+    @FindBy(xpath = "//div[@role='alert']")
+    private WebElement accountInfoPageInvalidSingularInputError;
 
     //valid edited user account input data
     private static String validEditedUserFirstName;
@@ -180,6 +183,11 @@ public class AccountInformationPage extends BasePage {
 
     //private input data getters
     public String getEditedUsername(){return validEditedUserFirstName + " " + validEditedUserLastName;}
+    public String getEditedUserEmail(){return validEditedUserEmail;}
+    public String getEditedUserPassword(){return validEditedUserNewPassword;}
+
+    //account information page singular input error message getter
+    public String getAccountInfoPageSingularInputErrorMsg() {return accountInfoPageInvalidSingularInputError.getText();}
 
     //account information page web element assert methods
     //my user section

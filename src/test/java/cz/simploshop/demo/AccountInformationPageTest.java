@@ -33,4 +33,22 @@ public class AccountInformationPageTest extends TestMethods{
         validEditUserAccountLoginPasswordTest();
     }
 
+    //invalid edit user account information tests
+
+    //no singular input
+
+    //Test 003b -> invalid edit user account information test - no edited first name (the error doesn't get triggered)
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - No Edited First Name")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("No_Singular_Input")
+    void invalidEditUserAccountDataNoEditFirstNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - no edited first name
+        invalidEditUserAccountInfoNoEditedFirstNameTest();
+    }
+
 }
