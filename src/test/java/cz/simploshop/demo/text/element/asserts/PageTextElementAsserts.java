@@ -1,6 +1,7 @@
 package cz.simploshop.demo.text.element.asserts;
 
 import cz.simploshop.demo.*;
+import cz.simploshop.demo.modals.*;
 
 import java.util.*;
 
@@ -97,5 +98,45 @@ public interface PageTextElementAsserts {
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //register account modal text element assert test method
+    default void isRegisterAccountModalTextElementAsExpected(RegisterAccountModal registerAccountModal){
+        //assert register account modal title is as expected
+        assertEquals("Registrace", registerAccountModal.getRegisterAccountModalTitle(),"The register account modal title doesn't match expectations");
+        //input form
+        //assert register account modal first name subtext is as expected
+        assertEquals("Jméno *", registerAccountModal.getRegisterAccountModalFirstNameSubtext(),"The register account modal first name subtext doesn't match expectations");
+        //assert register account modal last name subtext is as expected
+        assertEquals("Příjmení *", registerAccountModal.getRegisterAccountModalLastNameSubtext(),"The register account modal last name subtext doesn't match expectations");
+        //assert register account modal email subtext is as expected
+        assertEquals("Email *", registerAccountModal.getRegisterAccountModalEmailSubtext(),"The register account modal email subtext doesn't match expectations");
+        //assert register account modal password subtext is as expected
+        assertEquals("Heslo *", registerAccountModal.getRegisterAccountModalPasswordSubtext(),"The register account modal password subtext doesn't match expectations");
+        //assert register account modal confirm password subtext is as expected
+        assertEquals("Heslo znovu *", registerAccountModal.getRegisterAccountModalConfirmPasswordSubtext(),"The register account modal confirm password subtext doesn't match expectations");
+        //assert register account modal password strength level text is as expected
+        assertEquals("Velmi silné heslo by mělo obsahovat minimálně 8 znaků, malá i velká písmena, číslice a znaky.", registerAccountModal.getRegisterAccountModalPasswordStrengthLevelText(),"The register account modal password strength level text doesn't match expectations");
+        //assert register account modal sub to newsletter subtext is as expected
+        assertEquals("Chci dostávat novinky ohledně e-shopové platformy", registerAccountModal.getRegisterAccountModalSubToNewsletterSubtext(),"The register account modal sub to newsletter subtext doesn't match expectations");
+        //alternatives section
+        //assert register account modal or choice subtext is as expected
+        assertEquals("nebo", registerAccountModal.getRegisterAccountModalOrChoiceSubtext(),"The register account modal or choice subtext doesn't match expectations");
+        //assert register account modal continue with subtext is as expected
+        assertEquals("Pokračovat přes", registerAccountModal.getRegisterAccountModalContinueWithSubtext(),"The register account modal continue with subtext doesn't match expectations");
+        //assert register account modal privacy policy and terms agreement text is as expected
+        assertEquals("Kliknutím na Zaregistrovat se nebo Pokračovat přes Google, Facebook nebo Apple souhlasím se Zásadami zpracování osobních údajů i s Podmínkami užití.", registerAccountModal.getRegisterAccountModalPrivacyPolicyAndTermsAgreementText(),"The register account modal privacy policy and terms agreement text doesn't match expectations");
+        //register benefits section
+        //assert register account modal register benefits section title is as expected
+        assertEquals("Jaké výhody registrací získáte?", registerAccountModal.getRegisterAccountModalRegisterBenefitsSectionTitle(),"The register account modal register benefits section title doesn't match expectations");
+        //assert register account modal register benefits login subtitle is as expected
+        assertEquals("JIŽ U NÁS MÁTE ÚČET?", registerAccountModal.getRegisterAccountModalRegisterBenefitsLoginSubtitle(),"The register account modal register benefits section login subtitle doesn't match expectations");
+        //assert register account modal register benefits are as expected (as a list)
+        List<String> expectedRegisterBenefitsList = Arrays.asList("Přehled stavů svých objednávek", "Správa adres a informací, které umožní rychlejší objednávání", "Snadnější vrácení zboží", "Zasílání novinek e-mailem", "Hlídací pes");
+        List<String> actualRegisterBenefitsList = registerAccountModal.getRegisterAccountModalRegisterBenefits();
+        assertEquals(expectedRegisterBenefitsList, actualRegisterBenefitsList,"The register account modal register benefits list doesn't match expectations");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 }

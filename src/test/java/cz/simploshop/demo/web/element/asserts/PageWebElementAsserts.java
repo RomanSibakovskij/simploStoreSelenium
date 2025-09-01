@@ -1,6 +1,7 @@
 package cz.simploshop.demo.web.element.asserts;
 
 import cz.simploshop.demo.*;
+import cz.simploshop.demo.modals.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -154,6 +155,79 @@ public interface PageWebElementAsserts {
         assertTrue(homePage.isHomePageLatestArticleUsernameDisplayed(), "The home page latest article usernames aren't displayed");
         //assert home page latest article time posted stamps are displayed (as a list)
         assertTrue(homePage.isHomePageLatestArticleTimePostedDisplayed(), "The home page latest article time posted stamps aren't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //register account modal web element assert test method
+    default void isRegisterAccountModalWebElementDisplayed(RegisterAccountModal registerAccountModal) {
+        //assert register account modal title is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalTitleDisplayed(), "The register account modal title isn't displayed");
+        //input form
+        //assert register account modal first name subtext is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalFirstNameSubtextDisplayed(), "The register account modal first name subtext isn't displayed");
+        //assert register account modal first name input field is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalFirstNameInputFieldDisplayed(), "The register account modal first name input field isn't displayed");
+        //assert register account modal last name subtext is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalLastNameSubtextDisplayed(), "The register account modal last name subtext isn't displayed");
+        //assert register account modal last name input field is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalLastNameInputFieldDisplayed(), "The register account modal last name input field isn't displayed");
+        //assert register account modal email subtext is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalEmailSubtextDisplayed(), "The register account modal email subtext isn't displayed");
+        //assert register account modal email input field is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalEmailInputFieldDisplayed(), "The register account modal email input field isn't displayed");
+        //assert register account modal password subtext is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalPasswordSubtextDisplayed(), "The register account modal password subtext isn't displayed");
+        //assert register account modal view password button is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalViewPasswordButtonDisplayed(), "The register account modal view password button isn't displayed");
+        //assert register account modal password input field is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalPasswordInputFieldDisplayed(), "The register account modal password input field isn't displayed");
+        //assert register account modal confirm password subtext is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalConfirmPasswordSubtextDisplayed(), "The register account modal confirm password subtext isn't displayed");
+        //assert register account modal view confirm password button is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalViewConfirmPasswordButtonDisplayed(), "The register account modal view confirm password button isn't displayed");
+        //assert register account modal confirm password input field is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalConfirmPasswordInputFieldDisplayed(), "The register account modal confirm password input field isn't displayed");
+        //assert register account modal password strength meter is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalPasswordStrengthMeterDisplayed(), "The register account modal password strength meter isn't displayed");
+        //assert register account modal password strength dropdown button is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalPasswordStrengthLevelDropdownButtonDisplayed(), "The register account modal password strength level dropdown button isn't displayed");
+        //assert register account modal password strength level text is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalPasswordStrengthLevelTextDisplayed(), "The register account modal password strength level text isn't displayed");
+        //assert register account modal sub to newsletter subtext is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalSubToNewsletterSubtextDisplayed(), "The register account modal sub to newsletter subtext isn't displayed");
+        //assert register account modal sub to newsletter checkbox is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalSubToNewsletterCheckboxDisplayed(), "The register account modal sub to newsletter checkbox isn't displayed");
+        //assert register account modal register button is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalRegisterButtonDisplayed(), "The register account modal register button isn't displayed");
+        //alternatives section
+        //assert register account modal or choice subtext is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalOrChoiceSubtextDisplayed(), "The register account modal or choice subtext isn't displayed");
+        //assert register account modal continue with subtext is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalContinueWithSubtextDisplayed(), "The register account modal continue with subtext isn't displayed");
+        //assert register account modal first name subtext is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalFirstNameSubtextDisplayed(), "The register account modal first name subtext isn't displayed");
+        //assert register account modal google button is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalGoogleButtonDisplayed(), "The register account modal google button isn't displayed");
+        //assert register account modal seznam cz portal button is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalSeznamCzPortalButtonDisplayed(), "The register account modal seznam cz portal button isn't displayed");
+        //assert register account modal privacy policy and terms agreement text is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalPrivacyPolicyAndTermsAgreementTextDisplayed(), "The register account modal privacy policy and terms agreement text isn't displayed");
+        //assert register account modal privacy policy link is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalPrivacyPolicyLinkDisplayed(), "The register account modal privacy policy link isn't displayed");
+        //assert register account modal terms link is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalTermsLinkDisplayed(), "The register account modal terms link isn't displayed");
+        //register benefits section
+        //assert register account modal register benefits section title is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalRegisterBenefitsSectionTitleDisplayed(), "The register account modal register benefits section title isn't displayed");
+        //assert register account modal close button is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalCloseButtonDisplayed(), "The register account modal close button isn't displayed");
+        //assert register account modal register benefits login subtitle is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalRegisterBenefitsLoginSubtitleDisplayed(), "The register account register benefits login subtitle isn't displayed");
+        //assert register account modal register benefits login button is displayed
+        assertTrue(registerAccountModal.isRegisterAccountModalRegisterBenefitsLoginButtonDisplayed(), "The register account modal register benefits login button isn't displayed");
+        //assert register account modal register benefits are displayed (as a list)
+        assertTrue(registerAccountModal.isRegisterAccountModalRegisterBenefitElementsDisplayed(), "The register account modal register benefits aren't displayed");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

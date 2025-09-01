@@ -3,8 +3,10 @@ package cz.simploshop.demo.modals;
 import cz.simploshop.demo.utilities.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RegisterAccountModal extends BasePage{
 
@@ -76,7 +78,90 @@ public class RegisterAccountModal extends BasePage{
     @FindBy(xpath = "//div[@class='hidden w-full flex-col items-center gap-6 md:flex']/ul/li")
     private List<WebElement> registerAccountModalRegisterBenefitElements;
 
+    //valid register input data
+    private static String validRegisterFirstName;
+    private static String validRegisterLastName;
+    private static String validRegisterEmail;
+    private static String validRegisterPassword;
+
     public RegisterAccountModal(WebDriver driver) {super(driver);}
+
+    //valid register input data getter
+    public void validRegisterInputDataGetter(){
+
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Valid generated register input data: " + "\n");
+
+        logger.info("Valid register first name: " + validRegisterFirstName);
+        logger.info("Valid register last name: " + validRegisterLastName);
+        logger.info("Valid register email: " + validRegisterEmail);
+        logger.info("Valid register password: " + validRegisterPassword);
+        logger.info("Valid register matching confirm password: " + validRegisterPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //valid register data input methods
+    public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}
+    public void inputValidLastNameIntoRegisterLastNameInputField(){registerAccountModalLastNameInputField.sendKeys(validRegisterLastName);}
+    public void inputValidEmailIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(validRegisterEmail);}
+    public void inputValidPasswordIntoRegisterPasswordInputField(){registerAccountModalPasswordInputField.sendKeys(validRegisterPassword);}
+    public void inputValidConfirmPasswordIntoRegisterConfirmPasswordInputField(){registerAccountModalConfirmPasswordInputField.sendKeys(validRegisterPassword);}
+
+    //click "Password strength" button method
+    public void clickPasswordStrengthDropdownButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(registerAccountModalPasswordStrengthLevelDropdownButton).click().perform();
+    }
+
+    //click "View Password" button method
+    public void clickViewPasswordButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(registerAccountModalViewPasswordButton).click().perform();
+    }
+
+    //click "View Confirm Password" button method
+    public void clickViewConfirmPasswordButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(registerAccountModalViewConfirmPasswordButton).click().perform();
+    }
+
+    //click "Register" button method
+    public void clickRegisterButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(registerAccountModalRegisterButton).click().perform();
+    }
+
+    //private data getters
+    public String getFirstName() {return validRegisterFirstName;}
+    public String getLastName() {return validRegisterLastName;}
+    public String getUsername(){return validRegisterFirstName + " " + validRegisterLastName;}
+    public String getEmail(){return validRegisterEmail;}
+    public String getPassword(){return validRegisterPassword;}
+
+    //register account modal text element getters
+    public String getRegisterAccountModalTitle() {return registerAccountModalTitle.getText();}
+    //input form
+    public String getRegisterAccountModalFirstNameSubtext() {return registerAccountModalFirstNameSubtext.getText();}
+    public String getRegisterAccountModalLastNameSubtext() {return registerAccountModalLastNameSubtext.getText();}
+    public String getRegisterAccountModalEmailSubtext() {return registerAccountModalEmailSubtext.getText();}
+    public String getRegisterAccountModalPasswordSubtext() {return registerAccountModalPasswordSubtext.getText();}
+    public String getRegisterAccountModalConfirmPasswordSubtext() {return registerAccountModalConfirmPasswordSubtext.getText();}
+    public String getRegisterAccountModalPasswordStrengthLevelText() {return registerAccountModalPasswordStrengthLevelText.getText();}
+    public String getRegisterAccountModalSubToNewsletterSubtext() {return registerAccountModalSubToNewsletterSubtext.getText();}
+    //alternatives section
+    public String getRegisterAccountModalOrChoiceSubtext() {return registerAccountModalOrChoiceSubtext.getText();}
+    public String getRegisterAccountModalContinueWithSubtext() {return registerAccountModalContinueWithSubtext.getText();}
+    public String getRegisterAccountModalPrivacyPolicyAndTermsAgreementText() {return registerAccountModalPrivacyPolicyAndTermsAgreementText.getText();}
+    //register benefits section
+    public String getRegisterAccountModalRegisterBenefitsSectionTitle() {return registerAccountModalRegisterBenefitsSectionTitle.getText();}
+    public String getRegisterAccountModalRegisterBenefitsLoginSubtitle() {return registerAccountModalRegisterBenefitsLoginSubtitle.getText();}
+    public List<String> getRegisterAccountModalRegisterBenefits(){return registerAccountModalRegisterBenefitElements.stream().map(WebElement::getText).collect(Collectors.toList());}
 
     //register account modal web element assert methods
     public boolean isRegisterAccountModalTitleDisplayed() {return registerAccountModalTitle.isDisplayed();}

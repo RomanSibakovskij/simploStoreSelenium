@@ -4,7 +4,9 @@ import cz.simploshop.demo.utilities.BasePage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.*;
 
+import java.time.Duration;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -170,6 +172,13 @@ public class GeneralPage extends BasePage {
     //created by section
     public String getFooterCreatedBySimploLinkText() {return footerCreatedBySimploLink.getText();}
     public String getFooterCopyrightText() {return footerCopyrightText.getText();}
+
+    //username getter (due to unstable backend / network issues, wait time is extended)
+    public String getUpperHeaderUsername() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(6500));
+        wait.until(ExpectedConditions.visibilityOf(upperHeaderUsername));
+        return upperHeaderUsername.getText();
+    }
 
     //general page web element assert methods
     //warning box
