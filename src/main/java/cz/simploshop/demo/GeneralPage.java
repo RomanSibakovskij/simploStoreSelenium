@@ -2,11 +2,107 @@ package cz.simploshop.demo;
 
 import cz.simploshop.demo.utilities.BasePage;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.*;
 
 public class GeneralPage extends BasePage {
 
+    //general page web elements (elements all pages share)
+    //header(upper)
+    @FindBy(xpath = "//div[@class='sim-navbar__search-area']/a")
+    private WebElement upperHeaderHomePageLogoLink;
+    @FindBy(xpath = "//div[@class='sim-navbar__search-wrapper']//input")
+    private WebElement upperHeaderSearchBarInputField;
+    @FindBy(xpath = "//div[@class='sim-customer-login']/button[1]")
+    private WebElement upperHeaderLoginButton;
+    @FindBy(xpath = "//div[@class='sim-customer-shortcuts']/a")
+    private WebElement upperHeaderWishlistLink;
+    @FindBy(xpath = "//div[@class='sim-customer-login']/button[2]")
+    private WebElement upperHeaderRegisterButton;
+    //account dropdown option elements
+    @FindBy(xpath = "//div[@class='sim-customer-login']//li")
+    private List<WebElement> upperHeaderAccountOptionElements;
+    @FindBy(xpath = "//ul[@class='sim-popup-card__list']/div[1]/li[2]")
+    private WebElement upperHeaderAccountInformationOption;
+    @FindBy(xpath = "//ul[@class='sim-popup-card__list']/div[1]/li[3]")
+    private WebElement upperHeaderAccountAddressesOption;
+    @FindBy(xpath = "//ul[@class='sim-popup-card__list']/div[2]/li")
+    private WebElement upperHeaderAccountLogoutOption;
+    //singular elements
+    @FindBy(xpath = "//div[@class='sim-customer-shortcuts']/button")
+    private WebElement upperHeaderShoppingCartButton;
+    @FindBy(xpath = "//div[@class='sim-lang-switcher hidden lg:block']/button")
+    private WebElement upperHeaderLanguageDropdownMenu;
+    //user name element
+    @FindBy(xpath = "//span[@class='hidden truncate lg:block']")
+    private WebElement upperHeaderUsername;
+    //header(lower) -> list elements
+    @FindBy(xpath = "//nav[@class='sim-navbar__nav-el']/ul/li[@class='sim-navbar__menu-item']/a")
+    private List <WebElement> lowerHeaderNavBarDropdownLinkElements;
+    //footer
+    //newsletter section
+    @FindBy(xpath = "//h2[@class='sim-newsletter__heading']")
+    private WebElement footerNewsletterSubtext;
+    @FindBy(xpath = "//div[@class='sim-newsletter__subheading']")
+    private WebElement footerNewsletterBackgroundText;
+    @FindBy(xpath = "//div[@class='sim-el-group']//input")
+    private WebElement footerNewsletterSubInputField;
+    @FindBy(xpath = "//div[@class='sim-el-group']/button")
+    private WebElement footerNewsletterSubscribeButton;
+    //lower footer
+    @FindBy(xpath = "//div[@class='sim-footer__logo-area']/a[1]")
+    private WebElement footerHomePageLogoLink;
+    @FindBy(xpath = "//div[@class='sim-footer__logo-area']/p")
+    private WebElement footerSimploShopPlatformSubtext;
+    @FindBy(xpath = "//div[@class='sim-footer__logo-area']/a[2]")
+    private WebElement footerSimploShopPlatformLink;
+    //categories section
+    @FindBy(xpath = "//div[@class='sim-footer__cols']/div[1]//span[@class='sim-c-btn__content']")
+    private WebElement footerCategoriesSectionTitle;
+    @FindBy(xpath = "//div[@id='v-0-2-0']/ul/li/a")
+    private List <WebElement> footerCategoriesLinkElements;
+    //rooms section
+    @FindBy(xpath = "//div[@class='sim-footer__cols']/div[2]//span[@class='sim-c-btn__content']")
+    private WebElement footerRoomsSectionTitle;
+    @FindBy(xpath = "//div[@id='v-0-2-1']//a")
+    private List <WebElement> footerRoomsLinkElements;
+    //contact us section
+    @FindBy(xpath = "//div[@class='sim-footer__cols']/div[3]/span")
+    private WebElement footerContactUsSectionTitle;
+    @FindBy(xpath = "//div[@class='sim-footer__cols']/div[3]/div[1]//span")
+    private WebElement footerPhoneSubtext;
+    @FindBy(xpath = "//div[@class='sim-footer__cols']/div[3]/div[1]//a")
+    private WebElement footerPhoneLink;
+    @FindBy(xpath = "//div[@class='sim-footer__cols']/div[3]/div[2]//span")
+    private WebElement footerEmailSubtext;
+    @FindBy(xpath = "//div[@class='sim-footer__cols']/div[3]/div[2]//a")
+    private WebElement footerEmailLink;
+    //follow us section
+    @FindBy(xpath = "//div[@class='sim-footer__cols']/div[4]/span")
+    private WebElement footerFollowUsSectionTitle;
+    @FindBy(xpath = "//div[@class='sim-footer__cols']/div[4]//a[1]")
+    private WebElement footerFacebookIcon;
+    @FindBy(xpath = "//div[@class='sim-footer__cols']/div[4]//a[2]")
+    private WebElement footerInstagramIcon;
+    //created by section
+    @FindBy(xpath = "//section[@class='sim-footer__signature']//a")
+    private WebElement footerCreatedBySimploLink;
+    @FindBy(xpath = "//section[@class='sim-footer__signature']//div[@class='md:justify-end']")
+    private WebElement footerCopyrightText;
+    //warning box elements
+    @FindBy(xpath = "//div[@class='flex flex-col gap-1']/strong")
+    private WebElement warningBoxTitle;
+    @FindBy(xpath = "//button[@class='sim-close-btn sim-menu-btn sim-close-btn--dark sim-ghost-btn-hover--dark']")
+    private WebElement warningBoxCloseButton;
+    @FindBy(xpath = "//div[@class='flex flex-col gap-1']/p")
+    private WebElement warningBoxText;
+    @FindBy(xpath = "//div[@class='mt-4 flex gap-4 max-sm:flex-col sm:flex-wrap']/a[1]")
+    private WebElement warningBoxAdminInterfaceButton;
+    @FindBy(xpath = "//div[@class='mt-4 flex gap-4 max-sm:flex-col sm:flex-wrap']/a[2]")
+    private WebElement warningBoxMoreAboutEShopSolutionButton;
 
     public GeneralPage(WebDriver driver) {super(driver);}
 
-    
+
 }
