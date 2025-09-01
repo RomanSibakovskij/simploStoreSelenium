@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class HomePage extends BasePage {
 
@@ -72,6 +73,21 @@ public class HomePage extends BasePage {
     private List <WebElement> homePageLatestArticleTimePostedElements;
 
     public HomePage(WebDriver driver) {super(driver);}
+
+    //home page text element getter methods
+    //buy for room category section
+    public String getHomePageRoomCategorySectionTitle() {return homePageRoomCategorySectionTitle.getText();}
+
+    public List<String> getHomePageRoomCategoryNameLinkText(){return homePageRoomCategoryNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
+    //chosen products section
+    public String getHomePageChosenProductsSectionTitle() {return homePageChosenProductsSectionTitle.getText();}
+
+    //garden furniture section
+    public String getHomePageGardenFurnitureTitle() {return homePageGardenFurnitureTitle.getText();}
+
+    //latest articles section
+    public String getHomePageLatestArticleSectionTitle() {return homePageLatestArticleSectionTitle.getText();}
 
     //home page web element assert methods
     //carousel section

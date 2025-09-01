@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class GeneralPage extends BasePage {
 
@@ -103,6 +104,59 @@ public class GeneralPage extends BasePage {
     private WebElement warningBoxMoreAboutEShopSolutionButton;
 
     public GeneralPage(WebDriver driver) {super(driver);}
+
+    //wait for elements to load method
+    public void waitForElementsToLoad(long timeoutInMillis) {
+
+        //wait for the document to be fully loaded (Thread.sleep seems to be the only way the wait is working for this particular webpage)
+
+        try {
+            //hard wait for the specified time
+            Thread.sleep(timeoutInMillis);
+
+            //after sleep, optionally verify DOM is in a usable state
+            String readyState = (String) ((JavascriptExecutor) driver)
+                    .executeScript("return document.readyState");
+
+            if (!"complete".equals(readyState)) {
+                System.out.println("Warning: document.readyState is still '" + readyState + "' after " + timeoutInMillis + "ms");
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException("Thread was interrupted while waiting", e);
+        }
+
+    }
+
+    //general page text element getter methods
+    //warning box
+    public String getWarningBoxTitle() {return warningBoxTitle.getText();}
+    public String getWarningBoxText() {return warningBoxText.getText();}
+    //lower header
+    public List <String> getLowerHeaderNavBarDropdownLinkText() {return lowerHeaderNavBarDropdownLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    //footer
+    public String getFooterNewsletterSubtext() {return footerNewsletterSubtext.getText();}
+    public String getFooterNewsletterBackgroundText() {return footerNewsletterBackgroundText.getText();}
+    //lower footer
+    public String getFooterSimploShopPlatformSubtext() {return footerSimploShopPlatformSubtext.getText();}
+    public String getFooterSimploShopPlatformLinkText() {return footerSimploShopPlatformLink.getText();}
+    //categories section
+    public String getFooterCategoriesSectionTitle() {return footerCategoriesSectionTitle.getText();}
+    public List <String> getFooterCategoriesLinkText() {return footerCategoriesLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    //rooms section
+    public String getFooterRoomsSectionTitle() {return footerRoomsSectionTitle.getText();}
+    public List <String> getFooterRoomsLinkText() {return footerRoomsLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    //contact us section
+    public String getFooterContactUsSectionTitle() {return footerContactUsSectionTitle.getText();}
+    public String getFooterPhoneSubtext(){return footerPhoneSubtext.getText();}
+    public String getFooterPhoneNumber(){return footerPhoneLink.getText();}
+    public String getFooterEmailSubtext(){return footerEmailSubtext.getText();}
+    public String getFooterEmailLink(){return footerEmailLink.getText();}
+    //follow us section
+    public String getFooterFollowUsSectionTitle() {return footerFollowUsSectionTitle.getText();}
+    //created by section
+    public String getFooterCreatedBySimploLinkText() {return footerCreatedBySimploLink.getText();}
+    public String getFooterCopyrightText() {return footerCopyrightText.getText();}
 
     //general page web element assert methods
     //warning box
