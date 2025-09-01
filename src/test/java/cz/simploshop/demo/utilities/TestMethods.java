@@ -1055,6 +1055,71 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Valid Edit User Account Info (with login email) Test Result");
     }
 
+    //valid edit user account login password test method
+    protected void validEditUserAccountLoginPasswordTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //select "Account Information" option
+        generalPage.selectSetAccountInfoDropdownOption(1);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1750);
+        //account information page breadcrumb web element assert
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //account information page my user section web element assert
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page web element assert
+        isAccountInfoPageWebElementDisplayed(accountInformationPage);
+        //account information page text element assert
+        isAccountInfoPageTextElementAsExpected(accountInformationPage);
+        //capture screenshot of the account information page display before data input
+        captureScreenshot(driver, "Account Information Page Display Before Data (new password) Input");
+        //valid edited user password input data getter
+        accountInformationPage.validEditedUserPasswordDataGetter();
+        //input valid edited first name into first name input field
+        accountInformationPage.inputValidEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountInformationPage.inputValidEditedUserLastNameIntoLastNameInputField();
+        //click 'Apply Changes" button
+        accountInformationPage.clickApplyChangesButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(800);
+        //input valid password into password input field
+        accountInformationPage.inputValidUserPasswordIntoPasswordInputField();
+        //input valid new password into new password input field
+        accountInformationPage.inputValidUserNewPasswordIntoNewPasswordInputField();
+        //input valid matching confirm new password into confirm new password input field
+        accountInformationPage.inputValidUserConfirmNewPasswordIntoConfirmNewPasswordInputField();
+        //capture screenshot of the account information page display after data input
+        captureScreenshot(driver, "Account Information Page Display After Data (with new password) Input");
+        //click 'Change password" button
+        accountInformationPage.clickChangePasswordButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1800);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid Edit User Account Password Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

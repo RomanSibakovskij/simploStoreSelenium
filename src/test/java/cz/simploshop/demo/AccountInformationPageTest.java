@@ -20,4 +20,17 @@ public class AccountInformationPageTest extends TestMethods{
         validEditUserAccountInfoLoginEmailTest();
     }
 
+    //Test 003a -> valid edit user account password test
+    @Test
+    @DisplayName("Valid Edit User Account (With Login Password) Test")
+    @Tag("Valid_Edit_User_Account_Password")
+    void validEditUserAccountPasswordTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //valid edit user account password test
+        validEditUserAccountLoginPasswordTest();
+    }
+
 }

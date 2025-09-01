@@ -1,6 +1,7 @@
 package cz.simploshop.demo;
 
 import cz.simploshop.demo.utilities.*;
+import cz.simploshop.demo.modals.RegisterAccountModal;
 import org.openqa.selenium.*;
 
 import org.openqa.selenium.interactions.Actions;
@@ -79,6 +80,9 @@ public class AccountInformationPage extends BasePage {
     private static String validEditedUserFirstName;
     private static String validEditedUserLastName;
     private static String validEditedUserEmail;
+    private String validUserPassword;
+    private static String validEditedUserNewPassword;
+    private String validEditedConfirmNewPassword;
 
     public AccountInformationPage(WebDriver driver) {super(driver);}
 
@@ -111,6 +115,39 @@ public class AccountInformationPage extends BasePage {
     public void inputValidEditedUserEmailIntoEmailInputField(){
         accountInfoPageEmailInputField.clear();
         accountInfoPageEmailInputField.sendKeys(validEditedUserEmail);
+    }
+
+    //valid edited user password input data getter method
+    public void validEditedUserPasswordDataGetter(){
+
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validUserPassword = registerAccountModal.getPassword();
+        validEditedUserNewPassword = TestDataGenerator.generateRandomPassword();
+        validEditedConfirmNewPassword = validEditedUserNewPassword;
+
+        System.out.println("Valid generated edited user password data:" + "\n");
+
+        logger.info("Valid generated edited user first name (with login password): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (with login password): " + validEditedUserLastName);
+        logger.info("Valid user password: " + validUserPassword);
+        logger.info("Valid generated edited user password: " + validEditedUserNewPassword);
+        logger.info("Valid matching generated edited user new password: " + validEditedConfirmNewPassword);
+
+        System.out.println("\n");
+
+    }
+
+    public void inputValidUserPasswordIntoPasswordInputField(){accountInfoPagePasswordInputField.sendKeys(validUserPassword);}
+    public void inputValidUserNewPasswordIntoNewPasswordInputField(){accountInfoPageNewPasswordInputField.sendKeys(validEditedUserNewPassword);}
+    public void inputValidUserConfirmNewPasswordIntoConfirmNewPasswordInputField(){accountInfoPageConfirmNewPasswordInputField.sendKeys(validEditedConfirmNewPassword);}
+
+    //click "Change Password" button method
+    public void clickChangePasswordButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(accountInfoPageChangePasswordButton).click().perform();
     }
 
     //click "Apply Changes" button method
