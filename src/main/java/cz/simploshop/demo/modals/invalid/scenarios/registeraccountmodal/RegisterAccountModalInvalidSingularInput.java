@@ -22,6 +22,7 @@ public class RegisterAccountModalInvalidSingularInput extends BasePage{
     //invalid register input data - invalid singular input format
     private String invalidRegisterFirstNameFormat;
     private String invalidRegisterLastNameFormat;
+    private String invalidRegisterEmailFormat;
 
     //valid register input data - for remaining inputs
     private String validRegisterFirstName;
@@ -76,6 +77,29 @@ public class RegisterAccountModalInvalidSingularInput extends BasePage{
 
     //invalid register data input method - invalid last name input format
     public void inputInvalidLastNameFormatIntoRegisterLastNameInputField(){registerAccountModalLastNameInputField.sendKeys(invalidRegisterLastNameFormat);}
+
+    //invalid register input data getter - invalid email format (missing '@')
+    public void invalidRegisterInputDataInvalidEmailFormatGetter(){
+
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        invalidRegisterEmailFormat = "sfdsfdsffakemail.com";
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Invalid generated register input data (invalid email format): " + "\n");
+
+        logger.info("Valid register first name (invalid email format): " + validRegisterFirstName);
+        logger.info("Valid register last name (invalid email format): " + validRegisterLastName);
+        logger.info("Invalid register email input format: " + invalidRegisterEmailFormat);
+        logger.info("Valid register password (invalid email format): " + validRegisterPassword);
+        logger.info("Valid register matching confirm password (invalid email format): " + validRegisterPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - invalid email input format
+    public void inputInvalidEmailFormatIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(invalidRegisterEmailFormat);}
 
     //valid register data input methods - for remaining inputs
     public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}
