@@ -26,6 +26,7 @@ public class RegisterAccountModalInvalidSingularInput extends BasePage{
     private String existingRegisterEmail;
     private String invalidRegisterPasswordFormat;
     private String invalidRegisterConfirmPasswordFormat;
+    private String mismatchingRegisterConfirmPassword;
 
     //valid register input data - for remaining inputs
     private String validRegisterFirstName;
@@ -151,6 +152,30 @@ public class RegisterAccountModalInvalidSingularInput extends BasePage{
     //invalid register data input method - invalid password / confirm password format
     public void inputInvalidPasswordFormatIntoRegisterPasswordInputField(){registerAccountModalPasswordInputField.sendKeys(invalidRegisterPasswordFormat);}
     public void inputInvalidConfirmPasswordFormatIntoRegisterConfirmPasswordInputField(){registerAccountModalConfirmPasswordInputField.sendKeys(invalidRegisterConfirmPasswordFormat);}
+
+    //invalid register input data getter - mismatching confirm password
+    public void invalidRegisterInputDataMismatchingConfirmPasswordGetter(){
+
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+        mismatchingRegisterConfirmPassword = "L&(*(*&@$$%%^$%^%";
+
+        System.out.println("Invalid generated register input data (mismatching confirm password): " + "\n");
+
+        logger.info("Valid register first name (mismatching confirm password): " + validRegisterFirstName);
+        logger.info("Valid register last name (mismatching confirm password): " + validRegisterLastName);
+        logger.info("Valid register email (mismatching confirm password): " + validRegisterEmail);
+        logger.info("Valid register password (mismatching confirm password): " + validRegisterPassword);
+        logger.info("Mismatching register confirm password: " + mismatchingRegisterConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - mismatching confirm password
+    public void inputMismatchingConfirmPasswordIntoRegisterConfirmPasswordInputField(){registerAccountModalConfirmPasswordInputField.sendKeys(mismatchingRegisterConfirmPassword);}
 
     //valid register data input methods - for remaining inputs
     public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}

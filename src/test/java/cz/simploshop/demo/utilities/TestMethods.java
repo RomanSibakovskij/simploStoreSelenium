@@ -946,6 +946,52 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid Password And Confirm Password Format");
     }
 
+    //invalid register account modal test method - mismatching confirm password
+    protected void invalidRegisterAccountModalMismatchingConfirmPasswordTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalInvalidSingularInput registerAccountModalInvalidSingularInput = new RegisterAccountModalInvalidSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - mismatching confirm password (lowercase only)
+        registerAccountModalInvalidSingularInput.invalidRegisterInputDataMismatchingConfirmPasswordGetter();
+        //input valid register first name into first name input field
+        registerAccountModalInvalidSingularInput.inputValidFirstNameIntoRegisterFirstNameInputField();
+        //input valid register last name into last name input field
+        registerAccountModalInvalidSingularInput.inputValidLastNameIntoRegisterLastNameInputField();
+        //input valid register email into email input field
+        registerAccountModalInvalidSingularInput.inputValidEmailIntoRegisterEmailInputField();
+        //input valid register password into password input field
+        registerAccountModalInvalidSingularInput.inputValidPasswordIntoRegisterPasswordInputField();
+        //input mismatching register confirm password into confirm password input field (lowercase only)
+        registerAccountModalInvalidSingularInput.inputMismatchingConfirmPasswordIntoRegisterConfirmPasswordInputField();
+        //capture screenshot of the register account modal display after invalid data input - mismatching confirm password
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - Mismatching Confirm Password");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3000);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Pole nesouhlasí", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The mismatching confirm password input error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid User Account Creation Test Result - Mismatching Confirm Password");
+            throw new Error("The mismatching confirm password input error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Mismatching Confirm Password");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

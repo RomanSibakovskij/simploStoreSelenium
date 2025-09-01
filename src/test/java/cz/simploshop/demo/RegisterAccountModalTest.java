@@ -233,4 +233,17 @@ public class RegisterAccountModalTest extends TestMethods{
         invalidRegisterAccountModalInvalidPasswordConfirmFormatTest();
     }
 
+    //Test 002r -> invalid user account creation test - mismatching confirm password
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Mismatching Confirm Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Mismatching_Input")
+    void invalidUserAccountRegisterMismatchingConfirmPasswordFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - mismatching confirm password (the user account gets created, test has failed)
+        invalidRegisterAccountModalMismatchingConfirmPasswordTest();
+    }
+
 }
