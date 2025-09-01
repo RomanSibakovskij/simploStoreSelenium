@@ -25,6 +25,7 @@ public class AccountInfoPageNoSingularInput extends BasePage {
     private String noEditedFirstName;
     private String noEditedLastName;
     private String noEditedEmail;
+    private String noUserPassword;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -104,6 +105,30 @@ public class AccountInfoPageNoSingularInput extends BasePage {
         accountInfoPageEmailInputField.clear();
         accountInfoPageEmailInputField.sendKeys(noEditedEmail);
     }
+
+    //invalid edited user password input data getter method - no user password
+    public void invalidEditedUserPasswordDataNoUserPasswordGetter(){
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        noUserPassword = "";
+        validEditedUserNewPassword = TestDataGenerator.generateRandomPassword();
+        validEditedConfirmNewPassword = validEditedUserNewPassword;
+
+        System.out.println("Invalid generated edited user password data (no login password):" + "\n");
+
+        logger.info("Valid generated edited user first name (no login password): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (no login password): " + validEditedUserLastName);
+        logger.info("No user password: " + noUserPassword);
+        logger.info("Valid generated edited user password (no login password): " + validEditedUserNewPassword);
+        logger.info("Valid matching generated edited user new password (no login password): " + validEditedConfirmNewPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - no user password
+    public void inputNoUserPasswordIntoPasswordInputField(){accountInfoPagePasswordInputField.sendKeys(noUserPassword);}
 
     //valid edited user account data input methods - for remaining inputs
     public void inputValidEditedUserFirstNameIntoFirstNameInputField(){

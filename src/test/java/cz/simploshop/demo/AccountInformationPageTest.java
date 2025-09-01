@@ -65,7 +65,7 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountInfoNoEditedLastNameTest();
     }
 
-    //Test 003d -> invalid edit user account information test - no edited email
+    //Test 003d -> invalid edit user account information test - no edited email (the error doesn't get triggered)
     @Test
     @DisplayName("Invalid Edit User Account Information Test - No Edited Email")
     @Tag("Invalid_Edit_User_Account_Info")
@@ -77,6 +77,20 @@ public class AccountInformationPageTest extends TestMethods{
         validRegisterAccountModalTest();
         //invalid edit user account information test - no edited email
         invalidEditUserAccountInfoNoEditedEmailTest();
+    }
+
+    //Test 003e -> invalid edit user account information test - no user password (the error doesn't get triggered)
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - No User Password")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("No_Singular_Input")
+    void invalidEditUserAccountDataNoUserPasswordTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - no user password
+        invalidEditUserAccountNoUserPasswordTest();
     }
 
 }

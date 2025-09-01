@@ -1317,6 +1317,78 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid Edit User Account Info Test Result - No Edited Email");
     }
 
+    //invalid edit user account test method - no user password
+    protected void invalidEditUserAccountNoUserPasswordTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        AccountInfoPageNoSingularInput accountInfoPageNoSingularInput = new AccountInfoPageNoSingularInput(driver);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(3000);
+        //select "Account Information" option
+        generalPage.selectSetAccountInfoDropdownOption(1);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1750);
+        //account information page breadcrumb web element assert
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //account information page my user section web element assert
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page web element assert
+        isAccountInfoPageWebElementDisplayed(accountInformationPage);
+        //account information page text element assert
+        isAccountInfoPageTextElementAsExpected(accountInformationPage);
+        //capture screenshot of the account information page display before data input
+        captureScreenshot(driver, "Account Information Page Display Before Data (new password) Input");
+        //invalid edited user password input data getter - no user password
+        accountInfoPageNoSingularInput.invalidEditedUserPasswordDataNoUserPasswordGetter();
+        //input valid edited first name into first name input field
+        accountInfoPageNoSingularInput.inputValidEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountInfoPageNoSingularInput.inputValidEditedUserLastNameIntoLastNameInputField();
+        //click 'Apply Changes" button
+        accountInformationPage.clickApplyChangesButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(800);
+        //don't input password into password input field
+        accountInfoPageNoSingularInput.inputNoUserPasswordIntoPasswordInputField();
+        //input valid new password into new password input field
+        accountInfoPageNoSingularInput.inputValidUserNewPasswordIntoNewPasswordInputField();
+        //input valid matching confirm new password into confirm new password input field
+        accountInfoPageNoSingularInput.inputValidUserConfirmNewPasswordIntoConfirmNewPasswordInputField();
+        //capture screenshot of the account information page display after invalid data input - no user password
+        captureScreenshot(driver, "Account Information Page Display After Invalid Data (with new password) Input - No User Password");
+        //click 'Change password" button
+        accountInformationPage.clickChangePasswordButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3000);
+        //log an error if the error doesn't get triggered
+        try {
+            assertEquals("Pole je povinné", accountInformationPage.getAccountInfoPageSingularInputErrorMsg(), "The missing user password input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The missing user password input error message doesn't get triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Password Test Result - No User Password");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
