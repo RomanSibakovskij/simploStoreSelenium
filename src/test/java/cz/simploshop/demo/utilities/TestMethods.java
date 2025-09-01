@@ -1586,6 +1586,79 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Too Short Edited Email");
     }
 
+    //invalid edit user account test method - too short new password / confirm password (7 chars)
+    protected void invalidEditUserAccountTooShortNewPasswordConfirmTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        AccountInfoPageTooShortSingularInput accountInfoPageTooShortSingularInput = new AccountInfoPageTooShortSingularInput(driver);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(3000);
+        //select "Account Information" option
+        generalPage.selectSetAccountInfoDropdownOption(1);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1750);
+        //account information page breadcrumb web element assert
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //account information page my user section web element assert
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page web element assert
+        isAccountInfoPageWebElementDisplayed(accountInformationPage);
+        //account information page text element assert
+        isAccountInfoPageTextElementAsExpected(accountInformationPage);
+        //capture screenshot of the account information page display before data input
+        captureScreenshot(driver, "Account Information Page Display Before Data (new password) Input");
+        //invalid edited user password input data getter - too short user password/confirm password (7 chars)
+        accountInfoPageTooShortSingularInput.invalidEditedUserPasswordDataTooShortUserPasswordConfirmGetter();
+        //input valid edited first name into first name input field
+        accountInfoPageTooShortSingularInput.inputValidEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountInfoPageTooShortSingularInput.inputValidEditedUserLastNameIntoLastNameInputField();
+        //click 'Apply Changes" button
+        accountInformationPage.clickApplyChangesButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(800);
+        //input valid password into password input field
+        accountInfoPageTooShortSingularInput.inputValidUserPasswordIntoPasswordInputField();
+        //input too short new password into new password input field (7 chars)
+        accountInfoPageTooShortSingularInput.inputTooShortUserNewPasswordIntoNewPasswordInputField();
+        //input too short matching confirm new password into confirm new password input field (7 chars)
+        accountInfoPageTooShortSingularInput.inputTooShortUserConfirmNewPasswordIntoConfirmNewPasswordInputField();
+        //capture screenshot of the account information page display after invalid data input - too short user password
+        captureScreenshot(driver, "Account Information Page Display After Invalid Data (with new password) Input - Too Short User Password And Confirm Password");
+        //click 'Change password" button
+        accountInformationPage.clickChangePasswordButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1800);
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("Pole musí mít alespoň 8 znaků.", accountInformationPage.getAccountInfoPageSingularInputErrorMsg(), "The too short edited password/confirm password input error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Too Short Edited Email");
+            throw new Error("The too short edited password/confirm password input error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Password Test Result - Too Short User Password And Confirm Password");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

@@ -1,6 +1,7 @@
 package cz.simploshop.demo.invalidscenarios.accountinfopage;
 
 import cz.simploshop.demo.utilities.*;
+import cz.simploshop.demo.modals.RegisterAccountModal;
 import org.openqa.selenium.*;
 
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +27,8 @@ public class AccountInfoPageTooShortSingularInput extends BasePage{
     private String tooShortEditedFirstName;
     private String tooShortEditedLastName;
     private String tooShortEditedEmail;
+    private String tooShortEditedUserNewPassword;
+    private String tooShortEditedConfirmNewPassword;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -103,6 +106,33 @@ public class AccountInfoPageTooShortSingularInput extends BasePage{
         accountInfoPageEmailInputField.clear();
         accountInfoPageEmailInputField.sendKeys(tooShortEditedEmail);
     }
+
+    //invalid edited user password input data getter method - too short user password/confirm password (7 chars)
+    public void invalidEditedUserPasswordDataTooShortUserPasswordConfirmGetter(){
+
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validUserPassword = registerAccountModal.getPassword();
+        tooShortEditedUserNewPassword = "%tfgre#";
+        tooShortEditedConfirmNewPassword = tooShortEditedUserNewPassword;
+
+        System.out.println("Invalid generated edited user password data (too short login password):" + "\n");
+
+        logger.info("Valid generated edited user first name (too short login password): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (too short login password): " + validEditedUserLastName);
+        logger.info("Valid user password: " + validUserPassword);
+        logger.info("Too short generated edited user password: " + tooShortEditedUserNewPassword);
+        logger.info("Too short matching generated edited user new password: " + tooShortEditedConfirmNewPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - too short new / confirm password
+    public void inputTooShortUserNewPasswordIntoNewPasswordInputField(){accountInfoPageNewPasswordInputField.sendKeys(tooShortEditedUserNewPassword);}
+    public void inputTooShortUserConfirmNewPasswordIntoConfirmNewPasswordInputField(){accountInfoPageConfirmNewPasswordInputField.sendKeys(tooShortEditedConfirmNewPassword);}
 
     //valid edited user account data input methods - for remaining inputs
     public void inputValidEditedUserFirstNameIntoFirstNameInputField(){

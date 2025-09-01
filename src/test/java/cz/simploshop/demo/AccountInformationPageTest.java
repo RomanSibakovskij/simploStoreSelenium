@@ -137,4 +137,18 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountInfoTooShortEditedEmailTest();
     }
 
+    //Test 003i -> invalid edit user account information test - too short new password/confirm password (7 chars)
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - Too Short New Password And Confirm Password")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("Too_Short_Singular_Input")
+    void invalidEditUserAccountDataTooShortNewPasswordConfirmTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - too short new password/confirm password (7 chars)
+        invalidEditUserAccountTooShortNewPasswordConfirmTest();
+    }
+
 }
