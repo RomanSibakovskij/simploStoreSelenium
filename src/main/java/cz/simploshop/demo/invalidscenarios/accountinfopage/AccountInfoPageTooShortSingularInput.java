@@ -22,7 +22,53 @@ public class AccountInfoPageTooShortSingularInput extends BasePage{
     @FindBy(xpath = "//main//section[3]//input[@id='v-0-4-0-0-37']")
     private WebElement accountInfoPageConfirmNewPasswordInputField;
 
+    //invalid edited user account input data - too short singular input
+    private String tooShortEditedFirstName;
+
+    //valid edited user account input data - for remaining inputs
+    private String validEditedUserFirstName;
+    private String validEditedUserLastName;
+    private String validEditedUserEmail;
+    private String validUserPassword;
+
     public AccountInfoPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
+    //invalid edited user input data getter method - too short edited first name (1 char)
+    public void invalidEditedUserInfoTooShortFirstNameGetter(){
+
+        tooShortEditedFirstName = "H";
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validEditedUserEmail = TestDataGenerator.generateRandomEmailAddress(5);
+
+        System.out.println("Invalid generated edited user account information data (too short edited first name):" + "\n");
+
+        logger.info("Too short edited user first name: " + tooShortEditedFirstName);
+        logger.info("Valid generated edited user last name (too short edited first name): " + validEditedUserLastName);
+        logger.info("Valid generated edited user email (too short edited first name): " + validEditedUserEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - too short edited first name
+    public void inputTooShortEditedUserFirstNameIntoFirstNameInputField(){
+        accountInfoPageFirstNameInputField.clear();
+        accountInfoPageFirstNameInputField.sendKeys(tooShortEditedFirstName);
+    }
+
+    //valid edited user account data input methods - for remaining inputs
+    public void inputValidEditedUserFirstNameIntoFirstNameInputField(){
+        accountInfoPageFirstNameInputField.clear();
+        accountInfoPageFirstNameInputField.sendKeys(validEditedUserFirstName);
+    }
+    public void inputValidEditedUserLastNameIntoLastNameInputField(){
+        accountInfoPageLastNameInputField.clear();
+        accountInfoPageLastNameInputField.sendKeys(validEditedUserLastName);
+    }
+    public void inputValidEditedUserEmailIntoEmailInputField(){
+        accountInfoPageEmailInputField.clear();
+        accountInfoPageEmailInputField.sendKeys(validEditedUserEmail);
+    }
+    public void inputValidUserPasswordIntoPasswordInputField(){accountInfoPagePasswordInputField.sendKeys(validUserPassword);}
 
 }

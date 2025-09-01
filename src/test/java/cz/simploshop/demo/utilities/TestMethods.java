@@ -1389,6 +1389,73 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid Edit User Account Password Test Result - No User Password");
     }
 
+    //too short singular input
+
+    //invalid edit user account data (with login email) test method - too short edited first name (1 char)
+    protected void invalidEditUserAccountInfoTooShortEditedFirstNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        AccountInfoPageTooShortSingularInput accountInfoPageTooShortSingularInput = new AccountInfoPageTooShortSingularInput(driver);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(3000);
+        //select "Account Information" option
+        generalPage.selectSetAccountInfoDropdownOption(1);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1750);
+        //account information page breadcrumb web element assert
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //account information page my user section web element assert
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page web element assert
+        isAccountInfoPageWebElementDisplayed(accountInformationPage);
+        //account information page text element assert
+        isAccountInfoPageTextElementAsExpected(accountInformationPage);
+        //capture screenshot of the account information page display before data input
+        captureScreenshot(driver, "Account Information Page Display Before Data Input");
+        //invalid edited user input data getter - too short edited first name (1 char)
+        accountInfoPageTooShortSingularInput.invalidEditedUserInfoTooShortFirstNameGetter();
+        //input too short edited first name into first name input field (1 char)
+        accountInfoPageTooShortSingularInput.inputTooShortEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountInfoPageTooShortSingularInput.inputValidEditedUserLastNameIntoLastNameInputField();
+        //input valid edited email into email input field
+        accountInfoPageTooShortSingularInput.inputValidEditedUserEmailIntoEmailInputField();
+        //capture screenshot of the account information page display after invalid data input - too short edited first name
+        captureScreenshot(driver, "Account Information Page Display After Data Input - Too Short Edited First Name");
+        //click 'Apply Changes" button
+        accountInformationPage.clickApplyChangesButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2100);
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("Pole obsahuje příliš krátký vstup", accountInformationPage.getAccountInfoPageSingularInputErrorMsg(), "The too short edited first name input error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Too Short Edited First Name");
+            throw new Error("The too short edited first name input error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Too Short Edited First Name");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
