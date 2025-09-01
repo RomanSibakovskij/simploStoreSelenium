@@ -23,6 +23,7 @@ public class RegisterAccountModalInvalidSingularInput extends BasePage{
     private String invalidRegisterFirstNameFormat;
     private String invalidRegisterLastNameFormat;
     private String invalidRegisterEmailFormat;
+    private String existingRegisterEmail;
 
     //valid register input data - for remaining inputs
     private String validRegisterFirstName;
@@ -100,6 +101,29 @@ public class RegisterAccountModalInvalidSingularInput extends BasePage{
 
     //invalid register data input method - invalid email input format
     public void inputInvalidEmailFormatIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(invalidRegisterEmailFormat);}
+
+    //invalid register input data getter - existing email (used beforehand in manual testing)
+    public void invalidRegisterInputDataExistingEmailGetter(){
+
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        existingRegisterEmail = "m0@example.com";
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Invalid generated register input data (existing email): " + "\n");
+
+        logger.info("Valid register first name (existing email): " + validRegisterFirstName);
+        logger.info("Valid register last name (existing email): " + validRegisterLastName);
+        logger.info("Existing register email: " + existingRegisterEmail);
+        logger.info("Valid register password (existing email): " + validRegisterPassword);
+        logger.info("Valid register matching confirm password (existing email): " + validRegisterPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - existing email
+    public void inputExistingEmailIntoRegisterEmailInputField(){registerAccountModalEmailInputField.sendKeys(existingRegisterEmail);}
 
     //valid register data input methods - for remaining inputs
     public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}

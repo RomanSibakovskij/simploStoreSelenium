@@ -198,7 +198,7 @@ public class RegisterAccountModalTest extends TestMethods{
 
     //Test 002o -> invalid user account creation test - invalid email input format (missing '@')
     @Test
-    @DisplayName("Invalid User Account Register Test - Invalid Email Format")
+    @DisplayName("Invalid User Account Creation Test - Invalid Email Format")
     @Tag("Invalid_User_Account_Creation")
     @Tag("Invalid_Singular_Input_Format")
     void invalidUserAccountRegisterInvalidEmailFormatTest() {
@@ -206,6 +206,19 @@ public class RegisterAccountModalTest extends TestMethods{
         navigateToRegisterAccountModalTest();
         //invalid user account creation - invalid email input format (missing '@')
         invalidRegisterAccountModalInvalidEmailFormatTest();
+    }
+
+    //Test 002p -> invalid user account creation test - existing email (used beforehand in manual testing)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Existing Email")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Existing_Input")
+    void invalidUserAccountRegisterExistingEmailTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - existing email (used beforehand in manual testing)
+        invalidRegisterAccountModalExistingEmailTest();
     }
 
 }

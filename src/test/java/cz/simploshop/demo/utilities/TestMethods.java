@@ -850,6 +850,56 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid Email Format");
     }
 
+    //invalid register account modal test method - existing email (used beforehand in manual testing)
+    protected void invalidRegisterAccountModalExistingEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalInvalidSingularInput registerAccountModalInvalidSingularInput = new RegisterAccountModalInvalidSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - existing email (used beforehand in manual testing)
+        registerAccountModalInvalidSingularInput.invalidRegisterInputDataExistingEmailGetter();
+        //input valid register first name into first name input field
+        registerAccountModalInvalidSingularInput.inputValidFirstNameIntoRegisterFirstNameInputField();
+        //input valid register last name into last name input field
+        registerAccountModalInvalidSingularInput.inputValidLastNameIntoRegisterLastNameInputField();
+        //input existing register email format into email input field (used beforehand in manual testing)
+        registerAccountModalInvalidSingularInput.inputExistingEmailIntoRegisterEmailInputField();
+        //input valid register password into password input field
+        registerAccountModalInvalidSingularInput.inputValidPasswordIntoRegisterPasswordInputField();
+        //click "View Password" button
+        registerAccountModal.clickViewPasswordButton();
+        //input valid matching register confirm password into confirm password input field
+        registerAccountModalInvalidSingularInput.inputValidConfirmPasswordIntoRegisterConfirmPasswordInputField();
+        //click "View Confirm Password" button
+        registerAccountModal.clickViewConfirmPasswordButton();
+        //capture screenshot of the register account modal display after invalid data input - existing email
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - Existing Email");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3000);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Zákazník se zadanou e-mailovou adresou již existuje.", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The existing email input error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid User Account Creation Test Result - Existing Email");
+            throw new Error("The existing email input error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Existing Email");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
