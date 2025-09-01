@@ -359,6 +359,56 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short First Name");
     }
 
+    //invalid register account modal test method - too short last name (1 char)
+    protected void invalidRegisterAccountModalTooShortLastNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalTooShortSingularInput registerAccountModalTooShortSingularInput = new RegisterAccountModalTooShortSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - too short last name (1 char)
+        registerAccountModalTooShortSingularInput.invalidRegisterInputDataTooShortLastNameGetter();
+        //input valid register first name into first name input field
+        registerAccountModalTooShortSingularInput.inputValidFirstNameIntoRegisterFirstNameInputField();
+        //input too short register last name into last name input field
+        registerAccountModalTooShortSingularInput.inputTooShortLastNameIntoRegisterLastNameInputField();
+        //input valid register email into email input field
+        registerAccountModalTooShortSingularInput.inputValidEmailIntoRegisterEmailInputField();
+        //input valid register password into password input field
+        registerAccountModalTooShortSingularInput.inputValidPasswordIntoRegisterPasswordInputField();
+        //click "View Password" button
+        registerAccountModal.clickViewPasswordButton();
+        //input valid matching register confirm password into confirm password input field
+        registerAccountModalTooShortSingularInput.inputValidConfirmPasswordIntoRegisterConfirmPasswordInputField();
+        //click "View Confirm Password" button
+        registerAccountModal.clickViewConfirmPasswordButton();
+        //capture screenshot of the register account modal display after invalid data input - too short last name
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - Too Short Last Name");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3000);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Pole obsahuje příliš krátký vstup", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The too short last name input error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short Last Name");
+            throw new Error("The too short last name input error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short Last Name");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

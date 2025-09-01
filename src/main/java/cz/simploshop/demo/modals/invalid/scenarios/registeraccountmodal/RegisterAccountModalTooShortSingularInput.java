@@ -20,6 +20,7 @@ public class RegisterAccountModalTooShortSingularInput extends BasePage{
 
     //invalid register input data - too short singular input
     private String tooShortRegisterFirstName;
+    private String tooShortRegisterLastName;
 
     //valid register input data - for remaining inputs
     private String validRegisterFirstName;
@@ -51,6 +52,29 @@ public class RegisterAccountModalTooShortSingularInput extends BasePage{
 
     //invalid register data input method - too short first name
     public void inputTooShortFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(tooShortRegisterFirstName);}
+
+    //invalid register input data getter - too short last name (1 char)
+    public void invalidRegisterInputDataTooShortLastNameGetter(){
+
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        tooShortRegisterLastName = "D";
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Invalid generated register input data (too short last name): " + "\n");
+
+        logger.info("Valid register first name (too short last name): " + validRegisterFirstName);
+        logger.info("Too short register last name: " + tooShortRegisterLastName);
+        logger.info("Valid register email (too short last name): " + validRegisterEmail);
+        logger.info("Valid register password (too short last name): " + validRegisterPassword);
+        logger.info("Valid register matching confirm password (too short last name): " + validRegisterPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register data input method - too short last name
+    public void inputTooShortLastNameIntoRegisterLastNameInputField(){registerAccountModalLastNameInputField.sendKeys(tooShortRegisterLastName);}
 
     //valid register data input methods - for remaining inputs
     public void inputValidFirstNameIntoRegisterFirstNameInputField(){registerAccountModalFirstNameInputField.sendKeys(validRegisterFirstName);}

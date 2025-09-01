@@ -84,4 +84,16 @@ public class RegisterAccountModalTest extends TestMethods{
         invalidRegisterAccountModalTooShortFirstNameTest();
     }
 
+    //Test 002f -> invalid user account creation test - too short last name (1 char) (the user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Short Last Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Short_Singular_Input")
+    void invalidUserAccountRegisterTooShortLastNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - too short last name (1 char)
+        invalidRegisterAccountModalTooShortLastNameTest();
+    }
+
 }
