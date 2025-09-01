@@ -184,4 +184,16 @@ public class RegisterAccountModalTest extends TestMethods{
         invalidRegisterAccountModalInvalidFirstNameFormatTest();
     }
 
+    //Test 002n -> invalid user account creation test - invalid last name format (special symbols only) (the user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid Last Name Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidUserAccountRegisterInvalidLastNameFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //invalid user account creation - invalid last name format (special symbols only)
+        invalidRegisterAccountModalInvalidLastNameFormatTest();
+    }
+
 }

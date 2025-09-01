@@ -750,6 +750,56 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid First Name Format");
     }
 
+    //invalid register account modal test method - invalid last name input format (special symbols only)
+    protected void invalidRegisterAccountModalInvalidLastNameFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalInvalidSingularInput registerAccountModalInvalidSingularInput = new RegisterAccountModalInvalidSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - invalid last name format (special symbols only)
+        registerAccountModalInvalidSingularInput.invalidRegisterInputDataInvalidLastNameFormatGetter();
+        //input valid register first name into first name input field
+        registerAccountModalInvalidSingularInput.inputValidFirstNameIntoRegisterFirstNameInputField();
+        //input invalid register last name format into last name input field (special symbols only)
+        registerAccountModalInvalidSingularInput.inputInvalidLastNameFormatIntoRegisterLastNameInputField();
+        //input valid register email into email input field
+        registerAccountModalInvalidSingularInput.inputValidEmailIntoRegisterEmailInputField();
+        //input valid register password into password input field
+        registerAccountModalInvalidSingularInput.inputValidPasswordIntoRegisterPasswordInputField();
+        //click "View Password" button
+        registerAccountModal.clickViewPasswordButton();
+        //input valid matching register confirm password into confirm password input field
+        registerAccountModalInvalidSingularInput.inputValidConfirmPasswordIntoRegisterConfirmPasswordInputField();
+        //click "View Confirm Password" button
+        registerAccountModal.clickViewConfirmPasswordButton();
+        //capture screenshot of the register account modal display after invalid data input - invalid last name format
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - Invalid Last Name Format");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3000);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Pole nemůže obsahovat pouze speciální symboly", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The invalid last name input format error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid Last Name Format");
+            throw new Error("The invalid last name input format error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid Last Name Format");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
