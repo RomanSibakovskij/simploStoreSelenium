@@ -183,7 +183,7 @@ public class TestDataGenerator extends BasePage{
     //random too long email generator
     public static String generateRandomTooLongEmailAddress(int length) {
         String emailAddress = generateRandomString(UPPER + LOWER, length);
-        return emailAddress + "@esddsadwsdfghfafrujkuykmjnsfdasffdgjmyuhuyujhrgfsfdsgfgjukyyhggfsfdjgkyuoitrtweqeqwetryiydsfgjfgfsag.com";
+        return emailAddress + "@esddsadwsdfghfafrujkuykmjnsfdasffdgjmyuhuyujhrgfsfdsgfgjukyyhggfsfdjgkyudfs.com";
     }
 
     //random phone number generator

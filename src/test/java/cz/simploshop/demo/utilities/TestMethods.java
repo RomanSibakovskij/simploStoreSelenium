@@ -602,6 +602,56 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long Last Name");
     }
 
+    //invalid register account modal test method - too long email (100 chars -> name, domain)
+    protected void invalidRegisterAccountModalTooLongEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        RegisterAccountModalTooLongSingularInput registerAccountModalTooLongSingularInput = new RegisterAccountModalTooLongSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1700);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (header section text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //register account modal web element assert
+        isRegisterAccountModalWebElementDisplayed(registerAccountModal);
+        //register account modal page text element assert
+        isRegisterAccountModalTextElementAsExpected(registerAccountModal);
+        //capture screenshot of the register account modal display before data input
+        captureScreenshot(driver, "Register Account Modal Display Before Data Input");
+        //invalid register account modal data getter - too long email (75 chars -> name, domain)
+        registerAccountModalTooLongSingularInput.invalidRegisterInputDataTooLongEmailGetter();
+        //input valid register first name into first name input field
+        registerAccountModalTooLongSingularInput.inputValidFirstNameIntoRegisterFirstNameInputField();
+        //input valid register last name into last name input field
+        registerAccountModalTooLongSingularInput.inputValidLastNameIntoRegisterLastNameInputField();
+        //input too short register email into email input field (75 chars -> name, domain)
+        registerAccountModalTooLongSingularInput.inputTooLongEmailIntoRegisterEmailInputField();
+        //input valid register password into password input field
+        registerAccountModalTooLongSingularInput.inputValidPasswordIntoRegisterPasswordInputField();
+        //click "View Password" button
+        registerAccountModal.clickViewPasswordButton();
+        //input valid matching register confirm password into confirm password input field
+        registerAccountModalTooLongSingularInput.inputValidConfirmPasswordIntoRegisterConfirmPasswordInputField();
+        //click "View Confirm Password" button
+        registerAccountModal.clickViewConfirmPasswordButton();
+        //capture screenshot of the register account modal display after invalid data input - too long email
+        captureScreenshot(driver, "Register Account Modal Display After Invalid Data Input - Too Long Email");
+        //click "Register" button
+        registerAccountModal.clickRegisterButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3000);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Hodnota je příliš velká: řetězec musí mít <= 74 znaků", registerAccountModal.getRegisterAccountModalSingularInputErrorMsg(), "The too long email input error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long Email");
+            throw new Error("The too long email input error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long Email");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
