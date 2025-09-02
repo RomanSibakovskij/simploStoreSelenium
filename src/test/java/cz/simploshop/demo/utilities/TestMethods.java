@@ -2410,6 +2410,72 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid Edit User Account Password Test Result - Mismatching Confirm Password");
     }
 
+    //valid user account removal test
+
+    //valid user account removal test method
+    protected void validUserAccountRemovalTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(3000);
+        //select "Account Information" option
+        generalPage.selectSetAccountInfoDropdownOption(1);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1750);
+        //account information page breadcrumb web element assert
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //account information page my user section web element assert
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page web element assert
+        isAccountInfoPageWebElementDisplayed(accountInformationPage);
+        //account information page text element assert
+        isAccountInfoPageTextElementAsExpected(accountInformationPage);
+        //capture screenshot of the account information page display before data input
+        captureScreenshot(driver, "Account Information Page Display Before User Account Removal");
+        //click "Delete user account" button
+        accountInformationPage.clickDeleteUserAccountButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1750);
+        //account removal modal web element assert
+        isAccountRemovalModalWebElementDisplayed(accountInformationPage);
+        //account removal modal text element assert
+        isAccountRemovalModalTextElementAsExpected(accountInformationPage);
+        //capture screenshot of the account removal modal
+        captureScreenshot(driver, "Account Removal Modal Display");
+        //click "Delete" button
+        accountInformationPage.clickDeleteButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1800);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Uživatelský účet byl odstraněn.", accountInformationPage.getAccountInfoPageSingularInputErrorMsg(), "The user account removal confirmation message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Valid User Account Removal Test Result");
+            throw new Error("The user account removal confirmation message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Removal Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

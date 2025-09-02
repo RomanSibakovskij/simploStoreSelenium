@@ -159,6 +159,18 @@ public class AccountInformationPage extends BasePage {
         action.moveToElement(accountInfoPageApplyChangesButton).click().perform();
     }
 
+    //click "Delete user account" button method
+    public void clickDeleteUserAccountButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(accountInfoPageDeleteUserButton).click().perform();
+    }
+
+    //click "Delete" button method
+    public void clickDeleteButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(accountRemovalModalDeleteButton).click().perform();
+    }
+
     //account information page text element getters
     //my user section
     public String getAccountInfoPageMyUserSectionTitle(){return accountInfoPageMyUserSectionTitle.getText();}

@@ -310,4 +310,19 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountMismatchingConfirmPasswordTest();
     }
 
+    //user account removal test
+
+    //Test 004 -> valid user account removal test (no confirmation message appears, test has failed)
+    @Test
+    @DisplayName("Valid User Account Removal Test")
+    @Tag("Valid_User_Account_Removal")
+    void validAccountRemovalTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //valid user account removal test
+        validUserAccountRemovalTest();
+    }
+
 }
