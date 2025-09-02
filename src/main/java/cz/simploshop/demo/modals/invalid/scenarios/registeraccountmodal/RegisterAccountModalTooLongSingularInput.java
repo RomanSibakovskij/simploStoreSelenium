@@ -79,7 +79,7 @@ public class RegisterAccountModalTooLongSingularInput extends BasePage{
     //invalid register data input method - too long last name
     public void inputTooLongLastNameIntoRegisterLastNameInputField(){registerAccountModalLastNameInputField.sendKeys(tooLongRegisterLastName);}
 
-    //invalid register input data getter - too long email (1 char -> name, domain)
+    //invalid register input data getter - too long email (75 chars -> name, domain)
     public void invalidRegisterInputDataTooLongEmailGetter(){
 
         validRegisterFirstName = TestDataGenerator.getRandomFirstName();

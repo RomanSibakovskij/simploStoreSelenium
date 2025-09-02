@@ -1791,6 +1791,71 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Too Long Edited Last Name");
     }
 
+    //invalid edit user account data (with login email) test method - too long edited email (100 chars -> name, domain)
+    protected void invalidEditUserAccountInfoTooLongEditedEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        AccountInfoPageTooLongSingularInput accountInfoPageTooLongSingularInput = new AccountInfoPageTooLongSingularInput(driver);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(3000);
+        //select "Account Information" option
+        generalPage.selectSetAccountInfoDropdownOption(1);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1750);
+        //account information page breadcrumb web element assert
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //account information page my user section web element assert
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page web element assert
+        isAccountInfoPageWebElementDisplayed(accountInformationPage);
+        //account information page text element assert
+        isAccountInfoPageTextElementAsExpected(accountInformationPage);
+        //capture screenshot of the account information page display before data input
+        captureScreenshot(driver, "Account Information Page Display Before Data Input");
+        //invalid edited user input data getter - too long edited email (75 chars -> name, domain)
+        accountInfoPageTooLongSingularInput.invalidEditedUserInfoTooLongEmailGetter();
+        //input valid edited first name into first name input field
+        accountInfoPageTooLongSingularInput.inputValidEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountInfoPageTooLongSingularInput.inputValidEditedUserLastNameIntoLastNameInputField();
+        //input too long edited email into email input field (75 chars -> name, domain)
+        accountInfoPageTooLongSingularInput.inputTooLongEditedUserEmailIntoEmailInputField();
+        //capture screenshot of the account information page display after invalid data input - too long edited email
+        captureScreenshot(driver, "Account Information Page Display After Data Input - Too Long Edited Email");
+        //click 'Apply Changes" button
+        accountInformationPage.clickApplyChangesButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1800);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Hodnota je příliš velká: řetězec musí mít <= 74 znaků", accountInformationPage.getAccountInfoPageSingularInputErrorMsg(), "The too long edited email input error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Too Long Edited Email");
+            throw new Error("The too long edited email input error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Too Long Edited Email");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
