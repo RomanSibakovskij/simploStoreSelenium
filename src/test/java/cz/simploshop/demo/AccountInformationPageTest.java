@@ -195,4 +195,18 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountInfoTooLongEditedEmailTest();
     }
 
+    //Test 003m -> invalid edit user account information test - too long user password/confirm password (75 chars) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - Too Long User Password And Confirm Password")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("Too_Long_Singular_Input")
+    void invalidEditUserAccountDataTooLongUserPasswordConfirmTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - too long user password/confirm password (75 chars)
+        invalidEditUserAccountTooLongUserPasswordConfirmTest();
+    }
+
 }

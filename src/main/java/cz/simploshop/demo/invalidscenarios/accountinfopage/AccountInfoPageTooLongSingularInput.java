@@ -1,6 +1,7 @@
 package cz.simploshop.demo.invalidscenarios.accountinfopage;
 
 import cz.simploshop.demo.utilities.*;
+import cz.simploshop.demo.modals.RegisterAccountModal;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
@@ -25,6 +26,8 @@ public class AccountInfoPageTooLongSingularInput extends BasePage{
     private String tooLongEditedFirstName;
     private String tooLongEditedLastName;
     private String tooLongEditedEmail;
+    private String tooLongEditedUserNewPassword;
+    private String tooLongEditedConfirmNewPassword;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -102,6 +105,33 @@ public class AccountInfoPageTooLongSingularInput extends BasePage{
         accountInfoPageEmailInputField.clear();
         accountInfoPageEmailInputField.sendKeys(tooLongEditedEmail);
     }
+
+    //invalid edited user password input data getter method - too long user password/confirm password (75 chars)
+    public void invalidEditedUserPasswordDataTooLongUserPasswordConfirmGetter(){
+
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validUserPassword = registerAccountModal.getPassword();
+        tooLongEditedUserNewPassword = "%Tsfddsgfdgdfgfjyuiuokghgbvxvsdgfhjyuteefggfvcxbbvmbmhgjklioipuyutyrtreerr#";
+        tooLongEditedConfirmNewPassword = tooLongEditedUserNewPassword;
+
+        System.out.println("Invalid generated edited user password data (too long login password):" + "\n");
+
+        logger.info("Valid generated edited user first name (too long login password): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (too long login password): " + validEditedUserLastName);
+        logger.info("Valid user password: " + validUserPassword);
+        logger.info("Too long generated edited user password: " + tooLongEditedUserNewPassword);
+        logger.info("Too long matching generated edited user new password: " + tooLongEditedConfirmNewPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - too long new / confirm password
+    public void inputTooLongUserNewPasswordIntoNewPasswordInputField(){accountInfoPageNewPasswordInputField.sendKeys(tooLongEditedUserNewPassword);}
+    public void inputTooLongUserConfirmNewPasswordIntoConfirmNewPasswordInputField(){accountInfoPageConfirmNewPasswordInputField.sendKeys(tooLongEditedConfirmNewPassword);}
 
     //valid edited user account data input methods - for remaining inputs
     public void inputValidEditedUserFirstNameIntoFirstNameInputField(){
