@@ -80,4 +80,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressNoZipCodeTest();
     }
 
+    //Test 005e -> invalid add user address test - no city
+    @Test
+    @DisplayName("Invalid Add User Address Test - No City")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("No_Singular_Input")
+    void invalidAddAddressNoCityTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - no city
+        invalidAddUserAddressNoCityTest();
+    }
+
 }
