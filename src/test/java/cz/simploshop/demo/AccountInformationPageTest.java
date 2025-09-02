@@ -167,4 +167,18 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountInfoTooLongEditedFirstNameTest();
     }
 
+    //Test 003k -> invalid edit user account information test - too long edited last name (100 chars)
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - Too Long Edited Last Name")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("Too_Long_Singular_Input")
+    void invalidEditUserAccountDataTooLongEditLastNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - too long edited last name (100 chars)
+        invalidEditUserAccountInfoTooLongEditedLastNameTest();
+    }
+
 }

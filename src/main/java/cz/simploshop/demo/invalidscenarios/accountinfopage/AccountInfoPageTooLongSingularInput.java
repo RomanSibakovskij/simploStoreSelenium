@@ -23,6 +23,7 @@ public class AccountInfoPageTooLongSingularInput extends BasePage{
 
     //invalid edited user account input data - too long singular input
     private String tooLongEditedFirstName;
+    private String tooLongEditedLastName;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -53,6 +54,29 @@ public class AccountInfoPageTooLongSingularInput extends BasePage{
     public void inputTooLongEditedUserFirstNameIntoFirstNameInputField(){
         accountInfoPageFirstNameInputField.clear();
         accountInfoPageFirstNameInputField.sendKeys(tooLongEditedFirstName);
+    }
+
+    //invalid edited user input data getter method - too long edited last name (51 chars)
+    public void invalidEditedUserInfoTooLongLastNameGetter(){
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        tooLongEditedLastName = "Bsfddsgfdgdfgfjyuiuokghgbvxvsdgfhjyuteefggfvcxbbvmb";
+        validEditedUserEmail = TestDataGenerator.generateRandomEmailAddress(5);
+
+        System.out.println("Invalid generated edited user account information data (too long edited last name):" + "\n");
+
+        logger.info("Valid generated user first name (too long edited last name): " + validEditedUserFirstName);
+        logger.info("Too long edited user last name: " + tooLongEditedLastName);
+        logger.info("Valid generated edited user email (too long edited last name): " + validEditedUserEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - too long edited last name
+    public void inputTooLongEditedUserLastNameIntoLastNameInputField(){
+        accountInfoPageLastNameInputField.clear();
+        accountInfoPageLastNameInputField.sendKeys(tooLongEditedLastName);
     }
 
     //valid edited user account data input methods - for remaining inputs
