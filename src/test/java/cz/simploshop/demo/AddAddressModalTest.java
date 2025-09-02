@@ -180,4 +180,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressTooShortStreetTest();
     }
 
+    //Test 005l -> invalid add user address test - too short zip code (4 digits) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Too Short Zip Code")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddAddressTooShortZipCodeTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - too short zip code (4 digits)
+        invalidAddUserAddressTooShortZipCodeTest();
+    }
+
 }
