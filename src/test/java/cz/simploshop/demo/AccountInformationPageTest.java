@@ -296,4 +296,18 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountInvalidUserPasswordConfirmFormatTest();
     }
 
+    //Test 003t -> invalid edit user account information test - mismatching confirm password
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - Mismatching Confirm Password")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidEditUserAccountDataMismatchConfirmPasswordTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - mismatching confirm password
+        invalidEditUserAccountMismatchingConfirmPasswordTest();
+    }
+
 }

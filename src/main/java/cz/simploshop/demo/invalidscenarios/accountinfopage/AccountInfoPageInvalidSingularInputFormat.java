@@ -30,6 +30,7 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
     private String invalidUserPassword;
     private String invalidEditedUserNewPasswordFormat;
     private String invalidEditedConfirmNewPasswordFormat;
+    private String mismatchingEditedConfirmNewPassword;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -183,6 +184,32 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
     //invalid edited user account data input method - invalid new / confirm password format
     public void inputInvalidUserNewPasswordFormatIntoNewPasswordInputField(){accountInfoPageNewPasswordInputField.sendKeys(invalidEditedUserNewPasswordFormat);}
     public void inputInvalidUserConfirmNewPasswordFormatIntoConfirmNewPasswordInputField(){accountInfoPageConfirmNewPasswordInputField.sendKeys(invalidEditedConfirmNewPasswordFormat);}
+
+    //invalid edited user password input data getter method - mismatching confirm password
+    public void invalidEditedUserPasswordDataMismatchingConfirmPasswordGetter(){
+
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validUserPassword = registerAccountModal.getPassword();
+        validEditedUserNewPassword = TestDataGenerator.generateRandomPassword();
+        mismatchingEditedConfirmNewPassword = "#$#fgfdg##";
+
+        System.out.println("Invalid generated edited user password data (mismatching confirm password):" + "\n");
+
+        logger.info("Valid generated edited user first name (mismatching confirm password): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (mismatching confirm password): " + validEditedUserLastName);
+        logger.info("Valid user password (mismatching confirm password): " + validUserPassword);
+        logger.info("Valid generated edited user password (mismatching confirm password): " + validEditedUserNewPassword);
+        logger.info("Mismatching generated edited user new password: " + mismatchingEditedConfirmNewPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - mismatching confirm password
+    public void inputMismatchingUserConfirmNewPasswordIntoConfirmNewPasswordInputField(){accountInfoPageConfirmNewPasswordInputField.sendKeys(mismatchingEditedConfirmNewPassword);}
 
     //valid edited user account data input methods - for remaining inputs
     public void inputValidEditedUserFirstNameIntoFirstNameInputField(){
