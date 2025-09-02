@@ -94,4 +94,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressNoCityTest();
     }
 
+    //Test 005f -> invalid add user address test - no country code
+    @Test
+    @DisplayName("Invalid Add User Address Test - No Country Code")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("No_Singular_Input")
+    void invalidAddAddressNoCountryCodeTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - no country code
+        invalidAddUserAddressNoCountryCodeTest();
+    }
+
 }
