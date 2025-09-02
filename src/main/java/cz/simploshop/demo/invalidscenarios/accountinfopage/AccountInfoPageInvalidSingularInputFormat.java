@@ -1,6 +1,7 @@
 package cz.simploshop.demo.invalidscenarios.accountinfopage;
 
 import cz.simploshop.demo.utilities.*;
+import cz.simploshop.demo.modals.RegisterAccountModal;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
@@ -27,6 +28,8 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
     private String invalidEditedEmailFormat;
     private String existingEmail;
     private String invalidUserPassword;
+    private String invalidEditedUserNewPasswordFormat;
+    private String invalidEditedConfirmNewPasswordFormat;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -153,6 +156,33 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
 
     //invalid edited user account data input method - invalid user password
     public void inputInvalidUserPasswordIntoPasswordInputField(){accountInfoPagePasswordInputField.sendKeys(invalidUserPassword);}
+
+    //invalid edited user password input data getter method - invalid user password/confirm password format (lowercase only)
+    public void invalidEditedUserPasswordDataInvalidUserPasswordConfirmFormatGetter(){
+
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validUserPassword = registerAccountModal.getPassword();
+        invalidEditedUserNewPasswordFormat = "fdgfghggfhfg";
+        invalidEditedConfirmNewPasswordFormat = invalidEditedUserNewPasswordFormat;
+
+        System.out.println("Invalid generated edited user password data (invalid login password format):" + "\n");
+
+        logger.info("Valid generated edited user first name (invalid login password format): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (invalid login password format): " + validEditedUserLastName);
+        logger.info("Valid user password (invalid login password format): " + validUserPassword);
+        logger.info("Invalid generated edited user password format: " + invalidEditedUserNewPasswordFormat);
+        logger.info("Invalid matching generated edited user new password format: " + invalidEditedConfirmNewPasswordFormat);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - invalid new / confirm password format
+    public void inputInvalidUserNewPasswordFormatIntoNewPasswordInputField(){accountInfoPageNewPasswordInputField.sendKeys(invalidEditedUserNewPasswordFormat);}
+    public void inputInvalidUserConfirmNewPasswordFormatIntoConfirmNewPasswordInputField(){accountInfoPageConfirmNewPasswordInputField.sendKeys(invalidEditedConfirmNewPasswordFormat);}
 
     //valid edited user account data input methods - for remaining inputs
     public void inputValidEditedUserFirstNameIntoFirstNameInputField(){

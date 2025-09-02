@@ -282,4 +282,18 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountInvalidUserPasswordTest();
     }
 
+    //Test 003s -> invalid edit user account information test - invalid user password/confirm password format (lowercase only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - Invalid User Password And Confirm Password Format")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidEditUserAccountDataInvalidUserPasswordConfirmFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - invalid user password/confirm password format (lowercase only)
+        invalidEditUserAccountInvalidUserPasswordConfirmFormatTest();
+    }
+
 }

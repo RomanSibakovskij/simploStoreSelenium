@@ -2264,6 +2264,79 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid Edit User Account Password Test Result - Invalid User Password");
     }
 
+    //invalid edit user account test method - invalid user password/confirm format (lowercase only)
+    protected void invalidEditUserAccountInvalidUserPasswordConfirmFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        AccountInfoPageInvalidSingularInputFormat accountInfoPageInvalidSingularInputFormat = new AccountInfoPageInvalidSingularInputFormat(driver);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(3000);
+        //select "Account Information" option
+        generalPage.selectSetAccountInfoDropdownOption(1);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1750);
+        //account information page breadcrumb web element assert
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //account information page my user section web element assert
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page web element assert
+        isAccountInfoPageWebElementDisplayed(accountInformationPage);
+        //account information page text element assert
+        isAccountInfoPageTextElementAsExpected(accountInformationPage);
+        //capture screenshot of the account information page display before data input
+        captureScreenshot(driver, "Account Information Page Display Before Data (new password) Input");
+        //invalid edited user password input data getter - invalid user password/confirm password format (lowercase only)
+        accountInfoPageInvalidSingularInputFormat.invalidEditedUserPasswordDataInvalidUserPasswordConfirmFormatGetter();
+        //input valid edited first name into first name input field
+        accountInfoPageInvalidSingularInputFormat.inputValidEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountInfoPageInvalidSingularInputFormat.inputValidEditedUserLastNameIntoLastNameInputField();
+        //click 'Apply Changes" button
+        accountInformationPage.clickApplyChangesButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(800);
+        //input valid password into password input field
+        accountInfoPageInvalidSingularInputFormat.inputValidUserPasswordIntoPasswordInputField();
+        //input invalid new password format into new password input field (75 chars)
+        accountInfoPageInvalidSingularInputFormat.inputInvalidUserNewPasswordFormatIntoNewPasswordInputField();
+        //input invalid matching confirm new password format into confirm new password input field (75 chars)
+        accountInfoPageInvalidSingularInputFormat.inputInvalidUserConfirmNewPasswordFormatIntoConfirmNewPasswordInputField();
+        //capture screenshot of the account information page display after invalid data input - invalid user password/confirm password format
+        captureScreenshot(driver, "Account Information Page Display After Invalid Data (with new password) Input - Invalid User Password And Confirm Password Format");
+        //click 'Change password" button
+        accountInformationPage.clickChangePasswordButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1800);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Heslo nemůže obsahovat pouze malá písmena", accountInformationPage.getAccountInfoPageSingularInputErrorMsg(), "The invalid edited password/confirm password input format error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Invalid User Password And Confirm Password Format");
+            throw new Error("The invalid edited password/confirm password input format error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Password Test Result - Invalid User Password And Confirm Password Format");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
