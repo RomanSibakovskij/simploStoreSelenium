@@ -156,6 +156,9 @@ public class GeneralPage extends BasePage {
         action.moveToElement(targetElement).click().perform();
     }
 
+    //select "Addresses" option method
+    public void selectAddressesOption(){upperHeaderAccountAddressesOption.click();}
+
     //general page text element getter methods
     //warning box
     public String getWarningBoxTitle() {return warningBoxTitle.getText();}

@@ -2,7 +2,9 @@ package cz.simploshop.demo.modals;
 
 import cz.simploshop.demo.utilities.*;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
 
 import java.util.*;
 
@@ -65,7 +67,67 @@ public class AddNewAddressModal extends BasePage{
     @FindBy(xpath = "//div[@class='sim-modal__content']//form//button")
     private WebElement addNewAddressModalAddAddressButton;
 
+    //valid address input data
+    private String validUserFirstName;
+    private String validUserLastName;
+    private String validStreet;
+    private int validZipCode;
+    private String validCity;
+    private String validPhone;
+
     public AddNewAddressModal(WebDriver driver) {super(driver);}
+
+    //valid user address input data getter
+    public void validUserAddressInputDataGetter(){
+
+        validUserFirstName = "George";
+        validUserLastName = "Thompson";
+        validStreet = TestDataGenerator.generateRandomAddress(8);
+        validZipCode = TestDataGenerator.getRandomPostalCode();
+        validCity = TestDataGenerator.getRandomCity();
+        validPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Valid generated user new address data: " + "\n");
+
+        logger.info("Valid user address first name: " + validUserFirstName);
+        logger.info("Valid user address last name: " + validUserLastName);
+        logger.info("Valid user street: " + validStreet);
+        logger.info("Valid user zip code: " + validZipCode);
+        logger.info("Valid user city: " + validCity);
+        logger.info("Valid user phone: " + validPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //valid user address data input methods
+    public void inputValidUserFirstNameIntoNewAddressModalFirstNameInputField(){addNewAddressModalFirstNameInputField.sendKeys(validUserFirstName);}
+    public void inputValidUserLastNameIntoNewAddressModalLastNameInputField(){addNewAddressModalLastNameInputField.sendKeys(validUserLastName);}
+    public void inputValidUserStreetIntoNewAddressModalStreetInputField(){addNewAddressModalStreetInputField.sendKeys(validStreet);}
+    public void inputValidUserZipCodeIntoNewAddressModalZipCodeInputField(){addNewAddressModalZipCodeInputField.sendKeys(String.valueOf(validZipCode));}
+    public void inputValidUserCityIntoNewAddressModalCityInputField(){addNewAddressModalCityInputField.sendKeys(validCity);}
+    public void inputValidUserPhoneIntoNewAddressModalPhoneInputField(){addNewAddressModalPhoneInputField.sendKeys(validPhone);}
+
+    //click country code dropdown menu method
+    public void clickCountryCodeDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(addNewAddressModalCountryCodeDropdownMenu).click().perform();
+    }
+
+    //click country dropdown menu method
+    public void clickCountryDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(addNewAddressModalCountryDropdownMenu).click().perform();
+    }
+
+    //select set country option method
+    public void selectSetCountryOption(int index){addNewAddressModalCountryOptionElements.get(index).click();}
+
+    //click "Add address" button method
+    public void clickAddAddressButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(addNewAddressModalAddAddressButton).click().perform();
+    }
 
     //add new address modal text element getters
     public String getAddNewAddressModalTitle() {return addNewAddressModalTitle.getText();}
