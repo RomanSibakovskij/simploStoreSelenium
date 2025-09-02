@@ -151,4 +151,20 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountTooShortNewPasswordConfirmTest();
     }
 
+    //too long singular input
+
+    //Test 003j -> invalid edit user account information test - too long edited first name (51 chars)
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - Too Long Edited First Name")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("Too_Long_Singular_Input")
+    void invalidEditUserAccountDataTooLongEditFirstNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - too long edited first name (51 chars)
+        invalidEditUserAccountInfoTooLongEditedFirstNameTest();
+    }
+
 }
