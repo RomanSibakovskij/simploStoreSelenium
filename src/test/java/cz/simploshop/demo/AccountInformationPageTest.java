@@ -325,4 +325,22 @@ public class AccountInformationPageTest extends TestMethods{
         validUserAccountRemovalTest();
     }
 
+    //invalid add user address tests (due to absence of country code options in dropdown menu, all address addition attempts will fail)
+
+    //no singular input
+
+    //Test 005a -> invalid add user address test - no first name
+    @Test
+    @DisplayName("Invalid Add User Address Test - No First Name")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("No_Singular_Input")
+    void invalidAddAddressNoFirstNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - no first name
+        invalidAddUserAddressNoFirstNameTest();
+    }
+
 }
