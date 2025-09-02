@@ -23,6 +23,7 @@ public class AddNewAddressModalNoSingularInput extends BasePage{
     //invalid address input data - no singular input
     private String noUserFirstName;
     private String noUserLastName;
+    private String noStreet;
 
     //valid address input data - for remaining inputs
     private String validUserFirstName;
@@ -85,6 +86,32 @@ public class AddNewAddressModalNoSingularInput extends BasePage{
 
     //invalid user address data input method - no last name
     public void inputNoUserLastNameIntoNewAddressModalLastNameInputField(){addNewAddressModalLastNameInputField.sendKeys(noUserLastName);}
+
+    //invalid user address input data getter - no street
+    public void invalidUserAddressInputDataNoStreetGetter(){
+
+        validUserFirstName = "Jane";
+        validUserLastName = "O'Connor";
+        noStreet = "";
+        validZipCode = TestDataGenerator.getRandomPostalCode();
+        validCity = TestDataGenerator.getRandomCity();
+        validPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid generated user new address data (no street): " + "\n");
+
+        logger.info("Valid user address first name (no street): " + validUserFirstName);
+        logger.info("Valid user address last name (no street): " + validUserLastName);
+        logger.info("No user street: " + noStreet);
+        logger.info("Valid user zip code (no street): " + validZipCode);
+        logger.info("Valid user city (no street): " + validCity);
+        logger.info("Valid user phone (no street): " + validPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid user address data input method - no street
+    public void inputNoUserStreetIntoNewAddressModalStreetInputField(){addNewAddressModalStreetInputField.sendKeys(noStreet);}
 
     //valid user address data input methods - for remaining inputs
     public void inputValidUserFirstNameIntoNewAddressModalFirstNameInputField(){addNewAddressModalFirstNameInputField.sendKeys(validUserFirstName);}

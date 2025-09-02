@@ -20,4 +20,50 @@ public class AddAddressModalTest extends TestMethods{
         validAddUserAddressTest();
     }
 
+    //invalid add user address tests (due to absence of country code options in dropdown menu, all address addition attempts will fail)
+
+    //no singular input
+
+    //Test 005a -> invalid add user address test - no first name
+    @Test
+    @DisplayName("Invalid Add User Address Test - No First Name")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("No_Singular_Input")
+    void invalidAddAddressNoFirstNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - no first name
+        invalidAddUserAddressNoFirstNameTest();
+    }
+
+    //Test 005b -> invalid add user address test - no last name
+    @Test
+    @DisplayName("Invalid Add User Address Test - No Last Name")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("No_Singular_Input")
+    void invalidAddAddressNoLastNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - no last name
+        invalidAddUserAddressNoLastNameTest();
+    }
+
+    //Test 005c -> invalid add user address test - no street
+    @Test
+    @DisplayName("Invalid Add User Address Test - No Street")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("No_Singular_Input")
+    void invalidAddAddressNoStreetTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - no street
+        invalidAddUserAddressNoStreetTest();
+    }
+
 }
