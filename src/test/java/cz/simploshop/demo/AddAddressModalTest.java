@@ -66,4 +66,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressNoStreetTest();
     }
 
+    //Test 005d -> invalid add user address test - no zip code
+    @Test
+    @DisplayName("Invalid Add User Address Test - No Zip Code")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("No_Singular_Input")
+    void invalidAddAddressNoZipCodeTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - no zip code
+        invalidAddUserAddressNoZipCodeTest();
+    }
+
 }
