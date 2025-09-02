@@ -184,4 +184,46 @@ public interface PageTextElementAsserts {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //addresses dashboard page text element assert test methods
+    default void isAddressesDashPageTextElementAsExpected(AddressesDashboardPage addressesDashboardPage){
+        //assert addresses dashboard page title is as expected
+        assertEquals("Adresář", addressesDashboardPage.getAddressesDashPageTitle(),"The addresses dashboard page title doesn't match expectations");
+        //assert addresses dashboard page shipping address section title is as expected
+        assertEquals("Výchozí fakturační adresa", addressesDashboardPage.getAddressesDashPageShippingAddressSectionTitle(),"The addresses dashboard page shipping address section title doesn't match expectations");
+        //assert addresses dashboard page billing address section title is as expected
+        assertEquals("Výchozí dodací adresa", addressesDashboardPage.getAddressesDashPageBillingAddressSectionTitle(),"The addresses dashboard page billing address section title doesn't match expectations");
+    }
+
+    //add new address modal text element assert test method
+    default void isAddNewAddressModalTextElementAsExpected(AddNewAddressModal addNewAddressModal){
+        //assert add new address modal title is as expected
+        assertEquals("Přidat adresu", addNewAddressModal.getAddNewAddressModalTitle(),"The add new address modal title doesn't match expectations");
+        //input form
+        //assert add new address modal first name subtext is as expected
+        assertEquals("Jméno *", addNewAddressModal.getAddNewAddressModalFirstNameSubtext(),"The add new address modal first name subtext doesn't match expectations");
+        //assert add new address modal last name subtext is as expected
+        assertEquals("Příjmení *", addNewAddressModal.getAddNewAddressModalLastNameSubtext(),"The add new address modal last name subtext doesn't match expectations");
+        //assert add new address modal street subtext is as expected
+        assertEquals("Ulice a číslo popisné *", addNewAddressModal.getAddNewAddressModalStreetSubtext(),"The add new address modal street subtext doesn't match expectations");
+        //assert add new address modal zip code subtext is as expected
+        assertEquals("PSČ *", addNewAddressModal.getAddNewAddressModalZipCodeSubtext(),"The add new address modal zip code subtext doesn't match expectations");
+        //assert add new address modal city subtext is as expected
+        assertEquals("Město *", addNewAddressModal.getAddNewAddressModalCitySubtext(),"The add new address modal city subtext doesn't match expectations");
+        //assert add new address modal country code subtext is as expected
+        assertEquals("Předčíslí *", addNewAddressModal.getAddNewAddressModalCountryCodeSubtext(),"The add new address modal country code subtext doesn't match expectations");
+        //assert add new address modal phone subtext is as expected
+        assertEquals("Telefonní číslo *", addNewAddressModal.getAddNewAddressModalPhoneSubtext(),"The add new address modal phone subtext doesn't match expectations");
+        //assert add new address modal country subtext is as expected
+        assertEquals("Země *", addNewAddressModal.getAddNewAddressModalCountrySubtext(),"The add new address modal country subtext doesn't match expectations");
+        //checkbox elements
+        //assert add new address modal add company details subtext is as expected
+        assertEquals("Chci doplnit údaje o firmě", addNewAddressModal.getAddNewAddressModalAddCompanyDetailsSubtext(),"The add new address modal add company details subtext doesn't match expectations");
+        //assert add new address modal default billing address subtext is as expected
+        assertEquals("Výchozí fakturační adresa", addNewAddressModal.getAddNewAddressModalDefaultBillAddressSubtext(),"The add new address modal default billing address subtext doesn't match expectations");
+        //assert add new address modal default shipping address subtext is as expected
+        assertEquals("Výchozí dodací adresa", addNewAddressModal.getAddNewAddressModalDefaultShipAddressSubtext(),"The add new address modal default shipping address subtext doesn't match expectations");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

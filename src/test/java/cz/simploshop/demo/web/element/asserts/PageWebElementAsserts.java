@@ -314,5 +314,74 @@ public interface PageWebElementAsserts {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //addresses dashboard page web element assert method
+    default void isAddressesDashPageWebElementDisplayed(AddressesDashboardPage addressesDashboardPage) {
+        //assert addresses dashboard page title is displayed
+        assertTrue(addressesDashboardPage.isAddressesDashboardPageTitleDisplayed(), "The addresses dashboard page title isn't displayed");
+        //assert addresses dashboard page add address button is displayed
+        assertTrue(addressesDashboardPage.isAddressesDashboardPageAddAddressButtonDisplayed(), "The addresses dashboard page add address button isn't displayed");
+        //assert addresses dashboard page shipping address section title is displayed
+        assertTrue(addressesDashboardPage.isAddressesDashboardPageShippingAddressSectionTitleDisplayed(), "The addresses dashboard page shipping address title isn't displayed");
+        //assert addresses dashboard page billing address section title is displayed
+        assertTrue(addressesDashboardPage.isAddressesDashboardPageBillingAddressSectionTitleDisplayed(), "The addresses dashboard page billing address title isn't displayed");
+    }
+
+    //add new address modal web element assert test method
+    default void isAddNewAddressModalWebElementDisplayed(AddNewAddressModal addNewAddressModal) {
+        //assert add new address modal title is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalTitleDisplayed(), "The add new address modal title isn't displayed");
+        //assert add new address modal close button is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalCloseButtonDisplayed(), "The add new address modal close button isn't displayed");
+        //input form
+        //assert add new address modal first name subtext is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalFirstNameSubtextDisplayed(), "The add new address modal first name subtext isn't displayed");
+        //assert add new address modal first name input field is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalFirstNameInputFieldDisplayed(), "The add new address modal first name input field isn't displayed");
+        //assert add new address modal last name subtext is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalLastNameSubtextDisplayed(), "The add new address modal last name subtext isn't displayed");
+        //assert add new address modal last name input field is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalLastNameInputFieldDisplayed(), "The add new address modal last name input field isn't displayed");
+        //assert add new address modal street subtext is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalStreetSubtextDisplayed(), "The add new address modal street subtext isn't displayed");
+        //assert add new address modal street input field is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalStreetInputFieldDisplayed(), "The add new address modal street input field isn't displayed");
+        //assert add new address modal zip code subtext is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalZipCodeSubtextDisplayed(), "The add new address modal zip code subtext isn't displayed");
+        //assert add new address modal zip code input field is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalZipCodeInputFieldDisplayed(), "The add new address modal zip code input field isn't displayed");
+        //assert add new address modal city subtext is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalCitySubtextDisplayed(), "The add new address modal city subtext isn't displayed");
+        //assert add new address modal city input field is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalCityInputFieldDisplayed(), "The add new address modal city input field isn't displayed");
+        //assert add new address modal country code subtext is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalCountryCodeSubtextDisplayed(), "The add new address modal country code subtext isn't displayed");
+        //assert add new address modal country code dropdown menu is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalCountryCodeDropdownMenuDisplayed(), "The add new address modal country code dropdown menu isn't displayed");
+        //assert add new address modal phone subtext is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalPhoneSubtextDisplayed(), "The add new address modal phone subtext isn't displayed");
+        //assert add new address modal phone input field is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalPhoneInputFieldDisplayed(), "The add new address modal phone input field isn't displayed");
+        //assert add new address modal country subtext is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalCountrySubtextDisplayed(), "The add new address modal country subtext isn't displayed");
+        //assert add new address modal country input field is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalCountryDropdownMenuDisplayed(), "The add new address modal country input field isn't displayed");
+        //checkbox elements
+        //assert add new address modal add company details subtext is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalAddCompanyDetailsSubtextDisplayed(), "The add new address modal add company details subtext isn't displayed");
+        //assert add new address modal add company details checkbox is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalAddCompanyDetailsCheckboxDisplayed(), "The add new address modal add company details checkbox isn't displayed");
+        //assert add new address modal default billing address subtext is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalDefaultBillAddressSubtextDisplayed(), "The add new address modal default billing address subtext isn't displayed");
+        //assert add new address modal default billing address checkbox is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalDefaultBillAddressCheckboxDisplayed(), "The add new address modal default billing address checkbox isn't displayed");
+        //assert add new address modal default shipping address subtext is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalDefaultShipAddressSubtextDisplayed(), "The add new address modal default shipping address subtext isn't displayed");
+        //assert add new address modal default shipping address checkbox is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalDefaultShipAddressCheckboxDisplayed(), "The add new address modal default shipping address checkbox isn't displayed");
+        //assert add new address modal add address button is displayed
+        assertTrue(addNewAddressModal.isAddNewAddressModalAddAddressButtonDisplayed(), "The add new address modal add address button isn't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
