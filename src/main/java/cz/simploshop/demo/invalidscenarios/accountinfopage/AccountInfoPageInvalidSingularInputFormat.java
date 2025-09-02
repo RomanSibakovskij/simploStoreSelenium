@@ -23,6 +23,7 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
 
     //invalid edited user account input data - invalid singular input format
     private String invalidEditedFirstNameFormat;
+    private String invalidEditedLastNameFormat;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -55,6 +56,29 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
     public void inputInvalidEditedUserFirstNameFormatIntoFirstNameInputField(){
         accountInfoPageFirstNameInputField.clear();
         accountInfoPageFirstNameInputField.sendKeys(invalidEditedFirstNameFormat);
+    }
+
+    //invalid edited user input data getter method - invalid edited last name format (special symbols only)
+    public void invalidEditedUserInfoInvalidLastNameFormatGetter(){
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        invalidEditedLastNameFormat = "(*&(*&^&%^";
+        validEditedUserEmail = TestDataGenerator.generateRandomEmailAddress(5);
+
+        System.out.println("Invalid generated edited user account information data (invalid edited last name format):" + "\n");
+
+        logger.info("Valid generated user first name (invalid edited last name format): " + validEditedUserFirstName);
+        logger.info("Invalid edited user last name format: " + invalidEditedLastNameFormat);
+        logger.info("Valid generated edited user email (invalid edited last name format): " + validEditedUserEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - invalid edited last name format
+    public void inputInvalidEditedUserLastNameFormatIntoLastNameInputField(){
+        accountInfoPageLastNameInputField.clear();
+        accountInfoPageLastNameInputField.sendKeys(invalidEditedLastNameFormat);
     }
 
     //valid edited user account data input methods - for remaining inputs

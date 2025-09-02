@@ -225,4 +225,18 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountInfoInvalidEditedFirstNameFormatTest();
     }
 
+    //Test 003o -> invalid edit user account information test - invalid edited last name format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - Invalid Edited Last Name Format")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidEditUserAccountDataInvalidEditLastNameFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - invalid edited last name format (special symbols only)
+        invalidEditUserAccountInfoInvalidEditedLastNameFormatTest();
+    }
+
 }
