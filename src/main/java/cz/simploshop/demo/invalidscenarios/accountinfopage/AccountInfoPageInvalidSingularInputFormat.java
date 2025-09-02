@@ -25,6 +25,7 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
     private String invalidEditedFirstNameFormat;
     private String invalidEditedLastNameFormat;
     private String invalidEditedEmailFormat;
+    private String existingEmail;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -103,6 +104,29 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
     public void inputInvalidEditedUserEmailFormatIntoEmailInputField(){
         accountInfoPageEmailInputField.clear();
         accountInfoPageEmailInputField.sendKeys(invalidEditedEmailFormat);
+    }
+
+    //invalid edited user input data getter method - existing email (used beforehand in manual testing)
+    public void invalidEditedUserInfoExistingEmailGetter(){
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        existingEmail = "m0@example.com";
+
+        System.out.println("Invalid generated edited user account information data (existing email):" + "\n");
+
+        logger.info("Valid generated user first name (existing email): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (existing email): " + validEditedUserLastName);
+        logger.info("Existing edited user email: " + existingEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - existing email
+    public void inputExistingEditedUserEmailIntoEmailInputField(){
+        accountInfoPageEmailInputField.clear();
+        accountInfoPageEmailInputField.sendKeys(existingEmail);
     }
 
     //valid edited user account data input methods - for remaining inputs

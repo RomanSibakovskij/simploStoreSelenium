@@ -2126,6 +2126,71 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Invalid Edited Email Format");
     }
 
+    //invalid edit user account data (with login email) test method - existing email (used beforehand in manual testing)
+    protected void invalidEditUserAccountInfoExistingEditedEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        AccountInfoPageInvalidSingularInputFormat accountInfoPageInvalidSingularInputFormat = new AccountInfoPageInvalidSingularInputFormat(driver);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(3000);
+        //select "Account Information" option
+        generalPage.selectSetAccountInfoDropdownOption(1);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1750);
+        //account information page breadcrumb web element assert
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //account information page my user section web element assert
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page web element assert
+        isAccountInfoPageWebElementDisplayed(accountInformationPage);
+        //account information page text element assert
+        isAccountInfoPageTextElementAsExpected(accountInformationPage);
+        //capture screenshot of the account information page display before data input
+        captureScreenshot(driver, "Account Information Page Display Before Data Input");
+        //invalid edited user input data getter - existing email (used beforehand in manual testing)
+        accountInfoPageInvalidSingularInputFormat.invalidEditedUserInfoExistingEmailGetter();
+        //input valid edited first name into first name input field
+        accountInfoPageInvalidSingularInputFormat.inputValidEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountInfoPageInvalidSingularInputFormat.inputValidEditedUserLastNameIntoLastNameInputField();
+        //input existing edited email into email input field (used beforehand in manual testing)
+        accountInfoPageInvalidSingularInputFormat.inputExistingEditedUserEmailIntoEmailInputField();
+        //capture screenshot of the account information page display after invalid data input - existing email
+        captureScreenshot(driver, "Account Information Page Display After Data Input - Existing Edited Email");
+        //click 'Apply Changes" button
+        accountInformationPage.clickApplyChangesButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1800);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("E-mail je již používán", accountInformationPage.getAccountInfoPageSingularInputErrorMsg(), "The existing edited email input error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Existing Edited Email");
+            throw new Error("The existing edited email input error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Existing Edited Email");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

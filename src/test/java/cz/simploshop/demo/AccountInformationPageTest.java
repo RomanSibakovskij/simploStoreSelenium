@@ -253,4 +253,19 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountInfoInvalidEditedEmailFormatTest();
     }
 
+    //Test 003q -> invalid edit user account information test - existing edited email (used beforehand in manual testing) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - Existing Edited Email")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Existing_Input")
+    void invalidEditUserAccountDataExistingEmailTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - existing edited email (used beforehand in manual testing)
+        invalidEditUserAccountInfoExistingEditedEmailTest();
+    }
+
 }
