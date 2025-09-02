@@ -268,4 +268,18 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountInfoExistingEditedEmailTest();
     }
 
+    //Test 003r -> invalid edit user account information test - invalid user password
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - Invalid User Password")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidEditUserAccountDataInvalidUserPasswordTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - invalid user password
+        invalidEditUserAccountInvalidUserPasswordTest();
+    }
+
 }

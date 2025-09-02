@@ -26,6 +26,7 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
     private String invalidEditedLastNameFormat;
     private String invalidEditedEmailFormat;
     private String existingEmail;
+    private String invalidUserPassword;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -128,6 +129,30 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
         accountInfoPageEmailInputField.clear();
         accountInfoPageEmailInputField.sendKeys(existingEmail);
     }
+
+    //invalid edited user password input data getter method - invalid user password
+    public void invalidEditedUserPasswordDataInvalidUserPasswordGetter(){
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        invalidUserPassword = "fgf#$%$%%^fg";
+        validEditedUserNewPassword = TestDataGenerator.generateRandomPassword();
+        validEditedUserConfirmNewPassword = validEditedUserNewPassword;
+
+        System.out.println("Invalid generated edited user password data (invalid user password):" + "\n");
+
+        logger.info("Valid generated edited user first name (invalid user password): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (invalid user password): " + validEditedUserLastName);
+        logger.info("Invalid user password: " + invalidUserPassword);
+        logger.info("Valid generated edited user password (invalid user password): " + validEditedUserNewPassword);
+        logger.info("Valid matching generated edited user new password (invalid user password): " + validEditedUserConfirmNewPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - invalid user password
+    public void inputInvalidUserPasswordIntoPasswordInputField(){accountInfoPagePasswordInputField.sendKeys(invalidUserPassword);}
 
     //valid edited user account data input methods - for remaining inputs
     public void inputValidEditedUserFirstNameIntoFirstNameInputField(){
