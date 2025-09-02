@@ -136,4 +136,20 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressNoCountryTest();
     }
 
+    //too short singular input
+
+    //Test 005i -> invalid add user address test - too short first name (1 char) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Too Short First Name")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddAddressTooShortFirstNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - too short first name (1 char)
+        invalidAddUserAddressTooShortFirstNameTest();
+    }
+
 }

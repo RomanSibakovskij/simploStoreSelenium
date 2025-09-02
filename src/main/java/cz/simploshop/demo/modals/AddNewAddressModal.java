@@ -66,6 +66,9 @@ public class AddNewAddressModal extends BasePage{
     private WebElement addNewAddressModalDefaultShipAddressCheckbox;
     @FindBy(xpath = "//div[@class='sim-modal__content']//form//button")
     private WebElement addNewAddressModalAddAddressButton;
+    //invalid singular input error message
+    @FindBy(xpath = "//div[@role='alert']")
+    private WebElement addNewAddressModalInvalidSingularInputError;
 
     //valid address input data
     private String validUserFirstName;
@@ -144,6 +147,9 @@ public class AddNewAddressModal extends BasePage{
     public String getAddNewAddressModalAddCompanyDetailsSubtext() {return addNewAddressModalAddCompanyDetailsSubtext.getText();}
     public String getAddNewAddressModalDefaultBillAddressSubtext() {return addNewAddressModalDefaultBillAddressSubtext.getText();}
     public String getAddNewAddressModalDefaultShipAddressSubtext() {return addNewAddressModalDefaultShipAddressSubtext.getText();}
+
+    //add new address modal singular input error message getter
+    public String getAddNewAddressModalSingularInputErrorMsg() {return addNewAddressModalInvalidSingularInputError.getText();}
 
     //add new address modal web element assert methods
     public boolean isAddNewAddressModalTitleDisplayed() {return addNewAddressModalTitle.isDisplayed();}
