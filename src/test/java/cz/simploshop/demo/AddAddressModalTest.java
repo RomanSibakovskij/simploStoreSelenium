@@ -194,4 +194,19 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressTooShortZipCodeTest();
     }
 
+    //Test 005m -> invalid add user address test - too short city (2 chars)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Too Short City")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddAddressTooShortCityTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - too short city (2 chars)
+        invalidAddUserAddressTooShortCityTest();
+    }
+
+
 }
