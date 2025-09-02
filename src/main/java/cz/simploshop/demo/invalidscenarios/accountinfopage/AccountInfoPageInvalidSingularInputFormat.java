@@ -24,6 +24,7 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
     //invalid edited user account input data - invalid singular input format
     private String invalidEditedFirstNameFormat;
     private String invalidEditedLastNameFormat;
+    private String invalidEditedEmailFormat;
 
     //valid edited user account input data - for remaining inputs
     private String validEditedUserFirstName;
@@ -79,6 +80,29 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
     public void inputInvalidEditedUserLastNameFormatIntoLastNameInputField(){
         accountInfoPageLastNameInputField.clear();
         accountInfoPageLastNameInputField.sendKeys(invalidEditedLastNameFormat);
+    }
+
+    //invalid edited user input data getter method - invalid edited email format (missing '@')
+    public void invalidEditedUserInfoInvalidEmailFormatGetter(){
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        invalidEditedEmailFormat = "dfdfdfdfakemail.com";
+
+        System.out.println("Invalid generated edited user account information data (invalid edited email format):" + "\n");
+
+        logger.info("Valid generated user first name (invalid edited email format): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (invalid edited email format): " + validEditedUserLastName);
+        logger.info("Invalid edited user email format: " + invalidEditedEmailFormat);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - invalid edited email format
+    public void inputInvalidEditedUserEmailFormatIntoEmailInputField(){
+        accountInfoPageEmailInputField.clear();
+        accountInfoPageEmailInputField.sendKeys(invalidEditedEmailFormat);
     }
 
     //valid edited user account data input methods - for remaining inputs
