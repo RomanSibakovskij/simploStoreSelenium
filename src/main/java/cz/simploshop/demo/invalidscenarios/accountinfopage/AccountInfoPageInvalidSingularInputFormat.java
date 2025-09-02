@@ -21,8 +21,57 @@ public class AccountInfoPageInvalidSingularInputFormat extends BasePage{
     @FindBy(xpath = "//main//section[3]//input[@id='v-0-4-0-0-37']")
     private WebElement accountInfoPageConfirmNewPasswordInputField;
 
+    //invalid edited user account input data - invalid singular input format
+    private String invalidEditedFirstNameFormat;
+
+    //valid edited user account input data - for remaining inputs
+    private String validEditedUserFirstName;
+    private String validEditedUserLastName;
+    private String validEditedUserEmail;
+    private String validUserPassword;
+    private String validEditedUserNewPassword;
+    private String validEditedUserConfirmNewPassword;
+
     public AccountInfoPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
+    //invalid edited user input data getter method - invalid edited first name format (special symbols only)
+    public void invalidEditedUserInfoInvalidFirstNameFormatGetter(){
 
+        invalidEditedFirstNameFormat = "@#$#%%^%^&";
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validEditedUserEmail = TestDataGenerator.generateRandomEmailAddress(5);
+
+        System.out.println("Invalid generated edited user account information data (invalid edited first name format):" + "\n");
+
+        logger.info("Invalid edited user first name format: " + invalidEditedFirstNameFormat);
+        logger.info("Valid generated edited user last name (invalid edited first name format): " + validEditedUserLastName);
+        logger.info("Valid generated edited user email (invalid edited first name format): " + validEditedUserEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid edited user account data input method - invalid edited first name format
+    public void inputInvalidEditedUserFirstNameFormatIntoFirstNameInputField(){
+        accountInfoPageFirstNameInputField.clear();
+        accountInfoPageFirstNameInputField.sendKeys(invalidEditedFirstNameFormat);
+    }
+
+    //valid edited user account data input methods - for remaining inputs
+    public void inputValidEditedUserFirstNameIntoFirstNameInputField(){
+        accountInfoPageFirstNameInputField.clear();
+        accountInfoPageFirstNameInputField.sendKeys(validEditedUserFirstName);
+    }
+    public void inputValidEditedUserLastNameIntoLastNameInputField(){
+        accountInfoPageLastNameInputField.clear();
+        accountInfoPageLastNameInputField.sendKeys(validEditedUserLastName);
+    }
+    public void inputValidEditedUserEmailIntoEmailInputField(){
+        accountInfoPageEmailInputField.clear();
+        accountInfoPageEmailInputField.sendKeys(validEditedUserEmail);
+    }
+    public void inputValidUserPasswordIntoPasswordInputField(){accountInfoPagePasswordInputField.sendKeys(validUserPassword);}
+    public void inputValidUserNewPasswordIntoNewPasswordInputField(){accountInfoPageNewPasswordInputField.sendKeys(validEditedUserNewPassword);}
+    public void inputValidUserConfirmNewPasswordIntoConfirmNewPasswordInputField(){accountInfoPageConfirmNewPasswordInputField.sendKeys(validEditedUserConfirmNewPassword);}
 
 }

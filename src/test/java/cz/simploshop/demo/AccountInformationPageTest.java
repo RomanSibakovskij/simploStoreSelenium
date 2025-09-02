@@ -209,4 +209,20 @@ public class AccountInformationPageTest extends TestMethods{
         invalidEditUserAccountTooLongUserPasswordConfirmTest();
     }
 
+    //invalid singular input format
+
+    //Test 003n -> invalid edit user account information test - invalid edited first name format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Edit User Account Information Test - Invalid Edited First Name Format")
+    @Tag("Invalid_Edit_User_Account_Info")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidEditUserAccountDataInvalidEditFirstNameFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid edit user account information test - invalid edited first name format (special symbols only)
+        invalidEditUserAccountInfoInvalidEditedFirstNameFormatTest();
+    }
+
 }

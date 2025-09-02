@@ -1918,12 +1918,6 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         accountInformationPage.clickChangePasswordButton();
         //wait for elements to load
         generalPage.waitForElementsToLoad(1800);
-        //assert the user gets an expected error message, log the issue otherwise
-        try {
-            assertEquals("Pole obsahuje příliš dlouhý vstup", accountInformationPage.getAccountInfoPageSingularInputErrorMsg(), "The too long edited password/confirm password input error message doesn't match expectations.");
-        } catch (Exception e) {
-            logger.error("The too long edited password/confirm password input error message doesn't get triggered, test has failed.");
-        }
         //assert the user gets an expected error message, throw an error otherwise
         try {
             assertEquals("Pole obsahuje příliš dlouhý vstup", accountInformationPage.getAccountInfoPageSingularInputErrorMsg(), "The too long edited password/confirm password input error message doesn't match expectations.");
@@ -1933,6 +1927,73 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Edit User Account Password Test Result - Too Long User Password And Confirm Password");
+    }
+
+    //invalid singular input format
+
+    //invalid edit user account data (with login email) test method - invalid edited first name format (special symbols only)
+    protected void invalidEditUserAccountInfoInvalidEditedFirstNameFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        AccountInfoPageInvalidSingularInputFormat accountInfoPageInvalidSingularInputFormat = new AccountInfoPageInvalidSingularInputFormat(driver);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(3000);
+        //select "Account Information" option
+        generalPage.selectSetAccountInfoDropdownOption(1);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1750);
+        //account information page breadcrumb web element assert
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //account information page my user section web element assert
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page web element assert
+        isAccountInfoPageWebElementDisplayed(accountInformationPage);
+        //account information page text element assert
+        isAccountInfoPageTextElementAsExpected(accountInformationPage);
+        //capture screenshot of the account information page display before data input
+        captureScreenshot(driver, "Account Information Page Display Before Data Input");
+        //invalid edited user input data getter - invalid edited first name format (special symbols only)
+        accountInfoPageInvalidSingularInputFormat.invalidEditedUserInfoInvalidFirstNameFormatGetter();
+        //input invalid edited first name format into first name input field (special symbols only)
+        accountInfoPageInvalidSingularInputFormat.inputInvalidEditedUserFirstNameFormatIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountInfoPageInvalidSingularInputFormat.inputValidEditedUserLastNameIntoLastNameInputField();
+        //input valid edited email into email input field
+        accountInfoPageInvalidSingularInputFormat.inputValidEditedUserEmailIntoEmailInputField();
+        //capture screenshot of the account information page display after invalid data input - invalid edited first name format
+        captureScreenshot(driver, "Account Information Page Display After Data Input - Invalid Edited First Name Format");
+        //click 'Apply Changes" button
+        accountInformationPage.clickApplyChangesButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1800);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Pole nemůže obsahovat pouze speciální symboly", accountInformationPage.getAccountInfoPageSingularInputErrorMsg(), "The invalid edited first name input format error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Invalid Edited First Name Format");
+            throw new Error("The invalid edited first name input format error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Info Test Result - Invalid Edited First Name Format");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
