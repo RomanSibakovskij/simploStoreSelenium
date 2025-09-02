@@ -343,4 +343,18 @@ public class AccountInformationPageTest extends TestMethods{
         invalidAddUserAddressNoFirstNameTest();
     }
 
+    //Test 005b -> invalid add user address test - no last name
+    @Test
+    @DisplayName("Invalid Add User Address Test - No Last Name")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("No_Singular_Input")
+    void invalidAddAddressNoLastNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - no last name
+        invalidAddUserAddressNoLastNameTest();
+    }
+
 }

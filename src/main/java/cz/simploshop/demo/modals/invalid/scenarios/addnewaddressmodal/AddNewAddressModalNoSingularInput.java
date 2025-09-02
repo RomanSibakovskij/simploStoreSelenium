@@ -22,6 +22,7 @@ public class AddNewAddressModalNoSingularInput extends BasePage{
 
     //invalid address input data - no singular input
     private String noUserFirstName;
+    private String noUserLastName;
 
     //valid address input data - for remaining inputs
     private String validUserFirstName;
@@ -58,6 +59,32 @@ public class AddNewAddressModalNoSingularInput extends BasePage{
 
     //invalid user address data input method - no first name
     public void inputNoUserFirstNameIntoNewAddressModalFirstNameInputField(){addNewAddressModalFirstNameInputField.sendKeys(noUserFirstName);}
+
+    //invalid user address input data getter - no last name
+    public void invalidUserAddressInputDataNoLastNameGetter(){
+
+        validUserFirstName = "Kyle";
+        noUserLastName = "";
+        validStreet = TestDataGenerator.generateRandomAddress(8);
+        validZipCode = TestDataGenerator.getRandomPostalCode();
+        validCity = TestDataGenerator.getRandomCity();
+        validPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid generated user new address data (no last name): " + "\n");
+
+        logger.info("Valid user address first name (no last name): " + validUserFirstName);
+        logger.info("No user address last name: " + noUserLastName);
+        logger.info("Valid user street (no last name): " + validStreet);
+        logger.info("Valid user zip code (no last name): " + validZipCode);
+        logger.info("Valid user city (no last name): " + validCity);
+        logger.info("Valid user phone (no last name): " + validPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid user address data input method - no last name
+    public void inputNoUserLastNameIntoNewAddressModalLastNameInputField(){addNewAddressModalLastNameInputField.sendKeys(noUserLastName);}
 
     //valid user address data input methods - for remaining inputs
     public void inputValidUserFirstNameIntoNewAddressModalFirstNameInputField(){addNewAddressModalFirstNameInputField.sendKeys(validUserFirstName);}
