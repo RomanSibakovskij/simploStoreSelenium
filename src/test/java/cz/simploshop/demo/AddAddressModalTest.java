@@ -194,7 +194,7 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressTooShortZipCodeTest();
     }
 
-    //Test 005m -> invalid add user address test - too short city (2 chars)
+    //Test 005m -> invalid add user address test - too short city (2 chars) (the error wasn't triggered, test has failed)
     @Test
     @DisplayName("Invalid Add User Address Test - Too Short City")
     @Tag("Invalid_Add_User_Address")
@@ -208,5 +208,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressTooShortCityTest();
     }
 
+    //Test 005n -> invalid add user address test - too short phone (2 digits) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Too Short Phone")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddAddressTooShortPhoneTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - too short phone (2 digits)
+        invalidAddUserAddressTooShortPhoneTest();
+    }
 
 }

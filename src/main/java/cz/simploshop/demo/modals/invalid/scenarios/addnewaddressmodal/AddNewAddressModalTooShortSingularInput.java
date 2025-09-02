@@ -26,6 +26,7 @@ public class AddNewAddressModalTooShortSingularInput extends BasePage{
     private String tooShortStreet;
     private int tooShortZipCode;
     private String tooShortCity;
+    private String tooShortPhone;
 
     //valid address input data - for remaining inputs
     private String validUserFirstName;
@@ -166,6 +167,32 @@ public class AddNewAddressModalTooShortSingularInput extends BasePage{
 
     //invalid user address data input method - too short city
     public void inputTooShortUserCityIntoNewAddressModalCityInputField(){addNewAddressModalCityInputField.sendKeys(tooShortCity);}
+
+    //invalid user address input data getter - too short phone (2 digits)
+    public void invalidUserAddressInputDataTooShortPhoneGetter(){
+
+        validUserFirstName = "Andrew";
+        validUserLastName = "Watson";
+        validStreet = TestDataGenerator.generateRandomAddress(8);
+        validZipCode = TestDataGenerator.getRandomPostalCode();
+        validCity = TestDataGenerator.getRandomCity();
+        tooShortPhone = "43";
+
+        System.out.println("Invalid generated user new address data (too short phone): " + "\n");
+
+        logger.info("Valid user address first name (too short phone): " + validUserFirstName);
+        logger.info("Valid user address last name (too short phone): " + validUserLastName);
+        logger.info("Valid user street (too short phone): " + validStreet);
+        logger.info("Valid user zip code (too short phone): " + validZipCode);
+        logger.info("Valid user city (too short phone): " + validCity);
+        logger.info("Too short user phone: " + tooShortPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid user address data input method - too short phone
+    public void inputTooShortUserPhoneIntoNewAddressModalPhoneInputField(){addNewAddressModalPhoneInputField.sendKeys(tooShortPhone);}
 
     //valid user address data input methods - for remaining inputs
     public void inputValidUserFirstNameIntoNewAddressModalFirstNameInputField(){addNewAddressModalFirstNameInputField.sendKeys(validUserFirstName);}
