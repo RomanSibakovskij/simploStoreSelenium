@@ -280,4 +280,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressTooLongZipCodeTest();
     }
 
+    //Test 005s -> invalid add user address test - too long city (100 chars) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Too Long City")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAddAddressTooLongCityTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - too long city (100 chars)
+        invalidAddUserAddressTooLongCityTest();
+    }
+
 }
