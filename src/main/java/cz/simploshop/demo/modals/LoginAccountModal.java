@@ -2,6 +2,7 @@ package cz.simploshop.demo.modals;
 
 import cz.simploshop.demo.utilities.*;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginAccountModal extends BasePage{
@@ -42,7 +43,38 @@ public class LoginAccountModal extends BasePage{
     @FindBy(xpath = "//div[@class='text-simplo text-center']/button")
     private WebElement loginAccountModalForgotPasswordButton;
 
+    //valid login input data
+    private String validLoginEmail;
+    private String validLoginPassword;
+
     public LoginAccountModal(WebDriver driver) {super(driver);}
+
+    //valid login input data getter
+    public void validLoginInputDataGetter(){
+
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        validLoginEmail = registerAccountModal.getEmail();
+        validLoginPassword = registerAccountModal.getPassword();
+
+        System.out.println("Valid user login input data: " + "\n");
+
+        logger.info("Valid user login email: " + validLoginEmail);
+        logger.info("Valid user login password: " + validLoginPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //valid user login input data methods
+    public void inputValidLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(validLoginEmail);}
+    public void inputValidLoginPasswordIntoPasswordInputField(){loginAccountModalPasswordInputField.sendKeys(validLoginPassword);}
+
+    //click "Login" button method
+    public void clickLoginButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(loginAccountModalLoginButton).click().perform();
+    }
 
     //login account modal text element getters
     public String getLoginAccountModalTitle(){return loginAccountModalTitle.getText();}

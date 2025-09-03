@@ -168,6 +168,12 @@ public class GeneralPage extends BasePage {
         action.moveToElement(upperHeaderHomePageLogoLink).click().perform();
     }
 
+    //click upper header 'Login' button method
+    public void clickLoginButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(upperHeaderLoginButton).click().perform();
+    }
+
     //general page text element getter methods
     //warning box
     public String getWarningBoxTitle() {return warningBoxTitle.getText();}

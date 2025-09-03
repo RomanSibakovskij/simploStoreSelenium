@@ -4768,6 +4768,58 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Valid User Logout Test Result");
     }
 
+    //valid user login tests
+
+    //valid user login test method
+    protected void validUserLoginTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+        LoginAccountModal loginAccountModal = new LoginAccountModal(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Login" button
+        generalPage.clickLoginButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(3500);
+        //login account modal web element assert
+        isLoginAccountModalWebElementDisplayed(loginAccountModal);
+        //login account modal text element assert
+        isLoginAccountModalTextElementAsExpected(loginAccountModal);
+        //capture screenshot of the login account modal display before data input
+        captureScreenshot(driver, "Login Account Modal Display Before Data Input");
+        //valid login input data getter
+        loginAccountModal.validLoginInputDataGetter();
+        //input valid login email into login email input field
+        loginAccountModal.inputValidLoginEmailIntoEmailInputField();
+        //input valid login password into login password input field
+        loginAccountModal.inputValidLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the login account modal display after valid login data input
+        captureScreenshot(driver, "Login Account Modal Display After Valid Login Data Input");
+        //click "Login" button
+        loginAccountModal.clickLoginButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(6000);
+        //assert the user account gets created
+        assertEquals(registerAccountModal.getUsername(), generalPage.getUpperHeaderUsername(), "The usernames don't match expectations or the user account creation process has failed.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Login Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
