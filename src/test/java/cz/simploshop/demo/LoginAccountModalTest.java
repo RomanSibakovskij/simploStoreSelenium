@@ -127,4 +127,21 @@ public class LoginAccountModalTest extends TestMethods{
         invalidUserLoginInvalidEmailTest();
     }
 
+    //Test 007f -> invalid user login test - invalid login email format (missing '@')
+    @Test
+    @DisplayName("Invalid User Login Test - Invalid Login Email Format")
+    @Tag("Invalid_User_Login")
+    @Tag("Invalid_Singular_Input")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidUserAccountLoginInvalidEmailFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //valid user logout test
+        userLogoutTest();
+        //invalid login email format (missing '@')
+        invalidUserLoginInvalidEmailFormatTest();
+    }
+
 }

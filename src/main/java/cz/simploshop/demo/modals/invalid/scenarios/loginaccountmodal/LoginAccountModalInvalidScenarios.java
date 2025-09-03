@@ -19,6 +19,7 @@ public class LoginAccountModalInvalidScenarios extends BasePage{
 
     //invalid login input data - invalid singular input
     private String invalidLoginEmail;
+    private String invalidLoginEmailFormat;
 
     //valid login input data - for remaining inputs
     private String validLoginEmail;
@@ -83,8 +84,26 @@ public class LoginAccountModalInvalidScenarios extends BasePage{
 
     }
 
+    //invalid login input data getter - invalid login email format (missing '@')
+    public void invalidLoginInputDataInvalidEmailFormatGetter(){
+
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        invalidLoginEmailFormat = "saswfakemail.com";
+        validLoginPassword = registerAccountModal.getPassword();
+
+        System.out.println("Invalid user login input data (invalid login email format): " + "\n");
+
+        logger.info("Invalid login email format: " + invalidLoginEmailFormat);
+        logger.info("Valid user login password (invalid login email format): " + validLoginPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid user login input data methods - invalid singular input
     public void inputInvalidLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(invalidLoginEmail);}
+    public void inputInvalidLoginEmailFormatIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(invalidLoginEmailFormat);}
 
     //valid user login input data methods - for remaining inputs
     public void inputValidLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(validLoginEmail);}

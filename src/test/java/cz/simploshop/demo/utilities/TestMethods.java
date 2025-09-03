@@ -5085,6 +5085,58 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid User Login Test Result - Invalid Login Email");
     }
 
+    //invalid user login test method - invalid login email format (missing '@')
+    protected void invalidUserLoginInvalidEmailFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        LoginAccountModal loginAccountModal = new LoginAccountModal(driver);
+        LoginAccountModalInvalidScenarios loginAccountModalInvalidScenarios = new LoginAccountModalInvalidScenarios(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Login" button
+        generalPage.clickLoginButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(3500);
+        //login account modal web element assert
+        isLoginAccountModalWebElementDisplayed(loginAccountModal);
+        //login account modal text element assert
+        isLoginAccountModalTextElementAsExpected(loginAccountModal);
+        //capture screenshot of the login account modal display before data input
+        captureScreenshot(driver, "Login Account Modal Display Before Data Input");
+        //invalid login input data getter - invalid login email format (missing '@')
+        loginAccountModalInvalidScenarios.invalidLoginInputDataInvalidEmailFormatGetter();
+        //input invalid login email format into login email input field (missing '@)
+        loginAccountModalInvalidScenarios.inputInvalidLoginEmailFormatIntoEmailInputField();
+        //input valid login password into login password input field
+        loginAccountModalInvalidScenarios.inputValidLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the login account modal display after invalid login data input - invalid login email format
+        captureScreenshot(driver, "Login Account Modal Display After Invalid Login Data Input - Invalid Login Email Format");
+        //click "Login" button
+        loginAccountModal.clickLoginButton();
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("E-mailová adresa je neplatná.", loginAccountModal.getLoginAccountModalSingularInputErrorMsg(), "The invalid login email error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The invalid login email error message doesn't get triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Login Test Result - Invalid Login Email Format");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
