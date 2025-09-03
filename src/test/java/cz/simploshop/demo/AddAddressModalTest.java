@@ -308,4 +308,20 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressTooLongPhoneTest();
     }
 
+    //invalid singular input format
+
+    //Test 005u -> invalid add user address test - invalid first name format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Invalid First Name Format")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAddAddressInvalidFirstNameFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - invalid first name format (special symbols only)
+        invalidAddUserAddressInvalidFirstNameFormatTest();
+    }
+
 }
