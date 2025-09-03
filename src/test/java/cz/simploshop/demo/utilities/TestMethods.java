@@ -5627,7 +5627,7 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         isSingleCategoryDashPageAsideTextElementAsExpected(singleCategoryDashboardPage);
         //single category dashboard page web element assert
         isSingleCategoryDashPageWebElementDisplayed(singleCategoryDashboardPage);
-        //assert the correct product has been added to shopping cart
+        //assert the correct category page has been opened
         String expectedProductCategory = "Pracovna";
         String actualProductCategory = singleCategoryDashboardPage.getSingleCategoryDashPageTitle();
         assertEquals(expectedProductCategory, actualProductCategory, "The expected product category name doesn't match the actual product name, test has failed");
@@ -5805,7 +5805,7 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         isSingleCategoryDashPageFurnitureCategoryTextElementAsExpected(singleCategoryDashboardPage);
         //single category dashboard page subcategories web element assert
         isSingleCategoryDashPageSubcategoryWebElementDisplayed(singleCategoryDashboardPage);
-        //assert the correct product has been added to shopping cart
+        //assert the correct category page has been opened
         String expectedProductCategory = "Nábytek";
         String actualProductCategory = singleCategoryDashboardPage.getSingleCategoryDashPageTitle();
         assertEquals(expectedProductCategory, actualProductCategory, "The expected product category name doesn't match the actual product name, test has failed");
@@ -5837,6 +5837,92 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         generalPage.waitForElementsToLoad(1100);
         //capture screenshot of the test result
         captureScreenshot(driver, "Add Single Set Category Product (Odkládací stolek Furniture product) To Cart Test Result (as registered user)");
+    }
+
+    //add single category ("Pracovna") multiple products ("Konferenční stolek", "Knihovna - 3 police") to cart test method - as a guest
+    protected void addSetSingleCategoryMultipleProductsToCartGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SingleCategoryDashboardPage singleCategoryDashboardPage = new SingleCategoryDashboardPage(driver);
+        ShoppingCartModal shoppingCartModal = new ShoppingCartModal(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2100);
+        //general page warning box web element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxWebElementDisplayed(generalPage);
+        //general page warning box text element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxTextElementAsExpected(generalPage);
+        //click 'Close' warning box button
+        generalPage.clickCloseWarningBoxButton();
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click set room category link ("Pracovna")
+        homePage.clickSetRoomCategoryNameLink(3);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3500);
+        //single category dashboard page aside section web element assert
+        isSingleCategoryDashPageAsideWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard page aside section web element assert;
+        isSingleCategoryDashPageAsideTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard page web element assert
+        isSingleCategoryDashPageWebElementDisplayed(singleCategoryDashboardPage);
+        //assert the correct category page has been opened
+        String expectedProductCategory = "Pracovna";
+        String actualProductCategory = singleCategoryDashboardPage.getSingleCategoryDashPageTitle();
+        assertEquals(expectedProductCategory, actualProductCategory, "The expected product category name doesn't match the actual product name, test has failed");
+        //log category product options data
+        logCategoryProductOptions(singleCategoryDashboardPage);
+        //log single category dashboard page product data
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display (guest)");
+        //log single category dashboard page product data
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //click set product ("Konferenční stolek") add to cart button
+        singleCategoryDashboardPage.clickSetCategoryProductAddToCartButton(2);
+        //wait for elements to load (for modal to disappear) -> due to network issues wait time is extended
+        generalPage.waitForElementsToLoad(4000);
+        //click close shopping cart modal button
+        shoppingCartModal.clickShoppingCartCloseModalButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1200);
+        //click set product ("Knihovna - 3 police") add to cart button
+        singleCategoryDashboardPage.clickSetCategoryProductAddToCartButton(2);
+        //wait for elements to load (for modal to appear)
+        generalPage.waitForElementsToLoad(2000);
+        //capture screenshot of the shopping cart modal display
+        captureScreenshot(driver, "Shopping Cart Modal Display (Konferenční stolek and Knihovna - 3 police Study products as guest)");
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //shopping cart modal web element assert
+        isShoppingCartModalWebElementDisplayed(shoppingCartModal);
+        //shopping cart modal text element assert
+        isShoppingCartModalTextElementAsExpected(shoppingCartModal);
+        //assert the correct product has been added to shopping cart
+        List<String> expectedProductNames = Arrays.asList("Konferenční stolek", "Knihovna - 3 police");
+        List<String> actualProductNames = shoppingCartModal.getShoppingCartModalProductName();
+        assertEquals(expectedProductNames, actualProductNames, "The expected product names list don't match the actual product names list, test has failed");
+        //log shopping cart modal product data
+        logShoppingCartModalProductData(shoppingCartModal);
+        //click "Proceed to cart" button
+        shoppingCartModal.clickProceedToCartButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1100);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Multiple Set Category Products (Konferenční stolek and Knihovna - 3 police Study products) To Cart Test Result (as guest)");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

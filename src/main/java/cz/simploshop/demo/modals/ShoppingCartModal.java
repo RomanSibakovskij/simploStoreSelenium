@@ -69,6 +69,12 @@ public class ShoppingCartModal extends BasePage {
         action.moveToElement(setProductRemoveButton).click().perform();
     }
 
+    //click close shopping cart modal button method
+    public void clickShoppingCartCloseModalButton() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", shoppingCartCloseModalButton);
+    }
+
     //click "Proceed to cart" button method
     public void clickProceedToCartButton() {
         Actions action = new Actions(driver);

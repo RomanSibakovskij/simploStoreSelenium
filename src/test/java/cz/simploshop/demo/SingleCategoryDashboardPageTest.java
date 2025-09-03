@@ -30,4 +30,13 @@ public class SingleCategoryDashboardPageTest extends TestMethods{
         addSetSingleCategoryProductToCartRegUserTest();
     }
 
+    //Test 010b -> add single category multiple product ("Konferenční stolek", "Knihovna - 3 police") to cart test - as a guest
+    @Test
+    @DisplayName("Add Single Category Multiple Products To Cart Test (as a guest)")
+    @Tag("Add_Single_Category_Products_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void addSingleCategoryProductsToCartGuestTest() {
+        addSetSingleCategoryMultipleProductsToCartGuestTest();
+    }
+
 }
