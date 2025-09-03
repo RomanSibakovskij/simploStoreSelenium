@@ -2,6 +2,7 @@ package cz.simploshop.demo;
 
 import cz.simploshop.demo.utilities.BasePage;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
@@ -73,6 +74,19 @@ public class HomePage extends BasePage {
     private List <WebElement> homePageLatestArticleTimePostedElements;
 
     public HomePage(WebDriver driver) {super(driver);}
+
+    //click chosen products section scroll left button method
+    public void clickChosenProductScrollLeftButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(homePageChosenProductsScrollLeftButton).click().perform();
+    }
+
+    //click set chosen product "Add to cart" button method
+    public void clickSetChosenProductAddToCartButton(int index) {
+        WebElement targetAddToCartButton = homePageRoomChosenProductAddToCartButtonElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(targetAddToCartButton).click().perform();
+    }
 
     //home page product text data getter methods
     //chosen products section

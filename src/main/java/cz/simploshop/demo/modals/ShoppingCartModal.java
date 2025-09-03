@@ -2,6 +2,7 @@ package cz.simploshop.demo.modals;
 
 import cz.simploshop.demo.utilities.BasePage;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
@@ -47,6 +48,12 @@ public class ShoppingCartModal extends BasePage {
     private WebElement shoppingCartModalNoProductsWarning;
 
     public ShoppingCartModal(WebDriver driver) {super(driver);}
+
+    //click "Proceed to cart" button method
+    public void clickProceedToCartButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(shoppingCartModalProceedToCartButton).click().perform();
+    }
 
     //shopping cart modal product data getters
     public List<String> getShoppingCartModalProductName() {return shoppingCartModalProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}

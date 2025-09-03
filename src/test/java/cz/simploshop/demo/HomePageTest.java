@@ -15,5 +15,16 @@ public class HomePageTest extends TestMethods {
         navigateToRegisterAccountModalTest();
     }
 
+    //valid chosen product(s) add to cart tests
+
+    //Test 008 -> add single chosen product ("Polštář Furniture") to cart test - as a guest
+    @Test
+    @DisplayName("Add Single Chosen Product To Cart Test (as a guest)")
+    @Tag("Add_Single_Chosen_Product_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void addSingleChosenProductToCartGuestTest() {
+        addSingleChosenProductToCartTest();
+    }
+
 
 }
