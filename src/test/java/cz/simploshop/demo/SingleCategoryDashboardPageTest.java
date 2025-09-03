@@ -39,4 +39,18 @@ public class SingleCategoryDashboardPageTest extends TestMethods{
         addSetSingleCategoryMultipleProductsToCartGuestTest();
     }
 
+    //Test 010c -> add single category multiple products ("Dětská postýlka", "Polštář") to cart test - as a registered user
+    @Test
+    @DisplayName("Add Single Category Multiple Products To Cart Test (as a registered user)")
+    @Tag("Add_Single_Category_Products_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void addSingleCategoryProductsToCartRegisteredUserTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add single category multiple products ("Dětská postýlka", "Polštář") to cart test - as a registered user
+        addSetSingleCategoryMultipleProductsToCartRegUserTest();
+    }
+
 }
