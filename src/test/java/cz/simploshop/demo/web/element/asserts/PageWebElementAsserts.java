@@ -384,4 +384,44 @@ public interface PageWebElementAsserts {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //login account modal web element assert test method
+    default void isLoginAccountModalWebElementDisplayed(LoginAccountModal loginAccountModal) {
+        //assert login account modal title is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalTitleDisplayed(), "The login account modal title isn't displayed");
+        //login section
+        //input form
+        //assert login account modal email subtext is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalEmailSubtextDisplayed(), "The login account modal email subtext isn't displayed");
+        //assert login account modal email input field is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalEmailInputFieldDisplayed(), "The login account modal email input field isn't displayed");
+        //assert login account modal password subtext is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalPasswordSubtextDisplayed(), "The login account modal password subtext isn't displayed");
+        //assert login account modal password input field is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalPasswordInputFieldDisplayed(), "The login account modal password input field isn't displayed");
+        //assert login account modal login button is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalLoginButtonDisplayed(), "The login account modal login button isn't displayed");
+        //alternatives section
+        //assert login account modal or subtext is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalOrSubtextDisplayed(), "The login account modal or subtext isn't displayed");
+        //assert login account modal continue with subtext is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalContinueWithSubtextDisplayed(), "The login account modal continue with subtext isn't displayed");
+        //assert login account modal google button is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalGoogleButtonDisplayed(), "The login account modal google button isn't displayed");
+        //assert login account modal seznam cz portal button is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalSeznamCzPortalButtonDisplayed(), "The login account modal seznam cz portal button isn't displayed");
+        //register section
+        //assert login account modal register section register subtitle is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalRegisterSubtitleDisplayed(), "The login account modal register section register subtitle isn't displayed");
+        //assert login account modal close button is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalCloseButtonDisplayed(), "The login account modal close button isn't displayed");
+        //assert login account modal register section register button is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalRegisterButtonDisplayed(), "The login account modal register section register button isn't displayed");
+        //assert login account modal register section forgot password subtitle is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalForgotPasswordSubtitleDisplayed(), "The login account modal register section forgot password subtitle isn't displayed");
+        //assert login account modal register section forgot password button is displayed
+        assertTrue(loginAccountModal.isLoginAccountModalForgotPasswordButtonDisplayed(), "The login account modal register section forgot password button isn't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

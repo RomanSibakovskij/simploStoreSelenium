@@ -226,4 +226,28 @@ public interface PageTextElementAsserts {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //login account modal text element assert test method
+    default void isLoginAccountModalTextElementAsExpected(LoginAccountModal loginAccountModal){
+        //assert login account modal title is as expected
+        assertEquals("Přihlášení", loginAccountModal.getLoginAccountModalTitle(),"The login account modal title doesn't match expectations");
+        //login section
+        //input form
+        //assert login account modal email subtext is as expected
+        assertEquals("Email *", loginAccountModal.getLoginAccountModalEmailSubtext(),"The login account modal email subtext doesn't match expectations");
+        //assert login account modal password subtext is as expected
+        assertEquals("Heslo *", loginAccountModal.getLoginAccountModalPasswordSubtext(),"The login account modal password subtext doesn't match expectations");
+        //alternatives section
+        //assert login account modal or subtext is as expected
+        assertEquals("nebo", loginAccountModal.getLoginAccountModalOrSubtext(),"The login account modal or subtext doesn't match expectations");
+        //assert login account modal continue with subtext is as expected
+        assertEquals("Pokračovat přes", loginAccountModal.getLoginAccountModalContinueWithSubtext(),"The login account modal continue with subtext doesn't match expectations");
+        //register section
+        //assert login account modal register section register subtitle is as expected
+        assertEquals("Ještě u nás nemáte účet?", loginAccountModal.getLoginAccountModalRegisterSubtitle(),"The login account modal register section register subtitle doesn't match expectations");
+        //assert login account modal register section forgot password subtitle is as expected
+        assertEquals("ZAPOMNĚLI JSTE HESLO?", loginAccountModal.getLoginAccountModalForgotPasswordSubtitle(),"The login account modal register section forgot password subtitle doesn't match expectations");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
