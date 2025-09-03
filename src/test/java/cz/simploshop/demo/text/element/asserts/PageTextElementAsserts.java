@@ -250,4 +250,17 @@ public interface PageTextElementAsserts {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //shopping cart modal text element assert test method
+    default void isShoppingCartModalTextElementAsExpected(ShoppingCartModal shoppingCartModal){
+        //assert shopping cart modal title is as expected
+        assertEquals("Nákupní košík", shoppingCartModal.getShoppingCartModalTitle(),"The shopping cart modal title doesn't match expectations");
+        //summary section
+        //assert shopping cart modal total subtext is as expected
+        assertEquals("Celkem", shoppingCartModal.getShoppingCartModalTotalSubtext(),"The shopping cart modal total (price) subtext doesn't match expectations");
+        //assert shopping cart modal without shipping subtext is as expected
+        assertEquals("vč. DPH", shoppingCartModal.getShoppingCartModalWithoutShippingSubtext(),"The shopping cart modal without shipping (price) subtext doesn't match expectations");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

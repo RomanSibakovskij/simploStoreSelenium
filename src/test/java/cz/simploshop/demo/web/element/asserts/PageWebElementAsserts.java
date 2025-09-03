@@ -424,4 +424,42 @@ public interface PageWebElementAsserts {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //shopping cart modal web element assert test method
+    default void isShoppingCartModalWebElementDisplayed(ShoppingCartModal shoppingCartModal){
+        //assert shopping cart modal title is displayed
+        assertTrue(shoppingCartModal.isShoppingCartModalTitleDisplayed(), "The shopping cart modal title isn't displayed");
+        //assert shopping cart close modal button is displayed
+        assertTrue(shoppingCartModal.isShoppingCartCloseModalButtonDisplayed(), "The shopping cart close modal button isn't displayed");
+        //assert shopping cart modal free shipping text is displayed
+        assertTrue(shoppingCartModal.isShoppingCartModalFreeShippingTextDisplayed(), "The shopping cart modal free shipping text isn't displayed");
+        //assert shopping cart modal free shipping bar is displayed
+        assertTrue(shoppingCartModal.isShoppingCartModalFreeShippingBarDisplayed(), "The shopping cart modal free shipping bar isn't displayed");
+        //product table
+        //assert shopping cart modal product images are displayed (as a list)
+        assertTrue(shoppingCartModal.isShoppingCartModalProductImgDisplayed(), "The shopping cart modal product images aren't displayed");
+        //assert shopping cart modal product name links are displayed (as a list)
+        assertTrue(shoppingCartModal.isShoppingCartModalProductNameDisplayed(), "The shopping cart modal product name links aren't displayed");
+        //assert shopping cart modal product unit prices are displayed (as a list)
+        assertTrue(shoppingCartModal.isShoppingCartModalProductUnitPriceDisplayed(), "The shopping cart modal product unit prices aren't displayed");
+        //assert shopping cart modal product quantity decrease buttons are displayed (as a list)
+        assertTrue(shoppingCartModal.isShoppingCartModalProductQtyDecreaseButtonDisplayed(), "The shopping cart modal product quantity decrease buttons aren't displayed");
+        //assert shopping cart modal product quantity input fields are displayed (as a list)
+        assertTrue(shoppingCartModal.isShoppingCartModalProductQtyInputFieldDisplayed(), "The shopping cart modal product quantity input fields aren't displayed");
+        //assert shopping cart modal product quantity increase buttons are displayed (as a list)
+        assertTrue(shoppingCartModal.isShoppingCartModalProductQtyIncreaseButtonDisplayed(), "The shopping cart modal product quantity increase buttons aren't displayed");
+        //assert shopping cart modal product remove buttons are displayed (as a list)
+        assertTrue(shoppingCartModal.isShoppingCartModalProductRemoveButtonDisplayed(), "The shopping cart modal product remove buttons aren't displayed");
+        //summary section
+        //assert shopping cart modal total subtext is displayed
+        assertTrue(shoppingCartModal.isShoppingCartModalTotalSubtextDisplayed(), "The shopping cart modal total subtext isn't displayed");
+        //assert shopping cart modal without shipping subtext is displayed
+        assertTrue(shoppingCartModal.isShoppingCartModalWithoutShippingSubtextDisplayed(), "The shopping cart modal without shipping subtext isn't displayed");
+        //assert shopping cart modal total price is displayed
+        assertTrue(shoppingCartModal.isShoppingCartModalTotalPriceDisplayed(), "The shopping cart modal total price isn't displayed");
+        //assert shopping cart modal proceed to cart button is displayed
+        assertTrue(shoppingCartModal.isShoppingCartModalProceedToCartButtonDisplayed(), "The shopping cart modal proceed to cart button isn't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
