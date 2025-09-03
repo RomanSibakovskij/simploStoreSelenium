@@ -5763,6 +5763,82 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Add Single Set Category Product (single Knihovna - 10 polic Study product) To Cart Test Result (as guest)");
     }
 
+    //add single category ("Nábytek") multiple products ("Odkládací stolek") to cart test method - as a registered user
+    protected void addSetSingleCategoryProductToCartRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SingleCategoryDashboardPage singleCategoryDashboardPage = new SingleCategoryDashboardPage(driver);
+        ShoppingCartModal shoppingCartModal = new ShoppingCartModal(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2100);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click lower header category ("Nábytek")
+        generalPage.clickSetLowerHeaderCategoryDropdownLink(0);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3500);
+        //single category dashboard (furniture) page aside section in stock web element assert
+        isSingleCategoryDashPageAsideInStockWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page aside section in stock text element assert
+        isSingleCategoryDashPageAsideInStockTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page aside section web element assert
+        isSingleCategoryDashPageFurnitureAsideWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page aside section text element assert;
+        isSingleCategoryDashPageFurnitureAsideTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard page web element assert
+        isSingleCategoryDashPageWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page text element assert
+        isSingleCategoryDashPageFurnitureCategoryTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard page subcategories web element assert
+        isSingleCategoryDashPageSubcategoryWebElementDisplayed(singleCategoryDashboardPage);
+        //assert the correct product has been added to shopping cart
+        String expectedProductCategory = "Nábytek";
+        String actualProductCategory = singleCategoryDashboardPage.getSingleCategoryDashPageTitle();
+        assertEquals(expectedProductCategory, actualProductCategory, "The expected product category name doesn't match the actual product name, test has failed");
+        //log single category (furniture) dashboard page product data
+        logFurnitureCategoryProductOptions(singleCategoryDashboardPage);
+        //capture screenshot of the set single category ("Nábytek") dashboard page display (as a registered user)
+        captureScreenshot(driver, "Single Category (Nábytek) Dashboard Page Display (registered user)");
+        //log single category dashboard page product data
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //click set product ("Odkládací stolek") add to cart button
+        singleCategoryDashboardPage.clickSetCategoryProductAddToCartButton(0);
+        //wait for elements to load (for modal to appear) -> due to network issues, wait time is extended
+        generalPage.waitForElementsToLoad(3500);
+        //capture screenshot of the shopping cart modal display
+        captureScreenshot(driver, "Shopping Cart Modal Display (Odkládací stolek Furniture product as registered user)");
+        //shopping cart modal web element assert
+        isShoppingCartModalWebElementDisplayed(shoppingCartModal);
+        //shopping cart modal text element assert
+        isShoppingCartModalTextElementAsExpected(shoppingCartModal);
+        //assert the correct product has been added to shopping cart
+        String expectedProductName = "Odkládací stolek";
+        String actualProductName = shoppingCartModal.getShoppingCartModalProductName().getFirst();
+        assertEquals(expectedProductName, actualProductName, "The expected product name doesn't match the actual product name, test has failed");
+        //log shopping cart modal product data
+        logShoppingCartModalProductData(shoppingCartModal);
+        //click "Proceed to cart" button
+        shoppingCartModal.clickProceedToCartButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1100);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Single Set Category Product (Odkládací stolek Furniture product) To Cart Test Result (as registered user)");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

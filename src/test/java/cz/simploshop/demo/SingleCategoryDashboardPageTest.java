@@ -16,4 +16,18 @@ public class SingleCategoryDashboardPageTest extends TestMethods{
         addSetSingleCategoryProductToCartGuestTest();
     }
 
+    //Test 010a -> add single category single product ("Odkládací stolek") to cart test - as a registered user
+    @Test
+    @DisplayName("Add Single Category Product To Cart Test (as a registered user)")
+    @Tag("Add_Single_Chosen_Product_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void addSingleCategoryProductToCartRegisteredUserTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add single category single product ("Odkládací stolek") to cart test - as a registered user
+        addSetSingleCategoryProductToCartRegUserTest();
+    }
+
 }

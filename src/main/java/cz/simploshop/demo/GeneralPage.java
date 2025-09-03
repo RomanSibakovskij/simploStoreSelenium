@@ -174,6 +174,15 @@ public class GeneralPage extends BasePage {
         action.moveToElement(upperHeaderLoginButton).click().perform();
     }
 
+    //click set lower header category dropdown link method
+    public void clickSetLowerHeaderCategoryDropdownLink(int index) {
+        WebElement targetLowerHeaderCategoryDropdownLink = lowerHeaderNavBarDropdownLinkElements.get(index);
+        targetLowerHeaderCategoryDropdownLink.click();
+        //move the mouse cursor to the top-left corner of the page
+        Actions actions = new Actions(driver);
+        actions.moveByOffset(0, 0).perform();
+    }
+
     //general page text element getter methods
     //warning box
     public String getWarningBoxTitle() {return warningBoxTitle.getText();}
