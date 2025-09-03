@@ -1,6 +1,7 @@
 package cz.simploshop.demo.modals;
 
 import cz.simploshop.demo.utilities.*;
+import cz.simploshop.demo.AccountInformationPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -47,6 +48,9 @@ public class LoginAccountModal extends BasePage{
     private String validLoginEmail;
     private String validLoginPassword;
 
+    //valid edited login input data
+    private String validEditedLoginEmail;
+
     public LoginAccountModal(WebDriver driver) {super(driver);}
 
     //valid login input data getter
@@ -69,6 +73,27 @@ public class LoginAccountModal extends BasePage{
     //valid user login input data methods
     public void inputValidLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(validLoginEmail);}
     public void inputValidLoginPasswordIntoPasswordInputField(){loginAccountModalPasswordInputField.sendKeys(validLoginPassword);}
+
+    //valid edited login input data getter - edited login email
+    public void validEditedLoginEmailInputDataGetter(){
+
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        validEditedLoginEmail = accountInformationPage.getEditedUserEmail();
+        validLoginPassword = registerAccountModal.getPassword();
+
+        System.out.println("Valid edited user login input data (edited login email): " + "\n");
+
+        logger.info("Valid edited user login email: " + validEditedLoginEmail);
+        logger.info("Valid user login password (edited login email): " + validLoginPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //valid edited user login input data methods
+    public void inputValidEditedLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(validEditedLoginEmail);}
 
     //click "Login" button method
     public void clickLoginButton(){

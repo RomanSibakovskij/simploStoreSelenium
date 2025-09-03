@@ -37,4 +37,22 @@ public class LoginAccountModalTest extends TestMethods{
         validUserLoginTest();
     }
 
+    //Test 007a -> valid user login test - edited login email
+    @Test
+    @DisplayName("Valid User Login Test - Edited Login Email")
+    @Tag("Valid_User_Login")
+    @Tag("Edited_Login_Email")
+    void validUserAccountLoginEditedEmailTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //valid edit user account information (with login email) test
+        validEditUserAccountInfoLoginEmailTest();
+        //valid user logout test
+        userLogoutTest();
+        //valid user login test - edited login email
+        validUserLoginEditedEmailTest();
+    }
+
 }
