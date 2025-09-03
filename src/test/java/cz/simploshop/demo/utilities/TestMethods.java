@@ -5,6 +5,7 @@ import cz.simploshop.demo.modals.*;
 import cz.simploshop.demo.modals.invalid.scenarios.registeraccountmodal.*;
 import cz.simploshop.demo.modals.invalid.scenarios.addnewaddressmodal.*;
 import cz.simploshop.demo.invalidscenarios.accountinfopage.*;
+import cz.simploshop.demo.modals.invalid.scenarios.loginaccountmodal.LoginAccountModalInvalidScenarios;
 import cz.simploshop.demo.loggers.*;
 import cz.simploshop.demo.web.element.asserts.*;
 import cz.simploshop.demo.text.element.asserts.*;
@@ -4918,6 +4919,64 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         assertEquals(accountInformationPage.getEditedUsername(), generalPage.getUpperHeaderUsername(), "The usernames don't match expectations or the user login (with edited data) process has failed.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid User Login Test Result - Edited Login Password");
+    }
+
+    //invalid user login tests
+
+    //no singular input
+
+    //invalid user login test method - no login email
+    protected void invalidUserLoginNoEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        LoginAccountModal loginAccountModal = new LoginAccountModal(driver);
+        LoginAccountModalInvalidScenarios loginAccountModalInvalidScenarios = new LoginAccountModalInvalidScenarios(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Login" button
+        generalPage.clickLoginButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(3500);
+        //login account modal web element assert
+        isLoginAccountModalWebElementDisplayed(loginAccountModal);
+        //login account modal text element assert
+        isLoginAccountModalTextElementAsExpected(loginAccountModal);
+        //capture screenshot of the login account modal display before data input
+        captureScreenshot(driver, "Login Account Modal Display Before Data Input");
+        //invalid login input data getter - no login email
+        loginAccountModalInvalidScenarios.invalidLoginInputDataNoEmailGetter();
+        //don't input login email into login email input field
+        loginAccountModalInvalidScenarios.inputNoLoginEmailIntoEmailInputField();
+        //input valid login password into login password input field
+        loginAccountModalInvalidScenarios.inputValidLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the login account modal display after invalid login data input - no login email
+        captureScreenshot(driver, "Login Account Modal Display After Invalid Login Data Input - No Login Email");
+        //click "Login" button
+        loginAccountModal.clickLoginButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(6000);
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("Pole je povinné", loginAccountModal.getLoginAccountModalSingularInputErrorMsg(), "The missing login email error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The missing login email error message doesn't get triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Login Test Result - No Login Email");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

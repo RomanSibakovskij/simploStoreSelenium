@@ -43,6 +43,9 @@ public class LoginAccountModal extends BasePage{
     private WebElement loginAccountModalForgotPasswordSubtitle;
     @FindBy(xpath = "//div[@class='text-simplo text-center']/button")
     private WebElement loginAccountModalForgotPasswordButton;
+    //invalid singular input error message
+    @FindBy(xpath = "//div[@role='alert']")
+    private WebElement loginAccountModalInvalidSingularInputError;
 
     //valid login input data
     private String validLoginEmail;
@@ -133,6 +136,9 @@ public class LoginAccountModal extends BasePage{
     //register section
     public String getLoginAccountModalRegisterSubtitle(){return loginAccountModalRegisterSubtitle.getText();}
     public String getLoginAccountModalForgotPasswordSubtitle(){return loginAccountModalForgotPasswordSubtitle.getText();}
+
+    //login account modal singular input error message getter
+    public String getLoginAccountModalSingularInputErrorMsg() {return loginAccountModalInvalidSingularInputError.getText();}
 
     //login account modal web element assert methods
     public boolean isLoginAccountModalTitleDisplayed(){return loginAccountModalTitle.isDisplayed();}

@@ -1,6 +1,7 @@
 package cz.simploshop.demo.modals.invalid.scenarios.loginaccountmodal;
 
 import cz.simploshop.demo.utilities.*;
+import cz.simploshop.demo.modals.RegisterAccountModal;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,8 +13,37 @@ public class LoginAccountModalInvalidScenarios extends BasePage{
     @FindBy(xpath = "//div[@class='sim-auth-form__form']//form//input[@id='v-0-3-44']")
     private WebElement loginAccountModalPasswordInputField;
 
+    //invalid login input data - no singular input
+    private String noLoginEmail;
+
+    //valid login input data - for remaining inputs
+    private String validLoginEmail;
+    private String validLoginPassword;
+
     public LoginAccountModalInvalidScenarios(WebDriver driver) {super(driver);}
 
+    //invalid login input data getter - no login email
+    public void invalidLoginInputDataNoEmailGetter(){
 
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        noLoginEmail = "";
+        validLoginPassword = registerAccountModal.getPassword();
+
+        System.out.println("Invalid user login input data (no login email): " + "\n");
+
+        logger.info("No login email: " + noLoginEmail);
+        logger.info("Valid user login password (no login email): " + validLoginPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid user login input data methods - no singular input
+    public void inputNoLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(noLoginEmail);}
+
+    //valid user login input data methods - for remaining inputs
+    public void inputValidLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(validLoginEmail);}
+    public void inputValidLoginPasswordIntoPasswordInputField(){loginAccountModalPasswordInputField.sendKeys(validLoginPassword);}
 
 }
