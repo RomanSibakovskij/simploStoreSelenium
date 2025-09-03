@@ -26,6 +26,7 @@ public class AddNewAddressModalInvalidSingularInput extends BasePage{
     private String invalidStreetFormat;
     private String invalidZipCodeFormat;
     private String invalidCityFormat;
+    private String invalidPhoneFormat;
 
     //valid address input data - for remaining inputs
     private String validUserFirstName;
@@ -166,6 +167,32 @@ public class AddNewAddressModalInvalidSingularInput extends BasePage{
 
     //invalid user address data input method - invalid city format
     public void inputInvalidUserCityFormatIntoNewAddressModalCityInputField(){addNewAddressModalCityInputField.sendKeys(invalidCityFormat);}
+
+    //invalid user address input data getter - invalid phone input format (special symbols only)
+    public void invalidUserAddressInputDataInvalidPhoneFormatGetter(){
+
+        validUserFirstName = "Andrew";
+        validUserLastName = "Johnson";
+        validStreet = TestDataGenerator.generateRandomAddress(8);
+        validZipCode = TestDataGenerator.getRandomPostalCode();
+        validCity = TestDataGenerator.getRandomCity();
+        invalidPhoneFormat = "@$##@%$#";
+
+        System.out.println("Invalid generated user new address data (invalid phone format): " + "\n");
+
+        logger.info("Valid user address first name (invalid phone format): " + validUserFirstName);
+        logger.info("Valid user address last name (invalid phone format): " + validUserLastName);
+        logger.info("Valid user street (invalid phone format): " + validStreet);
+        logger.info("Valid user zip code (invalid phone format): " + validZipCode);
+        logger.info("Valid user city (invalid phone format): " + validCity);
+        logger.info("Invalid user phone format: " + invalidPhoneFormat);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid user address data input method - invalid phone format
+    public void inputInvalidUserPhoneFormatIntoNewAddressModalPhoneInputField(){addNewAddressModalPhoneInputField.sendKeys(invalidPhoneFormat);}
 
     //valid user address data input methods - for remaining inputs
     public void inputValidUserFirstNameIntoNewAddressModalFirstNameInputField(){addNewAddressModalFirstNameInputField.sendKeys(validUserFirstName);}

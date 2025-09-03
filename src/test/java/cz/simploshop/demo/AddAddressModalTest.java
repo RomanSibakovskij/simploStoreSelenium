@@ -380,4 +380,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressInvalidCityFormatTest();
     }
 
+    //Test 005z -> invalid add user address test - invalid phone format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Invalid Phone Format")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAddAddressInvalidPhoneFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - invalid phone format (special symbols only)
+        invalidAddUserAddressInvalidPhoneFormatTest();
+    }
+
 }
