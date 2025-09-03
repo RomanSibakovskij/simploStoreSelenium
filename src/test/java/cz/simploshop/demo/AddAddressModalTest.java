@@ -352,4 +352,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressInvalidStreetFormatTest();
     }
 
+    //Test 005x -> invalid add user address test - invalid zip code format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Invalid Zip Code Format")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAddAddressInvalidZipCodeFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - invalid zip code format (special symbols only)
+        invalidAddUserAddressInvalidZipCodeFormatTest();
+    }
+
 }
