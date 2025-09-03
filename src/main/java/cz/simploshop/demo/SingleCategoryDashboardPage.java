@@ -2,6 +2,7 @@ package cz.simploshop.demo;
 
 import cz.simploshop.demo.utilities.BasePage;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
@@ -114,6 +115,22 @@ public class SingleCategoryDashboardPage extends BasePage {
     private WebElement singleCategoryDashPageViewMoreButton;
 
     public SingleCategoryDashboardPage(WebDriver driver) {super(driver);}
+
+    //click sort by dropdown menu method
+    public void clickSortByDropdownMenu() {
+        Actions action = new Actions(driver);
+        action.moveToElement(singleCategoryDashPageProductSortByDropdownMenu).click().perform();
+    }
+
+    //select set sort by option link method
+    public void selectSortByOption(int index){singleCategoryDashPageSortByOptionElements.get(index).click();}
+
+    //click set category product "Add to cart" button method
+    public void clickSetCategoryProductAddToCartButton(int index) {
+        WebElement targetAddToCartButton = singleCategoryDashPageProductAddToCartButtonElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(targetAddToCartButton).click().perform();
+    }
 
     //single category dashboard page product data getters
     //aside section

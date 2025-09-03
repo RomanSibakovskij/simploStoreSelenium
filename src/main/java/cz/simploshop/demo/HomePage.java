@@ -88,6 +88,13 @@ public class HomePage extends BasePage {
         action.moveToElement(targetAddToCartButton).click().perform();
     }
 
+    //click set room category link method
+    public void clickSetRoomCategoryNameLink(int index) {
+        WebElement targetRoomCategoryNameLink = homePageRoomCategoryNameLinkElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(targetRoomCategoryNameLink).click().perform();
+    }
+
     //home page product text data getter methods
     //chosen products section
     public List<String> getHomePageChosenProductName(){return homePageRoomChosenProductNameElements.stream().map(WebElement::getText).map(String::trim).filter(s -> !s.isEmpty()).collect(Collectors.toList());}

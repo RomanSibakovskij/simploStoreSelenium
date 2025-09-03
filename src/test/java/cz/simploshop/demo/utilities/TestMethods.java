@@ -5585,4 +5585,184 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //single category dashboard tests
+
+    //add single category ("Pracovna") single product ("Knihovna - 10 polic") to cart test method - as a guest
+    protected void addSetSingleCategoryProductToCartGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SingleCategoryDashboardPage singleCategoryDashboardPage = new SingleCategoryDashboardPage(driver);
+        ShoppingCartModal shoppingCartModal = new ShoppingCartModal(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2100);
+        //general page warning box web element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxWebElementDisplayed(generalPage);
+        //general page warning box text element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxTextElementAsExpected(generalPage);
+        //click 'Close' warning box button
+        generalPage.clickCloseWarningBoxButton();
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click set lower header category link ("Pracovna")
+        homePage.clickSetRoomCategoryNameLink(3);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3500);
+        //single category dashboard page aside section web element assert
+        isSingleCategoryDashPageAsideWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard page aside section web element assert;
+        isSingleCategoryDashPageAsideTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard page web element assert
+        isSingleCategoryDashPageWebElementDisplayed(singleCategoryDashboardPage);
+        //assert the correct product has been added to shopping cart
+        String expectedProductCategory = "Pracovna";
+        String actualProductCategory = singleCategoryDashboardPage.getSingleCategoryDashPageTitle();
+        assertEquals(expectedProductCategory, actualProductCategory, "The expected product category name doesn't match the actual product name, test has failed");
+        //log category product options data
+        logCategoryProductOptions(singleCategoryDashboardPage);
+        //log single category dashboard page product data
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display (guest)");
+        //click sort by dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select set sort by (name ascending) option
+        singleCategoryDashboardPage.selectSortByOption(0);
+        //log single category dashboard page product data (to verify the products have been sorted)
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(950);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display after sorting products by name (ascending) (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display - Sort By Name Asc(guest)");
+        //click sort by dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select set sort by (name desccending) option
+        singleCategoryDashboardPage.selectSortByOption(1);
+        //log single category dashboard page product data (to verify the products have been sorted)
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(950);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display after sorting products by name (descending) (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display - Sort By Name Desc(guest)");
+        //click sort by dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select set sort by (price ascending) option
+        singleCategoryDashboardPage.selectSortByOption(2);
+        //log single category dashboard page product data (to verify the products have been sorted)
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(950);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display after sorting products by price (ascending) (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display - Sort By Price Asc(guest)");
+        //click sort by dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select set sort by (price descending) option
+        singleCategoryDashboardPage.selectSortByOption(3);
+        //log single category dashboard page product data (to verify the products have been sorted)
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(950);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display after sorting products by price (descending) (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display - Sort By Price Desc(guest)");
+        //click sort by dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select set sort by (position ascending) option
+        singleCategoryDashboardPage.selectSortByOption(4);
+        //log single category dashboard page product data (to verify the products have been sorted)
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(950);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display after sorting products by positione (ascending) (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display - Sort By Position Asc(guest)");
+        //click sort by dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select set sort by (position descending) option
+        singleCategoryDashboardPage.selectSortByOption(5);
+        //log single category dashboard page product data (to verify the products have been sorted)
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(950);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display after sorting products by position (descending) (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display - Sort By Position Desc(guest)");
+        //click sort by dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select set sort by (availability ascending) option
+        singleCategoryDashboardPage.selectSortByOption(6);
+        //log single category dashboard page product data (to verify the products have been sorted)
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(950);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display after sorting products by availability (ascending) (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display - Sort By Availability Asc(guest)");
+        //click sort by dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select set sort by (availability descending) option
+        singleCategoryDashboardPage.selectSortByOption(7);
+        //log single category dashboard page product data (to verify the products have been sorted)
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(950);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display after sorting products by availability (descending) (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display - Sort By Availability Desc(guest)");
+        //click sort by dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select set sort by (bestselling ascending) option
+        singleCategoryDashboardPage.selectSortByOption(8);
+        //log single category dashboard page product data (to verify the products have been sorted)
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(950);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display after sorting products by bestselling (ascending) (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display - Sort By Bestselling Asc(guest)");
+        //click sort by dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select set sort by (bestselling descending) option -> default sort by option
+        singleCategoryDashboardPage.selectSortByOption(9);
+        //log single category dashboard page product data (to verify the products have been sorted)
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(950);
+        //capture screenshot of the set single category ("Pracovna") dashboard page display after sorting products by bestselling (descending) (as a guest)
+        captureScreenshot(driver, "Single Category (Pracovna) Dashboard Page Display - Sort By Bestselling Desc(guest) - Default Sorting Option");
+        //click set product ("Knihovna - 10 polic") add to cart button
+        singleCategoryDashboardPage.clickSetCategoryProductAddToCartButton(0);
+        //wait for elements to load (for modal to appear)
+        generalPage.waitForElementsToLoad(2000);
+        //capture screenshot of the shopping cart modal display
+        captureScreenshot(driver, "Shopping Cart Modal Display (single Knihovna - 10 polic Study product as guest)");
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //shopping cart modal web element assert
+        isShoppingCartModalWebElementDisplayed(shoppingCartModal);
+        //shopping cart modal text element assert
+        isShoppingCartModalTextElementAsExpected(shoppingCartModal);
+        //assert the correct product has been added to shopping cart
+        String expectedProductName = "Knihovna - 10 polic";
+        String actualProductName = shoppingCartModal.getShoppingCartModalProductName().getFirst();
+        assertEquals(expectedProductName, actualProductName, "The expected product name doesn't match the actual product name, test has failed");
+        //log shopping cart modal product data
+        logShoppingCartModalProductData(shoppingCartModal);
+        //click "Proceed to cart" button
+        shoppingCartModal.clickProceedToCartButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1100);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Single Set Category Product (single Knihovna - 10 polic Study product) To Cart Test Result (as guest)");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
