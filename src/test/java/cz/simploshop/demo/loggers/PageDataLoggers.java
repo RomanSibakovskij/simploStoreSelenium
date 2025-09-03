@@ -49,4 +49,42 @@ public interface PageDataLoggers {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//furniture category product options data logger method
+default void logFurnitureCategoryProductOptions(SingleCategoryDashboardPage singleCategoryDashboardPage){
+    System.out.println("Displayed furniture category options data: " + "\n");
+
+    logger.info("Displayed furniture aside in stock option data: " + singleCategoryDashboardPage.getSingleCategoryDashPageAsideInStockSubtext());
+    logger.info("Displayed furniture aside brand option data: " + singleCategoryDashboardPage.getSingleCategoryDashPageAsideBrandSubtext());
+    logger.info("Displayed furniture aside height option data: " + singleCategoryDashboardPage.getSingleCategoryDashPageAsideHeightSubtext());
+    logger.info("Displayed furniture aside price from data: " + singleCategoryDashboardPage.getSingleCategoryDashPageAsidePriceFrom());
+    logger.info("Displayed furniture aside price to data: " + singleCategoryDashboardPage.getSingleCategoryDashPageAsidePriceTo());
+
+    System.out.println("\n");
+}
+
+    //category product options data data logger method
+    default void logCategoryProductOptions(SingleCategoryDashboardPage singleCategoryDashboardPage){
+        System.out.println("Displayed category options data: " + "\n");
+
+        logger.info("Displayed aside brand option data: " + singleCategoryDashboardPage.getSingleCategoryDashPageOtherAsideBrandSubtext());
+        logger.info("Displayed aside height option data: " + singleCategoryDashboardPage.getSingleCategoryDashPageAsideBrandSubtext());
+        logger.info("Displayed aside price from data: " + singleCategoryDashboardPage.getSingleCategoryDashPageOtherAsidePriceFrom());
+        logger.info("Displayed aside price to data: " + singleCategoryDashboardPage.getSingleCategoryDashPageOtherAsidePriceTo());
+
+        System.out.println("\n");
+    }
+
+    //single category dashboard page product data logger method
+    default void logSingleCategoryDashboardProductData(SingleCategoryDashboardPage singleCategoryDashboardPage){
+        System.out.println("Displayed single category dashboard product data: " + "\n");
+
+        logger.info("Displayed single category dashboard page product count: " + singleCategoryDashboardPage.getSingleCategoryDashProductViewCount());
+        logger.info("Displayed single category dashboard page product name(s): " + singleCategoryDashboardPage.getSingleCategoryDashProductName());
+        logger.info("Displayed single category dashboard page product unit price(s): " + singleCategoryDashboardPage.getSingleCategoryDashProductUnitPrice());
+
+        System.out.println("\n");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

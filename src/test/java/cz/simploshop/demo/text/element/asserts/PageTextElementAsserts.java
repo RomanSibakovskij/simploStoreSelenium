@@ -263,4 +263,56 @@ public interface PageTextElementAsserts {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//single category dashboard page aside section in stock text element assert test method (not all categories have this block)
+default void isSingleCategoryDashPageAsideInStockTextElementAsExpected(SingleCategoryDashboardPage singleCategoryDashboardPage){
+    //assert single category dashboard page aside section in stock subtitle is as expected
+    assertEquals("SKLADEM", singleCategoryDashboardPage.getSingleCategoryDashPageAsideInStockSubtitle(),"The single category dashboard page aside section in stock subtitle doesn't match expectations");
+}
+
+    //single category dashboard page furniture aside section text element assert test method (not all categories have this structure)
+    default void isSingleCategoryDashPageFurnitureAsideTextElementAsExpected(SingleCategoryDashboardPage singleCategoryDashboardPage){
+        //brand
+        //assert single category dashboard page aside section brand subtitle is as expected
+        assertEquals("ZNAČKA", singleCategoryDashboardPage.getSingleCategoryDashPageAsideBrandSubtitle(),"The single category dashboard page aside section brand subtitle doesn't match expectations");
+        //price
+        //assert single category dashboard page aside section price subtitle is as expected
+        assertEquals("CENA", singleCategoryDashboardPage.getSingleCategoryDashPageAsidePriceSubtitle(),"The single category dashboard page aside section price subtitle doesn't match expectations");
+        //height
+        //assert single category dashboard page aside section height subtitle is as expected
+        assertEquals("VÝŠKA", singleCategoryDashboardPage.getSingleCategoryDashPageAsideHeightSubtitle(),"The single category dashboard page aside section height subtitle doesn't match expectations");
+        //color
+        //assert single category dashboard page aside section color subtitle is as expected
+        assertEquals("BARVA", singleCategoryDashboardPage.getSingleCategoryDashPageAsideColorSubtitle(),"The single category dashboard page aside section color subtitle doesn't match expectations");
+    }
+
+    //single category dashboard page aside section text element assert test method
+    default void isSingleCategoryDashPageAsideTextElementAsExpected(SingleCategoryDashboardPage singleCategoryDashboardPage){
+        //brand
+        //assert single category dashboard page aside section brand subtitle is as expected
+        assertEquals("ZNAČKA", singleCategoryDashboardPage.getSingleCategoryDashPageAsideInStockSubtitle(),"The single category dashboard page aside section brand subtitle doesn't match expectations");
+        //price
+        //assert single category dashboard page aside section price subtitle is as expected
+        assertEquals("CENA", singleCategoryDashboardPage.getSingleCategoryDashPageAsideBrandSubtitle(),"The single category dashboard page aside section price subtitle doesn't match expectations");
+        //height
+        //assert single category dashboard page aside section height subtitle is as expected
+        assertEquals("VÝŠKA", singleCategoryDashboardPage.getSingleCategoryDashPageAsidePriceSubtitle(),"The single category dashboard page aside section height subtitle doesn't match expectations");
+        //color
+        //assert single category dashboard page aside section color subtitle is as expected
+        assertEquals("BARVA", singleCategoryDashboardPage.getSingleCategoryDashPageAsideHeightSubtitle(),"The single category dashboard page aside section color subtitle doesn't match expectations");
+    }
+
+    //single category dashboard page furniture category text element assert test method
+    default void isSingleCategoryDashPageFurnitureCategoryTextElementAsExpected(SingleCategoryDashboardPage singleCategoryDashboardPage){
+        //assert single category dashboard page (furniture category) title is as expected
+        assertEquals("Nábytek", singleCategoryDashboardPage.getSingleCategoryDashPageTitle(),"The single category dashboard page (furniture category) title doesn't match expectations");
+        //assert single category dashboard page furniture category subtitle is as expected
+        assertEquals("Široký výběr stylového a kvalitního nábytku pro každý interiér. Od pohodlných sedacích souprav a elegantních jídelních stolů po praktické úložné prostory a designové doplňky – u nás najdete vše pro váš domov. Naše produkty kombinují moderní design s funkčností, aby splnily všechny vaše potřeby a očekávání. Objevte nábytek, který dodá vašemu domovu osobitý styl a maximální pohodlí.", singleCategoryDashboardPage.getSingleCategoryDashPageSubtitle(),"The single category dashboard page furniture category subtitle doesn't match expectations");
+        //assert single category dashboard page furniture subcategories are as expected (as a list)
+        List<String> expectedSubcategories = Arrays.asList("Sedací soupravy", "Postele", "Křesla a sezení", "Úložné prostory", "Stoly a stolky", "Zahrada", "Skříně a komody", "Židle");
+        List<String> actualSubcategories = singleCategoryDashboardPage.getSingleCategoryDashPageSubcategory();
+        assertEquals(expectedSubcategories, actualSubcategories,"The single category dashboard page furniture subcategories aren't match expectations");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

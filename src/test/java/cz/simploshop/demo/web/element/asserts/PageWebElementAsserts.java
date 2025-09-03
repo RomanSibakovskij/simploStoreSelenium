@@ -462,4 +462,131 @@ public interface PageWebElementAsserts {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//single category dashboard page aside section in stock web element assert test method (not all categories have this block)
+default void isSingleCategoryDashPageAsideInStockWebElementDisplayed(SingleCategoryDashboardPage singleCategoryDashboardPage){
+    //assert single category dashboard page aside section in stock subtitle is displayed
+    assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideInStockSubtitleDisplayed(), "The single category dashboard page aside section in stock subtitle isn't displayed");
+    //assert single category dashboard page aside section in stock subtext is displayed
+    assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideInStockSubtextDisplayed(), "The single category dashboard page aside section in stock subtext isn't displayed");
+    //assert single category dashboard page aside section in stock checkbox is displayed
+    assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideInStockCheckboxDisplayed(), "The single category dashboard page aside section in stock checkbox isn't displayed");
+}
+
+    //single category dashboard page aside section web element assert test method (not all categories have this element0
+    default void isSingleCategoryDashPageFurnitureAsideWebElementDisplayed(SingleCategoryDashboardPage singleCategoryDashboardPage){
+        //brand
+        //assert single category dashboard page aside section brand subtitle is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideBrandSubtitleDisplayed(), "The single category dashboard page aside section brand subtitle isn't displayed");
+        //assert single category dashboard page aside section brand subtexts are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideBrandSubtextDisplayed(), "The single category dashboard page aside section brand subtexts aren't displayed");
+        //assert single category dashboard page aside section brand checkboxes are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideBrandCheckboxDisplayed(), "The single category dashboard page aside section brand checkboxes aren't displayed");
+        //price
+        //assert single category dashboard page aside section price subtitle is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsidePriceSubtitleDisplayed(), "The single category dashboard page aside section price subtitle isn't displayed");
+        //assert single category dashboard page aside section price slider left button is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsidePriceSliderButtonLeftDisplayed(), "The single category dashboard page aside section price slider left button isn't displayed");
+        //assert single category dashboard page aside section price slider right button is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsidePriceSliderButtonRightDisplayed(), "The single category dashboard page aside section price slider right button isn't displayed");
+        //assert single category dashboard page aside section price from input field is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsidePriceFromInputFieldDisplayed(), "The single category dashboard page aside section price from input field isn't displayed");
+        //assert single category dashboard page aside section price to input field is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsidePriceToInputFieldDisplayed(), "The single category dashboard page aside section price to input field isn't displayed");
+        //height
+        //assert single category dashboard page aside section height subtitle is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideHeightSubtitleDisplayed(), "The single category dashboard page aside section height subtitle isn't displayed");
+        //assert single category dashboard page aside section height subtexts are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideHeightSubtextDisplayed(), "The single category dashboard page aside section height subtexts aren't displayed");
+        //assert single category dashboard page aside section height checkboxes are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideHeightCheckboxDisplayed(), "The single category dashboard page aside section height checkboxes aren't displayed");
+        //color
+        //assert single category dashboard page aside section color subtitle is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideColorSubtitleDisplayed(), "The single category dashboard page aside section color subtitle isn't displayed");
+        //assert single category dashboard page aside section color buttons are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideColorButtonDisplayed(), "The single category dashboard page aside section color buttons aren't displayed");
+    }
+
+    //single category dashboard page aside section web element assert test method (div gets shifted up)
+    default void isSingleCategoryDashPageAsideWebElementDisplayed(SingleCategoryDashboardPage singleCategoryDashboardPage){
+        //brand
+        //assert single category dashboard page aside section brand subtitle is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideInStockSubtitleDisplayed(), "The single category dashboard page aside section brand subtitle isn't displayed");
+        //assert single category dashboard page aside section brand subtexts are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideInStockSubtextDisplayed(), "The single category dashboard page aside section brand subtexts aren't displayed");
+        //assert single category dashboard page aside section brand checkboxes are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideInStockCheckboxDisplayed(), "The single category dashboard page aside section brand checkboxes aren't displayed");
+        //price
+        //assert single category dashboard page aside section price subtitle is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageOtherAsidePriceSubtitleDisplayed(), "The single category dashboard page aside section price subtitle isn't displayed");
+        //assert single category dashboard page aside section price slider left button is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageOtherPriceSliderButtonLeftDisplayed(), "The single category dashboard page aside section price slider left button isn't displayed");
+        //assert single category dashboard page aside section price slider right button is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageOtherPriceSliderButtonRightDisplayed(), "The single category dashboard page aside section price slider right button isn't displayed");
+        //assert single category dashboard page aside section price from input field is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageOtherPriceFromInputFieldDisplayed(), "The single category dashboard page aside section price from input field isn't displayed");
+        //assert single category dashboard page aside section price to input field is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageOtherPriceToInputFieldDisplayed(), "The single category dashboard page aside section price to input field isn't displayed");
+        //height
+        //assert single category dashboard page aside section height subtitle is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideHeightSubtitleDisplayed(), "The single category dashboard page aside section height subtitle isn't displayed");
+        //assert single category dashboard page aside section height subtexts are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideHeightSubtextDisplayed(), "The single category dashboard page aside section height subtexts aren't displayed");
+        //assert single category dashboard page aside section height checkboxes are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageAsideHeightCheckboxDisplayed(), "The single category dashboard page aside section height checkboxes aren't displayed");
+        //color
+        //assert single category dashboard page aside section color subtitle is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageOtherAsideColorSubtitleDisplayed(), "The single category dashboard page aside section color subtitle isn't displayed");
+        //assert single category dashboard page aside section color buttons are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageOtherAsideColorButtonDisplayed(), "The single category dashboard page aside section color buttons aren't displayed");
+    }
+
+    //single category dashboard page main section subcategory web element assert test method (not all categories have this block)
+    default void isSingleCategoryDashPageSubcategoryWebElementDisplayed(SingleCategoryDashboardPage singleCategoryDashboardPage){
+        //assert single category dashboard page subtitle is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageSubtitleDisplayed(), "The single category dashboard page subtitle isn't displayed");
+        //assert single category dashboard page subcategories are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageSubcategoryDisplayed(), "The single category dashboard page subcategories aren't displayed");
+        //assert single category dashboard page subcategory images are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageSubcategoryImgDisplayed(), "The single category dashboard page subcategory images aren't displayed");
+        //assert single category dashboard page subcategory names are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageSubcategoryNameDisplayed(), "The single category dashboard page subcategory names aren't displayed");
+        //assert single category dashboard page collapse text button is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageCollapseTextButtonDisplayed(), "The single category dashboard page collapse text button isn't displayed");
+    }
+
+    //single category dashboard page main section web element assert test method
+    default void isSingleCategoryDashPageWebElementDisplayed(SingleCategoryDashboardPage singleCategoryDashboardPage){
+        //assert single category dashboard page title is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageTitleDisplayed(), "The single category dashboard page title isn't displayed");
+        //assert single category dashboard page product view count is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageProductViewCountDisplayed(), "The single category dashboard page product view count isn't displayed");
+        //assert single category dashboard page sort by subtext is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageSortBySubtextDisplayed(), "The single category dashboard page sort by subtext isn't displayed");
+        //assert single category dashboard page sort by dropdown menu is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageSortByDropdownMenuDisplayed(), "The single category dashboard page product sort by dropdown menu isn't displayed");
+        //product table
+        //assert single category dashboard page product add to wishlist buttons are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageProductAddToWishlistButtonDisplayed(), "The single category dashboard page product add to wishlist buttons aren't displayed");
+        //assert single category dashboard page product images are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageProductImgDisplayed(), "The single category dashboard page product images aren't displayed");
+        //assert single category dashboard page product names are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageProductNameDisplayed(), "The single category dashboard page product names aren't displayed");
+        //assert single category dashboard page product unit prices are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageProductUnitPriceDisplayed(), "The single category dashboard page product unit prices aren't displayed");
+        //assert single category dashboard page product add to cart buttons are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageProductAddToCartButtonDisplayed(), "The single category dashboard page product add to cart buttons aren't displayed");
+        //assert single category dashboard page product details buttons are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageProductDetailsButtonDisplayed(), "The single category dashboard page product details buttons aren't displayed");
+    }
+
+    //single category dashboard page main section pagination web element assert test method (not all categories have this block)
+    default void isSingleCategoryDashPagePaginationWebElementDisplayed(SingleCategoryDashboardPage singleCategoryDashboardPage){
+        //assert single category dashboard page pagination buttons are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPagePaginationButtonDisplayed(), "The single category dashboard page pagination buttons aren't displayed");
+        //assert single category dashboard page view more products button is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashPageViewMoreButtonDisplayed(), "The single category dashboard page view more products button isn't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
