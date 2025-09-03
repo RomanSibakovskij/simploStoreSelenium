@@ -109,4 +109,22 @@ public class LoginAccountModalTest extends TestMethods{
         invalidUserLoginNoPasswordTest();
     }
 
+    //invalid singular input
+
+    //Test 007e -> invalid user login test - invalid login email
+    @Test
+    @DisplayName("Invalid User Login Test - Invalid Login Email")
+    @Tag("Invalid_User_Login")
+    @Tag("No_Singular_Input")
+    void invalidUserAccountLoginInvalidEmailTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //valid user logout test
+        userLogoutTest();
+        //invalid user login test - invalid login email
+        invalidUserLoginInvalidEmailTest();
+    }
+
 }

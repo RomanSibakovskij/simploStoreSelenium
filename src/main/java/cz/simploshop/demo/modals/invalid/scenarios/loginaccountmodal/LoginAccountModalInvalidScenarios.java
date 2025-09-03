@@ -17,6 +17,9 @@ public class LoginAccountModalInvalidScenarios extends BasePage{
     private String noLoginEmail;
     private String noLoginPassword;
 
+    //invalid login input data - invalid singular input
+    private String invalidLoginEmail;
+
     //valid login input data - for remaining inputs
     private String validLoginEmail;
     private String validLoginPassword;
@@ -60,6 +63,28 @@ public class LoginAccountModalInvalidScenarios extends BasePage{
     //invalid user login input data methods - no singular input
     public void inputNoLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(noLoginEmail);}
     public void inputNoLoginPasswordIntoPasswordInputField(){loginAccountModalPasswordInputField.sendKeys(noLoginPassword);}
+
+    //invalid singular input
+
+    //invalid login input data getter - invalid login email
+    public void invalidLoginInputDataInvalidEmailGetter(){
+
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        invalidLoginEmail = "fgcxcvcn@fakemail.com";
+        validLoginPassword = registerAccountModal.getPassword();
+
+        System.out.println("Invalid user login input data (invalid login email): " + "\n");
+
+        logger.info("Invalid login email: " + invalidLoginEmail);
+        logger.info("Valid user login password (invalid login email): " + validLoginPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid user login input data methods - invalid singular input
+    public void inputInvalidLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(invalidLoginEmail);}
 
     //valid user login input data methods - for remaining inputs
     public void inputValidLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(validLoginEmail);}
