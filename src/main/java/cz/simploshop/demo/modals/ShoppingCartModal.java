@@ -49,6 +49,13 @@ public class ShoppingCartModal extends BasePage {
 
     public ShoppingCartModal(WebDriver driver) {super(driver);}
 
+    //click set product quantity increase button method
+    public void clickSetProductQtyIncreaseButton(int index) {
+        WebElement setQtyIncreaseButton = shoppingCartModalProductQtyIncreaseButtonElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(setQtyIncreaseButton).click().perform();
+    }
+
     //click "Proceed to cart" button method
     public void clickProceedToCartButton() {
         Actions action = new Actions(driver);

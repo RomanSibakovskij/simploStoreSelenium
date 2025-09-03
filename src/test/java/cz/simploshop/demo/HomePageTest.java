@@ -40,5 +40,14 @@ public class HomePageTest extends TestMethods {
         addSingleChosenProductToCartRegUserTest();
     }
 
+    //Test 008b -> add multiple chosen products ("Polštář Furniture") to cart test - as a guest
+    @Test
+    @DisplayName("Add Multiple Chosen Products To Cart Test (as a guest)")
+    @Tag("Add_Multiple_Chosen_Products_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void addMultipleChosenProductToCartGuestTest() {
+        addMultipleChosenProductToCartTest();
+    }
+
 
 }

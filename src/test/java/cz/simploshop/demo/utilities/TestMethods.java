@@ -5318,6 +5318,75 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Add Single Chosen Product (single Polštář Furniture product) To Cart Test Result (as registered user)");
     }
 
+    //add multiple chosen products to cart tests
+
+    //add multiple chosen products ("Polštář Furniture") to cart test method - as a guest
+    protected void addMultipleChosenProductToCartTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        ShoppingCartModal shoppingCartModal = new ShoppingCartModal(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2100);
+        //general page warning box web element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxWebElementDisplayed(generalPage);
+        //general page warning box text element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxTextElementAsExpected(generalPage);
+        //click 'Close' warning box button
+        generalPage.clickCloseWarningBoxButton();
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //log home page latest article data
+        logHomePageLatestArticleData(homePage);
+        //click chosen products section scroll left button
+        homePage.clickChosenProductScrollLeftButton();
+        //wait for elements to load (for click to be performed)
+        generalPage.waitForElementsToLoad(900);
+        //click set product ("Polštář Furniture") "Add to cart" button
+        homePage.clickSetChosenProductAddToCartButton(0);
+        //wait for elements to load (for modal to appear)
+        generalPage.waitForElementsToLoad(2000);
+        //capture screenshot of the shopping cart modal display
+        captureScreenshot(driver, "Shopping Cart Modal Display (single Polštář Furniture product as guest)");
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //shopping cart modal web element assert
+        isShoppingCartModalWebElementDisplayed(shoppingCartModal);
+        //shopping cart modal text element assert
+        isShoppingCartModalTextElementAsExpected(shoppingCartModal);
+        //assert the correct product has been added to shopping cart
+        String expectedProductName = "Polštář Furniture";
+        String actualProductName = shoppingCartModal.getShoppingCartModalProductName().getFirst();
+        assertEquals(expectedProductName, actualProductName, "The expected product name doesn't match the actual product name, test has failed");
+        //log shopping cart modal product data
+        logShoppingCartModalProductData(shoppingCartModal);
+        //click set product quantity increase button
+        shoppingCartModal.clickSetProductQtyIncreaseButton(0);
+        //click set product quantity increase button
+        shoppingCartModal.clickSetProductQtyIncreaseButton(0);
+        //log shopping cart modal product data (to verify the product quantity has increased)
+        logShoppingCartModalProductData(shoppingCartModal);
+        //click "Proceed to cart" button
+        shoppingCartModal.clickProceedToCartButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1100);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Multiple Chosen Products (multiple Polštář Furniture products) To Cart Test Result (as guest)");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
