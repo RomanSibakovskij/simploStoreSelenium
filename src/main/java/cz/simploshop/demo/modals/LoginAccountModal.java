@@ -50,6 +50,7 @@ public class LoginAccountModal extends BasePage{
 
     //valid edited login input data
     private String validEditedLoginEmail;
+    private String validEditedLoginPassword;
 
     public LoginAccountModal(WebDriver driver) {super(driver);}
 
@@ -92,8 +93,27 @@ public class LoginAccountModal extends BasePage{
 
     }
 
+    //valid edited login input data getter - edited login password
+    public void validEditedLoginPasswordInputDataGetter(){
+
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        validLoginEmail = registerAccountModal.getEmail();
+        validEditedLoginPassword = accountInformationPage.getEditedUserPassword();
+
+        System.out.println("Valid edited user login input data (edited login password): " + "\n");
+
+        logger.info("Valid user login email (edited login password): " + validLoginEmail);
+        logger.info("Valid edited user login password: " + validEditedLoginPassword);
+
+        System.out.println("\n");
+
+    }
+
     //valid edited user login input data methods
     public void inputValidEditedLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(validEditedLoginEmail);}
+    public void inputValidEditedLoginPasswordIntoPasswordInputField(){loginAccountModalPasswordInputField.sendKeys(validEditedLoginPassword);}
 
     //click "Login" button method
     public void clickLoginButton(){
