@@ -5522,6 +5522,67 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Update Product Quantity In Shopping Cart Modal Test Result");
     }
 
+    //remove product from shopping cart modal test (both guest and registered user will have the same output, hence, only guest branch is tested to avoid redundancy)
+
+    //remove product from shopping cart modal test method
+    protected void removeProductFromShopCartModalTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        ShoppingCartModal shoppingCartModal = new ShoppingCartModal(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2100);
+        //general page warning box web element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxWebElementDisplayed(generalPage);
+        //general page warning box text element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxTextElementAsExpected(generalPage);
+        //click 'Close' warning box button
+        generalPage.clickCloseWarningBoxButton();
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        //isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //log home page latest article data
+        logHomePageLatestArticleData(homePage);
+        //click chosen products section scroll left button
+        homePage.clickChosenProductScrollLeftButton();
+        //wait for elements to load (for click to be performed)
+        generalPage.waitForElementsToLoad(900);
+        //click set product ("Polštář Furniture") "Add to cart" button
+        homePage.clickSetChosenProductAddToCartButton(0);
+        //wait for elements to load (for modal to appear)
+        generalPage.waitForElementsToLoad(2000);
+        //capture screenshot of the shopping cart modal display
+        captureScreenshot(driver, "Shopping Cart Modal Display (single Polštář Furniture product)");
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //shopping cart modal web element assert
+        isShoppingCartModalWebElementDisplayed(shoppingCartModal);
+        //shopping cart modal text element assert
+        isShoppingCartModalTextElementAsExpected(shoppingCartModal);
+        //log shopping cart modal product data
+        logShoppingCartModalProductData(shoppingCartModal);
+        //click set product remove button
+        shoppingCartModal.clickSetProductRemoveButton(0);
+        //wait for elements to load (for the shopping cart modal to be updated)
+        generalPage.waitForElementsToLoad(3000);
+        //assert the user receives an expected warning message
+        assertEquals("V košíku nemáte zatím žádnou položku", shoppingCartModal.getShoppingCartModalNoProductWarning(), "The shopping cart modal no product warning message doesn't match expectations or the product removal process has failed.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Product Removal From Shopping Cart Modal Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

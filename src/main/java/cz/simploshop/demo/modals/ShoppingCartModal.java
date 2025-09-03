@@ -62,6 +62,13 @@ public class ShoppingCartModal extends BasePage {
         shoppingCartModalProductQtyInputFieldElements.get(index).sendKeys(String.valueOf(quantity));
     }
 
+    //click set product remove button method
+    public void clickSetProductRemoveButton(int index){
+        WebElement setProductRemoveButton = shoppingCartModalProductRemoveButtonElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(setProductRemoveButton).click().perform();
+    }
+
     //click "Proceed to cart" button method
     public void clickProceedToCartButton() {
         Actions action = new Actions(driver);

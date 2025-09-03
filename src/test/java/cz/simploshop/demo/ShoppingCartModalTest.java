@@ -15,4 +15,12 @@ public class ShoppingCartModalTest extends TestMethods{
         updateProductQuantityShopCartModalTest();
     }
 
+    //Test 009a -> remove product from shopping cart modal test
+    @Test
+    @DisplayName("Remove Product From Shopping Cart Modal Test")
+    @Tag("Product_Removal_From_Shop_Cart_Modal")
+    void productRemovalFromShopCartTest() {
+        removeProductFromShopCartModalTest();
+    }
+
 }
