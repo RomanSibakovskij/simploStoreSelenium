@@ -238,4 +238,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressTooLongFirstNameTest();
     }
 
+    //Test 005p -> invalid add user address test - too long last name (100 chars) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Too Long Last Name")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAddAddressTooLongLastNameTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - too long last name (100 chars)
+        invalidAddUserAddressTooLongLastNameTest();
+    }
+
 }

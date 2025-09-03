@@ -22,6 +22,7 @@ public class AddNewAddressModalTooLongSingularInput extends BasePage{
 
     //invalid address input data - too long singular input
     private String tooLongUserFirstName;
+    private String tooLongUserLastName;
 
     //valid address input data - for remaining inputs
     private String validUserFirstName;
@@ -59,6 +60,31 @@ public class AddNewAddressModalTooLongSingularInput extends BasePage{
     //invalid user address data input method - too long first name
     public void inputTooLongUserFirstNameIntoNewAddressModalFirstNameInputField(){addNewAddressModalFirstNameInputField.sendKeys(tooLongUserFirstName);}
 
+    //invalid user address input data getter - too long last name (100 chars)
+    public void invalidUserAddressInputDataTooLongLastNameGetter(){
+
+        validUserFirstName = "Francis";
+        tooLongUserLastName = "Dfddsgdsfssdsfgdhjfghsdrtuioikjfdgsdfhfhsfdsfgdfsdcvfgghyukghfgdfdsfvfdbcvdfgfddfdsgdfdfdfdfdfdffdfd";
+        validStreet = TestDataGenerator.generateRandomAddress(8);
+        validZipCode = TestDataGenerator.getRandomPostalCode();
+        validCity = TestDataGenerator.getRandomCity();
+        validPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid generated user new address data (too long last name): " + "\n");
+
+        logger.info("Valid user address first name (too long last name): " + validUserFirstName);
+        logger.info("Too long user address last name: " + tooLongUserLastName);
+        logger.info("Valid user street (too long last name): " + validStreet);
+        logger.info("Valid user zip code (too long last name): " + validZipCode);
+        logger.info("Valid user city (too long last name): " + validCity);
+        logger.info("Valid user phone (too long last name): " + validPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid user address data input method - too long last name
+    public void inputTooLongUserLastNameIntoNewAddressModalLastNameInputField(){addNewAddressModalLastNameInputField.sendKeys(tooLongUserLastName);}
 
     //valid user address data input methods - for remaining inputs
     public void inputValidUserFirstNameIntoNewAddressModalFirstNameInputField(){addNewAddressModalFirstNameInputField.sendKeys(validUserFirstName);}

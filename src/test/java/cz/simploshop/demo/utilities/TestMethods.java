@@ -3813,6 +3813,90 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid Add New User Address Test Result - Too Long First Name");
     }
 
+    //invalid add user address test method - too long last name (100 chars)
+    protected void invalidAddUserAddressTooLongLastNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AddressesDashboardPage addressesDashboardPage = new AddressesDashboardPage(driver);
+        AddNewAddressModal addNewAddressModal = new AddNewAddressModal(driver);
+        AddNewAddressModalTooLongSingularInput addNewAddressModalTooLongSingularInput = new AddNewAddressModalTooLongSingularInput(driver);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(5500);
+        //select "Addresses" option
+        generalPage.selectAddressesOption();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(8000);
+        //addresses dashboard page web element assert
+        isAddressesDashPageWebElementDisplayed(addressesDashboardPage);
+        //addresses dashboard page text element assert
+        isAddressesDashPageTextElementAsExpected(addressesDashboardPage);
+        //capture screenshot of the addresses dashboard page page display
+        captureScreenshot(driver, "Addresses Dashboard Page Display");
+        //click "Add new address" button
+        addressesDashboardPage.clickAddNewAddressButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(4000);
+        //add new address modal web element assert
+        isAddNewAddressModalWebElementDisplayed(addNewAddressModal);
+        //add new address modal text element assert
+        isAddNewAddressModalTextElementAsExpected(addNewAddressModal);
+        //capture screenshot of the add new address modal display before data input
+        captureScreenshot(driver, "Add New Address Modal Display Before Data Input");
+        //invalid user address input data getter - too long last name
+        addNewAddressModalTooLongSingularInput.invalidUserAddressInputDataTooLongLastNameGetter();
+        //input valid user first name into first name input field
+        addNewAddressModalTooLongSingularInput.inputValidUserFirstNameIntoNewAddressModalFirstNameInputField();
+        //input too long user last name into last name input field
+        addNewAddressModalTooLongSingularInput.inputTooLongUserLastNameIntoNewAddressModalLastNameInputField();
+        //input valid user street into street input field
+        addNewAddressModalTooLongSingularInput.inputValidUserStreetIntoNewAddressModalStreetInputField();
+        //input valid user zip code into zip code input field
+        addNewAddressModalTooLongSingularInput.inputValidUserZipCodeIntoNewAddressModalZipCodeInputField();
+        //input valid user city into city input field
+        addNewAddressModalTooLongSingularInput.inputValidUserCityIntoNewAddressModalCityInputField();
+        //click country code dropdown menu
+        addNewAddressModal.clickCountryCodeDropdownMenu();
+        //capture screenshot of the absence of country code options (hence, further valid testing is impossible since this input is tagged as required)
+        captureScreenshot(driver, "Add New Address Modal Absence of Available Country Codes");
+        //input valid user phone into phone input field
+        addNewAddressModalTooLongSingularInput.inputValidUserPhoneIntoNewAddressModalPhoneInputField();
+        //click country dropdown menu
+        addNewAddressModal.clickCountryDropdownMenu();
+        //select "United States" option
+        addNewAddressModal.selectSetCountryOption(3);
+        //capture screenshot of the add new address modal display after invalid data input - too long last name
+        captureScreenshot(driver, "Add New Address Modal Display After Invalid Data Input - Too Long Last Name");
+        //click "Add address" button
+        addNewAddressModal.clickAddAddressButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1800);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Pole obsahuje příliš dlouhý vstup", addNewAddressModal.getAddNewAddressModalSingularInputErrorMsg(), "The too long address last name input error message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid Add New User Address Test Result - Too Long Last Name (no country code options available)");
+            throw new Error("The too long address last name input error message doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Add New User Address Test Result - Too Short Last Name");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
