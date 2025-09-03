@@ -338,4 +338,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressInvalidLastNameFormatTest();
     }
 
+    //Test 005w -> invalid add user address test - invalid street format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Invalid Street Format")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAddAddressInvalidStreetFormatTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - invalid street format (special symbols only)
+        invalidAddUserAddressInvalidStreetFormatTest();
+    }
+
 }
