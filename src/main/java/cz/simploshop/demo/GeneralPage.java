@@ -159,6 +159,15 @@ public class GeneralPage extends BasePage {
     //select "Addresses" option method
     public void selectAddressesOption(){upperHeaderAccountAddressesOption.click();}
 
+    //select "Logout" option method
+    public void selectLogoutOption(){upperHeaderAccountLogoutOption.click();}
+
+    //click upper header home page logo method
+    public void clickUpperHeaderHomePageLogo() {
+        Actions action = new Actions(driver);
+        action.moveToElement(upperHeaderHomePageLogoLink).click().perform();
+    }
+
     //general page text element getter methods
     //warning box
     public String getWarningBoxTitle() {return warningBoxTitle.getText();}

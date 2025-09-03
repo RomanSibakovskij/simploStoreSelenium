@@ -4741,5 +4741,33 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //valid user logout test
+
+    //valid user logout test method
+    protected void userLogoutTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        //click upper header home page logo
+        generalPage.clickUpperHeaderHomePageLogo();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert (Selenium can't find these elements with VALID selectors)
+        //isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert (Selenium can't find these elements with VALID selectors)
+        //isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //click upper header "Account" button
+        generalPage.clickUpperHeaderAccountDropdownMenu();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //select "Logout" option
+        generalPage.selectLogoutOption();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Logout Test Result");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
