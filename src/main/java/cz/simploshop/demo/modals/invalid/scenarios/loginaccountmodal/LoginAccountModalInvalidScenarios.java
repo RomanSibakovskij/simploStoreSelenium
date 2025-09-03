@@ -15,6 +15,7 @@ public class LoginAccountModalInvalidScenarios extends BasePage{
 
     //invalid login input data - no singular input
     private String noLoginEmail;
+    private String noLoginPassword;
 
     //valid login input data - for remaining inputs
     private String validLoginEmail;
@@ -39,8 +40,26 @@ public class LoginAccountModalInvalidScenarios extends BasePage{
 
     }
 
+    //invalid login input data getter - no login password
+    public void invalidLoginInputDataNoPasswordGetter(){
+
+        RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+
+        validLoginEmail = registerAccountModal.getEmail();
+        noLoginPassword = "";
+
+        System.out.println("Invalid user login input data (no login password): " + "\n");
+
+        logger.info("Valid user login email (no login password): " + validLoginEmail);
+        logger.info("No login password: " + noLoginPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid user login input data methods - no singular input
     public void inputNoLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(noLoginEmail);}
+    public void inputNoLoginPasswordIntoPasswordInputField(){loginAccountModalPasswordInputField.sendKeys(noLoginPassword);}
 
     //valid user login input data methods - for remaining inputs
     public void inputValidLoginEmailIntoEmailInputField(){loginAccountModalEmailInputField.sendKeys(validLoginEmail);}
