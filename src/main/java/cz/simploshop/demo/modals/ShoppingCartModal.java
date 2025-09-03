@@ -56,6 +56,12 @@ public class ShoppingCartModal extends BasePage {
         action.moveToElement(setQtyIncreaseButton).click().perform();
     }
 
+    //input set product quantity into product qty input field method
+    public void inputSetProductQuantityIntoProductQtyInputField(int index, int quantity){
+        shoppingCartModalProductQtyInputFieldElements.get(index).clear();
+        shoppingCartModalProductQtyInputFieldElements.get(index).sendKeys(String.valueOf(quantity));
+    }
+
     //click "Proceed to cart" button method
     public void clickProceedToCartButton() {
         Actions action = new Actions(driver);
