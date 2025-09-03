@@ -26,6 +26,7 @@ public class AddNewAddressModalTooLongSingularInput extends BasePage{
     private String tooLongStreet;
     private int tooLongZipCode;
     private String tooLongCity;
+    private String tooLongPhone;
 
     //valid address input data - for remaining inputs
     private String validUserFirstName;
@@ -166,6 +167,32 @@ public class AddNewAddressModalTooLongSingularInput extends BasePage{
 
     //invalid user address data input method - too long city
     public void inputTooLongUserCityIntoNewAddressModalCityInputField(){addNewAddressModalCityInputField.sendKeys(tooLongCity);}
+
+    //invalid user address input data getter - too long phone (30 digits)
+    public void invalidUserAddressInputDataTooLongPhoneGetter(){
+
+        validUserFirstName = "Anna";
+        validUserLastName = "O'Neil";
+        validStreet = TestDataGenerator.generateRandomAddress(8);
+        validZipCode = TestDataGenerator.getRandomPostalCode();
+        validCity = TestDataGenerator.getRandomCity();
+        tooLongPhone = TestDataGenerator.generatePhoneNumber(30);
+
+        System.out.println("Invalid generated user new address data (too long phone): " + "\n");
+
+        logger.info("Valid user address first name (too long phone): " + validUserFirstName);
+        logger.info("Valid user address last name (too long phone): " + validUserLastName);
+        logger.info("Valid user street (too long phone): " + validStreet);
+        logger.info("Valid user zip code (too long phone): " + validZipCode);
+        logger.info("Valid user city (too long phone): " + validCity);
+        logger.info("Too long user phone: " + tooLongPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid user address data input method - too long phone
+    public void inputTooLongUserPhoneIntoNewAddressModalPhoneInputField(){addNewAddressModalPhoneInputField.sendKeys(tooLongPhone);}
 
     //valid user address data input methods - for remaining inputs
     public void inputValidUserFirstNameIntoNewAddressModalFirstNameInputField(){addNewAddressModalFirstNameInputField.sendKeys(validUserFirstName);}

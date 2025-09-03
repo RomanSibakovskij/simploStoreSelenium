@@ -294,4 +294,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressTooLongCityTest();
     }
 
+    //Test 005t -> invalid add user address test - too long phone (30 digits) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Too Long Phone")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddAddressTooLongPhoneTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - too long phone (30 digits)
+        invalidAddUserAddressTooLongPhoneTest();
+    }
+
 }
