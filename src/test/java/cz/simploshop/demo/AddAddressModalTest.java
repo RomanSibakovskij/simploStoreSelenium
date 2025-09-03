@@ -266,4 +266,18 @@ public class AddAddressModalTest extends TestMethods{
         invalidAddUserAddressTooLongStreetTest();
     }
 
+    //Test 005r -> invalid add user address test - too long zip code (6 digits) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add User Address Test - Too Long Zip Code")
+    @Tag("Invalid_Add_User_Address")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAddAddressTooLongZipCodeTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //invalid add user address test - too long zip code (6 digits)
+        invalidAddUserAddressTooLongZipCodeTest();
+    }
+
 }
