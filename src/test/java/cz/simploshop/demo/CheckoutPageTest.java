@@ -76,7 +76,7 @@ public class CheckoutPageTest extends TestMethods{
     //Test 020 -> single category single product ("Manželská postel") check out confirmation test - as a guest (the country code dropdown menu is empty, test has failed)
     @Test
     @DisplayName("Single Category Single Product Checkout Confirmation Test (as a guest)")
-    @Tag("Single_Category_Produc_Checkout_Confirmation")
+    @Tag("Single_Category_Product_Checkout_Confirmation")
     @Tag("Test_As_A_Guest")
     void singleCategoryProductCheckoutGuestTest() {
         //add single category single product ("Manželská postel") to cart test - as a guest
@@ -85,6 +85,24 @@ public class CheckoutPageTest extends TestMethods{
         addProductToCheckoutTest();
         //single category single product ("Manželská postel") check out confirmation test - as a guest
         productCheckoutConfirmationGuestTest();
+    }
+
+    //Test 020a -> single category single product ("Odkládací stolek") check out confirmation test - as a registered user (the country code dropdown menu is empty, test has failed)
+    @Test
+    @DisplayName("Single Category Single Product Checkout Confirmation Test (as a registered user)")
+    @Tag("Single_Chosen_Product_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void singleCategoryProductCheckoutRegUserTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add single category single product ("Odkládací stolek") to cart test - as a registered user
+        addSetSingleCategoryProductToCartRegUserTest();
+        //add single category single product ("Odkládací stolek") to check out test - as a registered user
+        addProductToCheckoutTest();
+        //single category single product ("Odkládací stolek") check out confirmation test - as a registered user
+        productCheckoutConfirmationTest();
     }
 
 }

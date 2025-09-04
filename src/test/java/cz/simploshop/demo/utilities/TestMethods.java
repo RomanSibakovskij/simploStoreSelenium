@@ -7939,9 +7939,9 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
         //wait for elements to load (due to laggy backend, wait time is extended)
         generalPage.waitForElementsToLoad(7000);
-        //general page footer web element assert
+        //general page footer web element assert (due to laggy backend. Selenium often fails to load these elements, the footer itself is present with all its elements)
         //isGeneralPageFooterSectionWebElementDisplayed(generalPage);
-        //general page footer text element assert
+        //general page footer text element assert (due to laggy backend. Selenium often fails to load these elements, the footer itself is present with all its elements)
         //isGeneralPageFooterSectionTextElementAsExpected(generalPage);
         //shopping cart breadcrumb web element assert
         isShoppingCartBreadcrumbWebElementDisplayed(shoppingCartPage);
