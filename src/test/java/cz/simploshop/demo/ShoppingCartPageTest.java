@@ -19,4 +19,20 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 014a -> add single chosen product ("Polštář Furniture") to check out test - as a registered user
+    @Test
+    @DisplayName("Add Single Chosen Product To Checkout Test (as a registered user)")
+    @Tag("Add_Single_Chosen_Product_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void addSingleChosenProductToCheckoutRegisteredUserTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add single chosen product ("Polštář Furniture") test to cart - as a registered user
+        addSingleChosenProductToCartRegUserTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a registered user
+        addProductToCheckoutTest();
+    }
+
 }
