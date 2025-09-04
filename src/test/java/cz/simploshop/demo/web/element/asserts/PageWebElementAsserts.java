@@ -589,4 +589,44 @@ default void isSingleCategoryDashPageAsideInStockWebElementDisplayed(SingleCateg
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //search product modal web element assert test method
+    default void isSearchProductModalWebElementDisplayed(SearchProductModal searchProductModal){
+        //assert search product modal top phrases subtext is displayed
+        assertTrue(searchProductModal.isSearchProductModalTopPhrasesSubtextDisplayed(), "The search product modal top phrases subtext isn't displayed");
+        //assert search product modal products subtext is displayed
+        assertTrue(searchProductModal.isSearchProductModalProductsSubtextDisplayed(), "The search product modal products subtext isn't displayed");
+        //assert search product modal products count is displayed
+        assertTrue(searchProductModal.isSearchProductModalProductsCountDisplayed(), "The search product modal products count isn't displayed");
+        //category section
+        //assert search product modal category section subtext is displayed
+        assertTrue(searchProductModal.isSearchProductModalCategorySubtextDisplayed(), "The search product modal category section subtext isn't displayed");
+        //assert search product modal category section text is displayed
+        assertTrue(searchProductModal.isSearchProductModalCategoryTextDisplayed(), "The search product modal category section ext isn't displayed");
+        //brands section
+        //assert search product modal brands section subtext is displayed
+        assertTrue(searchProductModal.isSearchProductModalBrandsSubtextDisplayed(), "The search product modal brands section subtext isn't displayed");
+        //assert search product modal brands section text is displayed
+        assertTrue(searchProductModal.isSearchProductModalBrandsTextDisplayed(), "The search product modal brands section text isn't displayed");
+        //articles section
+        //assert search product modal articles section subtext is displayed
+        assertTrue(searchProductModal.isSearchProductModalArticlesSubtextDisplayed(), "The search product modal articles section subtext isn't displayed");
+        //assert search product modal articles section text is displayed
+        assertTrue(searchProductModal.isSearchProductModalArticlesTextDisplayed(), "The search product modal articles section text isn't displayed");
+        //products section
+        //assert search product modal top phrases buttons are displayed (as a list)
+        assertTrue(searchProductModal.isSearchProductModalTopPhrasesButtonDisplayed(), "The search product modal top phrases buttons aren't displayed");
+        //assert search product modal product images are displayed (as a list)
+        assertTrue(searchProductModal.isSearchProductModalProductImgDisplayed(), "The search product modal product images aren't displayed");
+        //assert search product modal product brands are displayed (as a list)
+        assertTrue(searchProductModal.isSearchProductModalProductBrandDisplayed(), "The search product modal product brands aren't displayed");
+        //assert search product modal product names are displayed (as a list)
+        assertTrue(searchProductModal.isSearchProductModalProductNameDisplayed(), "The search product modal product names aren't displayed");
+        //assert search product modal product unit prices are displayed (as a list)
+        assertTrue(searchProductModal.isSearchProductModalProductUnitPriceDisplayed(), "The search product modal product unit prices aren't displayed");
+        //assert search product modal product in stock tags are displayed (as a list)
+        assertTrue(searchProductModal.isSearchProductModalProductInStockTagDisplayed(), "The search product modal product in stock tags aren't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

@@ -315,4 +315,30 @@ default void isSingleCategoryDashPageAsideInStockTextElementAsExpected(SingleCat
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //search product modal text element assert test method
+    default void isSearchProductModalTextElementAsExpected(SearchProductModal searchProductModal){
+        //assert search product modal top phrases subtext is as expected
+        assertEquals("TOP FRÁZE", searchProductModal.getSearchProductModalTopPhrasesSubtext(),"The search product modal top phrases subtext doesn't match expectations");
+        //category section
+        //assert search product modal category subtext is as expected
+        assertEquals("KATEGORIE", searchProductModal.getSearchProductModalCategorySubtext(),"The search product modal category subtext doesn't match expectations");
+        //assert search product modal category text is as expected
+        assertEquals("Nebyly nalezeny žádné kategorie", searchProductModal.getSearchProductModalCategoryText(),"The search product modal category text doesn't match expectations");
+        //brands section
+        //assert search product modal brands subtext is as expected
+        assertEquals("ZNAČKY", searchProductModal.getSearchProductModalBrandsSubtext(),"The search product modal brands subtext doesn't match expectations");
+        //assert search product modal brands text is as expected
+        assertEquals("Nebyly nalezny žádné značky", searchProductModal.getSearchProductModalBrandsText(),"The search product modal brands text doesn't match expectations");
+        //articles section
+        //assert search product modal articles subtext is as expected
+        assertEquals("ČLÁNKY", searchProductModal.getSearchProductModalArticlesSubtext(),"The search product modal articles subtext doesn't match expectations");
+        //assert search product modal articles text is as expected
+        assertEquals("Nebyly nalezeny žádné články", searchProductModal.getSearchProductModalArticlesText(),"The search product modal articles text doesn't match expectations");
+        //products section
+        //assert search product modal products subtext is as expected
+        assertEquals("PRODUKTY", searchProductModal.getSearchProductModalProductsSubtext(),"The search product modal products subtext doesn't match expectations");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

@@ -87,4 +87,18 @@ default void logFurnitureCategoryProductOptions(SingleCategoryDashboardPage sing
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //search product modal product data logger method
+    default void logSearchProductModalProductData(SearchProductModal searchProductModal){
+        System.out.println("Displayed searched product modal product data: " + "\n");
+
+        logger.info("Displayed searched product modal product count: " + searchProductModal.getSearchedProductModalProductCount());
+        logger.info("Displayed searched product modal product brand(s): " + searchProductModal.getSearchedProductModalProductBrand());
+        logger.info("Displayed searched product modal product name(s): " + searchProductModal.getSearchedProductModalProductName());
+        logger.info("Displayed searched product modal product unit price(s): " + searchProductModal.getSearchedProductModalProductUnitPrice());
+
+        System.out.println("\n");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
