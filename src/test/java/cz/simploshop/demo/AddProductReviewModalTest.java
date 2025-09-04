@@ -16,4 +16,18 @@ public class AddProductReviewModalTest extends TestMethods{
         addReviewForSingleSearchedProductTest();
     }
 
+    //Test 013a -> add review for a single searched product ("Rohová pohovka") test - as a registered user (due to network / laggy backend issues, test can fail)
+    @Test
+    @DisplayName("Add Review For A Single Searched Product Test (as a registered user)")
+    @Tag("Add_Review_For_A_Single_Searched_Product")
+    @Tag("Test_As_A_Reg_User")
+    void addReviewForASingleSearchedProductRegUserTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add review for a single searched product ("Rohová pohovka") test - as a registered user
+        addReviewForSingleSearchedProductRegUserTest();
+    }
+
 }
