@@ -100,12 +100,24 @@ public class AddProductReviewModalTest extends TestMethods{
 
     //Test 013h -> invalid add review for a single searched product ("Rohová pohovka") test - too long review (10001 chars) (the error wasn't triggered, test has failed)
     @Test
-    @DisplayName("Add Review For A Single Searched Product Test - Too Long Review")
+    @DisplayName("Invalid Add Review For A Single Searched Product Test - Too Long Review")
     @Tag("Add_Review_For_A_Single_Searched_Product")
     @Tag("Too_Long_Singular_Input")
     @Tag("Test_As_A_Guest")
     void invalidAddReviewForASingleSearchedProductTooLongReviewTest() {
         invalidAddReviewForSingleSearchedProductTooLongReviewTest();
+    }
+
+    //invalid singular input
+
+    //Test 013i -> invalid add review for a single searched product ("Rohová pohovka") test - invalid review author format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Add Review For A Single Searched Product Test - Invalid Review Author Format")
+    @Tag("Add_Review_For_A_Single_Searched_Product")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Test_As_A_Guest")
+    void invalidAddReviewForASingleSearchedProductInvalidReviewAuthorFormatTest() {
+        invalidAddReviewForSingleSearchedProductInvalidReviewAuthorNameTest();
     }
 
 }
