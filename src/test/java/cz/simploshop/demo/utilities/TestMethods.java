@@ -6373,4 +6373,83 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //product add to wishlist tests (only registered user have this feature)
+
+    //add set category ("Nábytek") product ("Manželská postel") to wishlist test method
+    protected void addSetCategoryProductToWishlistTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SingleCategoryDashboardPage singleCategoryDashboardPage = new SingleCategoryDashboardPage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        WishlistDashboardPage wishlistDashboardPage = new WishlistDashboardPage(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2100);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click lower header category ("Nábytek")
+        generalPage.clickSetLowerHeaderCategoryDropdownLink(0);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(5200);
+        //single category dashboard (furniture) page aside section in stock web element assert
+        isSingleCategoryDashPageAsideInStockWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page aside section in stock text element assert
+        isSingleCategoryDashPageAsideInStockTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page aside section web element assert
+        isSingleCategoryDashPageFurnitureAsideWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page aside section text element assert;
+        isSingleCategoryDashPageFurnitureAsideTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard page web element assert
+        isSingleCategoryDashPageWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page text element assert
+        isSingleCategoryDashPageFurnitureCategoryTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard page subcategories web element assert
+        isSingleCategoryDashPageSubcategoryWebElementDisplayed(singleCategoryDashboardPage);
+        //assert the correct category page has been opened
+        String expectedProductCategory = "Nábytek";
+        String actualProductCategory = singleCategoryDashboardPage.getSingleCategoryDashPageTitle();
+        assertEquals(expectedProductCategory, actualProductCategory, "The expected product category name doesn't match the actual product name, test has failed");
+        //log single category (furniture) dashboard page product data
+        logFurnitureCategoryProductOptions(singleCategoryDashboardPage);
+        //capture screenshot of the set single category ("Nábytek") dashboard page display (as a registered user)
+        captureScreenshot(driver, "Single Category (Nábytek) Dashboard Page Display (registered user)");
+        //log single category dashboard page product data
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //click set product "Add to wishlist" button
+        singleCategoryDashboardPage.clickSetCategoryProductAddToWishlistButton(3);
+        //click upper header wishlist link
+        generalPage.clickUpperHeaderWishlistLink();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(4000);
+        //account information page my user section web element assert (it appears on this page)
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert (it appears on this page)
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page breadcrumb web element assert (it appears on this page)
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //wishlist dashboard page web element assert
+        isWishlistDashboardPageWebElementDisplayed(wishlistDashboardPage);
+        //wishlist dashboard page text element assert
+        isWishlistDashboardPageTextElementAsExpected(wishlistDashboardPage);
+        //log wishlist dashboard page product data
+        logWishlistDashboardPageProductData(wishlistDashboardPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Set Category Product (Manželská postel) Add To Wishlist Test Result");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

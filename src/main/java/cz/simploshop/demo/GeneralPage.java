@@ -195,6 +195,9 @@ public class GeneralPage extends BasePage {
         upperHeaderSearchBarInputField.sendKeys(Keys.ENTER);
     }
 
+    //click upper header wishlist button method
+    public void clickUpperHeaderWishlistLink() {upperHeaderWishlistLink.click();}
+
     //general page text element getter methods
     //warning box
     public String getWarningBoxTitle() {return warningBoxTitle.getText();}

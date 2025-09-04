@@ -132,6 +132,13 @@ public class SingleCategoryDashboardPage extends BasePage {
         action.moveToElement(targetAddToCartButton).click().perform();
     }
 
+    //click set category product "Add to wishlist" button method
+    public void clickSetCategoryProductAddToWishlistButton(int index) {
+        WebElement targetCategoryProductAddToWishlistButton = singleCategoryDashPageProductAddToWishlistButtonElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(targetCategoryProductAddToWishlistButton).click().perform();
+    }
+
     //single category dashboard page product data getters
     //aside section
     //price
