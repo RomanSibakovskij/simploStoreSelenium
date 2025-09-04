@@ -7931,4 +7931,36 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //add product to check out test (both guest and registered user share the same method)
+
+    //add product to check out test method
+    protected void addProductToCheckoutTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2500);
+        //general page footer web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page footer text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //shopping cart breadcrumb web element assert
+        isShoppingCartBreadcrumbWebElementDisplayed(shoppingCartPage);
+        //shopping cart page web element assert
+        isShoppingCarPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart page text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //log shopping cart page product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //capture screenshot of the shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Page Display");
+        //click "Shipping and Payment" button
+        shoppingCartPage.clickShipAndPaymentButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1600);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Product To Checkout Test Result");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

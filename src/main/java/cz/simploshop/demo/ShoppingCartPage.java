@@ -2,6 +2,7 @@ package cz.simploshop.demo;
 
 import cz.simploshop.demo.utilities.*;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
@@ -57,6 +58,12 @@ public class ShoppingCartPage extends BasePage{
     private WebElement shoppingCartPageShipAndPaymentButton;
 
     public ShoppingCartPage(WebDriver driver) {super(driver);}
+
+    //click "Shipping and payment" button method
+    public void clickShipAndPaymentButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(shoppingCartPageShipAndPaymentButton).click().perform();
+    }
 
     //shopping cart product data getters
     public List<String> getShoppingCartPageProductTableProductName(){return shoppingCartPageProductTableProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
