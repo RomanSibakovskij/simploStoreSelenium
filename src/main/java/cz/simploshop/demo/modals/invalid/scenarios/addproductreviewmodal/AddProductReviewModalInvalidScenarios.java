@@ -14,6 +14,7 @@ public class AddProductReviewModalInvalidScenarios extends BasePage{
 
     //invalid review input data - no singular input
     private String noGuestName = "";
+    private String noProductReview = "";
 
     //valid review input data - for remaining inputs
     private String validGuestName = TestDataGenerator.getRandomFirstName() + " " + TestDataGenerator.getRandomLastName();
@@ -23,6 +24,7 @@ public class AddProductReviewModalInvalidScenarios extends BasePage{
 
     //invalid input data methods - no singular input
     public void inputNoGuestAuthorNameIntoAuthorNameInputField(){addProductReviewModalAuthorNameInputField.sendKeys(noGuestName);}
+    public void inputNoProductReviewIntoReviewInputField(){addProductReviewModalReviewInputField.sendKeys(noProductReview);}
 
     //valid input data methods - for remaining inputs
     public void inputProductReviewIntoReviewInputField(){addProductReviewModalReviewInputField.sendKeys(validProductReview);}
