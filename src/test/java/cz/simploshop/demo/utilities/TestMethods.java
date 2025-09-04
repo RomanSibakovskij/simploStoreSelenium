@@ -6007,4 +6007,101 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //single searched product add to cart tests
+
+    //add single searched product ("Rohová pohovka") to cart test method - as a guest
+    protected void addSingleSearchedProductToCartTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SearchProductModal searchProductModal = new SearchProductModal(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        ShoppingCartModal shoppingCartModal = new ShoppingCartModal(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2100);
+        //general page warning box web element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxWebElementDisplayed(generalPage);
+        //general page warning box text element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxTextElementAsExpected(generalPage);
+        //click 'Close' warning box button
+        generalPage.clickCloseWarningBoxButton();
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //input set searched product into search bar
+        generalPage.inputSetSearchedProductIntoSearchBar();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3500);
+        //capture screenshot of the search product modal display
+        captureScreenshot(driver, "Search Product (Rohová pohovka) Modal Display");
+        //search product modal web element assert
+        isSearchProductModalWebElementDisplayed(searchProductModal);
+        //search product modal text element assert
+        isSearchProductModalTextElementAsExpected(searchProductModal);
+        //log search product modal product data
+        logSearchProductModalProductData(searchProductModal);
+        //click set search product card
+        searchProductModal.clickSetSearchProductCard(0);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2200);
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page text element assert
+        isSingleProductPageTextElementAsExpected(singleProductPage);
+        //log single product page product data
+        logSingleProductPageProductData(singleProductPage);
+        //log single product page product description data
+        logSingleProductPageProductDescriptionData(singleProductPage);
+        //capture screenshot of the single product page display
+        captureScreenshot(driver, "Single Product (Rohová pohovka) Page Display");
+        //click "Product reviews" section button
+        singleProductPage.clickProductReviewsSectionButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1600);
+        //single product page reviews section web element assert
+        isSingleProductPageReviewSectionWebElementDisplayed(singleProductPage);
+        //log single product page product reviews section data
+        logSingleProductPageProductReviewsData(singleProductPage);
+        //capture screenshot of the single product page display -> reviews section
+        captureScreenshot(driver, "Single Product (Rohová pohovka) Page Reviews Section Display");
+        //click "Add to cart" button
+        singleProductPage.clickAddToCartButton();
+        //wait for elements to load (for modal to appear)
+        generalPage.waitForElementsToLoad(2000);
+        //capture screenshot of the shopping cart modal display
+        captureScreenshot(driver, "Shopping Cart Modal Display (Rohová pohovka Searched product as guest)");
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //shopping cart modal web element assert
+        isShoppingCartModalWebElementDisplayed(shoppingCartModal);
+        //shopping cart modal text element assert
+        isShoppingCartModalTextElementAsExpected(shoppingCartModal);
+        //assert the correct product has been added to shopping cart
+        String expectedProductName = "Rohová pohovka";
+        String actualProductName = shoppingCartModal.getShoppingCartModalProductName().getFirst();
+        assertEquals(expectedProductName, actualProductName, "The expected product name doesn't match the actual product name, test has failed");
+        //log shopping cart modal product data
+        logShoppingCartModalProductData(shoppingCartModal);
+        //click "Proceed to cart" button
+        shoppingCartModal.clickProceedToCartButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1100);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Single Searched Product (Rohová pohovka) To Cart Test Result (as guest)");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

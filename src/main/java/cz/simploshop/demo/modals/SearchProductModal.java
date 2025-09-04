@@ -49,6 +49,9 @@ public class SearchProductModal extends BasePage {
 
     public SearchProductModal(WebDriver driver) {super(driver);}
 
+    //click set searched product card method
+    public void clickSetSearchProductCard(int index){searchProductModalProductCardElements.get(index).click();}
+
     //search product modal product data getters
     public String getSearchedProductModalProductCount(){return searchProductModalProductCountSubtext.getText();}
     public List<String> getSearchedProductModalProductBrand() {return searchProductModalProductBrandElements.stream().map(WebElement::getText).collect(Collectors.toList());}

@@ -2,6 +2,7 @@ package cz.simploshop.demo;
 
 import cz.simploshop.demo.utilities.BasePage;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
@@ -98,6 +99,18 @@ public class SingleProductPage extends BasePage {
     private WebElement singleProductPageProductNoReviewsDisplayedDesc;
 
     public SingleProductPage(WebDriver driver) {super(driver);}
+
+    //click "Product reviews" section button method
+    public void clickProductReviewsSectionButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleProductPageProductReviewSectionButton).click().perform();
+    }
+
+    //click "Add to cart" button method
+    public void clickAddToCartButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleProductPageProductAddToCartButton).click().perform();
+    }
 
     //single product page text element getters
     //product data

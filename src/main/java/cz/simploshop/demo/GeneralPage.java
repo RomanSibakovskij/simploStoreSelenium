@@ -183,6 +183,12 @@ public class GeneralPage extends BasePage {
         actions.moveByOffset(0, 0).perform();
     }
 
+    //input set searched product name (pink bed) into search bar method
+    public void inputSetSearchedProductIntoSearchBar(){
+        upperHeaderSearchBarInputField.sendKeys("Rohová pohovka");
+        upperHeaderSearchBarInputField.sendKeys(Keys.ENTER);
+    }
+
     //general page text element getter methods
     //warning box
     public String getWarningBoxTitle() {return warningBoxTitle.getText();}
