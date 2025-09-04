@@ -37,6 +37,7 @@ public class CheckoutPageNoSingularInput extends BasePage{
 
     //invalid billing address data - no singular input
     private String noCheckoutBillAddressEmail;
+    private String noCheckoutBillAddressFirstName;
 
     //valid billing address data - for remaining inputs
     private String validCheckoutBillAddressEmail;
@@ -62,8 +63,45 @@ public class CheckoutPageNoSingularInput extends BasePage{
 
     }
 
+    //valid billing address (guest) data input getter (for remaining inputs)
+    public void validCheckoutBillAddressEmailInputDataGetter(){
+
+        validCheckoutBillAddressEmail = TestDataGenerator.generateRandomEmailAddress(8);
+
+        System.out.println("Valid checkout billing address email input data: " + "\n");
+
+        logger.info("Valid checkout billing address email: " + validCheckoutBillAddressEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid billing address data (guest) input data getter - no first name
+    public void invalidCheckoutBillAddressInputDataNoFirstNameGetter(){
+
+        noCheckoutBillAddressFirstName = "";
+        validCheckoutBillAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutBillAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutBillAddressCity = TestDataGenerator.getRandomCity();
+        validCheckoutBillAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutBillAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout billing address input data (no billing first name): " + "\n");
+
+        logger.info("No checkout billing address first name: " + noCheckoutBillAddressFirstName);
+        logger.info("Valid checkout billing address last name (no billing first name): " + validCheckoutBillAddressLastName);
+        logger.info("Valid checkout billing address street (no billing first name): " + validCheckoutBillAddressStreet);
+        logger.info("Valid checkout billing address city (no billing first name): " + validCheckoutBillAddressCity);
+        logger.info("Valid checkout billing address zip code (no billing first name): " + validCheckoutBillAddressZipCode);
+        logger.info("Valid checkout billing address phone (no billing first name): " + validCheckoutBillAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid billing address (guest) input data methods - no singular input
     public void inputNoCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(noCheckoutBillAddressEmail);}
+    public void inputNoCheckoutFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(noCheckoutBillAddressFirstName);}
 
     //valid billing address (guest) input data methods
     public void inputValidCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(validCheckoutBillAddressEmail);}
