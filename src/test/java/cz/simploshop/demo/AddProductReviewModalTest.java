@@ -120,4 +120,14 @@ public class AddProductReviewModalTest extends TestMethods{
         invalidAddReviewForSingleSearchedProductInvalidReviewAuthorNameTest();
     }
 
+    //Test 013j -> invalid add review for a single searched product ("Rohová pohovka") test - invalid review format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Add Review For A Single Searched Product Test - Invalid Review Format")
+    @Tag("Add_Review_For_A_Single_Searched_Product")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Test_As_A_Guest")
+    void invalidAddReviewForASingleSearchedProductInvalidReviewFormatTest() {
+        invalidAddReviewForSingleSearchedProductInvalidReviewFormatTest();
+    }
+
 }

@@ -26,6 +26,8 @@ public class AddProductReviewModalInvalidScenarios extends BasePage{
 
     //invalid review input data - invalid singular input
     private String invalidGuestNameFormat = "@#$@#%$#%"; //special symbols only
+    private String invalidProductReviewFormat = "@$#@$%$"; //special symbols only
+
 
     //valid review input data - for remaining inputs
     private String validGuestName = TestDataGenerator.getRandomFirstName() + " " + TestDataGenerator.getRandomLastName();
@@ -47,6 +49,7 @@ public class AddProductReviewModalInvalidScenarios extends BasePage{
 
     //invalid input data methods - invalid singular input
     public void inputInvalidGuestAuthorNameFormatIntoAuthorNameInputField(){addProductReviewModalAuthorNameInputField.sendKeys(invalidGuestNameFormat);}
+    public void inputInvalidProductReviewFormatIntoReviewInputField(){addProductReviewModalReviewInputField.sendKeys(invalidProductReviewFormat);}
 
     //valid input data methods - for remaining inputs
     public void inputProductReviewIntoReviewInputField(){addProductReviewModalReviewInputField.sendKeys(validProductReview);}
