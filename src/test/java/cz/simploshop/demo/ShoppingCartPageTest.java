@@ -63,4 +63,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //single category dashboard page product(s) add to check out tests
+
+    //Test 015 -> add single category single product ("Manželská postel") to check out test - as a guest
+    @Test
+    @DisplayName("Add Single Category Single Product To Checkout Test (as a guest)")
+    @Tag("Add_Single_Category_Product_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void addSingleCategoryProductToCheckoutGuestTest() {
+        //add single category single product ("Manželská postel") to cart test - as a guest
+        addSetSingleCategoryProductToCartGuestTest();
+        //add single category single product ("Manželská postel") to check out test - as a guest
+        addProductToCheckoutTest();
+    }
+
 }
