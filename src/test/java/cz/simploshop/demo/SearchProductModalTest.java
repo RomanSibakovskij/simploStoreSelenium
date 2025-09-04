@@ -16,4 +16,19 @@ public class SearchProductModalTest extends TestMethods{
         addSingleSearchedProductToCartTest();
     }
 
+    //Test 011a -> add single searched product ("Knihovna - 3 police") to cart test - as a registered user
+    @Test
+    @DisplayName("Add Single Searched Product To Cart Test (as a registered user)")
+    @Tag("Add_Single_Searched_Product_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void addSingleSearchedProductToCartUserTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add single searched product ("Knihovna - 3 police") to cart test - as a registered user
+        addSingleSearchedProductToCartRegUserTest();
+    }
+
+
 }

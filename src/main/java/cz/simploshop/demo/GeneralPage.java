@@ -189,6 +189,12 @@ public class GeneralPage extends BasePage {
         upperHeaderSearchBarInputField.sendKeys(Keys.ENTER);
     }
 
+    //input set searched product name (book shelf) into search bar method
+    public void inputSetSearchedShelfProductIntoSearchBar(){
+        upperHeaderSearchBarInputField.sendKeys("Knihovna - 3 police");
+        upperHeaderSearchBarInputField.sendKeys(Keys.ENTER);
+    }
+
     //general page text element getter methods
     //warning box
     public String getWarningBoxTitle() {return warningBoxTitle.getText();}

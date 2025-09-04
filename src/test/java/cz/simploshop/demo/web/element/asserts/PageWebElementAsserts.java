@@ -718,6 +718,36 @@ default void isSingleProductPageWebElementDisplayed(SingleProductPage singleProd
         assertTrue(singleProductPage.isSingleProductPageProductReviewPaginationButtonDisplayed(), "The single product page product review pagination buttons aren't displayed");
     }
 
+    //single product page reviews section (no appearance) web element assert test method
+    default void isSingleProductPageReviewSectionNoAppearanceWebElementDisplayed(SingleProductPage singleProductPage){
+        //reviews section
+        //assert single product page product reviews section button is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewsSectionButtonDisplayed(), "The single product page product reviews section button isn't displayed");
+        //assert single product page product add review button is displayed
+        assertTrue(singleProductPage.isSingleProductPageAddProductReviewButtonDisplayed(), "The single product page product add review button isn't displayed");
+        //assert single product page product reviews section is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewsSectionButtonDisplayed(), "The single product page product reviews section isn't displayed");
+        //assert single product page product review average score is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewAvgScoreDisplayed(), "The single product page product review average score isn't displayed");
+        //assert single product page product review stars is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewStarsDisplayed(), "The single product page product review stars isn't displayed");
+        //assert single product page product review count is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewCountDisplayed(), "The single product page product review count isn't displayed");
+        //assert single product page product reviews display count is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewsDisplayCountDisplayed(), "The single product page product reviews display count isn't displayed");
+        //list elements
+        //assert single product page product given review stars are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductGivenReviewStarsDisplayed(), "The single product page product given review stars aren't displayed");
+        //assert single product page product review authors are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductReviewAuthorDisplayed(), "The single product page product review authors aren't displayed");
+        //assert single product page product review dates are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductReviewDateDisplayed(), "The single product page product review dates aren't displayed");
+        //assert single product page product review texts are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductReviewTextDisplayed(), "The single product page product review texts aren't displayed");
+        //assert single product page product review pagination buttons are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductReviewPaginationButtonDisplayed(), "The single product page product review pagination buttons aren't displayed");
+    }
+
     //single product page reviews section (when no reviews are displayed) web element assert test method
     default void isSingleProductPageNoReviewsSectionWebElementDisplayed(SingleProductPage singleProductPage){
         //reviews section
