@@ -39,4 +39,18 @@ public class CheckoutPageTest extends TestMethods{
         productCheckoutConfirmationTest();
     }
 
+    //Test 019b -> multiple chosen products ("Polštář Furniture") check out confirmation test - as a guest (the country code dropdown menu is empty, test has failed)
+    @Test
+    @DisplayName("Multiple Chosen Products To Checkout Test (as a guest)")
+    @Tag("Add_Multiple_Chosen_Products_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void multipleChosenProductsCheckoutGuestTest() {
+        //add multiple chosen products ("Polštář Furniture") to cart test - as a guest
+        addMultipleChosenProductToCartTest();
+        //add multiple chosen products ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //multiple chosen products ("Polštář Furniture") check out confirmation test - as a guest
+        productCheckoutConfirmationGuestTest();
+    }
+
 }

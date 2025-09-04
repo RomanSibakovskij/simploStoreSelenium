@@ -8081,7 +8081,7 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         generalPage.waitForElementsToLoad(3000);
         //assert the user gets an expected error message, throw an error otherwise (it throws invalid phone number input error, it doesn't seem to accept any phone number)
         try {
-            assertEquals("Pole musí být platné telefonní číslo.", checkoutPage.getMissingBillingAddressSingularInputErrorMsg(), "The missing country code error message doesn't match expectations.");
+            assertEquals("Pole je povinné", checkoutPage.getMissingBillingAddressSingularInputErrorMsg(), "The missing country code error message doesn't match expectations.");
         } catch (Exception e) {
             captureScreenshot(driver, "Product(s) Checkout Confirmation Test Result (guest) - Missing country code options on checkout");
             throw new Error("The country code dropdown menu has no visible country code options, test has failed.");
