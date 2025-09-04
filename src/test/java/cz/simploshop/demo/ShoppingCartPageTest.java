@@ -35,4 +35,17 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 014b -> add multiple chosen products ("Polštář Furniture") to check out test - as a guest
+    @Test
+    @DisplayName("Add Multiple Chosen Products To Checkout Test (as a guest)")
+    @Tag("Add_Multiple_Chosen_Products_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void addMultipleChosenProductToCheckoutGuestTest() {
+        //add multiple chosen products ("Polštář Furniture") to cart test - as a guest
+        addMultipleChosenProductToCartTest();
+        //add multiple chosen products ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+    }
+
+
 }
