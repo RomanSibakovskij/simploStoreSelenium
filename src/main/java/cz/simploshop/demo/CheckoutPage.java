@@ -285,6 +285,12 @@ public class CheckoutPage extends BasePage{
         action.moveToElement(checkoutPageBillingCountryCodeDropdownMenu).click().perform();
     }
 
+    //click "Add new address" button method
+    public void clickAddNewAddressButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageRegUserBillAddressAddNewAddressButton).click().perform();
+    }
+
     //click "Submit order" button method
     public void clickSubmitOrderButton(){
         Actions action = new Actions(driver);

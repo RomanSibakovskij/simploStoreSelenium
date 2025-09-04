@@ -21,4 +21,22 @@ public class CheckoutPageTest extends TestMethods{
         productCheckoutConfirmationGuestTest();
     }
 
+    //Test 019a -> single chosen product ("Polštář Furniture") checkout confirmation test - as a registered user (the country code dropdown menu is empty, test has failed)
+    @Test
+    @DisplayName("Single Chosen Product Checkout Confirmation Test (as a registered user)")
+    @Tag("Single_Chosen_Product_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void singleChosenProductCheckoutRegUserTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add single chosen product ("Polštář Furniture") test to cart - as a registered user
+        addSingleChosenProductToCartRegUserTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a registered user
+        addProductToCheckoutTest();
+        //single chosen product ("Polštář Furniture") checkout confirmation test - as a registered user
+        productCheckoutConfirmationTest();
+    }
+
 }
