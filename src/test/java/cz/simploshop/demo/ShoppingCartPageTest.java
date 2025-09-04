@@ -193,7 +193,7 @@ public class ShoppingCartPageTest extends TestMethods{
         validRegisterAccountModalTest();
         //add set category products ("Manželská postel", "Knihovna - 10 polic") to cart from wishlist test - as a registered user
         addSetCategoryProductsToCartFromWishlistTest();
-        //add set category products ("Manželská postel", "Knihovna - 10 polic"") to check out from wishlist test - as a registered user
+        //add set category products ("Manželská postel", "Knihovna - 10 polic") to check out from wishlist test - as a registered user
         addProductToCheckoutTest();
     }
 

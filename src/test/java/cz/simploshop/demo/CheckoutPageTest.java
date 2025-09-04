@@ -137,4 +137,24 @@ public class CheckoutPageTest extends TestMethods{
         productCheckoutConfirmationTest();
     }
 
+    //add product from wishlist check out confirmation test
+
+    //Test 021 -> set category products ("Manželská postel", "Knihovna - 10 polic") check out confirmation from wishlist test - as a registered user (the country code dropdown menu is empty, test has failed)
+    @Test
+    @DisplayName("Single Set Category Products Checkout Confirmation From Wishlist Test (as a registered user)")
+    @Tag("Set_Category_Products_Checkout_Confirmation_From_Wishlist")
+    @Tag("Test_As_A_Reg_User")
+    void singleSetCategoryProductsCheckoutFromWishlistTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add set category products ("Manželská postel", "Rohová pohovka") to cart from wishlist test - as a registered user
+        addSetCategoryProductsToCartFromWishlistTest();
+        //add set category products ("Manželská postel", "Knihovna - 10 polic") to check out from wishlist test - as a registered user
+        addProductToCheckoutTest();
+        //set category products ("Manželská postel", "Knihovna - 10 polic") check out confirmation from wishlist test - as a registered user
+        productCheckoutConfirmationTest();
+    }
+
 }
