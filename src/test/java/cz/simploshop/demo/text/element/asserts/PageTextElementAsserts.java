@@ -341,4 +341,20 @@ default void isSingleCategoryDashPageAsideInStockTextElementAsExpected(SingleCat
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //single product page text element assert test method
+    default void isSingleProductPageTextElementAsExpected(SingleProductPage singleProductPage){
+        //assert single product page product description parameters subtitle is as expected
+        assertEquals("Parametry produktu", singleProductPage.getSingleProductPageProductParamsSubtitle(),"The single product page product description parameters subtitle doesn't match expectations");
+    }
+
+    //single product page reviews section (when no reviews are displayed) text element assert test method
+    default void isSingleProductPageNoReviewsSectionTextElementAsExpected(SingleProductPage singleProductPage){
+        //assert single product page product reviews section no reviews title is as expected
+        assertEquals("Tento produkt prozatím nebyl hodnocen", singleProductPage.getSingleProductPageNoReviewsDisplayedTitle(),"The single product page product reviews section no reviews title doesn't match expectations");
+        //assert single product page product reviews section no reviews description is as expected
+        assertEquals("Ohodnoťte tento produkt a buďte prvním, kdo pomůže ostatním v rozhodování", singleProductPage.getSingleProductPageNoReviewsDisplayedDesc(),"The single product page product reviews section no reviews description doesn't match expectations");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

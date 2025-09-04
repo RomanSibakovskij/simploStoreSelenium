@@ -629,4 +629,105 @@ default void isSingleCategoryDashPageAsideInStockWebElementDisplayed(SingleCateg
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//single product page web element assert test method
+default void isSingleProductPageWebElementDisplayed(SingleProductPage singleProductPage){
+    //assert single product page additional images are displayed (as a list)
+    assertTrue(singleProductPage.isSingleProductPageProductAdditionalImgDisplayed(), "The single product page additional images aren't displayed");
+    //assert single product page main image is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductMainImageDisplayed(), "The single product page main image isn't displayed");
+    //assert single product page add to wishlist button is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductAddToWishlistButtonDisplayed(), "The single product page add to wishlist button isn't displayed");
+    //assert single product page product brand is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductBrandDisplayed(), "The single product page product brand isn't displayed");
+    //assert single product page product name is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductNameDisplayed(), "The single product page product name isn't displayed");
+    //assert single product page product description is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductDescriptionDisplayed(), "The single product page product description isn't displayed");
+    //assert single product page view more link is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductViewMoreLinkDisplayed(), "The single product page view more link isn't displayed");
+    //assert single product page product in stock count is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductInStockCountDisplayed(), "The single product page product in stock count isn't displayed");
+    //assert single product page product unit price is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductUnitPriceDisplayed(), "The single product page product unit price isn't displayed");
+    //assert single product page product quantity decrease button is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductQtyDecreaseButtonDisplayed(), "The single product page product quantity decrease button isn't displayed");
+    //assert single product page product quantity input field is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductQtyInputFieldDisplayed(), "The single product page product quantity input field isn't displayed");
+    //assert single product page product quantity increase button is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductQtyIncreaseButtonDisplayed(), "The single product page product quantity increase button isn't displayed");
+    //assert single product page product add to cart button is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductAddToCartButtonDisplayed(), "The single product page product add to cart button isn't displayed");
+    //assert single product page product shipping delivery estimate is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductShipDeliveryEstimateDisplayed(), "The single product page product shipping delivery estimate isn't displayed");
+    //assert single product page product code is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductCodeDisplayed(), "The single product page product code isn't displayed");
+    //product description section
+    //assert single product page product description section button is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductDescSectionButtonDisplayed(), "The single product page product description section button isn't displayed");
+    //assert single product page product description (in-section) is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductDescDisplayed(), "The single product page product description (in-section) isn't displayed");
+    //assert single product page product description parameters subtitle is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductParamsSubtitleDisplayed(), "The single product page product description parameter subtitle isn't displayed");
+    //assert single product page product description parameters data is displayed
+    assertTrue(singleProductPage.isSingleProductPageProductParamsDataDisplayed(), "The single product page product description parameter data isn't displayed");
+}
+
+    //single product page reviews section web element assert test method
+    default void isSingleProductPageReviewSectionWebElementDisplayed(SingleProductPage singleProductPage){
+        //reviews section
+        //assert single product page product reviews section button is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewsSectionButtonDisplayed(), "The single product page product reviews section button isn't displayed");
+        //assert single product page product add review button is displayed
+        assertTrue(singleProductPage.isSingleProductPageAddProductReviewButtonDisplayed(), "The single product page product add review button isn't displayed");
+        //assert single product page product reviews section is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewsSectionButtonDisplayed(), "The single product page product reviews section isn't displayed");
+        //assert single product page product review average score is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewAvgScoreDisplayed(), "The single product page product review average score isn't displayed");
+        //assert single product page product review stars is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewStarsDisplayed(), "The single product page product review stars isn't displayed");
+        //assert single product page product review count is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewCountDisplayed(), "The single product page product review count isn't displayed");
+        //assert single product page product appearance subtext is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductAppearanceSubtextDisplayed(), "The single product page product appearance subtext isn't displayed");
+        //assert single product page product appearance bar is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductAppearanceBarDisplayed(), "The single product page product appearance bar isn't displayed");
+        //assert single product page product comfort subtext is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductComfortSubtextDisplayed(), "The single product page product comfort subtext isn't displayed");
+        //assert single product page product comfort bar is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductComfortBarDisplayed(), "The single product page product comfort bar isn't displayed");
+        //assert single product page product price subtext is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductPriceSubtextDisplayed(), "The single product page product price subtext isn't displayed");
+        //assert single product page product price bar is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductPriceBarDisplayed(), "The single product page product price bar isn't displayed");
+        //assert single product page product assembly ease subtext is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductAssemblyEaseSubtextDisplayed(), "The single product page product assembly ease subtext isn't displayed");
+        //assert single product page product assembly ease bar is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductAssemblyEaseBarDisplayed(), "The single product page product assembly ease bar isn't displayed");
+        //assert single product page product reviews display count is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReviewsDisplayCountDisplayed(), "The single product page product reviews display count isn't displayed");
+        //list elements
+        //assert single product page product given review stars are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductGivenReviewStarsDisplayed(), "The single product page product given review stars aren't displayed");
+        //assert single product page product review authors are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductReviewAuthorDisplayed(), "The single product page product review authors aren't displayed");
+        //assert single product page product review dates are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductReviewDateDisplayed(), "The single product page product review dates aren't displayed");
+        //assert single product page product review texts are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductReviewTextDisplayed(), "The single product page product review texts aren't displayed");
+        //assert single product page product review pagination buttons are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductReviewPaginationButtonDisplayed(), "The single product page product review pagination buttons aren't displayed");
+    }
+
+    //single product page reviews section (when no reviews are displayed) web element assert test method
+    default void isSingleProductPageNoReviewsSectionWebElementDisplayed(SingleProductPage singleProductPage){
+        //reviews section
+        //assert single product page product reviews section no reviews title is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductNoReviewsDisplayedTitleDisplayed(), "The single product page product reviews section no reviews title isn't displayed");
+        //assert single product page product reviews section no reviews description is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductNoReviewsDisplayedDescDisplayed(), "The single product page product reviews section no reviews description isn't displayed");
+
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

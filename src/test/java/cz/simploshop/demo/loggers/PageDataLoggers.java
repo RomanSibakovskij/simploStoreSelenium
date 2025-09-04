@@ -101,4 +101,43 @@ default void logFurnitureCategoryProductOptions(SingleCategoryDashboardPage sing
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //single product page product data logger method
+    default void logSingleProductPageProductData(SingleProductPage singleProductPage){
+        System.out.println("Displayed single product page product data: " + "\n");
+
+        logger.info("Displayed single product page product brand: " + singleProductPage.getSingleProductPageProductBrand());
+        logger.info("Displayed single product page product name: " + singleProductPage.getSingleProductPageProductName());
+        logger.info("Displayed single product page product description: " + singleProductPage.getSingleProductPageProductDescription());
+        logger.info("Displayed single product page product in-stock count: " + singleProductPage.getSingleProductPageProductInStockCount());
+        logger.info("Displayed single product page product unit price: " + singleProductPage.getSingleProductPageProductUnitPrice());
+        logger.info("Displayed single product page product shipping delivery estimate: " + singleProductPage.getSingleProductPageProductShipDeliveryEstimate());
+        logger.info("Displayed single product page product code: " + singleProductPage.getSingleProductPageProductCode());
+
+        System.out.println("\n");
+    }
+
+    //single product page product description section data logger method
+    default void logSingleProductPageProductDescriptionData(SingleProductPage singleProductPage){
+        System.out.println("Displayed single product page product description section data: " + "\n");
+
+        logger.info("Displayed single product page product description (in-section): " + singleProductPage.getSingleProductPageProductDesc());
+        logger.info("Displayed single product page product parameters: " + singleProductPage.getSingleProductPageProductParamsData());
+
+        System.out.println("\n");
+    }
+
+    //single product page product reviews section data logger method
+    default void logSingleProductPageProductReviewsData(SingleProductPage singleProductPage){
+        System.out.println("Displayed single product page product reviews section data: " + "\n");
+
+        logger.info("Displayed single product page product review average score: " + singleProductPage.getSingleProductPageReviewAvgScore());
+        logger.info("Displayed single product page product review author(s): " + singleProductPage.getSingleProductPageReviewAuthor());
+        logger.info("Displayed single product page product review date(s): " + singleProductPage.getSingleProductPageReviewDate());
+        logger.info("Displayed single product page product review text(s): " + singleProductPage.getSingleProductPageReviewText());
+
+        System.out.println("\n");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
