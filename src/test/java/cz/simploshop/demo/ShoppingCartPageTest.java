@@ -105,4 +105,20 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 015c -> add single category multiple products ("Dětská postýlka", "Polštář") to check out test - as a registered user
+    @Test
+    @DisplayName("Add Single Category Multiple Products To Checkout Test (as a registered user)")
+    @Tag("Add_Single_Category_Products_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void addSingleCategoryProductsToCheckoutRegisteredUserTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add single category multiple products ("Dětská postýlka", "Polštář") to cart test - as a registered user
+        addSetSingleCategoryMultipleProductsToCartRegUserTest();
+        //add single category multiple products ("Dětská postýlka", "Polštář") to check out test - as a registered user
+        addProductToCheckoutTest();
+    }
+
 }
