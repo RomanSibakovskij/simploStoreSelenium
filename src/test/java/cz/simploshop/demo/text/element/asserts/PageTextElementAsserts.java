@@ -365,4 +365,35 @@ default void isSingleCategoryDashPageAsideInStockTextElementAsExpected(SingleCat
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//add product review modal text element test assert method
+default void isAddProductReviewModalTextElementAsExpected(AddProductReviewModal addProductReviewModal){
+    //assert add product review modal title is as expected
+    assertEquals("Vložit hodnocení", addProductReviewModal.getAddProductReviewModalTitle(),"The add product review modal title doesn't match expectations");
+    //assert add product review modal description is as expected
+    assertEquals("Prosím zadejte hodnocení pro tento produkt .", addProductReviewModal.getAddProductReviewModalDescription(),"The add product review modal title doesn't match expectations");
+    //assert add product review modal review stars subtext is as expected
+    assertEquals("Celkové hodnocení *", addProductReviewModal.getAddProductReviewModalReviewStarsSubtext(),"The add product review modal review stars subtext doesn't match expectations");
+    //assert add product review modal review stars subtext is as expected
+    assertEquals("Recenze *", addProductReviewModal.getAddProductReviewModalReviewSubtext(),"The add product review modal review subtext doesn't match expectations");
+}
+
+    //add product review modal additional text element test assert method
+    default void isAddProductReviewModalAdditionalTextElementAsExpected(AddProductReviewModal addProductReviewModal){
+        //assert add product review modal author name subtext is as expected
+        assertEquals("Jméno *", addProductReviewModal.getAddProductReviewModalAuthorNameSubtext(),"The add product review modal author name subtext doesn't match expectations");
+        //assert add product review modal parameter review subtext is as expected
+        assertEquals("Hodnocení parametrů", addProductReviewModal.getAddProductReviewModalParameterReviewSubtext(),"The add product review modal parameter review subtext doesn't match expectations");
+        //assert add product review modal looks subtext is as expected
+        assertEquals("Vzhled", addProductReviewModal.getAddProductReviewModalLooksSubtext(),"The add product review modal looks subtext doesn't match expectations");
+        //assert add product review modal comfort subtext is as expected
+        assertEquals("Komfort", addProductReviewModal.getAddProductReviewModalComfortSubtext(),"The add product review modal comfort subtext doesn't match expectations");
+        //assert add product review modal price subtext is as expected
+        assertEquals("Cena", addProductReviewModal.getAddProductReviewModalPriceSubtext(),"The add product review modal price subtext doesn't match expectations");
+        //assert add product review modal assembly ease subtext is as expected
+        assertEquals("Jednoduchost sestavení", addProductReviewModal.getAddProductReviewModalAssemblyEaseSubtext(),"The add product review modal assembly ease subtext doesn't match expectations");
+
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

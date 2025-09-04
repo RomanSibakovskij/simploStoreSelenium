@@ -779,4 +779,55 @@ default void isSingleProductPageWebElementDisplayed(SingleProductPage singleProd
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//add product review modal web element assert test method
+default void isAddProductReviewModalWebElementDisplayed(AddProductReviewModal addProductReviewModal){
+    //assert add product review modal title is displayed
+    assertTrue(addProductReviewModal.isAddProductReviewModalTitleDisplayed(), "The add product modal title isn't displayed");
+    //assert add product review modal description is displayed
+    assertTrue(addProductReviewModal.isAddProductReviewModalDescriptionDisplayed(), "The add product modal description isn't displayed");
+    //assert add product review close modal button is displayed
+    assertTrue(addProductReviewModal.isAddProductReviewCloseModalButtonDisplayed(), "The add product close modal button isn't displayed");
+    //assert add product review modal review stars subtext is displayed
+    assertTrue(addProductReviewModal.isAddProductReviewModalReviewStarsSubtextDisplayed(), "The add product modal review stars subtext isn't displayed");
+    //list elements
+    //assert add product review modal review stars are displayed (as a list)
+    assertTrue(addProductReviewModal.isAddProductReviewModalReviewStarDisplayed(), "The add product modal review stars aren't displayed");
+    //singular elements
+    //assert add product review modal review subtext is displayed
+    assertTrue(addProductReviewModal.isAddProductReviewModalReviewSubtextDisplayed(), "The add product modal review subtext isn't displayed");
+    //assert add product review modal review input field is displayed
+    assertTrue(addProductReviewModal.isAddProductReviewModalReviewInputFieldDisplayed(), "The add product modal review input field isn't displayed");
+    //assert add product review modal send review button is displayed
+    assertTrue(addProductReviewModal.isAddProductReviewModalSendReviewButtonDisplayed(), "The add product modal send review button isn't displayed");
+}
+
+    //add product review modal additional web element assert test method
+    default void isAddProductReviewModalAdditionalWebElementDisplayed(AddProductReviewModal addProductReviewModal){
+        //assert add product review modal author name subtext is displayed
+        assertTrue(addProductReviewModal.isAddProductReviewModalAuthorNameSubtextDisplayed(), "The add product modal author name subtext isn't displayed");
+        //assert add product review modal author name input field is displayed
+        assertTrue(addProductReviewModal.isAddProductReviewModalAuthorNameInputFieldDisplayed(), "The add product modal author name input field isn't displayed");
+        //assert add product review modal parameter review subtext is displayed
+        assertTrue(addProductReviewModal.isAddProductReviewModalParameterReviewSubtextDisplayed(), "The add product modal author parameter review subtext isn't displayed");
+        //assert add product review modal looks subtext is displayed
+        assertTrue(addProductReviewModal.isAddProductReviewModalLooksSubtextDisplayed(), "The add product modal author looks review subtext isn't displayed");
+        //assert add product review modal comfort subtext is displayed
+        assertTrue(addProductReviewModal.isAddProductReviewModalComfortSubtextDisplayed(), "The add product modal author comfort review subtext isn't displayed");
+        //assert add product review modal price subtext is displayed
+        assertTrue(addProductReviewModal.isAddProductReviewModalPriceSubtextDisplayed(), "The add product modal author price review subtext isn't displayed");
+        //assert add product review modal assembly ease subtext is displayed
+        assertTrue(addProductReviewModal.isAddProductReviewModalAssemblyEaseSubtextDisplayed(), "The add product modal assembly ease review subtext isn't displayed");
+        //list elements
+        //assert add product review modal looks review stars are displayed (as a list)
+        assertTrue(addProductReviewModal.isAddProductReviewModalLooksReviewStarDisplayed(), "The add product modal looks review stars aren't displayed");
+        //assert add product review modal comfort review stars are displayed (as a list)
+        assertTrue(addProductReviewModal.isAddProductReviewModalComfortReviewStarDisplayed(), "The add product modal comfort review stars aren't displayed");
+        //assert add product review modal price review stars are displayed (as a list)
+        assertTrue(addProductReviewModal.isAddProductReviewModalPriceReviewStarDisplayed(), "The add product modal price review stars aren't displayed");
+        //assert add product review modal assembly ease view stars are displayed (as a list)
+        assertTrue(addProductReviewModal.isAddProductReviewModalAssemblyEaseReviewStarDisplayed(), "The add product modal assembly ease review stars aren't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
