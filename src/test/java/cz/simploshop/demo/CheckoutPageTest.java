@@ -105,4 +105,18 @@ public class CheckoutPageTest extends TestMethods{
         productCheckoutConfirmationTest();
     }
 
+    //Test 020b -> single category multiple products ("Konferenční stolek", "Knihovna - 3 police") ("Go Pay") check out confirmation test - as a guest (the country code dropdown menu is empty, test has failed)
+    @Test
+    @DisplayName("Single Category Multiple Products Checkout Confirmation Test (as a guest)")
+    @Tag("Single_Category_Products_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void singleCategoryProductsCheckoutGuestTest() {
+        //add single category multiple products ("Konferenční stolek", "Knihovna - 3 police") to cart test - as a guest
+        addSetSingleCategoryMultipleProductsToCartGuestTest();
+        //add single category multiple products ("Konferenční stolek", "Knihovna - 3 police") to check out test - as a guest
+        addProductToCheckoutTest();
+        //single category multiple products ("Konferenční stolek", "Knihovna - 3 police") ("Go Pay") check out confirmation test - as a guest
+        productCheckoutConfirmationGoPayGuestTest();
+    }
+
 }
