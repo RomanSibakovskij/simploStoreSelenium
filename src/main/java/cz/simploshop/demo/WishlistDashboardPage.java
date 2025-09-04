@@ -2,6 +2,7 @@ package cz.simploshop.demo;
 
 import cz.simploshop.demo.utilities.BasePage;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
@@ -29,6 +30,13 @@ public class WishlistDashboardPage extends BasePage {
     private List<WebElement> wishlistDashboardPageProductDetailsButtonElements;
 
     public WishlistDashboardPage(WebDriver driver) {super(driver);}
+
+    //click set products "Add to cart" button method
+    public void clickSetProductsAddToCartButton(int index) {
+        WebElement setProductAddToCartButton = wishlistDashboardPageProductAddToCartButtonElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(setProductAddToCartButton).click().perform();
+    }
 
     //wishlist dashboard page data getters
     public List<String> getWishlistDashboardProductName(){return wishlistDashboardPageProductNameElements.stream().map(WebElement::getText).collect(Collectors.toList());}

@@ -6533,11 +6533,130 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         List<String> expectedWishlistProducts = Arrays.asList("Manželská postel", "Knihovna - 10 polic", "Rohová pohovka");
         List<String> actualWishlistProducts = wishlistDashboardPage.getWishlistDashboardProductName();
         assertEquals(expectedWishlistProducts, actualWishlistProducts, "The expected product category name doesn't match the actual product name, test has failed");
-
         //log wishlist dashboard page product data
         logWishlistDashboardPageProductData(wishlistDashboardPage);
         //capture screenshot of the test result
         captureScreenshot(driver, "Set Category Products (Manželská postel, Knihovna - 10 polic, Rohová pohovka) Add To Wishlist Test Result");
+    }
+
+    //add set category ("Nábytek") products ("Manželská postel", "Knihovna - 10 polic") to cart from wishlist test method
+    protected void addSetCategoryProductsToCartFromWishlistTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SingleCategoryDashboardPage singleCategoryDashboardPage = new SingleCategoryDashboardPage(driver);
+        AccountInformationPage accountInformationPage = new AccountInformationPage(driver);
+        WishlistDashboardPage wishlistDashboardPage = new WishlistDashboardPage(driver);
+        ShoppingCartModal shoppingCartModal = new ShoppingCartModal(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2100);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click lower header category ("Nábytek")
+        generalPage.clickSetLowerHeaderCategoryDropdownLink(0);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(5200);
+        //single category dashboard (furniture) page aside section in stock web element assert
+        isSingleCategoryDashPageAsideInStockWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page aside section in stock text element assert
+        isSingleCategoryDashPageAsideInStockTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page aside section web element assert
+        isSingleCategoryDashPageFurnitureAsideWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page aside section text element assert;
+        isSingleCategoryDashPageFurnitureAsideTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard page web element assert
+        isSingleCategoryDashPageWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard (furniture) page text element assert
+        isSingleCategoryDashPageFurnitureCategoryTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard page subcategories web element assert
+        isSingleCategoryDashPageSubcategoryWebElementDisplayed(singleCategoryDashboardPage);
+        //assert the correct category page has been opened
+        String expectedProductCategory = "Nábytek";
+        String actualProductCategory = singleCategoryDashboardPage.getSingleCategoryDashPageTitle();
+        assertEquals(expectedProductCategory, actualProductCategory, "The expected product category name doesn't match the actual product name, test has failed");
+        //log single category (furniture) dashboard page product data
+        logFurnitureCategoryProductOptions(singleCategoryDashboardPage);
+        //capture screenshot of the set single category ("Nábytek") dashboard page display (as a registered user)
+        captureScreenshot(driver, "Single Category (Nábytek) Dashboard Page Display (registered user)");
+        //log single category dashboard page product data
+        logSingleCategoryDashboardProductData(singleCategoryDashboardPage);
+        //click set product ("Manželská postel") "Add to wishlist" button
+        singleCategoryDashboardPage.clickSetCategoryProductAddToWishlistButton(3);
+        //click set product ("Knihovna - 10 polic") "Add to wishlist" button
+        singleCategoryDashboardPage.clickSetCategoryProductAddToWishlistButton(4);
+        //click set product ("Rohová pohovka") "Add to wishlist" button
+        singleCategoryDashboardPage.clickSetCategoryProductAddToWishlistButton(5);
+        //click upper header wishlist link
+        generalPage.clickUpperHeaderWishlistLink();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(4000);
+        //account information page my user section web element assert (it appears on this page)
+        isAccountInfoPageMyUserSectionWebElementDisplayed(accountInformationPage);
+        //account information page my user section text element assert (it appears on this page)
+        isAccountInfoPageMyUserSectionTextElementAsExpected(accountInformationPage);
+        //account information page breadcrumb web element assert (it appears on this page)
+        isAccountInfoPageBreadcrumbWebElementDisplayed(accountInformationPage);
+        //wishlist dashboard page web element assert
+        isWishlistDashboardPageWebElementDisplayed(wishlistDashboardPage);
+        //wishlist dashboard page text element assert
+        isWishlistDashboardPageTextElementAsExpected(wishlistDashboardPage);
+        //assert the correct products have been added to wishlist
+        List<String> expectedWishlistProducts = Arrays.asList("Manželská postel", "Knihovna - 10 polic", "Rohová pohovka");
+        List<String> actualWishlistProducts = wishlistDashboardPage.getWishlistDashboardProductName();
+        assertEquals(expectedWishlistProducts, actualWishlistProducts, "The expected product category name doesn't match the actual product name, test has failed");
+        //log wishlist dashboard page product data
+        logWishlistDashboardPageProductData(wishlistDashboardPage);
+        //click set products "Add to cart" button
+        wishlistDashboardPage.clickSetProductsAddToCartButton(0);
+        //wait for elements to load (for modal to appear)
+        generalPage.waitForElementsToLoad(2000);
+        //capture screenshot of the shopping cart modal display
+        captureScreenshot(driver, "Shopping Cart Modal Display (Manželská postel)");
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //shopping cart modal web element assert
+        isShoppingCartModalWebElementDisplayed(shoppingCartModal);
+        //shopping cart modal text element assert
+        isShoppingCartModalTextElementAsExpected(shoppingCartModal);
+        //log shopping cart modal product data
+        logShoppingCartModalProductData(shoppingCartModal);
+        //click close shopping cart modal button
+        shoppingCartModal.clickShoppingCartCloseModalButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1100);
+        //click set products "Add to cart" button
+        wishlistDashboardPage.clickSetProductsAddToCartButton(1);
+        //wait for elements to load (for modal to appear)
+        generalPage.waitForElementsToLoad(2000);
+        //capture screenshot of the shopping cart modal display
+        captureScreenshot(driver, "Shopping Cart Modal Display (Rohová pohovka)");
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //shopping cart modal web element assert
+        isShoppingCartModalWebElementDisplayed(shoppingCartModal);
+        //shopping cart modal text element assert
+        isShoppingCartModalTextElementAsExpected(shoppingCartModal);
+        //log shopping cart modal product data
+        logShoppingCartModalProductData(shoppingCartModal);
+        //click "Proceed to cart" button
+        shoppingCartModal.clickProceedToCartButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1100);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Set Category Products (Manželská postel, Knihovna - 10 polic) To Cart From Wishlist Test Result");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
