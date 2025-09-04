@@ -119,4 +119,22 @@ public class CheckoutPageTest extends TestMethods{
         productCheckoutConfirmationGoPayGuestTest();
     }
 
+    //Test 020c -> single category multiple products ("Dětská postýlka", "Polštář") check out confirmation test - as a registered user (the country code dropdown menu is empty, test has failed)
+    @Test
+    @DisplayName("Single Category Multiple Products Checkout Confirmation Test (as a registered user)")
+    @Tag("Single_Category_Products_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void singleCategoryProductsToCheckoutRegUserTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add single category multiple products ("Dětská postýlka", "Polštář") to cart test - as a registered user
+        addSetSingleCategoryMultipleProductsToCartRegUserTest();
+        //add single category multiple products ("Dětská postýlka", "Polštář") to check out test - as a registered user
+        addProductToCheckoutTest();
+        //single category multiple products ("Dětská postýlka", "Polštář") check out confirmation test - as a registered user
+        productCheckoutConfirmationTest();
+    }
+
 }
