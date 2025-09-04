@@ -59,6 +59,13 @@ public class ShoppingCartPage extends BasePage{
 
     public ShoppingCartPage(WebDriver driver) {super(driver);}
 
+    //input set product quantity in shopping cart method
+    public void inputSetProductQty(int index, int quantity){
+        WebElement targetQtyInputField = shoppingCartPageProductTableProductQtyInputFieldElements.get(index);
+        targetQtyInputField.clear();
+        targetQtyInputField.sendKeys(String.valueOf(quantity));
+    }
+
     //click "Shipping and payment" button method
     public void clickShipAndPaymentButton() {
         Actions action = new Actions(driver);

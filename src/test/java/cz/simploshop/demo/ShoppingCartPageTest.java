@@ -197,4 +197,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //update product quantity in shopping cart test (both guest and registered user have the same output, so guest branch is being tested to avoid redundancy)
+
+    //Test 018 -> update product quantity in shopping cart page test
+    @Test
+    @DisplayName("Update Product Quantity In Shopping Cart Test (as a guest)")
+    @Tag("Update_Product_Qty_Shop_Cart_Page")
+    @Tag("Test_As_A_Guest")
+    void updateProductQtyShopCartPageTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //update product quantity in shopping cart page test - as a guest
+        updateProductQtyInShoppingCartPageTest();
+    }
+
 }
