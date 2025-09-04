@@ -168,4 +168,36 @@ default void logFurnitureCategoryProductOptions(SingleCategoryDashboardPage sing
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//checkout page shipping method data logger method
+default void logCheckoutPageShippingMethodData(CheckoutPage checkoutPage){
+    System.out.println("Displayed checkout page shipping method data: " + "\n");
+
+    logger.info("Displayed checkout page shipping method name(s): " + checkoutPage.getCheckoutPageShippingMethodName());
+    logger.info("Displayed checkout page shipping method price(s): " + checkoutPage.getCheckoutPageShippingMethodPrice());
+
+    System.out.println("\n");
+}
+
+    //checkout page payment method data logger method
+    default void logCheckoutPagePaymentMethodData(CheckoutPage checkoutPage){
+        System.out.println("Displayed checkout page payment method data: " + "\n");
+
+        logger.info("Displayed checkout page payment method name(s): " + checkoutPage.getCheckoutPagePaymentMethodName());
+        logger.info("Displayed checkout page payment method price(s): " + checkoutPage.getCheckoutPagePaymentMethodPrice());
+
+        System.out.println("\n");
+    }
+
+    //checkout page order summary method data logger method
+    default void logCheckoutPageOrderSummaryMethodData(CheckoutPage checkoutPage){
+        System.out.println("Displayed checkout page order summary method data: " + "\n");
+
+        logger.info("Displayed checkout page order summary product name(s): " + checkoutPage.getCheckoutPageOrderSummaryProductName());
+        logger.info("Displayed checkout page order summary product unit price(s): " + checkoutPage.getCheckoutPageOrderSummaryProductUnitPrice());
+
+        System.out.println("\n");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

@@ -415,4 +415,88 @@ default void isAddProductReviewModalTextElementAsExpected(AddProductReviewModal 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//checkout page shipping section text element assert test method
+default void isCheckoutPageShippingSectionTextElementAsExpected(CheckoutPage checkoutPage){
+    //assert checkout page shipping section title is as expected
+    assertEquals("Doprava", checkoutPage.getCheckoutPageShippingSectionTitle(),"The checkout page shipping section title doesn't match expectations");
+    //assert checkout page payment section title is as expected
+    assertEquals("Doprava", checkoutPage.getCheckoutPagePaymentSectionTitle(),"The checkout page payment section title doesn't match expectations");
+}
+
+    //checkout page order summary section text element assert test method
+    default void isCheckoutPageOrderSummarySectionTextElementAsExpected(CheckoutPage checkoutPage){
+        //assert checkout page order summary section title is as expected
+        assertEquals("Souhrn objednávky", checkoutPage.getCheckoutPageOrderSummarySectionTitle(),"The checkout page order summary section title doesn't match expectations");
+        //assert checkout page order total price subtext is as expected
+        assertEquals("Celkem", checkoutPage.getCheckoutPageOrderTotalSubtext(),"The checkout page  order total price subtext doesn't match expectations");
+    }
+
+    //checkout page billing address section text element assert test method
+    default void isCheckoutPageBillingAddressSectionTextElementAsExpected(CheckoutPage checkoutPage){
+        //email
+        //assert checkout page email section title is as expected
+        assertEquals("E-mail", checkoutPage.getCheckoutPageEmailSectionTitle(),"The checkout page billing address email section title doesn't match expectations");
+        //assert checkout page email subtext is as expected
+        assertEquals("E-mailová adresa *", checkoutPage.getCheckoutPageEmailSectionSubtext(),"The checkout page billing address email subtext doesn't match expectations");
+        //billing address
+        //assert checkout page billing address section title is as expected
+        assertEquals("Fakturační adresa", checkoutPage.getCheckoutPageBillingAddressSectionTitle(),"The checkout page billing address section title doesn't match expectations");
+        //assert checkout page billing address first name subtext is as expected
+        assertEquals("Jméno *", checkoutPage.getCheckoutPageBillingAddressFirstNameSubtext(),"The checkout page billing address first name subtext doesn't match expectations");
+        //assert checkout page billing address last name subtext is as expected
+        assertEquals("Příjmení *", checkoutPage.getCheckoutPageBillingAddressLastNameSubtext(),"The checkout page billing address last name subtext doesn't match expectations");
+        //assert checkout page billing address street subtext is as expected
+        assertEquals("Ulice a číslo popisné *", checkoutPage.getCheckoutPageBillingAddressStreetSubtext(),"The checkout page billing address street subtext doesn't match expectations");
+        //assert checkout page billing address city subtext is as expected
+        assertEquals("Město *", checkoutPage.getCheckoutPageBillingAddressCitySubtext(),"The checkout page billing address city subtext doesn't match expectations");
+        //assert checkout page billing address zip code subtext is as expected
+        assertEquals("PSČ *", checkoutPage.getCheckoutPageBillingAddressZipCodeSubtext(),"The checkout page billing address zip code subtext doesn't match expectations");
+        //assert checkout page billing address country subtext is as expected
+        assertEquals("Země *", checkoutPage.getCheckoutPageBillingAddressCountrySubtext(),"The checkout page billing address country subtext doesn't match expectations");
+        //assert checkout page billing address country code subtext is as expected
+        assertEquals("Předčíslí *", checkoutPage.getCheckoutPageBillingAddressCountryCodeSubtext(),"The checkout page billing address country code subtext doesn't match expectations");
+        //assert checkout page billing address phone subtext is as expected
+        assertEquals("Telefonní číslo *", checkoutPage.getCheckoutPageBillingAddressPhoneSubtext(),"The checkout page billing address phone subtext doesn't match expectations");
+        //assert checkout page billing address add company details subtext is as expected
+        assertEquals("Chci doplnit firemní údaje", checkoutPage.getCheckoutPageBillingAddressAddCompanyDetailsSubtext(),"The checkout page billing address add company details subtext doesn't match expectations");
+        //assert checkout page billing address add different delivery address subtext is as expected
+        assertEquals("Chci jinou dodací adresu", checkoutPage.getCheckoutPageBillingAddressAddDiffDeliveryAddressSubtext(),"The checkout page billing address add different delivery address subtext doesn't match expectations");
+    }
+
+    //checkout page shipping address section text element assert test method
+    default void isCheckoutPageShippingAddressSectionTextElementAsExpected(CheckoutPage checkoutPage){
+        //billing address
+        //assert checkout page shipping address section title is as expected
+        assertEquals("Dodací adresa", checkoutPage.getCheckoutPageShippingAddressSectionTitle(),"The checkout page shipping address section title doesn't match expectations");
+        //assert checkout page shipping address first name subtext is as expected
+        assertEquals("Jméno *", checkoutPage.getCheckoutPageShippingAddressFirstNameSubtext(),"The checkout page shipping address first name subtext doesn't match expectations");
+        //assert checkout page shipping address last name subtext is as expected
+        assertEquals("Příjmení *", checkoutPage.getCheckoutPageShippingAddressLastNameSubtext(),"The checkout page shipping address last name subtext doesn't match expectations");
+        //assert checkout page shipping address street subtext is as expected
+        assertEquals("Ulice a číslo popisné *", checkoutPage.getCheckoutPageShippingAddressStreetSubtext(),"The checkout page shipping address street subtext doesn't match expectations");
+        //assert checkout page shipping address city subtext is as expected
+        assertEquals("Město *", checkoutPage.getCheckoutPageShippingAddressCitySubtext(),"The checkout page shipping address city subtext doesn't match expectations");
+        //assert checkout page shipping address zip code subtext is as expected
+        assertEquals("PSČ *", checkoutPage.getCheckoutPageShippingAddressZipCodeSubtext(),"The checkout page shipping address zip code subtext doesn't match expectations");
+        //assert checkout page shipping address country subtext is as expected
+        assertEquals("Země *", checkoutPage.getCheckoutPageShippingAddressCountrySubtext(),"The checkout page shipping address country subtext doesn't match expectations");
+        //assert checkout page shipping address country code subtext is as expected
+        assertEquals("Předčíslí *", checkoutPage.getCheckoutPageShippingAddressCountryCodeSubtext(),"The checkout page shipping address country code subtext doesn't match expectations");
+        //assert checkout page shipping address phone subtext is as expected
+        assertEquals("Telefonní číslo *", checkoutPage.getCheckoutPageShippingAddressPhoneSubtext(),"The checkout page shipping address phone subtext doesn't match expectations");
+        //assert checkout page shipping address add company details subtext is as expected
+        assertEquals("Chci doplnit firemní údaje", checkoutPage.getCheckoutPageShippingAddressAddCompanyDetailsSubtext(),"The checkout page shipping address add company details subtext doesn't match expectations");
+    }
+
+    //checkout page billing address (registered user) section text element assert test method
+    default void isCheckoutPageRegUserBillAddressSectionTextElementAsExpected(CheckoutPage checkoutPage){
+        //billing address
+        //assert checkout page billing address section title is as expected
+        assertEquals("Fakturační adresa", checkoutPage.getCheckoutPageRegUserBillAddressSectionTitle(),"The checkout page billing address section title (registered user) doesn't match expectations");
+        //assert checkout page billing address add different delivery address subtext is as expected (Selenium can't find the element with VALID selector)
+        //assertEquals("Chci jinou dodací adresu", checkoutPage.getCheckoutPageRegUserBillAddressAddDiffDeliveryAddressSubtext(),"The checkout page billing address add different delivery address subtext (registered user) doesn't match expectations");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

@@ -908,4 +908,194 @@ default void isShoppingCartBreadcrumbWebElementDisplayed(ShoppingCartPage shoppi
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//checkout page shipping section web element assert test method
+default void isCheckoutPageShippingSectionWebElementDisplayed(CheckoutPage checkoutPage){
+    //shipping section
+    //assert checkout page shipping section title is displayed
+    assertTrue(checkoutPage.isCheckoutPageShippingSectionTitleDisplayed(), "The checkout page shipping section title isn't displayed");
+    //list elements
+    //assert checkout page shipping section radio buttons are displayed (as a list)
+    assertTrue(checkoutPage.isCheckoutPageShippingSectionRadioButtonDisplayed(), "The checkout page shipping section radio buttons aren't displayed");
+    //assert checkout page shipping section method names are displayed (as a list)
+    assertTrue(checkoutPage.isCheckoutPageShippingMethodNameDisplayed(), "The checkout page shipping section method names aren't displayed");
+    //assert checkout page shipping section method prices are displayed (as a list)
+    assertTrue(checkoutPage.isCheckoutPageShippingMethodPriceDisplayed(), "The checkout page shipping section method prices aren't displayed");
+    //payment section
+    //assert checkout page payment section title is displayed
+    assertTrue(checkoutPage.isCheckoutPagePaymentSectionTitleDisplayed(), "The checkout page payment section title isn't displayed");
+    //list elements
+    //assert checkout page payment section radio buttons are displayed (as a list)
+    assertTrue(checkoutPage.isCheckoutPagePaymentSectionRadioButtonDisplayed(), "The checkout page payment section radio buttons aren't displayed");
+    //assert checkout page payment section method names are displayed (as a list)
+    assertTrue(checkoutPage.isCheckoutPagePaymentMethodNameDisplayed(), "The checkout page payment section method names aren't displayed");
+    //assert checkout page payment section method prices are displayed (as a list)
+    assertTrue(checkoutPage.isCheckoutPagePaymentMethodPriceDisplayed(), "The checkout page payment section method prices aren't displayed");
+}
+
+    //checkout page order summary section web element assert test method
+    default void isCheckoutPageOrderSummarySectionWebElementDisplayed(CheckoutPage checkoutPage){
+        //order summary section
+        //assert checkout page order summary section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageOrderSummarySectionTitleDisplayed(), "The checkout page order summary section title isn't displayed");
+        //list elements
+        //assert checkout page order summary product images are displayed (as a list)
+        assertTrue(checkoutPage.isCheckoutPageOrderSummaryProductImgDisplayed(), "The checkout page order summary product images aren't displayed");
+        //assert checkout page order summary product names are displayed (as a list)
+        assertTrue(checkoutPage.isCheckoutPageOrderSummaryProductNameDisplayed(), "The checkout page order summary product names aren't displayed");
+        //assert checkout page order summary product unit prices are displayed (as a list)
+        assertTrue(checkoutPage.isCheckoutPageOrderSummaryProductUnitPriceDisplayed(), "The checkout page order summary product unit prices aren't displayed");
+        //order total
+        //assert checkout page order total subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageOrderTotalSubtextDisplayed(), "The checkout page order total subtext isn't displayed");
+        //assert checkout page order total price is displayed
+        assertTrue(checkoutPage.isCheckoutPageOrderTotalPriceDisplayed(), "The checkout page order total price isn't displayed");
+        //assert checkout page delivery details button is displayed
+        //assertTrue(checkoutPage.isCheckoutPageDeliveryDetailsButtonDisplayed(), "The checkout page delivery details button isn't displayed");
+    }
+
+    //checkout page shipping web element assert test method
+    default void isCheckoutPageShippingWebElementDisplayed(CheckoutPage checkoutPage){
+        //shipping
+        //assert checkout page shipping title is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingTitleDisplayed(), "The checkout page shipping title isn't displayed");
+        //assert checkout page chosen shipping method is displayed
+        assertTrue(checkoutPage.isCheckoutPageChosenShippingMethodDisplayed(), "The checkout page chosen shipping method isn't displayed");
+        //assert checkout page chosen shipping method price is displayed
+        assertTrue(checkoutPage.isCheckoutPageChosenShippingMethodPriceDisplayed(), "The checkout page chosen shipping method price isn't displayed");
+    }
+
+    //checkout page payment web element assert test method
+    default void isCheckoutPagePaymentWebElementDisplayed(CheckoutPage checkoutPage){
+        //payment
+        //assert checkout page payment title is displayed
+        assertTrue(checkoutPage.isCheckoutPagePaymentTitleDisplayed(), "The checkout page payment title isn't displayed");
+        //assert checkout page chosen payment method is displayed
+        assertTrue(checkoutPage.isCheckoutPageChosenPaymentMethodDisplayed(), "The checkout page chosen payment method isn't displayed");
+        //assert checkout page chosen payment method price is displayed
+        assertTrue(checkoutPage.isCheckoutPageChosenPaymentMethodPriceDisplayed(), "The checkout page chosen payment method price isn't displayed");
+    }
+
+    //checkout page note web element assert test method
+    default void isCheckoutPageNoteWebElementDisplayed(CheckoutPage checkoutPage){
+        //note
+        //assert checkout page note section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageNoteSectionTitleDisplayed(), "The checkout page note section title isn't displayed");
+        //assert checkout page note section subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNoteSectionSubtextDisplayed(), "The checkout page note section subtext isn't displayed");
+        //assert checkout page note input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNoteInputFieldDisplayed(), "The checkout page note input field isn't displayed");
+    }
+
+    //checkout page billing address section web element assert test method
+    default void isCheckoutPageBillingAddressSectionWebElementDisplayed(CheckoutPage checkoutPage){
+        //email
+        //assert checkout page email section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageEmailSectionTitleDisplayed(), "The checkout page email section title isn't displayed");
+        //assert checkout page email subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageEmailSubtextDisplayed(), "The checkout page email subtext title isn't displayed");
+        //assert checkout page email input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageEmailInputFieldDisplayed(), "The checkout page email input field isn't displayed");
+        //billing address section
+        //assert checkout page billing address section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingAddressSectionTitleDisplayed(), "The checkout page billing address section title isn't displayed");
+        //assert checkout page billing address first name subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingFirstNameSubtextDisplayed(), "The checkout page billing address first name subtext isn't displayed");
+        //assert checkout page billing address first name input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingFirstNameInputFieldDisplayed(), "The checkout page billing address first name input field isn't displayed");
+        //assert checkout page billing address last name subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingLastNameSubtextDisplayed(), "The checkout page billing address last name subtext isn't displayed");
+        //assert checkout page billing address last name input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingLastNameInputFieldDisplayed(), "The checkout page billing address last name input field isn't displayed");
+        //assert checkout page billing address street subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingStreetSubtextDisplayed(), "The checkout page billing address street subtext isn't displayed");
+        //assert checkout page billing address street input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingStreetInputFieldDisplayed(), "The checkout page billing address street input field isn't displayed");
+        //assert checkout page billing address city subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingCitySubtextDisplayed(), "The checkout page billing address city subtext isn't displayed");
+        //assert checkout page billing address city input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingCityInputFieldDisplayed(), "The checkout page billing address city input field isn't displayed");
+        //assert checkout page billing address zip code subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingZipCodeSubtextDisplayed(), "The checkout page billing address zip code subtext isn't displayed");
+        //assert checkout page billing address zip code input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingZipCodeInputFieldDisplayed(), "The checkout page billing address zip code input field isn't displayed");
+        //assert checkout page billing address country subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingCountrySubtextDisplayed(), "The checkout page billing address country subtext isn't displayed");
+        //assert checkout page billing address country dropdown menu is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingCountryDropdownMenuDisplayed(), "The checkout page billing address country dropdown menu isn't displayed");
+        //assert checkout page billing address country code subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingCountryCodeSubtextDisplayed(), "The checkout page billing address country code subtext isn't displayed");
+        //assert checkout page billing address country code dropdown menu is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingCountryCodeDropdownMenuDisplayed(), "The checkout page billing address country code dropdown menu isn't displayed");
+        //assert checkout page billing address phone subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingPhoneSubtextDisplayed(), "The checkout page billing address phone subtext isn't displayed");
+        //assert checkout page billing address phone input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingPhoneInputFieldDisplayed(), "The checkout page billing address phone input field isn't displayed");
+        //assert checkout page billing address add company details subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingAddCompanyDetailsSubtextDisplayed(), "The checkout page billing address add company details subtext isn't displayed");
+        //assert checkout page billing address add company details checkbox is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingAddCompanyDetailsCheckboxDisplayed(), "The checkout page billing address add company details checkbox isn't displayed");
+        //assert checkout page billing address add different delivery address subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingAddDifferentDeliveryAddressSubtextDisplayed(), "The checkout page billing address add different delivery address subtext isn't displayed");
+        //assert checkout page billing address add different delivery address checkbox is displayed
+        assertTrue(checkoutPage.isCheckoutPageBillingAddDifferentDeliveryAddressCheckboxDisplayed(), "The checkout page billing address add different delivery address checkbox isn't displayed");
+    }
+
+    //checkout page shipping address section web element assert test method
+    default void isCheckoutPageShippingAddressSectionWebElementDisplayed(CheckoutPage checkoutPage){
+        //shipping address section
+        //assert checkout page billing address section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingAddressSectionTitleDisplayed(), "The checkout page shipping address section title isn't displayed");
+        //assert checkout page billing address first name subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingFirstNameSubtextDisplayed(), "The checkout page shipping address first name subtext isn't displayed");
+        //assert checkout page billing address first name input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingFirstNameInputFieldDisplayed(), "The checkout page shipping address first name input field isn't displayed");
+        //assert checkout page billing address last name subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingLastNameSubtextDisplayed(), "The checkout page shipping address last name subtext isn't displayed");
+        //assert checkout page billing address last name input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingLastNameInputFieldDisplayed(), "The checkout page shipping address last name input field isn't displayed");
+        //assert checkout page billing address street subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingStreetSubtextDisplayed(), "The checkout page shipping address street subtext isn't displayed");
+        //assert checkout page billing address street input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingStreetInputFieldDisplayed(), "The checkout page shipping address street input field isn't displayed");
+        //assert checkout page billing address city subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingCitySubtextDisplayed(), "The checkout page shipping address city subtext isn't displayed");
+        //assert checkout page billing address city input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingCityInputFieldDisplayed(), "The checkout page shipping address city input field isn't displayed");
+        //assert checkout page billing address zip code subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingZipCodeSubtextDisplayed(), "The checkout page shipping address zip code subtext isn't displayed");
+        //assert checkout page billing address zip code input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingZipCodeInputFieldDisplayed(), "The checkout page shipping address zip code input field isn't displayed");
+        //assert checkout page billing address country subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingCountrySubtextDisplayed(), "The checkout page shipping address country subtext isn't displayed");
+        //assert checkout page billing address country dropdown menu is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingCountryDropdownMenuDisplayed(), "The checkout page shipping address country dropdown menu isn't displayed");
+        //assert checkout page billing address country code subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingCountryCodeSubtextDisplayed(), "The checkout page shipping address country code subtext isn't displayed");
+        //assert checkout page billing address country code dropdown menu is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingCountryCodeDropdownMenuDisplayed(), "The checkout page shipping address country code dropdown menu isn't displayed");
+        //assert checkout page billing address phone subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingPhoneSubtextDisplayed(), "The checkout page shipping address phone subtext isn't displayed");
+        //assert checkout page billing address phone input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingPhoneInputFieldDisplayed(), "The checkout page shipping address phone input field isn't displayed");
+        //assert checkout page billing address add company details subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingAddCompanyDetailsSubtextDisplayed(), "The checkout page shipping address add company details subtext isn't displayed");
+        //assert checkout page billing address add company details checkbox is displayed
+        assertTrue(checkoutPage.isCheckoutPageShippingAddCompanyDetailsCheckboxDisplayed(), "The checkout page shipping address add company details checkbox isn't displayed");
+    }
+
+    //checkout page billing address (registered user) section web element assert test method
+    default void isCheckoutPageRegUserBillAddressSectionWebElementDisplayed(CheckoutPage checkoutPage){
+        //billing address section
+        //assert checkout page billing address section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageRegUserBillAddressSectionTitleDisplayed(), "The checkout page billing address section title (registered user) isn't displayed");
+        //assert checkout page billing address section add new address button is displayed
+        assertTrue(checkoutPage.isCheckoutPageRegUserBillAddNewAddressButtonDisplayed(), "The checkout page billing address section add new address button (registered user) isn't displayed");
+        //assert checkout page billing address add different delivery address subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageRegUserBillAddDifferentDeliveryAddressSubtextDisplayed(), "The checkout page billing address add different delivery address subtext (registered user) isn't displayed");
+        //assert checkout page billing address add different delivery address checkbox is displayed
+        assertTrue(checkoutPage.isCheckoutPageRegUserBillAddDifferentDeliveryAddressCheckboxDisplayed(), "The checkout page billing address add different delivery address checkbox (registered user) isn't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
