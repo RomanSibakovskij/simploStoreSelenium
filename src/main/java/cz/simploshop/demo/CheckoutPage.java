@@ -2,6 +2,7 @@ package cz.simploshop.demo;
 
 import cz.simploshop.demo.utilities.*;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
@@ -180,7 +181,115 @@ public class CheckoutPage extends BasePage{
     @FindBy(xpath = "//button[@class='sim-btn sim-btn--c-primary sim-btn--s-large sim-btn--v-solid w-full']")
     private WebElement checkoutPageCheckoutButton;
 
+    //valid billing address data
+    private String validCheckoutBillAddressEmail;
+    private String validCheckoutBillAddressFirstName;
+    private String validCheckoutBillAddressLastName;
+    private String validCheckoutBillAddressStreet;
+    private String validCheckoutBillAddressCity;
+    private int validCheckoutBillAddressZipCode;
+    private String validCheckoutBillAddressPhone;
+
+    //valid shipping address data - for remaining inputs
+    private String validCheckoutShipAddressFirstName;
+    private String validCheckoutShipAddressLastName;
+    private String validCheckoutShipAddressStreet;
+    private String validCheckoutShipAddressCity;
+    private int validCheckoutShipAddressZipCode;
+    private String validCheckoutShipAddressPhone;
+
     public CheckoutPage(WebDriver driver) {super(driver);}
+
+    //click set shipping method radio button method
+    public void clickSetShippingMethodRadioButton(int index){
+        WebElement targetShippingMethodRadioButton = checkoutPageShippingSectionRadioButtonElements.get(index);
+        targetShippingMethodRadioButton.click();
+    }
+
+    //click set payment method radio button method
+    public void clickSetPaymentMethodRadioButton(int index){
+        WebElement targetPaymentMethodRadioButton = checkoutPagePaymentSectionRadioButtonElements.get(index);
+        targetPaymentMethodRadioButton.click();
+    }
+
+    //click "Delivery details" button method
+    public void clickDeliveryDetailsButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageDeliveryDetailsButton).click().perform();
+    }
+
+    //billing address section
+
+    //valid billing address (guest) data input getter
+    public void validCheckoutBillAddressEmailInputDataGetter(){
+
+        validCheckoutBillAddressEmail = TestDataGenerator.generateRandomEmailAddress(8);
+
+        System.out.println("Valid checkout billing address email input data: " + "\n");
+
+        logger.info("Valid checkout billing address email: " + validCheckoutBillAddressEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //valid (guest) email input method
+    public void inputValidCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(validCheckoutBillAddressEmail);}
+
+    //valid billing address data (guest) input data getter
+    public void validCheckoutBillAddressInputDataGetter(){
+
+        validCheckoutBillAddressFirstName = TestDataGenerator.getRandomFirstName();
+        validCheckoutBillAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutBillAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutBillAddressCity = TestDataGenerator.getRandomCity();
+        validCheckoutBillAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutBillAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Valid checkout billing address input data: " + "\n");
+
+        logger.info("Valid checkout billing address first name: " + validCheckoutBillAddressFirstName);
+        logger.info("Valid checkout billing address last name: " + validCheckoutBillAddressLastName);
+        logger.info("Valid checkout billing address street: " + validCheckoutBillAddressStreet);
+        logger.info("Valid checkout billing address city: " + validCheckoutBillAddressCity);
+        logger.info("Valid checkout billing address zip code: " + validCheckoutBillAddressZipCode);
+        logger.info("Valid checkout billing address phone: " + validCheckoutBillAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //valid billing address (guest) input data methods
+    public void inputValidCheckoutFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(validCheckoutBillAddressFirstName);}
+    public void inputValidCheckoutLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(validCheckoutBillAddressLastName);}
+    public void inputValidCheckoutStreetIntoStreetInputField(){checkoutPageBillingStreetInputField.sendKeys(validCheckoutBillAddressStreet);}
+    public void inputValidCheckoutCityIntoCityInputField(){checkoutPageBillingCityInputField.sendKeys(validCheckoutBillAddressCity);}
+    public void inputValidCheckoutZipCodeIntoZipCodeInputField(){checkoutPageBillingZipCodeInputField.sendKeys(String.valueOf(validCheckoutBillAddressZipCode));}
+    public void inputValidCheckoutPhoneIntoPhoneInputField(){checkoutPageBillingPhoneInputField.sendKeys(validCheckoutBillAddressPhone);}
+
+    //click country dropdown menu method
+    public void clickCountryDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageBillingCountryDropdownMenu).click().perform();
+    }
+
+    //select set country method
+    public void selectSetCountryOption(int index){
+        WebElement targetBillingCountry = checkoutPageBillingCountryOptionElements.get(index);
+        targetBillingCountry.click();
+    }
+
+    //click country code dropdown menu method
+    public void clickCountryCodeDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageBillingCountryCodeDropdownMenu).click().perform();
+    }
+
+    //click "Submit order" button method
+    public void clickSubmitOrderButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageCheckoutButton).click().perform();
+    }
 
     //checkout page product data getters
     public List<String> getCheckoutPageOrderSummaryProductName() {return checkoutPageOrderSummaryProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
