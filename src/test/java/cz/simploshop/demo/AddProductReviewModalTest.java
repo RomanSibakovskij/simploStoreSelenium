@@ -76,4 +76,14 @@ public class AddProductReviewModalTest extends TestMethods{
         invalidAddReviewForSingleSearchedProductTooShortReviewAuthorTest();
     }
 
+    //Test 013f -> invalid add review for a single searched product ("Rohová pohovka") test - too short review (1 char) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Add Review For A Single Searched Product Test - Too Short Review")
+    @Tag("Add_Review_For_A_Single_Searched_Product")
+    @Tag("Too_Short_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidAddReviewForASingleSearchedProductTooShortReviewTest() {
+        invalidAddReviewForSingleSearchedProductTooShortReviewTest();
+    }
+
 }

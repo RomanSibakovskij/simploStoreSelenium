@@ -18,6 +18,7 @@ public class AddProductReviewModalInvalidScenarios extends BasePage{
 
     //invalid review input data - too short singular input
     private String tooShortGuestName = "S"; //1 char
+    private String tooShortProductReview = "D"; //1 char
 
     //valid review input data - for remaining inputs
     private String validGuestName = TestDataGenerator.getRandomFirstName() + " " + TestDataGenerator.getRandomLastName();
@@ -31,6 +32,7 @@ public class AddProductReviewModalInvalidScenarios extends BasePage{
 
     //invalid input data methods - too short singular input
     public void inputTooShortGuestAuthorNameIntoAuthorNameInputField(){addProductReviewModalAuthorNameInputField.sendKeys(tooShortGuestName);}
+    public void inputTooShortProductReviewIntoReviewInputField(){addProductReviewModalReviewInputField.sendKeys(tooShortProductReview);}
 
     //valid input data methods - for remaining inputs
     public void inputProductReviewIntoReviewInputField(){addProductReviewModalReviewInputField.sendKeys(validProductReview);}
