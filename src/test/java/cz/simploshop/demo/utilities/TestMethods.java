@@ -6281,7 +6281,94 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         //wait for elements to load
         generalPage.waitForElementsToLoad(1100);
         //capture screenshot of the test result
-        captureScreenshot(driver, "Add Single Searched Product (Rohová pohovka) To Cart Test Result (as guest)");
+        captureScreenshot(driver, "Add Multiple Searched Products (Rohová pohovka) To Cart Test Result (as guest)");
+    }
+
+    //add multiple searched products ("Knihovna - 3 police") to cart test method - as a registered user
+    protected void addMultipleSearchedProductsToCartRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SearchProductModal searchProductModal = new SearchProductModal(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        ShoppingCartModal shoppingCartModal = new ShoppingCartModal(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2100);
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //input set searched product ("Knihovna - 3 police") into search bar
+        generalPage.inputSetSearchedShelfProductIntoSearchBar();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3500);
+        //capture screenshot of the search product modal display
+        captureScreenshot(driver, "Search Product (Knihovna - 3 police) Modal Display");
+        //search product modal web element assert
+        isSearchProductModalWebElementDisplayed(searchProductModal);
+        //search product modal text element assert
+        isSearchProductModalTextElementAsExpected(searchProductModal);
+        //log search product modal product data
+        logSearchProductModalProductData(searchProductModal);
+        //click set search product card
+        searchProductModal.clickSetSearchProductCard(0);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3900);
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page text element assert
+        isSingleProductPageTextElementAsExpected(singleProductPage);
+        //log single product page product data
+        logSingleProductPageProductData(singleProductPage);
+        //log single product page product description data
+        logSingleProductPageProductDescriptionData(singleProductPage);
+        //capture screenshot of the single product page display
+        captureScreenshot(driver, "Single Product (Knihovna - 3 police) Page Display");
+        //click "Product reviews" section button
+        singleProductPage.clickProductReviewsSectionButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1600);
+        //single product page reviews section web element assert
+        isSingleProductPageReviewSectionNoAppearanceWebElementDisplayed(singleProductPage);
+        //capture screenshot of the single product page display -> reviews section
+        captureScreenshot(driver, "Single Product (Knihovna - 3 police) Page Reviews Section Display");
+        //input set product quantity
+        singleProductPage.inputSetProductQuantityIntoProductQtyInputField(6);
+        //click "Add to cart" button
+        singleProductPage.clickAddToCartButton();
+        //wait for elements to load (for modal to appear)
+        generalPage.waitForElementsToLoad(2000);
+        //capture screenshot of the shopping cart modal display
+        captureScreenshot(driver, "Shopping Cart Modal Display (Knihovna - 3 police Searched products as registered user)");
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2000);
+        //shopping cart modal web element assert
+        isShoppingCartModalWebElementDisplayed(shoppingCartModal);
+        //shopping cart modal text element assert
+        isShoppingCartModalTextElementAsExpected(shoppingCartModal);
+        //assert the correct product has been added to shopping cart
+        String expectedProductName = "Knihovna - 3 police";
+        String actualProductName = shoppingCartModal.getShoppingCartModalProductName().getFirst();
+        assertEquals(expectedProductName, actualProductName, "The expected product name doesn't match the actual product name, test has failed");
+        //log shopping cart modal product data
+        logShoppingCartModalProductData(shoppingCartModal);
+        //click "Proceed to cart" button
+        shoppingCartModal.clickProceedToCartButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1100);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Multiple Searched Products (Knihovna - 3 police) To Cart Test Result (as registered user)");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
