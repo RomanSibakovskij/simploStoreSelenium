@@ -38,6 +38,7 @@ public class CheckoutPageNoSingularInput extends BasePage{
     //invalid billing address data - no singular input
     private String noCheckoutBillAddressEmail;
     private String noCheckoutBillAddressFirstName;
+    private String noCheckoutBillAddressLastName;
 
     //valid billing address data - for remaining inputs
     private String validCheckoutBillAddressEmail;
@@ -99,9 +100,33 @@ public class CheckoutPageNoSingularInput extends BasePage{
 
     }
 
+    //invalid billing address data (guest) input data getter - no last name
+    public void invalidCheckoutBillAddressInputDataNoLastNameGetter(){
+
+        validCheckoutBillAddressFirstName = TestDataGenerator.getRandomFirstName();
+        noCheckoutBillAddressLastName = "";
+        validCheckoutBillAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutBillAddressCity = TestDataGenerator.getRandomCity();
+        validCheckoutBillAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutBillAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout billing address input data (no billing last name): " + "\n");
+
+        logger.info("Valid checkout billing address first name (no billing last name): " + validCheckoutBillAddressFirstName);
+        logger.info("No checkout billing address last name: " + noCheckoutBillAddressLastName);
+        logger.info("Valid checkout billing address street (no billing last name): " + validCheckoutBillAddressStreet);
+        logger.info("Valid checkout billing address city (no billing last name): " + validCheckoutBillAddressCity);
+        logger.info("Valid checkout billing address zip code (no billing last name): " + validCheckoutBillAddressZipCode);
+        logger.info("Valid checkout billing address phone (no billing last name): " + validCheckoutBillAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid billing address (guest) input data methods - no singular input
     public void inputNoCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(noCheckoutBillAddressEmail);}
     public void inputNoCheckoutFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(noCheckoutBillAddressFirstName);}
+    public void inputNoCheckoutLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(noCheckoutBillAddressLastName);}
 
     //valid billing address (guest) input data methods
     public void inputValidCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(validCheckoutBillAddressEmail);}
