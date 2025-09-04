@@ -4,6 +4,7 @@ import cz.simploshop.demo.*;
 import cz.simploshop.demo.modals.*;
 import cz.simploshop.demo.modals.invalid.scenarios.registeraccountmodal.*;
 import cz.simploshop.demo.modals.invalid.scenarios.addnewaddressmodal.*;
+import cz.simploshop.demo.modals.invalid.scenarios.addproductreviewmodal.*;
 import cz.simploshop.demo.invalidscenarios.accountinfopage.*;
 import cz.simploshop.demo.modals.invalid.scenarios.loginaccountmodal.LoginAccountModalInvalidScenarios;
 import cz.simploshop.demo.loggers.*;
@@ -6982,6 +6983,118 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         generalPage.waitForElementsToLoad(1600);
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Add Single Searched Product (Rohová pohovka) Review Test Result (guest) - No Review Stars");
+    }
+
+    //invalid add review for a set single searched product ("Rohová pohovka") test method - no product review author name
+    protected void invalidAddReviewForSingleSearchedProductNoReviewAuthorTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SearchProductModal searchProductModal = new SearchProductModal(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        AddProductReviewModal addProductReviewModal = new AddProductReviewModal(driver);
+        AddProductReviewModalInvalidScenarios addProductReviewModalInvalidScenarios = new AddProductReviewModalInvalidScenarios(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2100);
+        //general page warning box web element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxWebElementDisplayed(generalPage);
+        //general page warning box text element assert (displayed only once for each test start before the user clicks a button)
+        isGeneralPageWarningBoxTextElementAsExpected(generalPage);
+        //click 'Close' warning box button
+        generalPage.clickCloseWarningBoxButton();
+        //general page (header section) web element assert
+        isGeneralPageHeaderSectionWebElementDisplayed(generalPage);
+        //general page (footer section) web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page (header section) text element assert
+        isGeneralPageHeaderSectionTextElementAsExpected(generalPage);
+        //general page (footer section) text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementIsAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //input set searched product into search bar
+        generalPage.inputSetSearchedProductIntoSearchBar();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3500);
+        //capture screenshot of the search product modal display
+        captureScreenshot(driver, "Search Product (Rohová pohovka) Modal Display");
+        //search product modal web element assert
+        isSearchProductModalWebElementDisplayed(searchProductModal);
+        //search product modal text element assert
+        isSearchProductModalTextElementAsExpected(searchProductModal);
+        //log search product modal product data
+        logSearchProductModalProductData(searchProductModal);
+        //click set search product card
+        searchProductModal.clickSetSearchProductCard(0);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2200);
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page text element assert
+        isSingleProductPageTextElementAsExpected(singleProductPage);
+        //log single product page product data
+        logSingleProductPageProductData(singleProductPage);
+        //log single product page product description data
+        logSingleProductPageProductDescriptionData(singleProductPage);
+        //capture screenshot of the single product page display
+        captureScreenshot(driver, "Single Product (Rohová pohovka) Page Display");
+        //click "Product reviews" section button
+        singleProductPage.clickProductReviewsSectionButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1600);
+        //single product page reviews section web element assert
+        isSingleProductPageReviewSectionWebElementDisplayed(singleProductPage);
+        //log single product page product reviews section data
+        logSingleProductPageProductReviewsData(singleProductPage);
+        //capture screenshot of the single product page display -> reviews section
+        captureScreenshot(driver, "Single Product (Rohová pohovka) Page Reviews Section Display");
+        //click "Add product review" button
+        singleProductPage.clickProductReviewButton();
+        //wait for elements to load (for modal to appear)
+        generalPage.waitForElementsToLoad(2800);
+        //add product review modal web element assert
+        isAddProductReviewModalWebElementDisplayed(addProductReviewModal);
+        //add product review modal additional web element assert (not all products have these)
+        isAddProductReviewModalAdditionalWebElementDisplayed(addProductReviewModal);
+        //add product review modal text element assert
+        isAddProductReviewModalTextElementAsExpected(addProductReviewModal);
+        //add product review modal additional text element assert (not all products have these)
+        isAddProductReviewModalAdditionalTextElementAsExpected(addProductReviewModal);
+        //capture screenshot of the add product review modal display before review input data
+        captureScreenshot(driver, "Add Product Review Modal Display Before Review Input Data");
+        //select set review stars count
+        addProductReviewModal.selectSetReviewStars(3);
+        //don't input author name (guest) into author name input field
+        addProductReviewModalInvalidScenarios.inputNoGuestAuthorNameIntoAuthorNameInputField();
+        //input valid review into review input field
+        addProductReviewModalInvalidScenarios.inputProductReviewIntoReviewInputField();
+        //select set looks review stars
+        addProductReviewModal.selectSetLooksReviewStars(3);
+        //select set comfort review stars
+        addProductReviewModal.selectSetComfortReviewStars(2);
+        //select set price review stars
+        addProductReviewModal.selectSetPriceReviewStars(2);
+        //select set assembly ease review stars
+        addProductReviewModal.selectSetAssemblyEaseReviewStars(1);
+        //capture screenshot of the add product review modal display after invalid guest review input data - no review author name
+        captureScreenshot(driver, "Add Product Review Modal Display After Invalid Guest Review Input Data - No Review Author Name");
+        //click "Send review" button
+        addProductReviewModal.clickSendReviewButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(1600);
+        //assert the user gets an expected error message, throw an error otherwise
+        try {
+            assertEquals("Pole je povinné", addProductReviewModal.getAddProductReviewModalSingularInputErrorMsg(), "The missing product review author name input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The missing product review author name input error message doesn't get triggered.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Add Single Searched Product Review Test Result (guest) - No Review Author Name");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

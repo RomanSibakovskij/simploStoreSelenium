@@ -52,6 +52,9 @@ public class AddProductReviewModal extends BasePage{
     private List<WebElement> addProductReviewModalPriceReviewStarElements;
     @FindBy(xpath = "//form/div[4]/div[5]/div/div[@class='sim-rating sim-rating--editable sim-rating--c-primary']/div")
     private List<WebElement> addProductReviewModalAssemblyEaseReviewStarElements;
+    //invalid singular input error message
+    @FindBy(xpath = "//div[@role='alert']")
+    private WebElement addProductReviewModalInvalidSingularInputError;
 
     //valid review input data
     RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
@@ -127,6 +130,9 @@ public class AddProductReviewModal extends BasePage{
     public String getAddProductReviewModalComfortSubtext() {return addProductReviewModalComfortSubtext.getText();}
     public String getAddProductReviewModalPriceSubtext() {return addProductReviewModalPriceSubtext.getText();}
     public String getAddProductReviewModalAssemblyEaseSubtext() {return addProductReviewModalAssemblyEaseSubtext.getText();}
+
+    //add product review singular input error message getter
+    public String getAddProductReviewModalSingularInputErrorMsg() {return addProductReviewModalInvalidSingularInputError.getText();}
 
     //add product review modal web element assert methods
     public boolean isAddProductReviewModalTitleDisplayed() {return addProductReviewModalTitle.isDisplayed();}

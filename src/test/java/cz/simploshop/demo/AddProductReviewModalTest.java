@@ -44,4 +44,14 @@ public class AddProductReviewModalTest extends TestMethods{
         invalidAddReviewForSingleSearchedProductNoReviewStarsTest();
     }
 
+    //Test 013c -> invalid add review for a single searched product ("Rohová pohovka") test - no review author
+    @Test
+    @DisplayName("Invalid Add Review For A Single Searched Product Test - No Review Author")
+    @Tag("Add_Review_For_A_Single_Searched_Product")
+    @Tag("No_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidAddReviewForASingleSearchedProductNoReviewAuthorTest() {
+        invalidAddReviewForSingleSearchedProductNoReviewAuthorTest();
+    }
+
 }
