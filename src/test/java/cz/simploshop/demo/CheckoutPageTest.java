@@ -53,7 +53,7 @@ public class CheckoutPageTest extends TestMethods{
         productCheckoutConfirmationGuestTest();
     }
 
-    //Test 019c -> multiple chosen products ("Polštář Furniture") check out confirmation test - as a registered user
+    //Test 019c -> multiple chosen products ("Polštář Furniture") check out confirmation test - as a registered user (the country code dropdown menu is empty, test has failed)
     @Test
     @DisplayName("Multiple Chosen Products Checkout Confirmation Test (as a registered user)")
     @Tag("Multiple_Chosen_Products_Checkout_Confirmation")
@@ -69,6 +69,22 @@ public class CheckoutPageTest extends TestMethods{
         addProductToCheckoutTest();
         //multiple chosen products ("Polštář Furniture") check out confirmation test - as a registered user
         productCheckoutConfirmationTest();
+    }
+
+    //single category dashboard page product(s) check out confirmation tests
+
+    //Test 020 -> single category single product ("Manželská postel") check out confirmation test - as a guest (the country code dropdown menu is empty, test has failed)
+    @Test
+    @DisplayName("Single Category Single Product Checkout Confirmation Test (as a guest)")
+    @Tag("Single_Category_Produc_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void singleCategoryProductCheckoutGuestTest() {
+        //add single category single product ("Manželská postel") to cart test - as a guest
+        addSetSingleCategoryProductToCartGuestTest();
+        //add single category single product ("Manželská postel") to check out test - as a guest
+        addProductToCheckoutTest();
+        //single category single product ("Manželská postel") check out confirmation test - as a guest
+        productCheckoutConfirmationGuestTest();
     }
 
 }
