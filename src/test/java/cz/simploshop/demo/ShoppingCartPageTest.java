@@ -135,4 +135,20 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 016a -> add single searched product ("Knihovna - 3 police") to check out test - as a registered user
+    @Test
+    @DisplayName("Add Single Searched Product To Checkout Test (as a registered user)")
+    @Tag("Add_Single_Searched_Product_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void addSingleSearchedProductToCheckoutUserTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add single searched products ("Knihovna - 3 police") to cart test - as a registered user
+        addSingleSearchedProductToCartRegUserTest();
+        //add single searched products ("Knihovna - 3 police") to check out test - as a registered user
+        addProductToCheckoutTest();
+    }
+
 }
