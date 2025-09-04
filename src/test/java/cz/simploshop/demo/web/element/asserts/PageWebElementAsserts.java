@@ -760,4 +760,23 @@ default void isSingleProductPageWebElementDisplayed(SingleProductPage singleProd
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //wishlist dashboard page web element assert test method
+    default void isWishlistDashboardPageWebElementDisplayed(WishlistDashboardPage wishlistDashboardPage){
+        //assert wishlist dashboard page title is displayed
+        assertTrue(wishlistDashboardPage.isWishlistDashboardPageTitleDisplayed(), "The wishlist dashboard page title isn't displayed");
+        //list elements
+        //assert wishlist dashboard page product cards are displayed (as a list)
+        assertTrue(wishlistDashboardPage.isWishlistDashboardPageCardDisplayed(), "The wishlist dashboard page product cards aren't displayed");
+        //assert wishlist dashboard page product add to wishlist buttons are displayed (as a list)
+        assertTrue(wishlistDashboardPage.isWishlistDashboardPageAddToWishlistButtonDisplayed(), "The wishlist dashboard page product add to wishlist buttons aren't displayed");
+        //assert wishlist dashboard page product images are displayed (as a list)
+        assertTrue(wishlistDashboardPage.isWishlistDashboardPageImgDisplayed(), "The wishlist dashboard page product images aren't displayed");
+        //assert wishlist dashboard page product names are displayed (as a list)
+        assertTrue(wishlistDashboardPage.isWishlistDashboardPageNameDisplayed(), "The wishlist dashboard page product names aren't displayed");
+        //assert wishlist dashboard page product unit prices are displayed (as a list)
+        assertTrue(wishlistDashboardPage.isWishlistDashboardPageUnitPriceDisplayed(), "The wishlist dashboard page product unit prices aren't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

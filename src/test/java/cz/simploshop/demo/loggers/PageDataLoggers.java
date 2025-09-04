@@ -140,4 +140,16 @@ default void logFurnitureCategoryProductOptions(SingleCategoryDashboardPage sing
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //wishlist dashboard page product data logger method
+    default void logWishlistDashboardPageProductData(WishlistDashboardPage wishlistDashboardPage){
+        System.out.println("Displayed wishlist dashboard page product data: " + "\n");
+
+        logger.info("Displayed wishlist dashboard page product name(s): " + wishlistDashboardPage.getWishlistDashboardProductName());
+        logger.info("Displayed wishlist dashboard page product unit price(s): " + wishlistDashboardPage.getWishlistDashboardProductUnitPrice());
+
+        System.out.println("\n");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
