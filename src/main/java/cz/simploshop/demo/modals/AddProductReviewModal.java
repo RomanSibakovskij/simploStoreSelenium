@@ -26,7 +26,7 @@ public class AddProductReviewModal extends BasePage{
     private WebElement addProductReviewModalAuthorNameSubtext;
     @FindBy(xpath = "//form/div[2]//input")
     private WebElement addProductReviewModalAuthorNameInputField;
-    @FindBy(xpath = "//label[@for='v-0-4-0-0-8']")
+    @FindBy(xpath = "//form/div[3]//label")
     private WebElement addProductReviewModalReviewSubtext;
     @FindBy(xpath = "//textarea")
     private WebElement addProductReviewModalReviewInputField;
