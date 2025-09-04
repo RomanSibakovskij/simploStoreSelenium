@@ -47,5 +47,20 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 014c -> add multiple chosen products ("Polštář Furniture") to check out test - as a registered user
+    @Test
+    @DisplayName("Add Multiple Chosen Products To Checkout Test (as a registered user)")
+    @Tag("Add_Multiple_Chosen_Products_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void addMultipleChosenProductToCheckoutRegisteredUserTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add multiple chosen product ("Polštář Furniture") to cart test - as a registered user
+        addMultipleChosenProductToCartRegUserTest();
+        //add multiple chosen products ("Polštář Furniture") to check out test - as a registered user
+        addProductToCheckoutTest();
+    }
 
 }
