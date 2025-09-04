@@ -93,4 +93,16 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 015b -> add single category multiple product ("Konferenční stolek", "Knihovna - 3 police") to check out test - as a guest
+    @Test
+    @DisplayName("Add Single Category Multiple Products To Checkout Test (as a guest)")
+    @Tag("Add_Single_Category_Products_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void addSingleCategoryProductsToCheckoutGuestTest() {
+        //add single category multiple product ("Konferenční stolek", "Knihovna - 3 police") to cart test - as a guest
+        addSetSingleCategoryMultipleProductsToCartGuestTest();
+        //add single category multiple product ("Konferenční stolek", "Knihovna - 3 police") to check out test - as a guest
+        addProductToCheckoutTest();
+    }
+
 }
