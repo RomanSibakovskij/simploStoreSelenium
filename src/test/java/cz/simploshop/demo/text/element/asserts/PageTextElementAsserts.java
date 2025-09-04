@@ -396,4 +396,23 @@ default void isAddProductReviewModalTextElementAsExpected(AddProductReviewModal 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //shopping cart page text element assert test method
+    default void isShoppingCartPageTextElementAsExpected(ShoppingCartPage shoppingCartPage){
+        //product table
+        //assert shopping cart page product table product subtext is as expected
+        assertEquals("Produkt", shoppingCartPage.getShoppingCartPageProductTableProductSubtext(),"The shopping cart page product table product subtext doesn't match expectations");
+        //assert shopping cart page product table product availability subtext is as expected
+        assertEquals("Dostupnost", shoppingCartPage.getShoppingCartPageProductTableAvailabilitySubtext(),"The shopping cart page product table product availability subtext doesn't match expectations");
+        //assert shopping cart page product table product unit price subtext is as expected
+        assertEquals("Cena za kus", shoppingCartPage.getShoppingCartPageProductTableUnitPriceSubtext(),"The shopping cart page product table product unit price subtext doesn't match expectations");
+        //assert shopping cart page product table product quantity subtext is as expected
+        assertEquals("Množství", shoppingCartPage.getShoppingCartPageProductTableQuantitySubtext(),"The shopping cart page product table product quantity subtext doesn't match expectations");
+        //assert shopping cart page product table product total price subtext is as expected
+        assertEquals("Cena celkem", shoppingCartPage.getShoppingCartPageProductTableTotalPriceSubtext(),"The shopping cart page product table product total price subtext doesn't match expectations");
+        //assert shopping cart page product table product total order price subtext is as expected
+        assertEquals("Celkem", shoppingCartPage.getShoppingCartPageProductTableTotalOrderPriceSubtext(),"The shopping cart page product table total order subtext doesn't match expectations");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

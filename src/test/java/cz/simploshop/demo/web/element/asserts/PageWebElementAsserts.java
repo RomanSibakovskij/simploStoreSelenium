@@ -853,4 +853,59 @@ default void isSingleProductPageWebElementDisplayed(SingleProductPage singleProd
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//shopping cart breadcrumb web element assert test method
+default void isShoppingCartBreadcrumbWebElementDisplayed(ShoppingCartPage shoppingCartPage){
+    //breadcrumb
+    //assert shopping cart page breadcrumb steps are displayed (as a list)
+    assertTrue(shoppingCartPage.isPageBreadcrumbStepDisplayed(), "The shopping cart page breadcrumb steps aren't displayed");
+}
+
+    //shopping cart page web element assert test method
+    default void isShoppingCarPageWebElementDisplayed(ShoppingCartPage shoppingCartPage){
+        //main
+        //assert shopping cart page free shipping text is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageFreeShippingTextDisplayed(), "The shopping cart page free shipping text isn't displayed");
+        //assert shopping cart page free shipping bar is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageFreeShippingBarDisplayed(), "The shopping cart page free shipping bar isn't displayed");
+        //product table
+        //assert shopping cart page product table product subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableProductSubtextDisplayed(), "The shopping cart page product table product subtext isn't displayed");
+        //assert shopping cart page product table availability subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableAvailabilitySubtextDisplayed(), "The shopping cart page product table availability subtext isn't displayed");
+        //assert shopping cart page product table unit price subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableUnitPriceSubtextDisplayed(), "The shopping cart page product table unit price subtext isn't displayed");
+        //assert shopping cart page product table product quantity subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableQuantitySubtextDisplayed(), "The shopping cart page product table product quantity subtext isn't displayed");
+        //assert shopping cart page product table product total price subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableTotalPriceSubtextDisplayed(), "The shopping cart page product table product total price subtext isn't displayed");
+        //list elements
+        //assert shopping cart page product table product images are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableProductImgDisplayed(), "The shopping cart page product table product images aren't displayed");
+        //assert shopping cart page product table product name links are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableProductNameLinkDisplayed(), "The shopping cart page product table product name links aren't displayed");
+        //assert shopping cart page product table product counts are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableProductCountDisplayed(), "The shopping cart page product table product counts aren't displayed");
+        //assert shopping cart page product table product unit prices are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableProductUnitPriceDisplayed(), "The shopping cart page product table product unit prices aren't displayed");
+        //assert shopping cart page product table product quantity decrease buttons are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableProductQtyDecreaseBtnDisplayed(), "The shopping cart page product table product quantity decrease buttons aren't displayed");
+        //assert shopping cart page product table product quantity input fields are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableProductQtyInputFieldDisplayed(), "The shopping cart page product table product quantity input fields aren't displayed");
+        //assert shopping cart page product table product quantity increase buttons are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableProductQtyIncreaseButtonDisplayed(), "The shopping cart page product table product quantity increase buttons aren't displayed");
+        //assert shopping cart page product table product total prices are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableProductTotalPriceDisplayed(), "The shopping cart page product table product total prices aren't displayed");
+        //singular elements
+        //assert shopping cart page input discount code button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageInputDiscountCodeButtonDisplayed(), "The shopping cart page input discount code button isn't displayed");
+        //assert shopping cart page product table order total price subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableTotalOrderPriceSubtextDisplayed(), "The shopping cart page product table order total price subtext isn't displayed");
+        //assert shopping cart page product table order total price is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTableTotalOrderPriceDisplayed(), "The shopping cart page product table order total price isn't displayed");
+        //assert shopping cart page shipping and payment button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageShipAndPaymentButtonDisplayed(), "The shopping cart page shipping and payment button isn't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

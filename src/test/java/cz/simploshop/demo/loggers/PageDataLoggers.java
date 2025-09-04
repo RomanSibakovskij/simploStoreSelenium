@@ -152,4 +152,20 @@ default void logFurnitureCategoryProductOptions(SingleCategoryDashboardPage sing
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //shopping cart page product data logger method
+    default void logShoppingCartPageProductData(ShoppingCartPage shoppingCartPage){
+        System.out.println("Displayed shopping cart page product data: " + "\n");
+
+        logger.info("Displayed shopping cart free shipping text: " + shoppingCartPage.getShoppingCartPageFreeShippingText());
+        logger.info("Displayed shopping cart product table product name(s): " + shoppingCartPage.getShoppingCartPageProductTableProductName());
+        logger.info("Displayed shopping cart product table product count(s): " + shoppingCartPage.getShoppingCartPageProductTableProductCount());
+        logger.info("Displayed shopping cart product table product quantity(ies): " + shoppingCartPage.getShoppingCartPageProductTableProductQuantity());
+        logger.info("Displayed shopping cart product table product total price(s): " + shoppingCartPage.getShoppingCartPageProductTableProductTotalPrice());
+        logger.info("Displayed shopping cart product table order total price: " + shoppingCartPage.getShoppingCartPageProductTableTotalOrderPrice());
+
+        System.out.println("\n");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
