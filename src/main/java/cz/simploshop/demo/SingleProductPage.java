@@ -118,6 +118,12 @@ public class SingleProductPage extends BasePage {
         singleProductPageProductQtyInputField.sendKeys(String.valueOf(quantity));
     }
 
+    //click "Add product review" button method
+    public void clickProductReviewButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleProductPageAddProductReviewButton).click().perform();
+    }
+
     //single product page text element getters
     //product data
     public String getSingleProductPageProductBrand(){return singleProductPageProductBrand.getText();}

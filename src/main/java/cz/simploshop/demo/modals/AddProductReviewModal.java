@@ -2,6 +2,7 @@ package cz.simploshop.demo.modals;
 
 import cz.simploshop.demo.utilities.*;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
@@ -52,7 +53,63 @@ public class AddProductReviewModal extends BasePage{
     @FindBy(xpath = "//form/div[4]/div[5]/div/div[@class='sim-rating sim-rating--editable sim-rating--c-primary']/div")
     private List<WebElement> addProductReviewModalAssemblyEaseReviewStarElements;
 
+    //valid review input data
+    RegisterAccountModal registerAccountModal = new RegisterAccountModal(driver);
+    private String validGuestName = TestDataGenerator.getRandomFirstName() + " " + TestDataGenerator.getRandomLastName();
+    private String validRegUserName = "Test Tester";
+    private String validProductReview = TestDataGenerator.getRandomProductReview();
+
     public AddProductReviewModal(WebDriver driver) {super(driver);}
+
+    //select set review stars methods
+    public void selectSetReviewStars(int index){
+        WebElement setReviewStarsCount = addProductReviewModalReviewStarElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(setReviewStarsCount).click().perform();
+    }
+
+    //input random product review into review input field method
+    public void inputProductReviewIntoReviewInputField(){addProductReviewModalReviewInputField.sendKeys(validProductReview);}
+
+    //input author name (guest) into author name input field method
+    public void inputGuestAuthorNameIntoAuthorNameInputField(){addProductReviewModalAuthorNameInputField.sendKeys(validGuestName);}
+
+    //input author name (registered user) into author name input field method
+    public void inputAuthorNameIntoAuthorNameInputField(){addProductReviewModalAuthorNameInputField.sendKeys(validRegUserName);}
+
+    //select set looks review stars methods
+    public void selectSetLooksReviewStars(int index){
+        WebElement setLooksReviewStarsCount = addProductReviewModalLooksReviewStarElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(setLooksReviewStarsCount).click().perform();
+    }
+
+    //select set comfort review stars methods
+    public void selectSetComfortReviewStars(int index){
+        WebElement setComfortReviewStarsCount = addProductReviewModalComfortReviewStarElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(setComfortReviewStarsCount).click().perform();
+    }
+
+    //select set price review stars methods
+    public void selectSetPriceReviewStars(int index){
+        WebElement setPriceReviewStarsCount = addProductReviewModalPriceReviewStarElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(setPriceReviewStarsCount).click().perform();
+    }
+
+    //select set assembly ease review stars methods
+    public void selectSetAssemblyEaseReviewStars(int index){
+        WebElement setAssemblyEaseReviewStarsCount = addProductReviewModalAssemblyEaseReviewStarElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(setAssemblyEaseReviewStarsCount).click().perform();
+    }
+
+    //click "Send Review" button method
+    public void clickSendReviewButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(addProductReviewModalSendReviewButton).click().perform();
+    }
 
     //add product review modal text element getters
     public String getAddProductReviewModalTitle() {return addProductReviewModalTitle.getText();}
