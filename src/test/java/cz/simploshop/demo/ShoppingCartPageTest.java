@@ -121,4 +121,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //searched product(s) add to check out tests
+
+    //Test 016 -> add single searched product ("Rohová pohovka") to check out test - as a guest (sometimes the product fails to be added to cart after add to cart button click)
+    @Test
+    @DisplayName("Add Single Searched Product To Checkout Test (as a guest)")
+    @Tag("Add_Single_Searched_Product_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void addSingleSearchedProductToCheckoutGuestTest() {
+        //add single searched product ("Rohová pohovka") to cart test - as a guest
+        addSingleSearchedProductToCartTest();
+        //add single searched product ("Rohová pohovka") to check out test - as a guest
+        addProductToCheckoutTest();
+    }
+
 }
