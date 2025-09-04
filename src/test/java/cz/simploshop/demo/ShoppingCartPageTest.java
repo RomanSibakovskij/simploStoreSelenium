@@ -179,4 +179,22 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //add product from wishlist to check out test
+
+    //Test 017 -> add set category products ("Manželská postel", "Knihovna - 10 polic") to check out from wishlist test - as a registered user
+    @Test
+    @DisplayName("Add Single Set Category Products To Checkout From Wishlist Test (as a registered user)")
+    @Tag("Add_Set_Category_Products_To_Checkout_From_Wishlist")
+    @Tag("Test_As_A_Reg_User")
+    void addSingleSetCategoryProductsToCheckoutFromWishlistTest() {
+        //user navigation to register modal test
+        navigateToRegisterAccountModalTest();
+        //valid user account creation
+        validRegisterAccountModalTest();
+        //add set category products ("Manželská postel", "Knihovna - 10 polic") to cart from wishlist test - as a registered user
+        addSetCategoryProductsToCartFromWishlistTest();
+        //add set category products ("Manželská postel", "Knihovna - 10 polic"") to check out from wishlist test - as a registered user
+        addProductToCheckoutTest();
+    }
+
 }
