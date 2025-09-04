@@ -151,4 +151,16 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 016b -> add multiple searched products ("Rohová pohovka") to cart test - as a guest
+    @Test
+    @DisplayName("Add Multiple Searched Products To Checkout Test (as a guest)")
+    @Tag("Add_Multiple_Searched_Product_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void addMultipleSearchedProductToCheckoutGuestTest() {
+        //add multiple searched products ("Rohová pohovka") to cart test - as a guest
+        addMultipleSearchedProductsToCartTest();
+        //add multiple searched products ("Rohová pohovka") to check out test - as a guest
+        addProductToCheckoutTest();
+    }
+
 }
