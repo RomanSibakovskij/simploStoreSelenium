@@ -20,6 +20,9 @@ public class AddProductReviewModalInvalidScenarios extends BasePage{
     private String tooShortGuestName = "S"; //1 char
     private String tooShortProductReview = "D"; //1 char
 
+    //invalid review input data - too long singular input
+    private String tooLongGuestName = "Sfddsgdsfssdsfgdhjfgfgfddsgdsfssdsfgdhjfghsdrtuioikjfdgsdfhfhsfdsfgdfsdcvfgghyukghfgdfdsfvfdbcvdfgfda"; //101 chars
+
     //valid review input data - for remaining inputs
     private String validGuestName = TestDataGenerator.getRandomFirstName() + " " + TestDataGenerator.getRandomLastName();
     private String validProductReview = TestDataGenerator.getRandomProductReview();
@@ -33,6 +36,9 @@ public class AddProductReviewModalInvalidScenarios extends BasePage{
     //invalid input data methods - too short singular input
     public void inputTooShortGuestAuthorNameIntoAuthorNameInputField(){addProductReviewModalAuthorNameInputField.sendKeys(tooShortGuestName);}
     public void inputTooShortProductReviewIntoReviewInputField(){addProductReviewModalReviewInputField.sendKeys(tooShortProductReview);}
+
+    //invalid input data methods - too long singular input
+    public void inputTooLongGuestAuthorNameIntoAuthorNameInputField(){addProductReviewModalAuthorNameInputField.sendKeys(tooLongGuestName);}
 
     //valid input data methods - for remaining inputs
     public void inputProductReviewIntoReviewInputField(){addProductReviewModalReviewInputField.sendKeys(validProductReview);}
