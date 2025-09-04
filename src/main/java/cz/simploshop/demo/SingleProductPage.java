@@ -112,6 +112,12 @@ public class SingleProductPage extends BasePage {
         action.moveToElement(singleProductPageProductAddToCartButton).click().perform();
     }
 
+    //input set product quantity into product qty input field method
+    public void inputSetProductQuantityIntoProductQtyInputField(int quantity){
+        singleProductPageProductQtyInputField.clear();
+        singleProductPageProductQtyInputField.sendKeys(String.valueOf(quantity));
+    }
+
     //single product page text element getters
     //product data
     public String getSingleProductPageProductBrand(){return singleProductPageProductBrand.getText();}
