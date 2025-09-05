@@ -297,6 +297,39 @@ public class CheckoutPage extends BasePage{
         action.moveToElement(checkoutPageBillingAddDifferentDeliveryAddressCheckbox).click().perform();
     }
 
+    //shipping address
+
+    //valid shipping address data (guest) input data getter
+    public void validCheckoutShipAddressInputDataGetter(){
+
+        validCheckoutShipAddressFirstName = TestDataGenerator.getRandomFirstName();
+        validCheckoutShipAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutShipAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutShipAddressCity = TestDataGenerator.getRandomCity();
+        validCheckoutShipAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutShipAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Valid checkout shipping address input data: " + "\n");
+
+        logger.info("Valid checkout shipping address first name: " + validCheckoutShipAddressFirstName);
+        logger.info("Valid checkout shipping address last name: " + validCheckoutShipAddressLastName);
+        logger.info("Valid checkout shipping address street: " + validCheckoutShipAddressStreet);
+        logger.info("Valid checkout shipping address city: " + validCheckoutShipAddressCity);
+        logger.info("Valid checkout shipping address zip code: " + validCheckoutShipAddressZipCode);
+        logger.info("Valid checkout shipping address phone: " + validCheckoutShipAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //valid shipping address (guest) input data methods
+    public void inputValidCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(validCheckoutShipAddressFirstName);}
+    public void inputValidCheckoutShipLastNameIntoShipLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(validCheckoutShipAddressLastName);}
+    public void inputValidCheckoutShipStreetIntoShipStreetInputField(){checkoutPageShippingStreetInputField.sendKeys(validCheckoutShipAddressStreet);}
+    public void inputValidCheckoutShipCityIntoShipCityInputField(){checkoutPageShippingCityInputField.sendKeys(validCheckoutShipAddressCity);}
+    public void inputValidCheckoutShipZipCodeIntoShipZipCodeInputField(){checkoutPageShippingZipCodeInputField.sendKeys(String.valueOf(validCheckoutShipAddressZipCode));}
+    public void inputValidCheckoutShipPhoneIntoShipPhoneInputField(){checkoutPageShippingPhoneInputField.sendKeys(validCheckoutShipAddressPhone);}
+
     //click country dropdown menu method
     public void clickShipCountryDropdownMenu(){
         Actions action = new Actions(driver);

@@ -59,6 +59,7 @@ public class CheckoutPageNoSingularInput extends BasePage{
     private String noCheckoutShipAddressStreet;
     private String noCheckoutShipAddressCity;
 
+
     //valid shipping address data - for remaining inputs
     private String validCheckoutShipAddressFirstName;
     private String validCheckoutShipAddressLastName;
