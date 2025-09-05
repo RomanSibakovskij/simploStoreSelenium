@@ -56,6 +56,7 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
     //invalid shipping address data - too short singular input
     private String tooShortCheckoutShipAddressFirstName;
     private String tooShortCheckoutShipAddressLastName;
+    private String tooShortCheckoutShipAddressStreet;
 
     //valid shipping address data - for remaining inputs
     private String validCheckoutShipAddressFirstName;
@@ -299,9 +300,33 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid shipping address data (guest) input data getter - too short street (3 chars)
+    public void invalidCheckoutShipAddressInputDataTooShortStreetGetter(){
+
+        validCheckoutShipAddressFirstName = TestDataGenerator.getRandomFirstName();
+        validCheckoutShipAddressLastName = TestDataGenerator.getRandomLastName();
+        tooShortCheckoutShipAddressStreet = "5.B";
+        validCheckoutShipAddressCity = TestDataGenerator.getRandomCity();
+        validCheckoutShipAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutShipAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout shipping address input data (too short shipping street): " + "\n");
+
+        logger.info("Valid checkout shipping address first name (too short shipping street): " + validCheckoutShipAddressFirstName);
+        logger.info("Valid checkout shipping address last name (too short shipping street): " + validCheckoutShipAddressLastName);
+        logger.info("Too short checkout shipping address street: " + tooShortCheckoutShipAddressStreet);
+        logger.info("Valid checkout shipping address city (too short shipping street): " + validCheckoutShipAddressCity);
+        logger.info("Valid checkout shipping address zip code (too short shipping street): " + validCheckoutShipAddressZipCode);
+        logger.info("Valid checkout shipping address phone (too short shipping street): " + validCheckoutShipAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid shipping address (guest) input data methods - too short singular input
     public void inputTooShortCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(tooShortCheckoutShipAddressFirstName);}
     public void inputTooShortCheckoutShipLastNameIntoShipLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(tooShortCheckoutShipAddressLastName);}
+    public void inputTooShortCheckoutShipStreetIntoShipStreetInputField(){checkoutPageShippingStreetInputField.sendKeys(tooShortCheckoutShipAddressStreet);}
 
     //valid shipping address (guest) input data methods
     public void inputValidCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(validCheckoutShipAddressFirstName);}
