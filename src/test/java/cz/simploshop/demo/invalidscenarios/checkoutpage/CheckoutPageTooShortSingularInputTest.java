@@ -54,4 +54,19 @@ public class CheckoutPageTooShortSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestTooShortLastNameTest();
     }
 
+    //Test 022t -> invalid single product ("Polštář Furniture") checkout confirmation test - too short billing street (3 chars) (too short street error doesn't get triggered)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - Too Short Billing Street")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("Too_Short_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestTooShortStreetTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - too short billing street (3 chars)
+        invalidProductCheckoutConfirmationGuestTooShortStreetTest();
+    }
+
 }
