@@ -54,4 +54,19 @@ public class CheckoutPageNoSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestNoLastNameTest();
     }
 
+    //Test 022c -> invalid single product ("Polštář Furniture") checkout confirmation test - no billing street
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - No Billing Street")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("No_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestNoStreetTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - no billing street
+        invalidProductCheckoutConfirmationGuestNoStreetTest();
+    }
+
 }
