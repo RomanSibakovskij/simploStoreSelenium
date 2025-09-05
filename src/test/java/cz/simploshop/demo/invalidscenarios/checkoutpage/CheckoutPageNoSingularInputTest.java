@@ -174,4 +174,19 @@ public class CheckoutPageNoSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestNoShipLastNameTest();
     }
 
+    //Test 022k -> invalid single product ("Polštář Furniture") checkout confirmation test - no shipping street (the shipping street error doesn't get triggered)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - No Shipping Street")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("No_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestNoShipStreetTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - no shipping street
+        invalidProductCheckoutConfirmationGuestNoShipStreetTest();
+    }
+
 }
