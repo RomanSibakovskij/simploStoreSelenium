@@ -53,6 +53,17 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
     private int validCheckoutBillAddressZipCode;
     private String validCheckoutBillAddressPhone;
 
+    //invalid shipping address data - too short singular input
+    private String tooShortCheckoutShipAddressFirstName;
+
+    //valid shipping address data - for remaining inputs
+    private String validCheckoutShipAddressFirstName;
+    private String validCheckoutShipAddressLastName;
+    private String validCheckoutShipAddressStreet;
+    private String validCheckoutShipAddressCity;
+    private int validCheckoutShipAddressZipCode;
+    private String validCheckoutShipAddressPhone;
+
     public CheckoutPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
     //billing address section
@@ -238,5 +249,41 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
     public void inputValidCheckoutCityIntoCityInputField(){checkoutPageBillingCityInputField.sendKeys(validCheckoutBillAddressCity);}
     public void inputValidCheckoutZipCodeIntoZipCodeInputField(){checkoutPageBillingZipCodeInputField.sendKeys(String.valueOf(validCheckoutBillAddressZipCode));}
     public void inputValidCheckoutPhoneIntoPhoneInputField(){checkoutPageBillingPhoneInputField.sendKeys(validCheckoutBillAddressPhone);}
+
+    //shipping address section
+
+    //invalid shipping address data (guest) input data getter - too short first name (1 char)
+    public void invalidCheckoutShipAddressInputDataTooShortFirstNameGetter(){
+
+        tooShortCheckoutShipAddressFirstName = "H";
+        validCheckoutShipAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutShipAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutShipAddressCity = TestDataGenerator.getRandomCity();
+        validCheckoutShipAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutShipAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout shipping address input data (too short shipping first name): " + "\n");
+
+        logger.info("Too short checkout shipping address first name: " + tooShortCheckoutShipAddressFirstName);
+        logger.info("Valid checkout shipping address last name (too short shipping first name): " + validCheckoutShipAddressLastName);
+        logger.info("Valid checkout shipping address street (too short shipping first name): " + validCheckoutShipAddressStreet);
+        logger.info("Valid checkout shipping address city (too short shipping first name): " + validCheckoutShipAddressCity);
+        logger.info("Valid checkout shipping address zip code (too short shipping first name): " + validCheckoutShipAddressZipCode);
+        logger.info("Valid checkout shipping address phone (too short shipping first name): " + validCheckoutShipAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid shipping address (guest) input data methods - too short singular input
+    public void inputTooShortCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(tooShortCheckoutShipAddressFirstName);}
+
+    //valid shipping address (guest) input data methods
+    public void inputValidCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(validCheckoutShipAddressFirstName);}
+    public void inputValidCheckoutShipLastNameIntoShipLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(validCheckoutShipAddressLastName);}
+    public void inputValidCheckoutShipStreetIntoShipStreetInputField(){checkoutPageShippingStreetInputField.sendKeys(validCheckoutShipAddressStreet);}
+    public void inputValidCheckoutShipCityIntoShipCityInputField(){checkoutPageShippingCityInputField.sendKeys(validCheckoutShipAddressCity);}
+    public void inputValidCheckoutShipZipCodeIntoShipZipCodeInputField(){checkoutPageShippingZipCodeInputField.sendKeys(String.valueOf(validCheckoutShipAddressZipCode));}
+    public void inputValidCheckoutShipPhoneIntoShipPhoneInputField(){checkoutPageShippingPhoneInputField.sendKeys(validCheckoutShipAddressPhone);}
 
 }

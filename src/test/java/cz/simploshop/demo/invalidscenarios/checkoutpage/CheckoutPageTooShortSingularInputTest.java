@@ -114,4 +114,19 @@ public class CheckoutPageTooShortSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestTooShortPhoneTest();
     }
 
+    //Test 022x -> invalid single product ("Polštář Furniture") checkout confirmation test - too short shipping first name (1 char) (too short shipping first name error doesn't get triggered)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - Too Short Shipping First Name")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("Too_Short_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestTooShortShipFirstNameTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - too short shipping first name (1 char)
+        invalidProductCheckoutConfirmationGuestTooShortShipFirstNameTest();
+    }
+
 }
