@@ -35,7 +35,43 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
     @FindBy(xpath = "//form[2]/div[4]/form//div[@class='sim-form-row'][5]//div[@class='sim-form-group w-full']//input")
     private WebElement checkoutPageShippingPhoneInputField;
 
+    //invalid billing address data - too short singular input
+    private String tooShortCheckoutBillAddressEmail;
+
+    //valid billing address data - for remaining inputs
+    private String validCheckoutBillAddressEmail;
+    private String validCheckoutBillAddressFirstName;
+    private String validCheckoutBillAddressLastName;
+    private String validCheckoutBillAddressStreet;
+    private String validCheckoutBillAddressCity;
+    private int validCheckoutBillAddressZipCode;
+    private String validCheckoutBillAddressPhone;
+
     public CheckoutPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
+    //invalid billing address (guest) data input getter - too short email (1 char -> name, domain)
+    public void invalidCheckoutBillAddressTooShortEmailInputDataGetter(){
+
+        tooShortCheckoutBillAddressEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
+
+        System.out.println("Invalid checkout billing address too short email input data: " + "\n");
+
+        logger.info("Too short checkout billing address email: " + tooShortCheckoutBillAddressEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid billing address (guest) input data methods - too short singular input
+    public void inputTooShortCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(tooShortCheckoutBillAddressEmail);}
+
+    //valid billing address (guest) input data methods
+    public void inputValidCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(validCheckoutBillAddressEmail);}
+    public void inputValidCheckoutFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(validCheckoutBillAddressFirstName);}
+    public void inputValidCheckoutLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(validCheckoutBillAddressLastName);}
+    public void inputValidCheckoutStreetIntoStreetInputField(){checkoutPageBillingStreetInputField.sendKeys(validCheckoutBillAddressStreet);}
+    public void inputValidCheckoutCityIntoCityInputField(){checkoutPageBillingCityInputField.sendKeys(validCheckoutBillAddressCity);}
+    public void inputValidCheckoutZipCodeIntoZipCodeInputField(){checkoutPageBillingZipCodeInputField.sendKeys(String.valueOf(validCheckoutBillAddressZipCode));}
+    public void inputValidCheckoutPhoneIntoPhoneInputField(){checkoutPageBillingPhoneInputField.sendKeys(validCheckoutBillAddressPhone);}
 
 }
