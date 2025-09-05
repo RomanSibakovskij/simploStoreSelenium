@@ -54,7 +54,7 @@ public class CheckoutPageNoSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestNoLastNameTest();
     }
 
-    //Test 022c -> invalid single product ("Polštář Furniture") checkout confirmation test - no billing street
+    //Test 022c -> invalid single product ("Polštář Furniture") checkout confirmation test - no billing street (the street error doesn't get triggered)
     @Test
     @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - No Billing Street")
     @Tag("Invalid_Single_Product_Checkout_Confirmation")
@@ -69,7 +69,7 @@ public class CheckoutPageNoSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestNoStreetTest();
     }
 
-    //Test 022d -> invalid single product ("Polštář Furniture") checkout confirmation test - no billing city
+    //Test 022d -> invalid single product ("Polštář Furniture") checkout confirmation test - no billing city (the city error doesn't get triggered)
     @Test
     @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - No Billing City")
     @Tag("Invalid_Single_Product_Checkout_Confirmation")
@@ -84,7 +84,7 @@ public class CheckoutPageNoSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestNoCityTest();
     }
 
-    //Test 022e -> invalid single product ("Polštář Furniture") checkout confirmation test - no billing country
+    //Test 022e -> invalid single product ("Polštář Furniture") checkout confirmation test - no billing country (the country error doesn't get triggered)
     @Test
     @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - No Billing Country")
     @Tag("Invalid_Single_Product_Checkout_Confirmation")
@@ -97,6 +97,21 @@ public class CheckoutPageNoSingularInputTest extends TestMethods{
         addProductToCheckoutTest();
         //invalid single product ("Polštář Furniture") checkout confirmation test - no billing country
         invalidProductCheckoutConfirmationGuestNoCountryTest();
+    }
+
+    //Test 022f -> invalid single product ("Polštář Furniture") checkout confirmation test - no billing zip code (the zip code error doesn't get triggered)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - No Billing Zip Code")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("No_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestNoZipCodeTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - no billing zip code
+        invalidProductCheckoutConfirmationGuestNoZipCodeTest();
     }
 
 }
