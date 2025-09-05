@@ -9,7 +9,7 @@ public class CheckoutPageTooShortSingularInputTest extends TestMethods{
 
     //too short singular input
 
-    //Test 022q -> invalid single product ("Polštář Furniture") checkout confirmation test - too short billing email (1 char -> name, domain)
+    //Test 022q -> invalid single product ("Polštář Furniture") checkout confirmation test - too short billing email (1 char -> name, domain) (too short email error doesn't get triggered)
     @Test
     @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - Too Short Billing Email")
     @Tag("Invalid_Single_Product_Checkout_Confirmation")
@@ -22,6 +22,21 @@ public class CheckoutPageTooShortSingularInputTest extends TestMethods{
         addProductToCheckoutTest();
         //invalid single product ("Polštář Furniture") checkout confirmation test - too short billing email (1 char -> name, domain)
         invalidProductCheckoutConfirmationGuestTooShortEmailTest();
+    }
+
+    //Test 022r -> invalid single product ("Polštář Furniture") checkout confirmation test - too short billing first name (1 char) (too short first name error doesn't get triggered)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - Too Short Billing First Name")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("Too_Short_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestTooShortFirstNameTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - too short billing first name (1 char)
+        invalidProductCheckoutConfirmationGuestTooShortFirstNameTest();
     }
 
 }
