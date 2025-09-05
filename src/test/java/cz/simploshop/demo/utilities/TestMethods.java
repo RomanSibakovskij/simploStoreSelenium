@@ -9535,6 +9535,134 @@ public class TestMethods extends BaseTest implements PageWebElementAsserts, Page
         captureScreenshot(driver, "Invalid Product Checkout Confirmation Test Result (guest) - No Shipping Street");
     }
 
+    //invalid product checkout confirmation test method - no shipping city
+    protected void invalidProductCheckoutConfirmationGuestNoShipCityTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageNoSingularInput checkoutPageNoSingularInput = new CheckoutPageNoSingularInput(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad(2500);
+        //general page footer web element assert
+        isGeneralPageFooterSectionWebElementDisplayed(generalPage);
+        //general page footer text element assert
+        isGeneralPageFooterSectionTextElementAsExpected(generalPage);
+        //checkout page shipping section web element assert
+        isCheckoutPageShippingSectionWebElementDisplayed(checkoutPage);
+        //checkout page shipping section text element assert
+        isCheckoutPageShippingSectionTextElementAsExpected(checkoutPage);
+        //log checkout page shipping method data
+        logCheckoutPageShippingMethodData(checkoutPage);
+        //log checkout page payment method data
+        logCheckoutPagePaymentMethodData(checkoutPage);
+        //checkout page order summary section web element assert
+        isCheckoutPageOrderSummarySectionWebElementDisplayed(checkoutPage);
+        //checkout page order summary section text element assert
+        isCheckoutPageOrderSummarySectionTextElementAsExpected(checkoutPage);
+        //log checkout page order summary product data
+        logCheckoutPageOrderSummaryMethodData(checkoutPage);
+        //capture screenshot of the checkout page shipping section display before shipping/payment method selection
+        captureScreenshot(driver, "Checkout Page Shipping Section Display Before Shipping And Payment Methods Selection");
+        //click "PenguinBox" shipping method
+        checkoutPage.clickSetShippingMethodRadioButton(2);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(2000);
+        //checkout page shipping method web element assert
+        //isCheckoutPageShippingWebElementDisplayed(checkoutPage);
+        //click "Dobírkou" payment method
+        checkoutPage.clickSetPaymentMethodRadioButton(0);
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(5000);
+        //checkout page payment method web element assert
+        //isCheckoutPagePaymentWebElementDisplayed(checkoutPage);
+        //capture screenshot of the checkout page shipping section display after shipping/payment method selection
+        captureScreenshot(driver, "Checkout Page Shipping Section Display After Shipping And Payment Methods Selection");
+        //click "Delivery Details" button
+        checkoutPage.clickDeliveryDetailsButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(8500);
+        //checkout page billing address section web element assert
+        isCheckoutPageBillingAddressSectionWebElementDisplayed(checkoutPage);
+        //checkout page billing address section text element assert
+        isCheckoutPageBillingAddressSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page billing section display before address data input
+        captureScreenshot(driver, "Checkout Page Billing Address Section Display Before Address Data Input (guest)");
+        //valid checkout billing address email input data getter
+        checkoutPage.validCheckoutBillAddressEmailInputDataGetter();
+        //input valid email into email input field
+        checkoutPage.inputValidCheckoutEmailIntoEmailInputField();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(2500);
+        //valid checkout billing address input data getter
+        checkoutPage.validCheckoutBillAddressInputDataGetter();
+        //input valid first name into first name input field
+        checkoutPage.inputValidCheckoutFirstNameIntoFirstNameInputField();
+        //input valid last name into last name input field
+        checkoutPage.inputValidCheckoutLastNameIntoLastNameInputField();
+        //input valid street into street input field
+        checkoutPage.inputValidCheckoutStreetIntoStreetInputField();
+        //input valid city into city input field
+        checkoutPage.inputValidCheckoutCityIntoCityInputField();
+        //click country code dropdown menu
+        checkoutPage.clickCountryDropdownMenu();
+        //select "United States" option
+        checkoutPage.selectSetCountryOption(3);
+        //input valid zip code into zip code input field
+        checkoutPage.inputValidCheckoutZipCodeIntoZipCodeInputField();
+        //click country code dropdown menu
+        checkoutPage.clickCountryCodeDropdownMenu();
+        //capture screenshot of the checkout page billing section absence of country codes
+        captureScreenshot(driver, "Checkout Page Billing Address Section Display Country Code Options Absence");
+        //input valid phone into phone input field
+        checkoutPage.inputValidCheckoutPhoneIntoPhoneInputField();
+        //capture screenshot of the checkout page billing section display after valid address data input
+        captureScreenshot(driver, "Checkout Page Billing Address Section Display After Valid Address Data Input (guest)");
+        //click "Add Shipping Address" checkbox
+        checkoutPage.clickAddDifferentAddressCheckbox();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3000);
+        //checkout page shipping address section web element assert
+        isCheckoutPageShippingAddressSectionWebElementDisplayed(checkoutPage);
+        //checkout page shipping address section text element assert
+        isCheckoutPageShippingAddressSectionTextElementAsExpected(checkoutPage);
+        //invalid checkout shipping address input data getter - no shipping city
+        checkoutPageNoSingularInput.invalidCheckoutShipAddressInputDataNoCityGetter();
+        //input valid first name into first name input field
+        checkoutPageNoSingularInput.inputValidCheckoutShipFirstNameIntoShipFirstNameInputField();
+        //input valid last name into last name input field
+        checkoutPageNoSingularInput.inputValidCheckoutShipLastNameIntoShipLastNameInputField();
+        //input valid street into street input field
+        checkoutPageNoSingularInput.inputValidCheckoutShipStreetIntoShipStreetInputField();
+        //don't input city into city input field
+        checkoutPageNoSingularInput.inputNoCheckoutShipCityIntoShipCityInputField();
+        //click country code dropdown menu
+        checkoutPage.clickShipCountryDropdownMenu();
+        //select "United States" option
+        checkoutPage.selectSetShipCountryOption(3);
+        //input valid zip code into zip code input field
+        checkoutPageNoSingularInput.inputValidCheckoutShipZipCodeIntoShipZipCodeInputField();
+        //click country code dropdown menu
+        checkoutPage.clickShipCountryCodeDropdownMenu();
+        //capture screenshot of the checkout page billing section absence of country codes
+        captureScreenshot(driver, "Checkout Page Shipping Address Section Display Country Code Options Absence");
+        //input valid phone into phone input field
+        checkoutPageNoSingularInput.inputValidCheckoutShipPhoneIntoShipPhoneInputField();
+        //capture screenshot of the checkout page billing section display after invalid address data input - no shipping city
+        captureScreenshot(driver, "Checkout Page Shipping Address Section Display After Invalid Address Data Input (guest) - No Shipping City");
+        //click "Submit order" (checkout) button
+        checkoutPage.clickSubmitOrderButton();
+        //wait for elements to load (due to network issues, wait time is extended)
+        generalPage.waitForElementsToLoad(3000);
+        //assert the user gets an expected error message, throw an error otherwise (it throws invalid phone number input error, it doesn't seem to accept any phone number)
+        try {
+            assertEquals("Pole je povinné", checkoutPage.getMissingBillingAddressSingularInputErrorMsg(), "The checkout page shipping address section missing city input message doesn't match expectations.");
+        } catch (Exception e) {
+            captureScreenshot(driver, "Invalid Product Checkout Confirmation Test Result (guest) - No Shipping City - Missing country code options on checkout");
+            throw new Error("The shipping country code dropdown menu has no visible country code options.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Product Checkout Confirmation Test Result (guest) - No Shipping City");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

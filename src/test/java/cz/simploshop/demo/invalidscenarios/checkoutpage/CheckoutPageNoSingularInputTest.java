@@ -189,4 +189,19 @@ public class CheckoutPageNoSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestNoShipStreetTest();
     }
 
+    //Test 022l -> invalid single product ("Polštář Furniture") checkout confirmation test - no shipping city (the shipping city error doesn't get triggered)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - No Shipping City")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("No_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestNoShipCityTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - no shipping city
+        invalidProductCheckoutConfirmationGuestNoShipCityTest();
+    }
+
 }

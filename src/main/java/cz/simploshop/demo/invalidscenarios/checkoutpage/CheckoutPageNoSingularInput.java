@@ -57,6 +57,7 @@ public class CheckoutPageNoSingularInput extends BasePage{
     private String noCheckoutShipAddressFirstName;
     private String noCheckoutShipAddressLastName;
     private String noCheckoutShipAddressStreet;
+    private String noCheckoutShipAddressCity;
 
     //valid shipping address data - for remaining inputs
     private String validCheckoutShipAddressFirstName;
@@ -321,10 +322,34 @@ public class CheckoutPageNoSingularInput extends BasePage{
 
     }
 
+    //invalid shipping address data (guest) input data getter - no city
+    public void invalidCheckoutShipAddressInputDataNoCityGetter(){
+
+        validCheckoutShipAddressFirstName = TestDataGenerator.getRandomFirstName();
+        validCheckoutShipAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutShipAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        noCheckoutShipAddressCity = "";
+        validCheckoutShipAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutShipAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout shipping address input data (no shipping city): " + "\n");
+
+        logger.info("Valid checkout shipping address first name (no shipping city): " + validCheckoutShipAddressFirstName);
+        logger.info("Valid checkout shipping address last name (no shipping city): " + validCheckoutShipAddressLastName);
+        logger.info("Valid checkout shipping address street (no shipping city): " + validCheckoutShipAddressStreet);
+        logger.info("No checkout shipping address city: " + noCheckoutShipAddressCity);
+        logger.info("Valid checkout shipping address zip code (no shipping city): " + validCheckoutShipAddressZipCode);
+        logger.info("Valid checkout shipping address phone (no shipping city): " + validCheckoutShipAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid shipping address (guest) input data methods - no singular input
     public void inputNoCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(noCheckoutShipAddressFirstName);}
     public void inputNoCheckoutShipLastNameIntoShipLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(noCheckoutShipAddressLastName);}
     public void inputNoCheckoutShipStreetIntoShipStreetInputField(){checkoutPageShippingStreetInputField.sendKeys(noCheckoutShipAddressStreet);}
+    public void inputNoCheckoutShipCityIntoShipCityInputField(){checkoutPageShippingCityInputField.sendKeys(noCheckoutShipAddressCity);}
 
     //valid shipping address (guest) input data methods
     public void inputValidCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(validCheckoutShipAddressFirstName);}
