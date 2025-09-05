@@ -114,4 +114,19 @@ public class CheckoutPageNoSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestNoZipCodeTest();
     }
 
+    //Test 022g -> invalid single product ("Polštář Furniture") checkout confirmation test - no billing country code (the country code error doesn't get triggered)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - No Billing Country Code")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("No_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestNoCountryCodeTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - no billing country code
+        invalidProductCheckoutConfirmationGuestNoCountryCodeTest();
+    }
+
 }
