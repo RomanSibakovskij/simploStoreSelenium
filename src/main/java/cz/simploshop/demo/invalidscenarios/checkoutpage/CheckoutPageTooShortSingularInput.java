@@ -38,6 +38,7 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
     //invalid billing address data - too short singular input
     private String tooShortCheckoutBillAddressEmail;
     private String tooShortCheckoutBillAddressFirstName;
+    private String tooShortCheckoutBillAddressLastName;
 
     //valid billing address data - for remaining inputs
     private String validCheckoutBillAddressEmail;
@@ -101,9 +102,33 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid billing address data (guest) input data getter - too short last name (1 char)
+    public void invalidCheckoutBillAddressInputDataTooShortLastNameGetter(){
+
+        validCheckoutBillAddressFirstName = TestDataGenerator.getRandomFirstName();
+        tooShortCheckoutBillAddressLastName = "A";
+        validCheckoutBillAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutBillAddressCity = TestDataGenerator.getRandomCity();
+        validCheckoutBillAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutBillAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout billing address input data (too short billing last name): " + "\n");
+
+        logger.info("Valid checkout billing address first name (too short billing last name): " + validCheckoutBillAddressFirstName);
+        logger.info("Too short checkout billing address last name: " + tooShortCheckoutBillAddressLastName);
+        logger.info("Valid checkout billing address street (too short billing last name): " + validCheckoutBillAddressStreet);
+        logger.info("Valid checkout billing address city (too short billing last name): " + validCheckoutBillAddressCity);
+        logger.info("Valid checkout billing address zip code (too short billing last name): " + validCheckoutBillAddressZipCode);
+        logger.info("Valid checkout billing address phone (too short billing last name): " + validCheckoutBillAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid billing address (guest) input data methods - too short singular input
     public void inputTooShortCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(tooShortCheckoutBillAddressEmail);}
     public void inputTooShortCheckoutFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(tooShortCheckoutBillAddressFirstName);}
+    public void inputTooShortCheckoutLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(tooShortCheckoutBillAddressLastName);}
 
     //valid billing address (guest) input data methods
     public void inputValidCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(validCheckoutBillAddressEmail);}
