@@ -53,6 +53,17 @@ public class CheckoutPageNoSingularInput extends BasePage{
     private int validCheckoutBillAddressZipCode;
     private String validCheckoutBillAddressPhone;
 
+    //invalid shipping address data - no singular input
+    private String noCheckoutShipAddressFirstName;
+
+    //valid shipping address data - for remaining inputs
+    private String validCheckoutShipAddressFirstName;
+    private String validCheckoutShipAddressLastName;
+    private String validCheckoutShipAddressStreet;
+    private String validCheckoutShipAddressCity;
+    private int validCheckoutShipAddressZipCode;
+    private String validCheckoutShipAddressPhone;
+
     public CheckoutPageNoSingularInput(WebDriver driver) {super(driver);}
 
     //invalid billing address (guest) data input getter - no email
@@ -236,5 +247,41 @@ public class CheckoutPageNoSingularInput extends BasePage{
     public void inputValidCheckoutCityIntoCityInputField(){checkoutPageBillingCityInputField.sendKeys(validCheckoutBillAddressCity);}
     public void inputValidCheckoutZipCodeIntoZipCodeInputField(){checkoutPageBillingZipCodeInputField.sendKeys(String.valueOf(validCheckoutBillAddressZipCode));}
     public void inputValidCheckoutPhoneIntoPhoneInputField(){checkoutPageBillingPhoneInputField.sendKeys(validCheckoutBillAddressPhone);}
+
+    //shipping address section
+
+    //invalid shipping address data (guest) input data getter - no first name
+    public void invalidCheckoutShipAddressInputDataNoFirstNameGetter(){
+
+        noCheckoutShipAddressFirstName = "";
+        validCheckoutShipAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutShipAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutShipAddressCity = TestDataGenerator.getRandomCity();
+        validCheckoutShipAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutShipAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout shipping address input data (no shipping first name): " + "\n");
+
+        logger.info("No checkout shipping address first name: " + noCheckoutShipAddressFirstName);
+        logger.info("Valid checkout shipping address last name (no shipping first name): " + validCheckoutShipAddressLastName);
+        logger.info("Valid checkout shipping address street (no shipping first name): " + validCheckoutShipAddressStreet);
+        logger.info("Valid checkout shipping address city (no shipping first name): " + validCheckoutShipAddressCity);
+        logger.info("Valid checkout shipping address zip code (no shipping first name): " + validCheckoutShipAddressZipCode);
+        logger.info("Valid checkout shipping address phone (no shipping first name): " + validCheckoutShipAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid shipping address (guest) input data methods - no singular input
+    public void inputNoCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(noCheckoutShipAddressFirstName);}
+
+    //valid shipping address (guest) input data methods
+    public void inputValidCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(validCheckoutShipAddressFirstName);}
+    public void inputValidCheckoutShipLastNameIntoShipLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(validCheckoutShipAddressLastName);}
+    public void inputValidCheckoutShipStreetIntoShipStreetInputField(){checkoutPageShippingStreetInputField.sendKeys(validCheckoutShipAddressStreet);}
+    public void inputValidCheckoutShipCityIntoShipCityInputField(){checkoutPageShippingCityInputField.sendKeys(validCheckoutShipAddressCity);}
+    public void inputValidCheckoutShipZipCodeIntoShipZipCodeInputField(){checkoutPageShippingZipCodeInputField.sendKeys(String.valueOf(validCheckoutShipAddressZipCode));}
+    public void inputValidCheckoutShipPhoneIntoShipPhoneInputField(){checkoutPageShippingPhoneInputField.sendKeys(validCheckoutShipAddressPhone);}
 
 }

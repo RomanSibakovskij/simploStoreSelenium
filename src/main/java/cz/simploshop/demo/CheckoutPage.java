@@ -291,6 +291,30 @@ public class CheckoutPage extends BasePage{
         action.moveToElement(checkoutPageRegUserBillAddressAddNewAddressButton).click().perform();
     }
 
+    //click "Add different delivery address" checkbox method
+    public void clickAddDifferentAddressCheckbox(){
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageBillingAddDifferentDeliveryAddressCheckbox).click().perform();
+    }
+
+    //click country dropdown menu method
+    public void clickShipCountryDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageShippingCountryDropdownMenu).click().perform();
+    }
+
+    //select set country method
+    public void selectSetShipCountryOption(int index){
+        WebElement targetBillingCountry = checkoutPageShippingCountryOptionElements.get(index);
+        targetBillingCountry.click();
+    }
+
+    //click country code dropdown menu method
+    public void clickShipCountryCodeDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageShippingCountryCodeDropdownMenu).click().perform();
+    }
+
     //click "Submit order" button method
     public void clickSubmitOrderButton(){
         Actions action = new Actions(driver);
