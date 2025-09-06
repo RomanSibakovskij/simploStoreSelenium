@@ -57,6 +57,7 @@ public class CheckoutPageTooLongSingularInput extends BasePage{
     private String tooLongCheckoutShipAddressFirstName;
     private String tooLongCheckoutShipAddressLastName;
     private String tooLongCheckoutShipAddressStreet;
+    private String tooLongCheckoutShipAddressCity;
 
     //valid shipping address data - for remaining inputs
     private String validCheckoutShipAddressFirstName;
@@ -323,10 +324,34 @@ public class CheckoutPageTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid shipping address data (guest) input data getter - too long city (51 chars)
+    public void invalidCheckoutShipAddressInputDataTooLongCityGetter(){
+
+        validCheckoutShipAddressFirstName = TestDataGenerator.getRandomFirstName();
+        validCheckoutShipAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutShipAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        tooLongCheckoutShipAddressCity = "Hfddsgdsfssdsfgdhjfgdsfgdhjfghsdrtuioikjfdgsdfhfhsf";
+        validCheckoutShipAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutShipAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout shipping address input data (too long shipping city): " + "\n");
+
+        logger.info("Valid checkout shipping address first name (too long shipping city): " + validCheckoutShipAddressFirstName);
+        logger.info("Valid checkout shipping address last name (too long shipping city): " + validCheckoutShipAddressLastName);
+        logger.info("Valid checkout shipping address street (too long shipping city): " + validCheckoutShipAddressStreet);
+        logger.info("Too long checkout shipping address city: " + tooLongCheckoutShipAddressCity);
+        logger.info("Valid checkout shipping address zip code (too long shipping city): " + validCheckoutShipAddressZipCode);
+        logger.info("Valid checkout shipping address phone (too long shipping city): " + validCheckoutShipAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid shipping address (guest) input data methods - too long singular input
     public void inputTooLongCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(tooLongCheckoutShipAddressFirstName);}
     public void inputTooLongCheckoutShipLastNameIntoShipLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(tooLongCheckoutShipAddressLastName);}
     public void inputTooLongCheckoutShipStreetIntoShipStreetInputField(){checkoutPageShippingStreetInputField.sendKeys(tooLongCheckoutShipAddressStreet);}
+    public void inputTooLongCheckoutShipCityIntoShipCityInputField(){checkoutPageShippingCityInputField.sendKeys(tooLongCheckoutShipAddressCity);}
 
     //valid shipping address (guest) input data methods
     public void inputValidCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(validCheckoutShipAddressFirstName);}
