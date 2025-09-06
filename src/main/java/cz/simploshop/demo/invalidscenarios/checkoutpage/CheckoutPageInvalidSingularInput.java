@@ -41,6 +41,7 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
     private String invalidCheckoutBillAddressFirstNameFormat;
     private String invalidCheckoutBillAddressLastNameFormat;
     private String invalidCheckoutBillAddressStreetFormat;
+    private String invalidCheckoutBillAddressCityFormat;
 
     //valid billing address data - for remaining inputs
     private String validCheckoutBillAddressEmail;
@@ -163,12 +164,36 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
 
     }
 
+    //invalid billing address data (guest) input data getter - invalid city format (special symbols only)
+    public void invalidCheckoutBillAddressInputDataInvalidCityFormatGetter(){
+
+        validCheckoutBillAddressFirstName = TestDataGenerator.getRandomFirstName();
+        validCheckoutBillAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutBillAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        invalidCheckoutBillAddressCityFormat = "$%^%*&&^*(";
+        validCheckoutBillAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutBillAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout billing address input data (invalid billing city format): " + "\n");
+
+        logger.info("Valid checkout billing address first name (invalid billing city format): " + validCheckoutBillAddressFirstName);
+        logger.info("Valid checkout billing address last name (invalid billing city format): " + validCheckoutBillAddressLastName);
+        logger.info("Valid checkout billing address street (invalid billing city format): " + validCheckoutBillAddressStreet);
+        logger.info("Invalid checkout billing address city format: " + invalidCheckoutBillAddressCityFormat);
+        logger.info("Valid checkout billing address zip code (invalid billing city format): " + validCheckoutBillAddressZipCode);
+        logger.info("Valid checkout billing address phone (invalid billing city format): " + validCheckoutBillAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid billing address (guest) input data methods - invalid singular input format
     public void inputInvalidCheckoutEmailFormatIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(invalidCheckoutBillAddressEmailFormat);}
     public void inputExistingCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(existingCheckoutBillAddressEmail);}
     public void inputInvalidCheckoutFirstNameFormatIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(invalidCheckoutBillAddressFirstNameFormat);}
     public void inputInvalidCheckoutLastNameFormatIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(invalidCheckoutBillAddressLastNameFormat);}
     public void inputInvalidCheckoutStreetFormatIntoStreetInputField(){checkoutPageBillingStreetInputField.sendKeys(invalidCheckoutBillAddressStreetFormat);}
+    public void inputInvalidCheckoutCityFormatIntoCityInputField(){checkoutPageBillingCityInputField.sendKeys(invalidCheckoutBillAddressCityFormat);}
 
     //valid billing address (guest) input data methods
     public void inputValidCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(validCheckoutBillAddressEmail);}
