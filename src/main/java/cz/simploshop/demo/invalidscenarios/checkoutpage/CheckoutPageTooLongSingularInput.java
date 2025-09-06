@@ -41,6 +41,7 @@ public class CheckoutPageTooLongSingularInput extends BasePage{
     private String tooLongCheckoutBillAddressLastName;
     private String tooLongCheckoutBillAddressStreet;
     private String tooLongCheckoutBillAddressCity;
+    private int tooLongCheckoutBillAddressZipCode;
 
     //valid billing address data - for remaining inputs
     private String validCheckoutBillAddressEmail;
@@ -173,12 +174,36 @@ public class CheckoutPageTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid billing address data (guest) input data getter - too long zip code (6 digits)
+    public void invalidCheckoutBillAddressInputDataTooLongZipCodeGetter(){
+
+        validCheckoutBillAddressFirstName = TestDataGenerator.getRandomFirstName();
+        validCheckoutBillAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutBillAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutBillAddressCity = TestDataGenerator.getRandomCity();
+        tooLongCheckoutBillAddressZipCode = 546311;
+        validCheckoutBillAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout billing address input data (too long billing zip code): " + "\n");
+
+        logger.info("Valid checkout billing address first name (too long billing zip code): " + validCheckoutBillAddressFirstName);
+        logger.info("Valid checkout billing address last name (too long billing zip code): " + validCheckoutBillAddressLastName);
+        logger.info("Valid checkout billing address street (too long billing zip code): " + validCheckoutBillAddressStreet);
+        logger.info("Valid checkout billing address city (too long billing zip code): " + validCheckoutBillAddressCity);
+        logger.info("Too long checkout billing address zip code: " + tooLongCheckoutBillAddressZipCode);
+        logger.info("Valid checkout billing address phone (too long billing zip code): " + validCheckoutBillAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid billing address (guest) input data methods - too long singular input
     public void inputTooLongCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(tooLongCheckoutBillAddressEmail);}
     public void inputTooLongCheckoutFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(tooLongCheckoutBillAddressFirstName);}
     public void inputTooLongCheckoutLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(tooLongCheckoutBillAddressLastName);}
     public void inputTooLongCheckoutStreetIntoStreetInputField(){checkoutPageBillingStreetInputField.sendKeys(tooLongCheckoutBillAddressStreet);}
     public void inputTooLongCheckoutCityIntoCityInputField(){checkoutPageBillingCityInputField.sendKeys(tooLongCheckoutBillAddressCity);}
+    public void inputTooLongCheckoutZipCodeIntoZipCodeInputField(){checkoutPageBillingZipCodeInputField.sendKeys(String.valueOf(tooLongCheckoutBillAddressZipCode));}
 
     //valid billing address (guest) input data methods
     public void inputValidCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(validCheckoutBillAddressEmail);}
