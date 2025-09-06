@@ -174,4 +174,19 @@ public class CheckoutPageTooLongSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestTooLongShipCityTest();
     }
 
+    //Test 022ao -> invalid single product ("Polštář Furniture") checkout confirmation test - too long shipping zip code (6 digits)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - Too Long Shipping Zip Code")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("Too_Long_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestTooLongShipZipCodeTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - too long shipping zip code (6 digits)
+        invalidProductCheckoutConfirmationGuestTooLongShipZipCodeTest();
+    }
+
 }
