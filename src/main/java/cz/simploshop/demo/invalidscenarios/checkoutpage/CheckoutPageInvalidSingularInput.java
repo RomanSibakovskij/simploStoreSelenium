@@ -38,6 +38,7 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
     //invalid billing address data - too long singular input
     private String invalidCheckoutBillAddressEmailFormat;
     private String existingCheckoutBillAddressEmail;
+    private String invalidCheckoutBillAddressFirstNameFormat;
 
     //valid billing address data - for remaining inputs
     private String validCheckoutBillAddressEmail;
@@ -49,6 +50,21 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
     private String validCheckoutBillAddressPhone;
 
     public CheckoutPageInvalidSingularInput(WebDriver driver) {super(driver);}
+
+    //billing address section
+
+    //valid billing address (guest) data input getter (for remaining inputs)
+    public void validCheckoutBillAddressEmailInputDataGetter(){
+
+        validCheckoutBillAddressEmail = TestDataGenerator.generateRandomEmailAddress(8);
+
+        System.out.println("Valid checkout billing address email input data: " + "\n");
+
+        logger.info("Valid checkout billing address email: " + validCheckoutBillAddressEmail);
+
+        System.out.println("\n");
+
+    }
 
     //invalid billing address (guest) data input getter - invalid email format (missing '@')
     public void invalidCheckoutBillAddressInvalidEmailFormatInputDataGetter(){
@@ -76,9 +92,33 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
 
     }
 
+    //invalid billing address data (guest) input data getter - invalid first name format (special symbols only)
+    public void invalidCheckoutBillAddressInputDataInvalidFirstNameFormatGetter(){
+
+        invalidCheckoutBillAddressFirstNameFormat = "!#@#$#%";
+        validCheckoutBillAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutBillAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutBillAddressCity = TestDataGenerator.getRandomCity();
+        validCheckoutBillAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutBillAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout billing address input data (invalid billing first name format): " + "\n");
+
+        logger.info("Invalid checkout billing address first name format: " + invalidCheckoutBillAddressFirstNameFormat);
+        logger.info("Valid checkout billing address last name (invalid billing first name format): " + validCheckoutBillAddressLastName);
+        logger.info("Valid checkout billing address street (invalid billing first name format): " + validCheckoutBillAddressStreet);
+        logger.info("Valid checkout billing address city (invalid billing first name format): " + validCheckoutBillAddressCity);
+        logger.info("Valid checkout billing address zip code (invalid billing first name format): " + validCheckoutBillAddressZipCode);
+        logger.info("Valid checkout billing address phone (invalid billing first name format): " + validCheckoutBillAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid billing address (guest) input data methods - invalid singular input format
     public void inputInvalidCheckoutEmailFormatIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(invalidCheckoutBillAddressEmailFormat);}
     public void inputExistingCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(existingCheckoutBillAddressEmail);}
+    public void inputInvalidCheckoutFirstNameFormatIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(invalidCheckoutBillAddressFirstNameFormat);}
 
     //valid billing address (guest) input data methods
     public void inputValidCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(validCheckoutBillAddressEmail);}
