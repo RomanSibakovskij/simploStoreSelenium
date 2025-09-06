@@ -42,6 +42,7 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
     private String invalidCheckoutBillAddressLastNameFormat;
     private String invalidCheckoutBillAddressStreetFormat;
     private String invalidCheckoutBillAddressCityFormat;
+    private String invalidCheckoutBillAddressZipCodeFormat;
 
     //valid billing address data - for remaining inputs
     private String validCheckoutBillAddressEmail;
@@ -187,6 +188,29 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
 
     }
 
+    //invalid billing address data (guest) input data getter - invalid zip code format (special symbols only)
+    public void invalidCheckoutBillAddressInputDataInvalidZipCodeFormatGetter(){
+
+        validCheckoutBillAddressFirstName = TestDataGenerator.getRandomFirstName();
+        validCheckoutBillAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutBillAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutBillAddressCity = TestDataGenerator.getRandomCity();
+        invalidCheckoutBillAddressZipCodeFormat = "@$#$%";
+        validCheckoutBillAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout billing address input data (invalid billing zip code format): " + "\n");
+
+        logger.info("Valid checkout billing address first name (invalid billing zip code format): " + validCheckoutBillAddressFirstName);
+        logger.info("Valid checkout billing address last name (invalid billing zip code format): " + validCheckoutBillAddressLastName);
+        logger.info("Valid checkout billing address street (invalid billing zip code format): " + validCheckoutBillAddressStreet);
+        logger.info("Valid checkout billing address city (invalid billing zip code format): " + validCheckoutBillAddressCity);
+        logger.info("Invalid checkout billing address zip code format: " + invalidCheckoutBillAddressZipCodeFormat);
+        logger.info("Valid checkout billing address phone (invalid billing zip code format): " + validCheckoutBillAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid billing address (guest) input data methods - invalid singular input format
     public void inputInvalidCheckoutEmailFormatIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(invalidCheckoutBillAddressEmailFormat);}
     public void inputExistingCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(existingCheckoutBillAddressEmail);}
@@ -194,6 +218,7 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
     public void inputInvalidCheckoutLastNameFormatIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(invalidCheckoutBillAddressLastNameFormat);}
     public void inputInvalidCheckoutStreetFormatIntoStreetInputField(){checkoutPageBillingStreetInputField.sendKeys(invalidCheckoutBillAddressStreetFormat);}
     public void inputInvalidCheckoutCityFormatIntoCityInputField(){checkoutPageBillingCityInputField.sendKeys(invalidCheckoutBillAddressCityFormat);}
+    public void inputInvalidCheckoutZipCodeFormatIntoZipCodeInputField(){checkoutPageBillingZipCodeInputField.sendKeys(invalidCheckoutBillAddressZipCodeFormat);}
 
     //valid billing address (guest) input data methods
     public void inputValidCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(validCheckoutBillAddressEmail);}
