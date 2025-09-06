@@ -24,4 +24,19 @@ public class CheckoutPageInvalidSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestInvalidEmailFormatTest();
     }
 
+    //Test 022ar -> invalid single product ("Polštář Furniture") checkout confirmation test - existing email (used beforehand in manual testing) (the existing email input error wasn't triggered)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - Existing Email")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestExistingEmailTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - existing email (used beforehand in manual testing)
+        invalidProductCheckoutConfirmationGuestExistingEmailTest();
+    }
+
 }

@@ -37,6 +37,7 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
 
     //invalid billing address data - too long singular input
     private String invalidCheckoutBillAddressEmailFormat;
+    private String existingCheckoutBillAddressEmail;
 
     //valid billing address data - for remaining inputs
     private String validCheckoutBillAddressEmail;
@@ -62,8 +63,22 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
 
     }
 
+    //invalid billing address (guest) data input getter - existing email (used beforehand in manual testing)
+    public void invalidCheckoutBillAddressExistingEmaiInputDataGetter(){
+
+        existingCheckoutBillAddressEmail = "m0@example.com";
+
+        System.out.println("Invalid checkout billing address existing email input data: " + "\n");
+
+        logger.info("Existing checkout billing address email: " + invalidCheckoutBillAddressEmailFormat);
+
+        System.out.println("\n");
+
+    }
+
     //invalid billing address (guest) input data methods - invalid singular input format
     public void inputInvalidCheckoutEmailFormatIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(invalidCheckoutBillAddressEmailFormat);}
+    public void inputExistingCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(existingCheckoutBillAddressEmail);}
 
     //valid billing address (guest) input data methods
     public void inputValidCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(validCheckoutBillAddressEmail);}
