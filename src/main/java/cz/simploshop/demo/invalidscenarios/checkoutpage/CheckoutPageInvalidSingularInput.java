@@ -39,6 +39,7 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
     private String invalidCheckoutBillAddressEmailFormat;
     private String existingCheckoutBillAddressEmail;
     private String invalidCheckoutBillAddressFirstNameFormat;
+    private String invalidCheckoutBillAddressLastNameFormat;
 
     //valid billing address data - for remaining inputs
     private String validCheckoutBillAddressEmail;
@@ -115,10 +116,34 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
 
     }
 
+    //invalid billing address data (guest) input data getter - invalid last name format (special symbols only)
+    public void invalidCheckoutBillAddressInputDataInvalidLastNameFormatGetter(){
+
+        validCheckoutBillAddressFirstName = TestDataGenerator.getRandomFirstName();
+        invalidCheckoutBillAddressLastNameFormat = "@$#@#$^%$";
+        validCheckoutBillAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutBillAddressCity = TestDataGenerator.getRandomCity();
+        validCheckoutBillAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutBillAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout billing address input data (invalid billing last name format): " + "\n");
+
+        logger.info("Valid checkout billing address first name (invalid billing last name format): " + validCheckoutBillAddressFirstName);
+        logger.info("Invalid checkout billing address last name format: " + invalidCheckoutBillAddressLastNameFormat);
+        logger.info("Valid checkout billing address street (invalid billing last name format): " + validCheckoutBillAddressStreet);
+        logger.info("Valid checkout billing address city (invalid billing last name format): " + validCheckoutBillAddressCity);
+        logger.info("Valid checkout billing address zip code (invalid billing last name format): " + validCheckoutBillAddressZipCode);
+        logger.info("Valid checkout billing address phone (invalid billing last name format): " + validCheckoutBillAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid billing address (guest) input data methods - invalid singular input format
     public void inputInvalidCheckoutEmailFormatIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(invalidCheckoutBillAddressEmailFormat);}
     public void inputExistingCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(existingCheckoutBillAddressEmail);}
     public void inputInvalidCheckoutFirstNameFormatIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(invalidCheckoutBillAddressFirstNameFormat);}
+    public void inputInvalidCheckoutLastNameFormatIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(invalidCheckoutBillAddressLastNameFormat);}
 
     //valid billing address (guest) input data methods
     public void inputValidCheckoutEmailIntoEmailInputField(){checkoutPageEmailInputField.sendKeys(validCheckoutBillAddressEmail);}
