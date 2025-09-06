@@ -69,4 +69,19 @@ public class CheckoutPageInvalidSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestInvalidLastNameFormatTest();
     }
 
+    //Test 022au -> invalid single product ("Polštář Furniture") checkout confirmation test - invalid billing street format (special symbols only) (the invalid street input format error wasn't triggered)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - Invalid Billing Street Format")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestInvalidStreetFormatTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - invalid billing street format (special symbols only)
+        invalidProductCheckoutConfirmationGuestInvalidStreetFormatTest();
+    }
+
 }
