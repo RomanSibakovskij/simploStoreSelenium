@@ -1,6 +1,6 @@
 # SimploStoreSelenium
 
-Simple Selenium test suite on user account registration/login/logout, account information update, user address addition, single category product display view, product addition (removal from) to product compare list/ wishlist, product addition to cart/checkout. The test suite captures screenshots at the end of test case run (for logging purposes). There can occur soe instabilities of the test due to the unstable backend (product scroll buttons fail to be clicked, random 503 errors).
+Simple Selenium test suite on user account registration/login/logout, account information update, user address addition, single category product display view, product addition (removal from) to product wishlist, product addition to cart/checkout. The test suite captures screenshots at the end of test case run (for logging purposes). There can occur soe instabilities of the test due to the unstable backend (product scroll buttons fail to be clicked, random 503 errors).
 
 #Tech Requirements:
 
