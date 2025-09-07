@@ -54,6 +54,17 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
     private int validCheckoutBillAddressZipCode;
     private String validCheckoutBillAddressPhone;
 
+    //invalid shipping address data - too long singular input
+    private String invalidCheckoutShipAddressFirstNameFormat;
+
+    //valid shipping address data - for remaining inputs
+    private String validCheckoutShipAddressFirstName;
+    private String validCheckoutShipAddressLastName;
+    private String validCheckoutShipAddressStreet;
+    private String validCheckoutShipAddressCity;
+    private int validCheckoutShipAddressZipCode;
+    private String validCheckoutShipAddressPhone;
+
     public CheckoutPageInvalidSingularInput(WebDriver driver) {super(driver);}
 
     //billing address section
@@ -253,5 +264,41 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
     public void inputValidCheckoutCityIntoCityInputField(){checkoutPageBillingCityInputField.sendKeys(validCheckoutBillAddressCity);}
     public void inputValidCheckoutZipCodeIntoZipCodeInputField(){checkoutPageBillingZipCodeInputField.sendKeys(String.valueOf(validCheckoutBillAddressZipCode));}
     public void inputValidCheckoutPhoneIntoPhoneInputField(){checkoutPageBillingPhoneInputField.sendKeys(validCheckoutBillAddressPhone);}
+
+    //shipping address section
+
+    //invalid shipping address data (guest) input data getter - invalid first name format (special symbols only)
+    public void invalidCheckoutShipAddressInputDataInvalidFirstNameFormatGetter(){
+
+        invalidCheckoutShipAddressFirstNameFormat = "#@%$%^$%^%";
+        validCheckoutShipAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutShipAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutShipAddressCity = TestDataGenerator.getRandomCity();
+        validCheckoutShipAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutShipAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout shipping address input data (invalid shipping first name format): " + "\n");
+
+        logger.info("Invalid checkout shipping address first name format: " + invalidCheckoutShipAddressFirstNameFormat);
+        logger.info("Valid checkout shipping address last name (invalid shipping first name format): " + validCheckoutShipAddressLastName);
+        logger.info("Valid checkout shipping address street (invalid shipping first name format): " + validCheckoutShipAddressStreet);
+        logger.info("Valid checkout shipping address city (invalid shipping first name format): " + validCheckoutShipAddressCity);
+        logger.info("Valid checkout shipping address zip code (invalid shipping first name format): " + validCheckoutShipAddressZipCode);
+        logger.info("Valid checkout shipping address phone (invalid shipping first name format): " + validCheckoutShipAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid shipping address (guest) input data methods - invalid singular input format
+    public void inputInvalidCheckoutShipFirstNameFormatIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(invalidCheckoutShipAddressFirstNameFormat);}
+
+    //valid shipping address (guest) input data methods
+    public void inputValidCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(validCheckoutShipAddressFirstName);}
+    public void inputValidCheckoutShipLastNameIntoShipLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(validCheckoutShipAddressLastName);}
+    public void inputValidCheckoutShipStreetIntoShipStreetInputField(){checkoutPageShippingStreetInputField.sendKeys(validCheckoutShipAddressStreet);}
+    public void inputValidCheckoutShipCityIntoShipCityInputField(){checkoutPageShippingCityInputField.sendKeys(validCheckoutShipAddressCity);}
+    public void inputValidCheckoutShipZipCodeIntoShipZipCodeInputField(){checkoutPageShippingZipCodeInputField.sendKeys(String.valueOf(validCheckoutShipAddressZipCode));}
+    public void inputValidCheckoutShipPhoneIntoShipPhoneInputField(){checkoutPageShippingPhoneInputField.sendKeys(validCheckoutShipAddressPhone);}
 
 }
