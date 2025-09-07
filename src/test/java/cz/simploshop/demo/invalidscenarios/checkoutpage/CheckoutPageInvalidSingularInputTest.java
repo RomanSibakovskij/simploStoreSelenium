@@ -174,4 +174,19 @@ public class CheckoutPageInvalidSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestInvalidShipStreetFormatTest();
     }
 
+    //Test 022aab -> invalid single product ("Polštář Furniture") checkout confirmation test - invalid shipping city format (special symbols only) (the invalid shipping street input format error wasn't triggered)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - Invalid Shipping City Format")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestInvalidShipCityFormatTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - invalid shipping city format (special symbols only)
+        invalidProductCheckoutConfirmationGuestInvalidShipCityFormatTest();
+    }
+
 }

@@ -58,6 +58,7 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
     private String invalidCheckoutShipAddressFirstNameFormat;
     private String invalidCheckoutShipAddressLastNameFormat;
     private String invalidCheckoutShipAddressStreetFormat;
+    private String invalidCheckoutShipAddressCityFormat;
 
     //valid shipping address data - for remaining inputs
     private String validCheckoutShipAddressFirstName;
@@ -338,10 +339,34 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
 
     }
 
+    //invalid shipping address data (guest) input data getter - invalid city format (special symbols only)
+    public void invalidCheckoutShipAddressInputDataInvalidCityFormatGetter(){
+
+        validCheckoutShipAddressFirstName = TestDataGenerator.getRandomFirstName();
+        validCheckoutShipAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutShipAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        invalidCheckoutShipAddressCityFormat = "@#$%$#^%&";
+        validCheckoutShipAddressZipCode = TestDataGenerator.getRandomPostalCode();
+        validCheckoutShipAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout shipping address input data (invalid shipping city format): " + "\n");
+
+        logger.info("Valid checkout shipping address first name (invalid shipping city format): " + validCheckoutShipAddressFirstName);
+        logger.info("Valid checkout shipping address last name (invalid shipping city format): " + validCheckoutShipAddressLastName);
+        logger.info("Valid checkout shipping address street (invalid shipping city format): " + validCheckoutShipAddressStreet);
+        logger.info("Invalid checkout shipping address city format: " + invalidCheckoutShipAddressCityFormat);
+        logger.info("Valid checkout shipping address zip code (invalid shipping city format): " + validCheckoutShipAddressZipCode);
+        logger.info("Valid checkout shipping address phone (invalid shipping city format): " + validCheckoutShipAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid shipping address (guest) input data methods - invalid singular input format
     public void inputInvalidCheckoutShipFirstNameFormatIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(invalidCheckoutShipAddressFirstNameFormat);}
     public void inputInvalidCheckoutShipLastNameFormatIntoShipLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(invalidCheckoutShipAddressLastNameFormat);}
     public void inputInvalidCheckoutShipStreetFormatIntoShipStreetInputField(){checkoutPageShippingStreetInputField.sendKeys(invalidCheckoutShipAddressStreetFormat);}
+    public void inputInvalidCheckoutShipCityFormatIntoShipCityInputField(){checkoutPageShippingCityInputField.sendKeys(invalidCheckoutShipAddressCityFormat);}
 
     //valid shipping address (guest) input data methods
     public void inputValidCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(validCheckoutShipAddressFirstName);}
