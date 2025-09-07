@@ -204,4 +204,19 @@ public class CheckoutPageInvalidSingularInputTest extends TestMethods{
         invalidProductCheckoutConfirmationGuestInvalidShipZipCodeFormatTest();
     }
 
+    //Test 022aad -> invalid single product ("Polštář Furniture") checkout confirmation test - invalid shipping phone format (special symbols only)
+    @Test
+    @DisplayName("Invalid Single Product Checkout Confirmation Test (as a guest) - Invalid Shipping Phone Format")
+    @Tag("Invalid_Single_Product_Checkout_Confirmation")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleProductCheckoutGuestInvalidShipPhoneFormatTest() {
+        //add single chosen product ("Polštář Furniture") to cart test - as a guest
+        addSingleChosenProductToCartTest();
+        //add single chosen product ("Polštář Furniture") to check out test - as a guest
+        addProductToCheckoutTest();
+        //invalid single product ("Polštář Furniture") checkout confirmation test - invalid shipping phone format (special symbols only)
+        invalidProductCheckoutConfirmationGuestInvalidShipPhoneFormatTest();
+    }
+
 }
