@@ -59,6 +59,7 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
     private String invalidCheckoutShipAddressLastNameFormat;
     private String invalidCheckoutShipAddressStreetFormat;
     private String invalidCheckoutShipAddressCityFormat;
+    private String invalidCheckoutShipAddressZipCodeFormat;
 
     //valid shipping address data - for remaining inputs
     private String validCheckoutShipAddressFirstName;
@@ -362,11 +363,35 @@ public class CheckoutPageInvalidSingularInput extends BasePage{
 
     }
 
+    //invalid shipping address data (guest) input data getter - invalid zip code (special symbols only)
+    public void invalidCheckoutShipAddressInputDataInvalidZipCodeFormatGetter(){
+
+        validCheckoutShipAddressFirstName = TestDataGenerator.getRandomFirstName();
+        validCheckoutShipAddressLastName = TestDataGenerator.getRandomLastName();
+        validCheckoutShipAddressStreet = TestDataGenerator.generateRandomAddress(8);
+        validCheckoutShipAddressCity = TestDataGenerator.getRandomCity();
+        invalidCheckoutShipAddressZipCodeFormat = "@$#$%";
+        validCheckoutShipAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid checkout billing address input data (invalid shipping zip code format): " + "\n");
+
+        logger.info("Valid checkout shipping address first name (invalid shipping zip code format): " + validCheckoutShipAddressFirstName);
+        logger.info("Valid checkout shipping address last name (invalid shipping zip code format): " + validCheckoutShipAddressLastName);
+        logger.info("Valid checkout shipping address street (invalid shipping zip code format): " + validCheckoutShipAddressStreet);
+        logger.info("Valid checkout shipping address city (invalid shipping zip code format): " + validCheckoutShipAddressCity);
+        logger.info("Invalid checkout shipping address zip code format: " + invalidCheckoutShipAddressZipCodeFormat);
+        logger.info("Valid checkout shipping address phone (invalid shipping zip code format): " + validCheckoutShipAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid shipping address (guest) input data methods - invalid singular input format
     public void inputInvalidCheckoutShipFirstNameFormatIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(invalidCheckoutShipAddressFirstNameFormat);}
     public void inputInvalidCheckoutShipLastNameFormatIntoShipLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(invalidCheckoutShipAddressLastNameFormat);}
     public void inputInvalidCheckoutShipStreetFormatIntoShipStreetInputField(){checkoutPageShippingStreetInputField.sendKeys(invalidCheckoutShipAddressStreetFormat);}
     public void inputInvalidCheckoutShipCityFormatIntoShipCityInputField(){checkoutPageShippingCityInputField.sendKeys(invalidCheckoutShipAddressCityFormat);}
+    public void inputInvalidCheckoutShipZipCodeFormatIntoShipZipCodeInputField(){checkoutPageShippingZipCodeInputField.sendKeys(invalidCheckoutShipAddressZipCodeFormat);}
 
     //valid shipping address (guest) input data methods
     public void inputValidCheckoutShipFirstNameIntoShipFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(validCheckoutShipAddressFirstName);}
